@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>JavaScript中变量的作用域 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JavaScript中变量的作用域主要是指变量的适用范围。 根据作用域可以将变量划分为全局变量与局部变量。其中全局变量定义在函数体外，可以在程序的任何地方使用；局部变量则一般定义在函数体内，只能在该函数内部使用。 1. 全局变量的3种声名方式 方法1：var global = ‘value’; //在函数外定义方法2：global = ‘value’;方法3：window.global = ‘va">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript中变量的作用域">
+<meta property="og:url" content="http://yoursite.com/2013/09/10/javascript-e4-b8-ad-e5-8f-98-e9-87-8f-e7-9a-84-e4-bd-9c-e7-94-a8-e5-9f-9f/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="JavaScript中变量的作用域主要是指变量的适用范围。 根据作用域可以将变量划分为全局变量与局部变量。其中全局变量定义在函数体外，可以在程序的任何地方使用；局部变量则一般定义在函数体内，只能在该函数内部使用。 1. 全局变量的3种声名方式 方法1：var global = ‘value’; //在函数外定义方法2：global = ‘value’;方法3：window.global = ‘va">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2016-05-31T16:43:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript中变量的作用域">
+<meta name="twitter:description" content="JavaScript中变量的作用域主要是指变量的适用范围。 根据作用域可以将变量划分为全局变量与局部变量。其中全局变量定义在函数体外，可以在程序的任何地方使用；局部变量则一般定义在函数体内，只能在该函数内部使用。 1. 全局变量的3种声名方式 方法1：var global = ‘value’; //在函数外定义方法2：global = ‘value’;方法3：window.global = ‘va">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-javascript-e4-b8-ad-e5-8f-98-e9-87-8f-e7-9a-84-e4-bd-9c-e7-94-a8-e5-9f-9f" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/10/javascript-e4-b8-ad-e5-8f-98-e9-87-8f-e7-9a-84-e4-bd-9c-e7-94-a8-e5-9f-9f/" class="article-date">
+  <time datetime="2013-09-10T08:04:50.000Z" itemprop="datePublished">2013-09-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript中变量的作用域
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript中变量的作用域主要是指变量的适用范围。</p>
+<p>根据作用域可以将变量划分为全局变量与局部变量。其中全局变量定义在函数体外，可以在程序的任何地方使用；局部变量则一般定义在函数体内，只能在该函数内部使用。</p>
+<p>1. 全局变量的3种声名方式</p>
+<p><pre>方法1：var global = ‘value’; //在函数外定义<br>方法2：global = ‘value’;<br>方法3：window.global = ‘value’;</pre><br>2. 局部变量的声名方式</p>
+<p><pre>var local = ‘value’; //在函数内定义</pre><br>&nbsp;</p>
+<p>JavaScript变量的作用域练习，</p>
+<p>1. 以下程序的输出值是什么？</p>
+<p><pre>function f1(){<br>    var x = 1;<br>    function f2(){<br>        alert(x);<br>        var x = 100;<br>        alert(x);<br>    }<br>    f2();<br>    alert(x);<br>}<br>f1();</pre><br>程序的输出值为：undefined、100、1。</p>
+<p>2. 以下程序的输出值是什么？</p>
+<p><pre><br>function f1(){<br>    var x = 1;<br>    function f2(){<br>        alert(x);<br>        x = 100;<br>        alert(x);<br>    }<br>    f2();<br>    alert(x);<br>}<br>f1();<br></pre><br>程序的输出值为：1、100、100。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2013/09/10/javascript-e4-b8-ad-e5-8f-98-e9-87-8f-e7-9a-84-e4-bd-9c-e7-94-a8-e5-9f-9f/" data-id="cjzu03jbh0039zswsqre351lk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/09/10/javascript-e4-b8-ad-e7-b1-bb-e7-9a-84-e5-88-9b-e5-bb-ba/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaScript中类的创建
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/09/10/e9-a2-84-e6-b5-8b-e8-b5-b7-e5-8d-a6-e7-9a-84-e5-bd-a2-e5-bc-8f/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">预测起卦的形式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/周易/">周易</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我的作品/">我的作品</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杀手日记/">杀手日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计与代码/">设计与代码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 13.33px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/18/e9-82-a3-e5-b9-b4-e7-9c-9f-e7-9a-84-e5-a6-82-e9-a3-8e/">那年真的如风</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/13/e5-ae-9a-e5-af-85-e6-97-b6-e6-ad-8c-e8-af-80/">定寅时歌诀</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/11/e9-80-90-e5-b9-b4-e5-ae-a2-e6-b0-94-e6-ad-8c/">逐年客气歌</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/10/e5-b7-a5-e4-bd-9c-e5-8d-8a-e5-b9-b4-e6-84-9f-e6-82-9f/">工作半年之感悟</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/e5-ae-9a-e5-a4-aa-e9-98-b4-e5-87-ba-e6-97-b6-e6-ad-8c-e8-af-80/">定太阴出时歌诀</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
