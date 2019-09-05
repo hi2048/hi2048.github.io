@@ -64,6 +64,389 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-二叉树求取后序遍历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/25/二叉树求取后序遍历/" class="article-date">
+  <time datetime="2013-09-25T08:32:46.000Z" itemprop="datePublished">2013-09-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/25/二叉树求取后序遍历/">二叉树求取后序遍历</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如何根据二叉树的前序遍历与中序遍历，求出后序遍历？</p>
+<p>二叉树的前序遍历：根 左 右</p>
+<p>二叉树的中序遍历：左 根 右</p>
+<p>可以从前序中得知二叉树的根所在，从中序遍历得知根的左右子树，最后使用递归求得二叉树，从而求出后序遍历的结果。</p>
+<p>例如已知，</p>
+<p>前序遍历为：a b d e c f g h i</p>
+<p>中序遍历为：e d b c a h g i f</p>
+<p>因而可以求得此二叉树如下，</p>
+<p><a href="/assets/cal_postorder.png"><img src="/assets/cal_postorder.png" alt="cal_postorder"></a></p>
+<p>从而后序遍历为：e d c b h i g f a</p>
+<p>程序实现如下，</p>
+<pre>
+#include&lt;stdio.h&gt;
+#include&lt;iostream&gt;
+
+using namespace std;
+
+int findRootIndex(char c, char *in, int in_start, int in_end){
+    for(int i = in_start; i &lt;= in_end; i++)
+        if(c == in[i])
+            return i;
+    return -1;
+}
+
+void calPostorderTraversal(char *p, int p_start, int p_end, char *in, int in_start, int in_end){
+    char c = p[p_start];
+    int n = findRootIndex(p[p_start], in, in_start, in_end);
+
+    if(in_start &gt; in_end) return;
+    if(in_end == in_start) {
+        cout&lt;&lt;c;
+        return;
+    }
+
+    calPostorderTraversal(p, p_start + 1, p_start + n - in_start, in, in_start, n - 1);
+    calPostorderTraversal(p, p_start + n + 1 - in_start, p_end, in, n + 1, in_end);
+
+    cout&lt;&lt;c;
+}
+
+int main(){
+    char preorder[] = &quot;abdecfghi&quot;;
+    char inorder[] = &quot;edbcahgif&quot;;
+    int len = sizeof(preorder);
+
+    calPostorderTraversal(preorder, 0, len - 1, inorder, 0, len - 1);
+
+    return 0;
+}
+</pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/25/二叉树求取后序遍历/" data-id="ck06tiuqh00166vws55sxcd38" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-十二地支中所藏干歌诀" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/24/十二地支中所藏干歌诀/" class="article-date">
+  <time datetime="2013-09-24T08:39:22.000Z" itemprop="datePublished">2013-09-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/周易/">周易</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/24/十二地支中所藏干歌诀/">十二地支中所藏干歌诀</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>子宫单癸水，</strong></p>
+<p><strong>丑辛己癸逢，</strong></p>
+<p><strong>寅宫甲丙戊，</strong></p>
+<p><strong>卯中独乙木，</strong></p>
+<p><strong>辰藏癸戊乙，</strong></p>
+<p><strong>巳丙戊庚同，</strong></p>
+<p><strong>午宫丁己土，</strong></p>
+<p><strong>未内乙己丁，</strong></p>
+<p><strong>申宫庚壬水，</strong></p>
+<p><strong>酉内独辛金，</strong></p>
+<p><strong>戌宫辛丁戊，</strong></p>
+<p><strong>亥宫壬甲宗</strong>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/24/十二地支中所藏干歌诀/" data-id="ck06tiuqw001w6vws9mih7eaa" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-十二地支的关系" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/23/十二地支的关系/" class="article-date">
+  <time datetime="2013-09-23T11:53:46.000Z" itemprop="datePublished">2013-09-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/周易/">周易</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/23/十二地支的关系/">十二地支的关系</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>十二地支：子、丑、寅、卯、辰、巳、午、未、申、酉、戌、亥。</strong></p>
+<p><strong>         五行：子亥属水、寅卯属木、巳午属火、申酉属金、丑未辰戌属土。</strong></p>
+<p><strong>        阴阳：子寅辰午申戌属阳、丑卯巳未酉亥属阴。</strong></p>
+<p><strong>        二合：子丑、寅亥、卯戌、辰酉、巳申、午未。</strong></p>
+<p><strong>二合属性：子丑属土、寅亥属木、卯戌属火、辰酉属金、巳申属水、午未属土。</strong></p>
+<p><strong>       三合：申子辰、寅午戌、亥卯未、巳酉丑。</strong></p>
+<p><strong>三合属性：申子辰属水、寅午戌属火、亥卯未属木、巳酉丑属金。</strong></p>
+<p><strong>         相刑：子刑卯、卯刑子、丑刑戌、寅刑巳、辰刑辰、巳刑申、午刑午、未刑丑、申刑寅、酉刑酉、戌刑未、亥刑亥。</strong></p>
+<p><strong>         相冲：子午冲、丑未冲、寅申冲、卯酉冲、辰戌冲巳亥冲。</strong></p>
+<p><strong>支属四时：寅卯辰春旺、巳午未夏旺、申酉戌秋旺、亥子丑冬旺。</strong></p>
+<p><strong>支属三季：寅申巳亥为四孟、子午卯酉为四仲、辰戌丑未为四季。</strong></p>
+<p><strong>支属卦位：子属坎、丑寅属艮、卯属震、辰巳属巽、午属离、未申属坤、酉属兑、戌亥属乾。四正卦属单支，四维卦属两支。</strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/23/十二地支的关系/" data-id="ck06tiuqw001x6vwsinv7yc6e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-十天干关系" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/22/十天干关系/" class="article-date">
+  <time datetime="2013-09-22T04:46:57.000Z" itemprop="datePublished">2013-09-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/周易/">周易</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/22/十天干关系/">十天干关系</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>十干：甲、乙、丙、丁、戊、己、庚、辛、壬、癸。</strong></p>
+<p><strong>五行：甲阳木、乙阴木、丙阳火、丁阴火、戊阳土、己阴土、庚阳金、辛阴金、壬阳水、癸阴水。</strong></p>
+<p><strong>相合：甲己合、乙庚合、丙辛合、丁壬合、戊癸合。</strong></p>
+<p><strong>合化：甲己化土、乙庚化金、丙辛化水、丁壬化木、戊癸化火。</strong></p>
+<p><strong>相生：甲木生丁火、乙木生丙火、丙火生己土、丁火生戊土、戊土生酉金、己土生庚金、庚金生癸水、辛金生壬水、壬水生乙木、癸水生甲木。</strong></p>
+<p><strong>相克：甲木克戊土、乙木克己土、丙火克庚金、丁火克辛金、戊土克壬水、己土克癸水、庚金克甲木、辛金克乙木、壬水克丙火、癸水克丁火。</strong></p>
+<p><strong>相食：甲食丙禄、乙食丁禄、丙食戊禄、丁食己禄、戊食庚禄、己食辛禄、庚食壬禄、辛食癸禄、壬食甲禄、癸食乙禄。</strong></p>
+<p><strong>支刃：丙戊以午为羊刃、子为飞刃，丁己以巳为羊刃、亥为飞刃，庚以酉为羊刃、卯为飞刃，辛以申为羊刃、寅为飞刃，壬以子为羊刃、午为飞刃，癸以亥为羊刃、巳为飞刃，甲以卯为羊刃、酉为飞刃，乙以寅为羊刃、申为飞刃。（禄前一位为羊刃，禄后五位为飞刃。）</strong></p>
+<p><strong>四时：甲乙春旺、丙丁夏旺、庚辛秋旺、壬癸冬旺、戊己四季旺。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/22/十天干关系/" data-id="ck06tiuqx001z6vws8xqc9n0n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript中浅复制与深复制" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/20/JavaScript中浅复制与深复制/" class="article-date">
+  <time datetime="2013-09-20T10:51:06.000Z" itemprop="datePublished">2013-09-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/20/JavaScript中浅复制与深复制/">JavaScript中浅复制与深复制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在进行面向对象的编程中，一个常见的问题就是对象之间的赋值，由于JavaScript采用的是引用的传递，因而当需要建立一个新的对象时，就需要使用到对象的复制。</p>
+<p>常用的对象复制包含了浅复制与深复制。</p>
+<p>所谓的浅复制，指的是仅仅复制对象中的基本类型，而深复制，则指的是利用递归的方法，对对象进行全面的复制，包含对象中的对象。</p>
+<p>浅复制实现代码，</p>
+<pre>
+Object.prototype.clone1 = function(){
+    var o = new Object();
+
+    for(var e in this)
+        o[e] = this[e];
+
+    return o;
+}
+</pre>
+深复制实现代码，
+<pre>
+Object.prototype.clone2 = function(){
+    var o = new Object();
+
+    for(var e in this){
+        if(typeof this[e] != &#039;object&#039;){
+            o[e] = this[e];
+        }
+        else{
+            o[e] = this[e].clone2();
+        }
+    }
+
+    return o;
+}
+</pre>
+测试1，
+<pre>
+var obj1 = {
+    &#039;name&#039; : &#039;obj1&#039;,
+    &#039;obj_inner&#039; : {&#039;name&#039; : &#039;obj11&#039;}
+}
+var obj2 = obj1;
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj2 name: &#039; + obj2.name + &#039;, &#039; + &#039;obj2 obj_inner name: &#039; + obj2.obj_inner.name);
+obj2.name = &#039;obj2&#039;;
+obj2.obj_inner.name = &#039;obj22&#039;;
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj2 name: &#039; + obj2.name + &#039;, &#039; + &#039;obj2 obj_inner name: &#039; + obj2.obj_inner.name);
+</pre>
+运行程序结果为，
+<pre>
+obj1 name: obj1, obj1 obj_inner name: obj11
+obj2 name: obj1, obj2 obj_inner name: obj11
+obj1 name: obj2, obj1 obj_inner name: obj22
+obj2 name: obj2, obj2 obj_inner name: obj22
+</pre>
+测试2，
+<pre>
+var obj1 = {
+    &#039;name&#039; : &#039;obj1&#039;,
+    &#039;obj_inner&#039; : {&#039;name&#039; : &#039;obj11&#039;}
+}
+var obj3 = obj1.clone1();
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj3 name: &#039; + obj3.name + &#039;, &#039; + &#039;obj3 obj_inner name: &#039; + obj3.obj_inner.name);
+obj3.name = &#039;obj3&#039;;
+obj3.obj_inner.name = &#039;obj33&#039;;
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj3 name: &#039; + obj3.name + &#039;, &#039; + &#039;obj3 obj_inner name: &#039; + obj3.obj_inner.name);
+</pre>
+运行程序结果为，
+<pre>
+obj1 name: obj1, obj1 obj_inner name: obj11
+obj3 name: obj1, obj3 obj_inner name: obj11
+obj1 name: obj1, obj1 obj_inner name: obj33
+obj3 name: obj3, obj3 obj_inner name: obj33
+</pre>
+测试3，
+<pre>
+var obj1 = {
+    &#039;name&#039; : &#039;obj1&#039;,
+    &#039;obj_inner&#039; : {&#039;name&#039; : &#039;obj11&#039;}
+}
+var obj4 = obj1.clone2();
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj4 name: &#039; + obj4.name + &#039;, &#039; + &#039;obj4 obj_inner name: &#039; + obj4.obj_inner.name);
+obj4.name = &#039;obj4&#039;;
+obj4.obj_inner.name = &#039;obj44&#039;;
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj4 name: &#039; + obj4.name + &#039;, &#039; + &#039;obj4 obj_inner name: &#039; + obj4.obj_inner.name);
+</pre>
+运行程序结果为，
+<pre>
+obj1 name: obj1, obj1 obj_inner name: obj11
+obj4 name: obj1, obj4 obj_inner name: obj11
+obj1 name: obj1, obj1 obj_inner name: obj11
+obj4 name: obj4, obj4 obj_inner name: obj44
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript中浅复制与深复制/" data-id="ck06tiuq6000p6vws2l0b66og" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript闭包" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/20/JavaScript闭包/" class="article-date">
@@ -138,7 +521,7 @@ alert(obj.func()());</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript闭包/" data-id="ck06kkfod0010u7wsgvnano0j" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript闭包/" data-id="ck06tiuqa000v6vwsw7d9urkt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -190,7 +573,7 @@ alert(obj.func()());</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/20/五行关系/" data-id="ck06kkfom001bu7wsh89u0nna" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/20/五行关系/" data-id="ck06tiuqi00176vwsp9hxi9w5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -282,7 +665,7 @@ var arr2 = [&#039;1&#039;, &#039;123&#039;, &#039;123&#039;, &#039;231&#039;, &#
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript去掉数组中的重复元素/" data-id="ck06kkfob000xu7ws2gqk6f7m" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript去掉数组中的重复元素/" data-id="ck06tiuq8000s6vws6a5sivly" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -334,7 +717,7 @@ var arr2 = [&#039;1&#039;, &#039;123&#039;, &#039;123&#039;, &#039;231&#039;, &#
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck06kkfoz0024u7wslcfnr5fu" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck06tiuqy00206vwsbyfim3b8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,398 +832,11 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck06kkfo7000ru7ws8ciy539f" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck06tiuq5000n6vwsr5pd8747" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-十二宫解释" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/18/十二宫解释/" class="article-date">
-  <time datetime="2013-09-18T09:48:02.000Z" itemprop="datePublished">2013-09-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/18/十二宫解释/">十二宫解释</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>《三命通会》十二宫解释：</strong></p>
-<p><strong>长生象万物发生向荣，如人始生而向长也。</strong></p>
-<p><strong>沐浴（败）象以万物始生，形体柔脆，易为所损，如人生后三日，以沐浴之，不至困绝也。</strong></p>
-<p><strong>冠带象万物渐荣秀，如人具衣冠也。</strong></p>
-<p><strong>临官如人之临官也。</strong></p>
-<p><strong>帝旺象万物成熟，如人之兴旺也。</strong></p>
-<p><strong>衰象万物形衰，如人之气衰也。</strong></p>
-<p><strong>病象万物病，如人之病也。</strong></p>
-<p><strong>死象万物死，如人之死也。</strong></p>
-<p><strong>墓（库）象万物成功之藏库，如人之终而归墓也。</strong></p>
-<p><strong>绝（受气、胞）象万物在地中，未有其象，如母腹空，未有物也。</strong></p>
-<p><strong>胎（受胎）象天地气交，氤氲造物，其物在地中萌芽，始有其气，如人受父母之气也。</strong></p>
-<p><strong>养（形成）象万物在地中形成，如人之在母腹成形也。</strong></p>
-<p>&nbsp;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck06kkfoy0022u7wsp59x90ab" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-十干生旺实用图" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/17/十干生旺实用图/" class="article-date">
-  <time datetime="2013-09-17T08:56:41.000Z" itemprop="datePublished">2013-09-17</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/17/十干生旺实用图/">十干生旺实用图</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>甲丙戊庚壬五阳干（顺转）</strong></p>
-<p><strong>甲木生在亥，</strong></p>
-<p><strong>丙戊生于寅，</strong></p>
-<p><strong>庚金生在巳，</strong></p>
-<p><strong>壬水生居申。</strong></p>
-<p><strong>乙丁己辛癸五阴干（逆转）</strong></p>
-<p><strong>乙木生在午，</strong></p>
-<p><strong>丁己生于酉，</strong></p>
-<p><strong>辛金生在子，</strong></p>
-<p><strong>癸水生居卯。</strong></p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>败          胎            死     旺</strong></p>
-<p><strong>                   子</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>病           绝           生     临</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>冠          养            墓     衰</strong></p>
-<p><strong>                   丑</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>衰           墓           养     冠</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>临          生            绝     病</strong></p>
-<p><strong>                   寅</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>旺           死           胎     败</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>旺          败            胎     死</strong></p>
-<p><strong>                   卯</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>临           病           绝     生</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>衰          冠            养     墓</strong></p>
-<p><strong>                   辰</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>冠           衰           墓     养</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>病          临            生     绝</strong></p>
-<p><strong>                   巳</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>败           旺           死     胎</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>死          旺            败     胎</strong></p>
-<p><strong>                   午</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>生           临           病     绝</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>墓          衰            冠     养</strong></p>
-<p><strong>                   未</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>养           冠           衰     墓</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>绝          病            临     生</strong></p>
-<p><strong>                   申</strong></p>
-<p><strong>乙     丁（己）      辛     癸</strong></p>
-<p><strong>胎           败            旺     死</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>胎           死           旺     败</strong></p>
-<p><strong>                   酉</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>绝           生           临     病</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>养          墓            衰     冠</strong></p>
-<p><strong>                   戌</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>墓           养           冠     衰</strong></p>
-<p>&nbsp;</p>
-<p><strong>甲     丙（戊）     庚     壬</strong></p>
-<p><strong>生          绝            病     临</strong></p>
-<p><strong>                   亥</strong></p>
-<p><strong>乙     丁（己）     辛     癸</strong></p>
-<p><strong>死           胎           败     旺</strong></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck06kkfoz0025u7ws0r5iu18s" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-分宫卦象二" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/16/分宫卦象二/" class="article-date">
-  <time datetime="2013-09-16T06:34:53.000Z" itemprop="datePublished">2013-09-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/16/分宫卦象二/">分宫卦象二</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>巽宫</strong></p>
-<p><strong>巽为风     风天小畜     风火家人     风雷益</strong></p>
-<p><strong>天雷无妄     火雷噬嗑     山雷颐     山风蛊</strong></p>
-<p><strong>离宫</strong></p>
-<p><strong>离为火     火山旅     火风鼎     火水未济</strong></p>
-<p><strong>山水蒙     风水涣     天水讼     天火同人</strong></p>
-<p><strong>坤宫</strong></p>
-<p><strong>坤为地     地雷复     地泽临     地天泰</strong></p>
-<p><strong>雷天大壮     泽天夬     水天需     水地比</strong></p>
-<p><strong>兑宫</strong></p>
-<p><strong>兑为泽     泽水困     泽地萃     泽山咸</strong></p>
-<p><strong>水山蹇     地山谦     雷山小过     雷泽归妹</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck06kkfow001yu7ws3f8yo8k6" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-最长公共子串" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/16/最长公共子串/" class="article-date">
-  <time datetime="2013-09-16T03:08:26.000Z" itemprop="datePublished">2013-09-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/16/最长公共子串/">最长公共子串</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最长公共子串问题主要是让用户输入两个字符串，经过程序的运算，输出两个字符串中的最长的公共子串。</p>
-<p>LCS算法可以很好的解决上述问题，核心是使用矩阵，假设字符串1水平排列，字符串2垂直排列，则可以用一个二维数组来表示，字符串2中的每一个字符与字符串1中的进行比较，相同则置为1，不同则置为0。</p>
-<p>假设两个字符串为，</p>
-<pre>字符串1为：TESTBZZGGZCTESTD
-字符串2为：BEGZZGGZCEND</pre>
-其表示矩阵为，
-<pre>0000100000000100
-0100000000001000
-1000000110000000
-0000011002000000
-0000012001000000
-0000000310000000
-0000000140000000
-0000011005000000
-0000000000600100
-0100000000001000
-1000000000000000
-0000000000000001</pre>
-示例代码为，
-<pre>
-<span style="color: #008000;">//最长公共子串LCS算法</span>
-void lcsAlgo(){
-    string str1, str2;
-    cin&gt;&gt;str1&gt;&gt;str2;
-
-    int maxLen = 0;
-    int maxLoc = 0;
-    int len1 = str1.size();
-    int len2 = str2.size();
-
-    int lcs[100 * 100] = {0};
-
-    for(int i = 0; i &lt; len2; i++){
-        for(int j = 0; j &lt; len1; j++){
-            if(str2.at(i) == str1.at(j)){
-                if(i&gt; 0 &amp;&amp; j&gt; 0){
-                    lcs[i * len2 + j] = lcs[(i - 1) * len2 + j - 1] + 1;
-                    if(lcs[i * len2 + j] &gt; maxLen){
-                        maxLen = lcs[i * len2 + j];
-                        maxLoc = j;
-                    }
-                } else{
-                    lcs[i * len2 + j] = 1;
-                }
-            }
-        }
-    }
-
-    for(i = 0; i &lt; len2; i++){
-        for(int j = 0; j &lt; len1; j++){
-            cout&lt;&lt;lcs[i * len2 + j];
-        }
-        cout&lt;&lt;endl;
-    }
-
-    for(int k = maxLen - 1; k &gt;= 0; k--){
-        if(maxLoc - k &gt;= 0)
-            cout&lt;&lt;str1.at(maxLoc - k);
-    }
-}</pre>
-最长公共子串的运行结果为，
-<pre>ZZGGZC</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck06kkfpa002uu7ws0ywcday7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-分宫卦象一" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/15/分宫卦象一/" class="article-date">
-  <time datetime="2013-09-15T07:31:26.000Z" itemprop="datePublished">2013-09-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/15/分宫卦象一/">分宫卦象一</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>乾宫</strong></p>
-<p><strong>乾为天     天风姤     天山遁     天地否</strong></p>
-<p><strong>风地观     山地剥     火地晋     火天大有</strong></p>
-<p><strong>坎宫</strong></p>
-<p><strong>坎为水     水泽节     水雷屯     水火既济</strong></p>
-<p><strong>泽火革     雷火丰     地火明夷     地水师</strong></p>
-<p><strong>艮宫</strong></p>
-<p><strong>艮为山     山火贲     山天大畜     山泽损</strong></p>
-<p><strong>火泽睽     天泽履     风泽中孚     风山渐</strong></p>
-<p><strong>震宫</strong></p>
-<p><strong>震为雷     雷地豫     雷水解     雷风恒</strong></p>
-<p><strong>地风升     水风井     泽风大过     泽雷随</strong></p>
-<p>&nbsp;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck06kkfow001xu7wsggqms9gl" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -862,7 +858,7 @@ void lcsAlgo(){
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/周易/">周易</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我的作品/">我的作品</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杀手日记/">杀手日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计与代码/">设计与代码</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/周易/">周易</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我的作品/">我的作品</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杀手日记/">杀手日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计与代码/">设计与代码</a></li></ul>
     </div>
   </div>
 
@@ -872,7 +868,7 @@ void lcsAlgo(){
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -882,7 +878,7 @@ void lcsAlgo(){
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 13.33px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -891,7 +887,7 @@ void lcsAlgo(){
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
@@ -904,23 +900,23 @@ void lcsAlgo(){
       <ul>
         
           <li>
-            <a href="/2019/09/04/判断素数/">判断素数</a>
+            <a href="/2019/09/02/状态管理/">状态管理</a>
           </li>
         
           <li>
-            <a href="/2019/09/03/js笔记/">js笔记</a>
+            <a href="/2019/08/02/Vue生命周期/">Vue生命周期</a>
           </li>
         
           <li>
-            <a href="/2019/09/02/vue-生命周期/">vue-生命周期</a>
+            <a href="/2019/06/08/闭包/">闭包</a>
           </li>
         
           <li>
-            <a href="/2016/05/18/那年真的如风/">那年真的如风</a>
+            <a href="/2019/05/05/JavaScript类与继承/">JavaScript类与继承</a>
           </li>
         
           <li>
-            <a href="/2014/11/13/定寅时歌诀/">定寅时歌诀</a>
+            <a href="/2019/02/01/判断素数/">判断素数</a>
           </li>
         
       </ul>
