@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>hi2048</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Pin Style 		 		 			*{margin: 0; padding: 0;} 			body{background: #eee;} 			#container{background: #fff; position: relative; width: 778px; height: 660px; margin: 30px auto 0 auto; overflow: hidde">
+<meta property="og:type" content="website">
+<meta property="og:title" content="hi2048">
+<meta property="og:url" content="http://hi2048.github.io/test/message_wall.html">
+<meta property="og:site_name" content="hi2048">
+<meta property="og:description" content="Pin Style 		 		 			*{margin: 0; padding: 0;} 			body{background: #eee;} 			#container{background: #fff; position: relative; width: 778px; height: 660px; margin: 30px auto 0 auto; overflow: hidde">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2014-05-10T09:21:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hi2048">
+<meta name="twitter:description" content="Pin Style 		 		 			*{margin: 0; padding: 0;} 			body{background: #eee;} 			#container{background: #fff; position: relative; width: 778px; height: 660px; margin: 30px auto 0 auto; overflow: hidde">
+  
+    <link rel="alternate" href="/atom.xml" title="hi2048" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">hi2048</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hi2048.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/test/message_wall.html" class="article-date">
+  <time datetime="2019-09-05T09:27:52.028Z" itemprop="datePublished">2019-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html>
+	<head><meta name="generator" content="Hexo 3.9.0">
+		<title>Pin Style</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			*{margin: 0; padding: 0;}
+			body{background: #eee;}
+			#container{background: #fff; position: relative; width: 778px; height: 660px; margin: 30px auto 0 auto; overflow: hidden; border: 1px solid #eee; border-radius: 5px; box-shadow: 1px 1px 8px #999; z-index: 0;}
+			p{text-indent: 1em; font: 10px/22px "宋体"; color: #ddd;}
+			header{position: relative; height: 40px;}
+
+			#deliver{width: 520px; height: 220px; position: absolute; overflow: hidden; border-radius: 5px; left: -500px; top: 0; z-index: 999; opacity: .9; filter: alpha(opacity=90);}
+			#information{border: 2px solid #fff; background: #EDEDED; width: 510px; height: 210px; z-index: 999; position: absolute; left: 5px; top: 5px;}
+			#bg{position: absolute; top: 0; left: 0; width: 100%; height: 100%; background:#000000; opacity:0.3; filter:alpha(opacity=30); z-index: 998; display: none;}
+			#information h2{text-align: center; border-bottom: 1px solid #ccc; position: relative; font-weight: normal; font-size: 13px; height: 26px; line-height: 26px; padding-left: 10px;}
+			#information a{border: 1px solid #ccc; position: absolute; right: 5px; top: 4px; height: 15px; width: 15px; display: block; line-height: 15px; background: #FFF; text-align: center; border-radius: 8px; z-index: 999; cursor: pointer;}
+			#other{width: 20px; height: 220px; background: #F99; z-index: 999; position: absolute; left: 500px; top: 0; border-radius: 0px 5px 5px 0; display: block; cursor: pointer; text-align: center;}
+			#information textarea{margin: 1px; border: none; width: 505px; height: 135px; background: #eee; color: #555; border-bottom: 1px solid #ccc; border-top: 1px solid #fff;}
+			.publish{position: absolute; right: 5px; bottom: 5px; display: inline-block; *display: inline; zoom: 1; padding: 6px 20px; margin: 0; cursor: pointer; border: 1px solid #bbb; overflow: visible; font: bold 13px arial, helvetica, sans-serif; text-decoration: none; white-space: nowrap; 
+					color: #333; background-color: #ddd; background-image: linear-gradient(top, rgba(255,255,255,1), rgba(255,255,255,0)); -webkit-transition: background-color .2s ease-out; -moz-transition: background-color .2s ease-out; background-clip: padding-box; /* Fix bleeding */
+					border-radius: 3px; box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset; text-shadow: 0 1px 0 rgba(255,255,255, .9);  					
+					}
+			.publish:hover{background-color: #eee; color: #333;}
+			.publish:active{background: #e9e9e9; position: absolute; right: 5px; bottom: 5px; text-shadow: none; box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;}
+			.right{position: absolute; right: 5px; bottom: 5px;}
+			#p_bottom{width: 506px; overflow: hidden; height: 40px; padding: 0; border-top: 1px solid #fff; margin-top: -3px;}
+			
+			.style1{position: absolute; top: 180px; left: 300px; width: 120px; padding: 5px; border: 2px solid #eee; border-radius: 2px; background: rgb(0, 187, 227); cursor: move; z-index: 1;}
+			
+		</style>
+	</head>
+	<body>
+		<div id="bg"></div>
+		<div id="deliver">
+			<div id="information">
+				<h2>说点什么吧！<a id="closed" title="点击我可以隐藏哦~！">×</a></h2>
+				<textarea id="textarea"></textarea>
+				<div id="p_bottom"><button id="pub" class="publish right">发表</button></div>
+			</div>
+			
+			<div id="other">騒情一下</div>
+		</div>
+		
+		<header>
+			
+		</header>
+		
+		<div id="container">
+			<div class="style1">
+				<p>此身为剑之骨、血潮如铁、心如琉璃，纵横无数战场而不败。未曾一次败退，未尝得一知己。其常立于剑丘之巅，独醉于胜利之中。故此，此生已无意义，则此躯，注定为剑而生。</p>
+			</div>
+		</div>
+		<footer></footer>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var deliver = document.getElementById("deliver");
+				var closed = document.getElementById("closed");
+				var other = document.getElementById("other");
+				var bg = document.getElementById("bg");
+				var textarea = document.getElementById("textarea");
+				var pub = document.getElementById("pub");
+				var container = document.getElementById("container");
+				var lastX=0;
+				var lastY=0;
+				var timer=null;
+				var start=true;
+				var iSpeedX=0;
+				var iSpeedY=0;
+				
+				closed.onclick = function(){
+					clearInterval(timer);
+					window.clearInterval(start);
+					deliver.style.margin = 0;
+					bg.style.display = "none";
+					//other.style.display = "block";
+					startMoves(deliver, {left: -500, top: 0}, move_type.buffer, function(){bg.style.display = "none"; other.style.display = "block";})
+				}
+				
+				pub.onclick = function(){
+					var value = textarea.value;
+					//var div = document.createElement("div");
+					//div.setAttribute("class", "style1");
+					//var p = document.createElement("p");
+					//p.innerHTML = value;
+					//div.appendChild(p);
+					//container.appendChild(div);
+					//alert(container.innerHTML)
+					container.innerHTML += '<div class="style1" style="z-index: 3;"><p>'+ value +'</p></div>';
+					closed.onclick();
+					textarea.value = ""; 
+				}
+				
+				other.onmouseover = function(){
+					other.style.color = "white";
+				}
+				
+				other.onmouseout = function(){
+					other.style.color = "black";
+				}
+				
+				other.onclick = function(){
+					var l = (document.documentElement.clientWidth - deliver.offsetWidth)/2
+					var t = (document.documentElement.clientHeight - deliver.offsetHeight)/2
+					other.style.display = "none";
+					bg.style.display = "block";
+					textarea.focus();
+					startMoves(deliver, { top: parseInt(t) - 20, left: parseInt(l)}, move_type.buffer, function(){bg.style.display = "block"; other.style.display = "none";})
+				}
+		
+			}
+			
+			function css(obj, attr, value)
+			{
+				if(arguments.length==2)
+				{
+					if(attr!='opacity')
+					{
+						return parseInt(obj.currentStyle?obj.currentStyle[attr]:document.defaultView.getComputedStyle(obj, false)[attr]);
+					}
+					else
+					{
+						return Math.round(100*parseFloat(obj.currentStyle?obj.currentStyle[attr]:document.defaultView.getComputedStyle(obj, false)[attr]));
+					}
+				}
+				else if(arguments.length==3)
+					switch(attr)
+					{
+						case 'width':
+						case 'height':
+						case 'paddingLeft':
+						case 'paddingTop':
+						case 'paddingRight':
+						case 'paddingBottom':
+							value=Math.max(value,0);
+						case 'left':
+						case 'top':
+						case 'marginLeft':
+						case 'marginTop':
+						case 'marginRight':
+						case 'marginBottom':
+							obj.style[attr]=value+'px';
+							break;
+						case 'opacity':
+							obj.style.filter="alpha(opacity:"+value+")";
+							obj.style.opacity=value/100;
+							break;
+						default:
+							obj.style[attr]=value;
+					}
+				
+				return function (attr_in, value_in){css(obj, attr_in, value_in)};
+			}
+
+			var move_type={
+				buffer: 1,
+				flex: 2
+			};
+
+			function stopMove(obj)
+			{
+				clearInterval(obj.timer);
+			}
+			
+			function startMoves(obj, oTarget, iType, fnCallBack, fnDuring)
+			{
+			//obj是指要运动的物体
+			//itype是要采取哪种类型的运动move_type.buffer为缓冲运动，move_type.flex弹性运动。
+			//oTarget是目标要运行到多少来.默认是px所以不需要带单位。
+			//fnCallBack运动结束要做些什么。
+			//fnduring在运动中要进行什么
+				var fnMove=null;
+				if(obj.timer)
+				{
+					clearInterval(obj.timer);
+				}
+				
+				switch(iType)
+				{
+					case move_type.buffer:
+						fnMove=doMoveBuffer;
+						break;
+					case move_type.flex:
+						fnMove=doMoveFlex;
+						break;
+				}
+				
+				obj.timer=setInterval(function (){
+					fnMove(obj, oTarget, fnCallBack, fnDuring);
+				}, 30);
+			}
+			
+			function doMoveBuffer(obj, oTarget, fnCallBack, fnDuring)
+			{
+				var bStop=true;
+				var attr='';
+				var speed=0;
+				var cur=0;
+				
+				for(attr in oTarget)
+				{
+					cur=css(obj, attr);
+					if(oTarget[attr]!=cur)
+					{
+						bStop=false;
+						
+						speed=(oTarget[attr]-cur)/5;
+						speed=speed>0?Math.ceil(speed):Math.floor(speed);
+						
+						css(obj, attr, cur+speed);
+					}
+				}
+				
+				if(fnDuring)fnDuring.call(obj);
+				
+				if(bStop)
+				{
+					clearInterval(obj.timer);
+					obj.timer=null;
+					
+					if(fnCallBack)fnCallBack.call(obj);
+				}
+			}
+
+			function doMoveFlex(obj, oTarget, fnCallBack, fnDuring)
+			{
+				var bStop=true;
+				var attr='';
+				var speed=0;
+				var cur=0;
+				
+				for(attr in oTarget)
+				{
+					if(!obj.oSpeed)obj.oSpeed={};
+					if(!obj.oSpeed[attr])obj.oSpeed[attr]=0;
+					cur=css(obj, attr);
+					if(Math.abs(oTarget[attr]-cur)>=1 || Math.abs(obj.oSpeed[attr])>=1)
+					{
+						bStop=false;
+						
+						obj.oSpeed[attr]+=(oTarget[attr]-cur)/5;
+						obj.oSpeed[attr]*=0.7;
+						
+						css(obj, attr, cur+obj.oSpeed[attr]);
+					}
+				}
+				
+				if(fnDuring)fnDuring.call(obj);
+				
+				if(bStop)
+				{
+					clearInterval(obj.timer);
+					obj.timer=null;
+					
+					if(fnCallBack)fnCallBack.call(obj);
+				}
+			}
+			
+		</script>
+		
+		<script type="text/javascript">
+			;(function($){
+				$.fn.extend({
+					dragging: function(){
+						$(document).delegate(".style1 p", "mousedown", function(e){stopDefault(e)});
+						$(document).delegate("#container", "mousedown", function(e){stopDefault(e)});
+						
+						$("#container").delegate(".style1", "mousedown", function(e){
+							$(this).css("z-index", 2);
+							$(this).siblings().css("z-index", 1);
+							
+							var oX = parseInt($(this).css("left"));
+								oY = parseInt($(this).css("top"));
+								
+							var x = e.pageX - oX;
+								y = e.pageY - oY;
+								
+							$(this).mousemove(function(e){
+								_x = e.pageX - x;
+								_y = e.pageY - y;
+								
+								$(this).css({"left": _x, "top": _y}).mouseup(function(e){
+									$(this).unbind("mousemove");
+								});
+								
+								$("#container").mouseleave(function(e){$(".style1").unbind("mousemove");});
+								$(this).mouseleave(function(e){$(".style1").unbind("mousemove");});
+							});
+							
+						});
+			
+					}
+				});
+			}(jQuery));
+			
+			function stopDefault(e) {
+				if ( e && e.preventDefault ) { 
+					e.preventDefault(); 
+				}else {
+					window.event.returnValue = false;  //ie
+					return false; 
+				} 
+			};
+						
+						
+			$(function(){
+				$(".style1").dragging();
+			});
+		</script>
+	</body>
+</html>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/test/message_wall.html" data-id="ck06hwu7y002ve4ws7le2na8n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/周易/">周易</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我的作品/">我的作品</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杀手日记/">杀手日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计与代码/">设计与代码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 13.33px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/18/那年真的如风/">那年真的如风</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/13/定寅时歌诀/">定寅时歌诀</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/11/逐年客气歌/">逐年客气歌</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/10/工作半年之感悟/">工作半年之感悟</a>
+          </li>
+        
+          <li>
+            <a href="/2014/10/14/定太阴出时歌诀/">定太阴出时歌诀</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Jsu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
