@@ -207,25 +207,32 @@ for(
   </entry>
   
   <entry>
-    <title>感悟</title>
-    <link href="http://hi2048.github.io/2018/09/05/%E6%84%9F%E6%82%9F/"/>
-    <id>http://hi2048.github.io/2018/09/05/感悟/</id>
-    <published>2018-09-04T16:00:00.000Z</published>
-    <updated>2019-09-05T13:26:58.338Z</updated>
+    <title>Swagger</title>
+    <link href="http://hi2048.github.io/2018/09/12/Swagger/"/>
+    <id>http://hi2048.github.io/2018/09/12/Swagger/</id>
+    <published>2018-09-11T16:00:00.000Z</published>
+    <updated>2019-09-06T06:24:46.889Z</updated>
     
-    <content type="html"><![CDATA[<p>以金相交，金耗则忘；以利相交，利尽则散；以势相交，势败则倾；以权相交，权失则弃；以情相交，情断则伤；唯以心相交，方能成其久远。合伙做事也好，人际交往也好，都应珍惜缘分，珍惜时光；以善为念，学会感恩；以诚相待，以心相交。与高者为伍，与德者通行，必得善果。感悟：心存至善，你的人生必有一块祥云。</p>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>Swagger解决了什么问题？<br><strong> 接口文档的一致性与可维护性 </strong></p></li><li><p>Swagger是什么？</p><ul><li>通过自己定义的描述文件（yml或json格式），更新接口文档，以及生成各端代码.</li></ul></li><li><p>Swagger可以做什么？</p><ul><li>可以做到生成各种格式的接口文档，生成多种语言的客户端和服务端的代码，以及在线接口调试页面等等。</li></ul></li><li><p>Springfox-swagger</p><ul><li>通过扫描代码去生成这个描述文件</li></ul></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;以金相交，金耗则忘；以利相交，利尽则散；以势相交，势败则倾；以权相交，权失则弃；以情相交，情断则伤；唯以心相交，方能成其久远。合伙做事也好，人际交往也好，都应珍惜缘分，珍惜时光；以善为念，学会感恩；以诚相待，以心相交。与高者为伍，与德者通行，必得善果。感悟：心存至善，你的人
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Swagger解决了什么问题？&lt;br&gt;&lt;strong&gt; 接口文档的一致性与可维护性 &lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Swagger是什么？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过自己定义的描述文件（yml或json格式），更新接口文档，以及生
       
     
     </summary>
     
-      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
+    
+      <category term="Spring" scheme="http://hi2048.github.io/tags/Spring/"/>
     
   </entry>
   
