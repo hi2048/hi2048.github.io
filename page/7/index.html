@@ -64,6 +64,123 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript中事件冒泡" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/19/JavaScript中事件冒泡/" class="article-date">
+  <time datetime="2013-09-19T08:02:37.000Z" itemprop="datePublished">2013-09-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/19/JavaScript中事件冒泡/">JavaScript中事件冒泡</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>所谓的事件冒泡，主要指的是从里向外的一种事件传播机制。</p>
+<p>例如以下代码，</p>
+<p>HTML结构为，</p>
+<pre>
+&lt;div id=&quot;t1&quot;&gt;
+    &lt;div id=&quot;t11&quot;&gt;我是里层的t11。&lt;/div&gt;
+    &lt;div id=&quot;t12&quot;&gt;我是里层的t12。&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+JS代码为，
+<pre>window.onload = function(){
+    var t1 = document.getElementById("t1");
+    var t11 = document.getElementById("t11");
+    var t12 = document.getElementById("t12");
+    var body = document.body;
+
+    window.onclick = function(event){
+        alert('我是window.onclick。');
+    }
+
+    document.onclick = function(event){
+        alert('我是document.onclick。');
+    }
+
+    body.onclick = function(event){
+        alert('我是body.onclick。');
+    }
+
+    t1.onclick = function(event){
+        alert('我是外层的。');
+    }
+
+    t11.onclick = function(event){
+        alert('我是里层的。');
+    }
+}</pre>
+代码运行结果为，
+<pre>
+点击t11：
+我是里层的。
+我是外层的。
+我是body.onclick。
+我是document.onclick。
+我是window.onclick。
+点击t12：
+我是外层的。
+我是body.onclick。
+我是document.onclick。
+我是window.onclick。
+</pre>
+如何阻止事件的冒泡，
+<pre>
+function stopBubble(e){
+    if(e && e.stopPropagation)
+        e.stopPropagation();
+    else
+        window.event.cancelBubble = true;
+}
+</pre>
+加入阻止事件冒泡代码,
+<pre>
+t11.onclick = function(event){
+    alert('我是里层的。');
+    stopBubble(event);
+}
+</pre>
+程序运行结果，
+<pre>
+点击t11：
+我是里层的。
+点击t12：
+我是外层的。
+我是body.onclick。
+我是document.onclick。
+我是window.onclick。
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck0b17w9o000us1wsy64b9aza" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-十二宫解释" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/18/十二宫解释/" class="article-date">
@@ -108,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck086vmvx002h64wssqanz6up" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck0b17wap002is1wscrh5p5zq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -233,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck086vmvy002k64wsr670sgjq" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck0b17waq002ks1ws4xgy4947" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck086vmvv002d64wsgvmi4l0m" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck0b17wal002cs1ws1vfv3ji0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -386,7 +503,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck086vmwa003964ws9zg7x9km" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck0b17wb3003bs1wsiyxpib27" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -441,7 +558,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck086vmvu002c64ws74ot17ge" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck0b17wak002as1wsjpcvv1qo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -488,7 +605,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/14/卦名次序歌/" data-id="ck086vmvz002l64wsu1ykklis" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/14/卦名次序歌/" data-id="ck0b17waq002ms1ws18bwdoas" class="article-share-link">Share</a>
       
       
     </footer>
@@ -551,7 +668,7 @@ printf("%d", (*p2)[2]);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck086vmw7003464wsvlivjryt" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck0b17waz0035s1wsobo6s6ow" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
@@ -598,7 +715,7 @@ printf("%d", (*p2)[2]);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="ck086vmvz002m64ws7wcev89g" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="ck0b17war002ns1ws61idrya1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -713,7 +830,7 @@ void bubble_p4(int* a, int n){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="ck086vmvu002b64wse3pad3lj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="ck0b17wal002bs1ws4qzn14lc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -725,90 +842,10 @@ void bubble_p4(int* a, int n){
 
 
   
-    <article id="post-JavaScript中类的创建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/10/JavaScript中类的创建/" class="article-date">
-  <time datetime="2013-09-10T09:02:09.000Z" itemprop="datePublished">2013-09-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/10/JavaScript中类的创建/">JavaScript中类的创建</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript中的所有事物都是对象，其中对象是带有属性和方法的特殊数据类型，也可以将对象看作是一个无序的属性集合。常用的类的定义方法有3种，</p>
-<p>1. 直接定义类</p>
-<pre>
-方式1：
-var obj = {};
-obj.id = 1;
-obj.name = 'object';
-obj.func = function(){
-    alert(this.id + ': ' + this.name);
-}
-方式2：
-var obj = {
-    'id': 1,
-    'name': 'object',
-    'func': function(){
-        alert(this.id + ': ' + this.name);
-    }
-};
-</pre>
-2\. 使用关键字function定义类
-<pre>
-function Obj(){
-    var self = this;
-    self.id = 1;
-    self.name = 'object';
-    self.func = function(){
-        alert(self.id + ': ' + self.name);
-    }
-}
-</pre>
-3\. 使用原型的方式定义类
-<pre>
-function Obj(){}
-Obj.prototype.id = 1;
-Obj.prototype.name = 'object';
-Obj.prototype.func = function(){
-    alert(this.id + ': ' + this.name);
-}
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="ck086vmv8001264wseku7sfua" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -839,7 +876,7 @@ Obj.prototype.func = function(){
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 17.5px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 15px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 13.33px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -848,7 +885,7 @@ Obj.prototype.func = function(){
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
