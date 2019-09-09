@@ -267,6 +267,36 @@ MyClass.prototy
   </entry>
   
   <entry>
+    <title>移除链表元素</title>
+    <link href="http://hi2048.github.io/2017/12/10/%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0/"/>
+    <id>http://hi2048.github.io/2017/12/10/移除链表元素/</id>
+    <published>2017-12-09T16:00:00.000Z</published>
+    <updated>2019-09-09T03:41:44.275Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>删除单向链表中值为 val 的所有节点。</p><p><strong>思路：可以添加指向头结节的Head*节点，然后进行删除操作。</strong></p><pre><code>function removeLinkNodes(head, val) {  if(!head) return null;  var prevElement = {    this.next = head;  }  var sPointer = prevElement;  while(sPointer.next){    if(sPointer.next.val === val){      sPointer.next = sPointer.next.next;    } else{      sPointer = sPointer.next;    }  }  return prevElement.next;};</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;删除单向链表中值为 val 的所有节点。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;思路：可以添加指向头结节的Head*节点，然后进行删除操作。&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;function removeLinkNodes(head, val) {
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>js笔记</title>
     <link href="http://hi2048.github.io/2017/09/01/js%E7%AC%94%E8%AE%B0/"/>
     <id>http://hi2048.github.io/2017/09/01/js笔记/</id>
@@ -566,35 +596,6 @@ MyClass.prototy
 &lt;p&gt;卯酉阳明值燥金，&lt;/p&gt;
 &lt;p&gt;辰戌太阳寒水是，&lt;/p&gt;
 &lt;p&gt;巳亥厥阴风木侵。&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="周易" scheme="http://hi2048.github.io/categories/%E5%91%A8%E6%98%93/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>逐年五运歌</title>
-    <link href="http://hi2048.github.io/2014/08/05/%E9%80%90%E5%B9%B4%E4%BA%94%E8%BF%90%E6%AD%8C/"/>
-    <id>http://hi2048.github.io/2014/08/05/逐年五运歌/</id>
-    <published>2014-08-05T10:37:56.000Z</published>
-    <updated>2016-05-31T16:43:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>大寒木运始行初，</p><p>清明前三火运居，</p><p>芒种后三土运是，</p><p>立秋后六金运推，</p><p>立冬后九水运伏，</p><p>周而复始万年和。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;大寒木运始行初，&lt;/p&gt;
-&lt;p&gt;清明前三火运居，&lt;/p&gt;
-&lt;p&gt;芒种后三土运是，&lt;/p&gt;
-&lt;p&gt;立秋后六金运推，&lt;/p&gt;
-&lt;p&gt;立冬后九水运伏，&lt;/p&gt;
-&lt;p&gt;周而复始万年和。&lt;/p&gt;
 
       
     

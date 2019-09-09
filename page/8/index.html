@@ -64,6 +64,123 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-冒泡算法及改进" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/11/冒泡算法及改进/" class="article-date">
+  <time datetime="2013-09-11T04:33:05.000Z" itemprop="datePublished">2013-09-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/11/冒泡算法及改进/">冒泡算法及改进</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在排序算法中，冒泡算法属于稳定排序，虽然效率较低，但由于其实现简单，在很多地方还是很有实用价值的。</p>
+<p>冒泡算法（假定是从小到大的排序）的具体实现过程，</p>
+<p>1. 比较第j个数与第j + 1个数的大小，如果大于，则进行交换。</p>
+<p>2. 进行一轮比较与交换，最后一个数则为最大数。</p>
+<p>3. 循环进行1，2步骤，直到所有数据都排序完成。</p>
+<p>&nbsp;</p>
+<p>简单实现代码，其中a为待排序的数组，n为数组长度，temp为交换中的临时变量。</p>
+<pre>
+void bubble(int* a, int n){
+    int temp;
+    for(int i = 0; i &lt; n; i++)
+        for(int j = 0; j &lt; n - 1; j++)
+            if(a[j] &gt; a[j + 1]){
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+}
+</pre>
+下面将分别从空间与时间的复杂度上对上述代码进行改进。
+
+1\. 时间复杂度上考虑，由于每进行一趟，数组最后都会完成一位数的排序，因此只需对前n - 1 - i个数据进行比较，i为已经进行的趟数。
+<pre>
+void bubble_p1(int* a, int n){
+    int temp;
+    for(int i = 0; i &lt; n; i++)
+        for(int j = 0; j &lt; n - 1 - i; j++)
+            if(a[j] &gt; a[j + 1]){
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+}
+</pre>
+2\. 时间复杂度上考虑，假如数组开始排序前就有已经排序好的数据，则可以不用再进行冒泡排序，因此可以保存一个变量k，使其为每一趟排序中最后一次交换的数组下标，从而实现算法优化。最优情况为数组本身为有序数组，则只需进行一趟排序。
+<pre>
+void bubble_p2(int* a, int n){
+    int temp;
+    int k = 0;
+    for(int i = n - 1; i &gt; 0; i = k)
+        for(int j = 0; j &lt; i; j++)
+            if(a[j] &gt; a[j + 1]){
+                k = j;
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+}
+</pre>
+3\. 空间复杂度上考虑，可以利用数组的长度n，每一次排序完成后，重新计算所需排序的长度n - i，其中i为已经排序完成的数目。
+<pre>
+void bubble_p3(int* a, int n){
+    int temp;
+    for(int i = n; i &gt; 1; i = n)
+        for(int j = 0; j &lt; i - 1; j++)
+            if(a[j] &gt; a[j + 1]){
+                n = j + 1;
+                temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
+            }
+}
+</pre>
+4. 空间复杂度上考虑，利用运算进行数据的交换，可以节省temp的空间。
+<pre>
+void bubble_p4(int* a, int n){
+    for(int i = n; i &gt; 1; i = n)
+        for(int j = 0; j &lt; i - 1; j++)
+            if(a[j] &gt; a[j + 1]){
+                n = j + 1;
+                a[j] = a[j] + a[j + 1];
+                a[j + 1] = a[j] - a[j + 1];
+                a[j] = a[j] - a[j + 1];
+            }
+}
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="ck0bv3fxr001t37wsombs077h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript中类的创建" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/10/JavaScript中类的创建/" class="article-date">
@@ -132,7 +249,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="ck0b17w9r0011s1wsfvqapjsi" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="ck0bv3fwz000o37ws991se07d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -184,7 +301,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="ck0b17w9m000qs1wso602frgl" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="ck0bv3fwy000n37wsy832obdz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -227,7 +344,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="ck0b17wbh0040s1ws00yk3wnl" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="ck0bv3fzy004y37ws3zswqles" class="article-share-link">Share</a>
       
       
     </footer>
@@ -278,7 +395,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="ck0b17w9t0012s1ws0srrmv95" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="ck0bv3fx1000q37wsbvvj3up2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -326,7 +443,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="ck0b17w9u0015s1ws9l3it3z1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="ck0bv3fx4000t37ws8h75psek" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -375,7 +492,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/日干推时干歌诀/" data-id="ck0b17wb10038s1wshd5mzh0y" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/09/日干推时干歌诀/" data-id="ck0bv3fza003h37wsul4yynjc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -422,7 +539,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/08/年推月干口诀/" data-id="ck0b17way0031s1wsrbaeqfe7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/08/年推月干口诀/" data-id="ck0bv3fz3002z37wsha8r3e0q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -470,7 +587,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/07/二十四节气口诀/" data-id="ck0b17wa3001ls1wsctinz1di" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/07/二十四节气口诀/" data-id="ck0bv3fxb001537wsgc8nb7oj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -529,61 +646,7 @@ e. 浏览器解析HTML，并开始显示
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/07/HTTP协议请求过程/" data-id="ck0b17w9q000ys1wshptsnmnn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-周易预测月份的划定" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/06/周易预测月份的划定/" class="article-date">
-  <time datetime="2013-09-06T10:35:25.000Z" itemprop="datePublished">2013-09-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/06/周易预测月份的划定/">周易预测月份的划定</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>我们在周易预测中，月（农历月）有严格的划定：</strong></p>
-<p><strong>正月寅，从立春节经雨水气到交惊蛰节止；</strong></p>
-<p><strong>二月卯，从惊蛰节经春分气到交清明节止；</strong></p>
-<p><strong>三月辰，从清明节经谷雨气到交立夏节止；</strong></p>
-<p><strong>四月巳，从立夏节经小满气到交芒种节止；</strong></p>
-<p><strong>五月午，从芒种节经夏至气到交小暑节止；</strong></p>
-<p><strong>六月未，从小暑节经大暑气到交立秋节止；</strong></p>
-<p><strong>七月申，从立秋节经处暑气到交白露节止；</strong></p>
-<p><strong>八月酉，从白露节经秋分气到交寒露节止；</strong></p>
-<p><strong>九月戌，从寒露节经霜降气到交立冬节止；</strong></p>
-<p><strong>十月亥，从立冬节经小雪气到交大雪节止；</strong></p>
-<p><strong>十一月子，从大雪节经冬至气到交小寒节止；</strong></p>
-<p><strong>十二月丑，从小寒节经大寒气到交立春节止。</strong></p>
-<p><strong>每个月包含一个节和一个气，也就是一年共有二十四节气。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/06/周易预测月份的划定/" data-id="ck0b17was002ps1wsd86rjbqp" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/07/HTTP协议请求过程/" data-id="ck0bv3fx8001037ws329pu1vu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -627,7 +690,7 @@ e. 浏览器解析HTML，并开始显示
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 16.67px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 13.33px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -636,7 +699,7 @@ e. 浏览器解析HTML，并开始显示
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
