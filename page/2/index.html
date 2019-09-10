@@ -64,6 +64,484 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-twoSum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/11/twoSum/" class="article-date">
+  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/twoSum/">twoSum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 求数组中两个数值之和为指定值的下标，可以采用hash来解决 </strong></p>
+<pre><code>const twoSum = (nums, target) =&gt; {
+  let hash = {};
+  for(let i = 0, len = nums.length; i &lt; len; i++){
+    if(typeof hash[target - nums[i]] !== &apos;undefined&apos;){
+      return [hash[target - nums[i]], i];
+    }
+
+    hash[nums[i]] = i;
+  }
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck0e10cq70016dmwsh3tofko8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-arrayTwoSum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/10/arrayTwoSum/" class="article-date">
+  <time datetime="2018-01-09T16:00:00.000Z" itemprop="datePublished">2018-01-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/arrayTwoSum/">arrayTwoSum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 求数组下标，下标区间数值之和为指定值 </strong></p>
+<pre><code>const twoSum = (nums, target) =&gt;{
+    let count = 0;
+
+    for(let i = 0, len = nums.length; i &lt; len;){
+        count = nums[i];
+
+        if(count &gt; target){
+            i++
+        } else if(count === target){
+            return [i, i];
+        } else{
+          for(let j = i + 1; j &lt; len; j++){
+              count += nums[j];
+
+              if(count &gt; target){
+                  i++;
+                  break;
+              } else if(count === target){
+                  return [i, j];
+              }
+          }
+        }
+    }
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck0e10cq30010dmwshhzpmstx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-移除链表元素" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/10/移除链表元素/" class="article-date">
+  <time datetime="2017-12-09T16:00:00.000Z" itemprop="datePublished">2017-12-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/10/移除链表元素/">移除链表元素</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>删除单向链表中值为 val 的所有节点。</p>
+<p><strong>思路：可以添加指向头结节的Head*节点，然后进行删除操作。</strong></p>
+<pre><code>function removeLinkNodes(head, val) {
+  if(!head) return null;
+
+  var prevElement = {
+    this.next = head;
+  }
+
+  var sPointer = prevElement;
+  while(sPointer.next){
+    if(sPointer.next.val === val){
+      sPointer.next = sPointer.next.next;
+    } else{
+      sPointer = sPointer.next;
+    }
+  }
+
+  return prevElement.next;
+};
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck0e10csi003xdmwsfnocsv7n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript中的循环中断" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/10/JavaScript中的循环中断/" class="article-date">
+  <time datetime="2017-11-09T16:00:00.000Z" itemprop="datePublished">2017-11-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/10/JavaScript中的循环中断/">JavaScript中的循环中断</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 循环中断break, continue, return 比较 </strong></p>
+<pre><code>// break continue return
+// break跳出当前循环 continue结束当前条件 return 返回函数值
+console.log(&quot;normal: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    console.log(`${j} `);
+  }
+}
+
+console.log(&quot;break: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    if(j === 4) break;
+    console.log(`${j} `);
+  }
+}
+
+console.log(&quot;continue: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    if(j === 4) continue;
+    console.log(`${j} `);
+  }
+}
+
+console.log(&quot;return: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    if(j === 4){
+      return;
+    }
+    console.log(`${j} `);
+  }
+}
+
+normal:
+0
+3
+4
+5
+1
+3
+4
+5 
+break:
+0
+3
+1
+3
+continue:
+0
+3
+5
+1
+3
+5
+return:
+0
+3
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck0e10cpv000pdmwsiqkc2i2g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-js笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/01/js笔记/" class="article-date">
+  <time datetime="2017-09-01T00:00:00.000Z" itemprop="datePublished">2017-09-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/01/js笔记/">js笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>JS基本数据类型：Number、String 、Boolean 、Null、Undefined</p>
+</li>
+<li><p>null，undefined的区别？</p>
+<ul>
+<li><p>null表示一个对象被定义了，但存放了空指针，转换为数值时为0。</p>
+</li>
+<li><p>undefined表示声明的变量未初始化，转换为数值时为NAN。</p>
+<p>typeof(null) – object;<br>typeof(undefined) – undefined</p>
+</li>
+</ul>
+</li>
+<li><p>同源<br> 要同时满足以下3个条件，才能叫同源：</p>
+<p> 协议相同<br> 端口相同<br> 主机相同</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="ck0e10cq70017dmws1akp742y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CD数量" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/10/CD数量/" class="article-date">
+  <time datetime="2017-05-09T16:00:00.000Z" itemprop="datePublished">2017-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/10/CD数量/">CD数量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 你作为一名出道的歌手终于要出自己的第一份专辑了，你计划收录 n 首歌而且每首歌的长度都是 s 秒，每首歌必须完整地收录于一张 CD 当中。每张 CD 的容量长度都是 L 秒，而且你至少得保证同一张 CD 内相邻两首歌中间至少要隔 1 秒。为了辟邪，你决定任意一张 CD 内的歌数不能被 13 这个数字整除，那么请问你出这张专辑至少需要多少张 CD ？</strong></p>
+<p><strong> 需要考虑剩余为13倍数的情况，每张歌曲数量可以通过计算得来。 </strong></p>
+<pre><code>function getCDCount(n, s, l){
+  //计算每张CD歌曲数量
+  var countPerCD = Math.floor((l + 1) / (s + 1));
+  countPerCD = countPerCD &gt; n?n : countPerCD;
+  if(countPerCD % 13 === 0){
+      countPerCD --;
+  }
+
+  var count = n / countPerCD;
+  count = Math.ceil(count);
+
+  //最后剩余数量为13的倍数且比每张少1，则总CD需要+1
+  var leftCount = n % countPerCD;
+  if(leftCount !== 0 &amp;&amp; leftCount % 13 === 0 &amp;&amp; leftCount === countPerCD - 1){
+      count ++;
+  }
+
+  console.log(count);
+  return count;
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="ck0e10cpr000jdmws0egkeijl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-reduce方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/10/reduce方法/" class="article-date">
+  <time datetime="2017-01-09T16:00:00.000Z" itemprop="datePublished">2017-01-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/10/reduce方法/">reduce方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 数组reduce方法 </strong></p>
+<pre><code>// reduce a,b传入初始值则 b为数组第1个值，否则a为第1个，b为第2个，第二次运行则a为上一次的数据，b为第3个值
+//array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+
+[1,2,3,4,5].reduce(function(a,b){
+  console.log(`${a}:${b}:${a + b}`)
+  return a+b;
+}, 0);
+
+// 0:1:1
+// 1:2:3
+// 3:3:6
+// 6:4:10
+// 10:5:15
+[1,2,3,4,5].reduce(function(a,b){
+  console.log(`${a}:${b}:${a + b}`)
+  return a+b;
+});
+
+// 1:2:3
+// 3:3:6
+// 6:4:10
+// 10:5:15
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="ck0e10cq40012dmwsbefeconf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-那年真的如风" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/05/18/那年真的如风/" class="article-date">
@@ -98,7 +576,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/05/18/那年真的如风/" data-id="ck0bv3fzw004t37wsf9614zhd" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/05/18/那年真的如风/" data-id="ck0e10csx004pdmwst3qzmnn6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +620,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/11/10/工作之感悟/" data-id="ck0bv3fz2002y37ws3tl17f7f" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2015/11/10/工作之感悟/" data-id="ck0e10cs0002rdmwst7u7184s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,325 +668,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/11/13/定寅时歌诀/" data-id="ck0bv3fyz002r37wsfx5aq33u" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-逐年客气歌" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/11/逐年客气歌/" class="article-date">
-  <time datetime="2014-11-11T11:26:10.000Z" itemprop="datePublished">2014-11-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/11/逐年客气歌/">逐年客气歌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>每年退二是客乡，</p>
-<p>上临实数下临方，</p>
-<p>初中六气排轮取，</p>
-<p>主客兴衰定弱强。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/11/11/逐年客气歌/" data-id="ck0bv3fzt004n37wswigu5fu2" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-定太阴出时歌诀" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/定太阴出时歌诀/" class="article-date">
-  <time datetime="2014-10-14T11:37:31.000Z" itemprop="datePublished">2014-10-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/定太阴出时歌诀/">定太阴出时歌诀</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>三辰五巳八午升，</p>
-<p>初十出未十三申，</p>
-<p>十五酉时十八戌，</p>
-<p>二十玄上记其神，</p>
-<p>二十三日子时出，</p>
-<p>二十六日丑时行，</p>
-<p>二十八日寅时立，</p>
-<p>三十加来卯上轮。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/10/14/定太阴出时歌诀/" data-id="ck0bv3fz1002v37wsiy1vrbla" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-逐年主气歌" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/13/逐年主气歌/" class="article-date">
-  <time datetime="2014-10-13T08:14:00.000Z" itemprop="datePublished">2014-10-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/13/逐年主气歌/">逐年主气歌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>初气逐年水主先，</p>
-<p>二君三相火排连，</p>
-<p>四来是土常为主，</p>
-<p>五气金生六水天。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/10/13/逐年主气歌/" data-id="ck0bv3fzq004h37wsr3orrnk3" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-定太阳出没歌诀" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/22/定太阳出没歌诀/" class="article-date">
-  <time datetime="2014-09-22T06:38:44.000Z" itemprop="datePublished">2014-09-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/22/定太阳出没歌诀/">定太阳出没歌诀</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>正九出乙入庚方，</p>
-<p>二八出兔入鸡场，</p>
-<p>三七发甲入辛地，</p>
-<p>四六生寅入戌乡，</p>
-<p>五月生艮居乾上，</p>
-<p>仲冬出巽入坤方，</p>
-<p>唯有十于十二月，</p>
-<p>出辰入申仔细详。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/09/22/定太阳出没歌诀/" data-id="ck0bv3fyz002q37wsh6nz30xs" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-推五运" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/08/13/推五运/" class="article-date">
-  <time datetime="2014-08-13T08:24:39.000Z" itemprop="datePublished">2014-08-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/13/推五运/">推五运</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>十干行天地之运，天地之气有邪有正，相互消长，正气衰则邪气盛，邪气弱则正气强，此阴阳消长的结果。故五行之气，有本初之气、更革之气。本初为正气，更革为邪气。正气有定位，邪气无定位，古人于此深致意也。</p>
-<p>法则：甲己化土一六同宗，乙庚化金二七同道，丙辛化水三八为朋，丁壬化木四九为友，戊癸化火五十同途，此五运化气皆为天地更革之气，不得中正也。阳年五运化气太过，阴年五运化气不及，过于不及都能为殃，是其六甲之岁堆阜之纪，岁土湿气流行，其邪于水羽音为孤。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/13/推五运/" data-id="ck0bv3fz8003b37wsbjf63xem" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-逐月六气歌" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/08/10/逐月六气歌/" class="article-date">
-  <time datetime="2014-08-10T08:01:40.000Z" itemprop="datePublished">2014-08-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/10/逐月六气歌/">逐月六气歌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>厥阴木气大寒初，</p>
-<p>君火春分土上居，</p>
-<p>小满少阳三候主，</p>
-<p>太阴大暑四交之，</p>
-<p>秋分五是阳明位，</p>
-<p>寒水终于小雪时。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/10/逐月六气歌/" data-id="ck0bv3fzv004p37wsvj0ti6eo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-逐年六气歌" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/08/07/逐年六气歌/" class="article-date">
-  <time datetime="2014-08-07T02:17:40.000Z" itemprop="datePublished">2014-08-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/07/逐年六气歌/">逐年六气歌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>子午少阴君火尊，</p>
-<p>丑未湿土太阴临，</p>
-<p>寅申少阳逐相位，</p>
-<p>卯酉阳明值燥金，</p>
-<p>辰戌太阳寒水是，</p>
-<p>巳亥厥阴风木侵。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/07/逐年六气歌/" data-id="ck0bv3fzr004l37wsxwnbz6ka" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/11/13/定寅时歌诀/" data-id="ck0e10cs2002vdmwshst4rq4l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -561,7 +721,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
@@ -582,15 +742,15 @@
           </li>
         
           <li>
+            <a href="/2019/06/10/compose/">compose</a>
+          </li>
+        
+          <li>
             <a href="/2019/06/08/闭包/">闭包</a>
           </li>
         
           <li>
             <a href="/2019/05/05/JavaScript类与继承/">JavaScript类与继承</a>
-          </li>
-        
-          <li>
-            <a href="/2019/02/01/判断素数/">判断素数</a>
           </li>
         
       </ul>
