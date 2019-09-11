@@ -104,9 +104,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -176,30 +176,21 @@ MyClass.prototy
   </entry>
   
   <entry>
-    <title>判断素数</title>
-    <link href="http://hi2048.github.io/2019/02/01/%E5%88%A4%E6%96%AD%E7%B4%A0%E6%95%B0/"/>
-    <id>http://hi2048.github.io/2019/02/01/判断素数/</id>
-    <published>2019-02-01T00:00:00.000Z</published>
-    <updated>2019-09-06T14:16:59.316Z</updated>
+    <title>React16为什么更新</title>
+    <link href="http://hi2048.github.io/2018/12/11/React16%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9B%B4%E6%96%B0/"/>
+    <id>http://hi2048.github.io/2018/12/11/React16为什么更新/</id>
+    <published>2018-12-10T16:00:00.000Z</published>
+    <updated>2019-09-11T09:35:37.523Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>判断素数</p><pre><code>function isPrimeN(n) {  if(n == 0 || n==1){      return false;  }  if(n==2){      return true;  }  for(var i = 2; i &lt;= Math.sqrt(n); i++){      if(n % i == 0){          return false;      }  }  return true;}</code></pre></li><li><p>http和https的区别</p><ul><li>https 需要ca证书</li><li>http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。</li><li>http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</li><li>http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</li></ul></li></ol>]]></content>
+    <content type="html"><![CDATA[<p><strong> React16更新的根本原因是提升用户体验，解决同步更新带来的界面卡顿问题。 </strong></p><ol><li><p>React16之前的版本中，更新过程是同步的，为什么会导致界面卡顿？<br><strong> 大量的同步计算任务阻塞了浏览器的UI渲染 </strong></p><ul><li>JavaScript是单线程的。</li><li>JavaScript运算、页面布局和页面绘制都是运行在浏览器的主线程当中，他们之间是互斥的关系。</li><li>React加载或者更新时，会调用生命周期函数，计算和对比Virtual DOM，更新UI，整个过程是同步的，如果需要更新的组件数量过大或者计算过于复杂，就会出现用户卡顿的体验。</li></ul></li><li><p>React是如何解决上述问题的？</p><p><strong> 引入了异步渲染(Async Rendering)机制 </strong></p><p>采用分片的思路，提出了Fiber的解决方案。</p></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;判断素数&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function isPrimeN(n) {
-  if(n == 0 || n==1){
-      return false;
-  }
-
-  if(n==2){
-      return true;
-  }
-
-  
+        &lt;p&gt;&lt;strong&gt; React16更新的根本原因是提升用户体验，解决同步更新带来的界面卡顿问题。 &lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;React16之前的版本中，更新过程是同步的，为什么会导致界面卡顿？&lt;br&gt;&lt;strong&gt; 大量的同步计算任务阻塞了浏览器的
       
     
     </summary>
@@ -207,7 +198,7 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
     
   </entry>
   
@@ -235,9 +226,36 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+  </entry>
+  
+  <entry>
+    <title>React生命周期</title>
+    <link href="http://hi2048.github.io/2018/12/02/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
+    <id>http://hi2048.github.io/2018/12/02/React生命周期/</id>
+    <published>2018-12-01T16:00:00.000Z</published>
+    <updated>2019-09-11T08:42:28.187Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>React生命周期 - React16前</p><p><strong> React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） </strong></p><ul><li><p>initialization：初始化props和state。<br>constructor</p></li><li><p>mounting：执行一次。<br>componentWillMount, render, componentDidMount</p></li><li><p>update：setState引起的state更新或者父组件重新render引起的props更新。<br>componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate</p></li><li><p>unmount: 执行一次<br>componentWillUnmount</p></li></ul><p><a href="/assets/React-lifecycle-before.png"><img src="/assets/React-lifecycle-before.png" alt="React生命周期"></a></p></li></ol><ol start="2"><li><p>React生命周期</p><ul><li>引入了两个新的生命周期函数<br>getDerivedStateFromProps，getSnapshotBeforeUpdate</li></ul><p><a href="/assets/React-lifecycle.png"><img src="/assets/React-lifecycle.png" alt="React16生命周期"></a></p></li><li><p>为什么会变化</p><p><strong> React16推出Fiber，如果开启async rendering，会导致render函数之前的所有函数，有可能被执行多次。 </strong></p><ul><li>componentWillMount</li><li>componentWillReceiveProps</li><li>componentWillUpdate</li><li>shouldComponentUpdate</li></ul><p>其中shouldComponentUpdate为纯函数，返回Boolean，没有副作用，而其他三个函数，开发者如果在里面执行有副作用的操作，如Ajax等，会产生不可预期的结果。所以其余三个统一被getDerivedStateFromProps替代，并且<strong> 采用静态函数，用禁止来替代以前的建议 </strong>。</p><p>react的component中static属性，里面放函数，官方解释：<br><strong> you can run them before any component instances are created, and the methods do not have access to the props or state of your components. </strong></p><p><strong> 静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state。 </strong></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;React生命周期 - React16前&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） &lt;/strong
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
     
   </entry>
   
@@ -296,6 +314,32 @@ MyClass.prototy
   </entry>
   
   <entry>
+    <title>Fiber</title>
+    <link href="http://hi2048.github.io/2018/06/11/Fiber/"/>
+    <id>http://hi2048.github.io/2018/06/11/Fiber/</id>
+    <published>2018-06-10T16:00:00.000Z</published>
+    <updated>2019-09-11T10:00:46.794Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>什么是Fiber<br><strong> React Fibler 采用分片的思路实现UI的异步渲染。 </strong><br>React Fiber把更新过程碎片化，分成很多小片，当分配给小片的时间用尽时，则将控制权交出，如果有优先级更高的任务，就开始做新的任务，没有就断续原来的更新。</p></li><li><p>Fiber运行原理<br><strong> React Fiber一个更新过程被分为两个阶段(Phase)：第一个阶段Reconciliation Phase和第二阶段Commit Phase。 </strong></p><ul><li><p>Reconciliation Phase， 可以被打断，计算与对比虚拟DOM，找出需要更新的DOM<br>componentWillMount<br>componentWillReceiveProps<br>shouldComponentUpdate<br>componentWillUpdate</p></li><li><p>Commit Phase， 无法打断，更新DOM<br>componentDidMount<br>componentDidUpdate<br>componentWillUnmount</p></li></ul></li></ol><ol start="3"><li><p>React16前的生命周期函数componentWillUpdate等，为什么会多次执行？</p><ul><li>requestIdleCallback</li><li>cancelIdleCallback</li></ul><p><strong> 异步渲染的时候，会调用requestIdleCallback API，在回调函数中可以获得当前callback参数（也就是fiber的分片任务），包括执行时间，如果时间不够，分片任务会被打断（使用cancelIdleCallback API），再次执行则会在空闲时重新执行。 </strong></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;什么是Fiber&lt;br&gt;&lt;strong&gt; React Fibler 采用分片的思路实现UI的异步渲染。 &lt;/strong&gt;&lt;br&gt;React Fiber把更新过程碎片化，分成很多小片，当分配给小片的时间用尽时，则将控制权交出，如果有优先级更高的任务，就开始
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
     <title>同构字符串</title>
     <link href="http://hi2048.github.io/2018/05/09/%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>http://hi2048.github.io/2018/05/09/同构字符串/</id>
@@ -318,9 +362,9 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -348,9 +392,9 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -379,9 +423,9 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -409,9 +453,9 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -494,9 +538,33 @@ cons
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+  </entry>
+  
+  <entry>
+    <title>self-introduction</title>
+    <link href="http://hi2048.github.io/2017/01/21/self-introduction/"/>
+    <id>http://hi2048.github.io/2017/01/21/self-introduction/</id>
+    <published>2017-01-20T16:00:00.000Z</published>
+    <updated>2019-09-11T04:12:27.956Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hi, I am Su Jiefeng. I obtained my master degree in computer science in Northwest Univercity.</p><p>During my performance period at HW company, I utilized my skills to complete web projects and increase the working efficiency of our team with user interface greatly as a front-end engineer.</p><p>The reason why I choosed this position is that I’m really impressed by the things you do and also I want to challenge and improve myself.</p><p>As a self-motivated persion, I’m sure I can be a great asset to your group.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Hi, I am Su Jiefeng. I obtained my master degree in computer science in Northwest Univercity.&lt;/p&gt;
+&lt;p&gt;During my performance period at HW c
+      
+    
+    </summary>
+    
+      <category term="未分类" scheme="http://hi2048.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+    
     
   </entry>
   
@@ -524,88 +592,6 @@ cons
     
     
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>那年真的如风</title>
-    <link href="http://hi2048.github.io/2016/05/18/%E9%82%A3%E5%B9%B4%E7%9C%9F%E7%9A%84%E5%A6%82%E9%A3%8E/"/>
-    <id>http://hi2048.github.io/2016/05/18/那年真的如风/</id>
-    <published>2016-05-18T11:46:27.000Z</published>
-    <updated>2019-08-28T14:39:04.087Z</updated>
-    
-    <content type="html"><![CDATA[<p>太多太多的事情，让我们分心，时间久了，慢慢地不记得了当初年少时的梦。</p><p>两年时间说长不长，说短也不短，经历了好多，却发现最不能忘却的还是曾经的自己，好想时光重回到2年前的那个傍晚，夕阳洒在脸膀。</p><p>这一次我想更加细细的走过。</p><p>&nbsp;</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;太多太多的事情，让我们分心，时间久了，慢慢地不记得了当初年少时的梦。&lt;/p&gt;
-&lt;p&gt;两年时间说长不长，说短也不短，经历了好多，却发现最不能忘却的还是曾经的自己，好想时光重回到2年前的那个傍晚，夕阳洒在脸膀。&lt;/p&gt;
-&lt;p&gt;这一次我想更加细细的走过。&lt;/p&gt;
-&lt;p&gt;&amp;nbsp
-      
-    
-    </summary>
-    
-      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>工作之感悟</title>
-    <link href="http://hi2048.github.io/2015/11/10/%E5%B7%A5%E4%BD%9C%E4%B9%8B%E6%84%9F%E6%82%9F/"/>
-    <id>http://hi2048.github.io/2015/11/10/工作之感悟/</id>
-    <published>2015-11-09T16:00:00.000Z</published>
-    <updated>2019-09-05T13:41:19.043Z</updated>
-    
-    <content type="html"><![CDATA[<p>不知不觉间，已经工作1年多了，从开春的3月，如今却已快入冬，时间就在你不经意间，悄悄划过，不留一丝的痕迹。</p><p>每天都在忙碌，每天都在重复，每天都在感叹时间太少，可是却也不曾做成什么不一样的事情。</p><p>从最初的最简单的JS函数写起，再到应用面向对象，再到后来的模块化编程，了解了函数式编程，再到AngularJS。研究了JS内存泄漏问题，特别喜欢HTML5与CSS3做出来的动画，喜欢Google的material design，做出了各种圆周运动的效果。如今却不知道前途如何，以后应该做些什么，在技术的道路一直走下去，还是去做点不一样的东西。</p><p>再回过头来看，自己确实是成长了不少。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;不知不觉间，已经工作1年多了，从开春的3月，如今却已快入冬，时间就在你不经意间，悄悄划过，不留一丝的痕迹。&lt;/p&gt;
-&lt;p&gt;每天都在忙碌，每天都在重复，每天都在感叹时间太少，可是却也不曾做成什么不一样的事情。&lt;/p&gt;
-&lt;p&gt;从最初的最简单的JS函数写起，再到应用面向对象，再到
-      
-    
-    </summary>
-    
-      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>定寅时歌诀</title>
-    <link href="http://hi2048.github.io/2014/11/13/%E5%AE%9A%E5%AF%85%E6%97%B6%E6%AD%8C%E8%AF%80/"/>
-    <id>http://hi2048.github.io/2014/11/13/定寅时歌诀/</id>
-    <published>2014-11-13T10:57:34.000Z</published>
-    <updated>2016-05-31T16:43:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>正七五更二点徹，</p><p>二八五更四点歇，</p><p>三七平光是寅时，</p><p>四六日出定无别，</p><p>五月日高三太地，</p><p>十月十二四更一，</p><p>仲冬继到四更初，</p><p>此是寅时君须记。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;正七五更二点徹，&lt;/p&gt;
-&lt;p&gt;二八五更四点歇，&lt;/p&gt;
-&lt;p&gt;三七平光是寅时，&lt;/p&gt;
-&lt;p&gt;四六日出定无别，&lt;/p&gt;
-&lt;p&gt;五月日高三太地，&lt;/p&gt;
-&lt;p&gt;十月十二四更一，&lt;/p&gt;
-&lt;p&gt;仲冬继到四更初，&lt;/p&gt;
-&lt;p&gt;此是寅时君须记。&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="周易" scheme="http://hi2048.github.io/categories/%E5%91%A8%E6%98%93/"/>
-    
     
   </entry>
   
