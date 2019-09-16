@@ -64,6 +64,237 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-js笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/09/01/js笔记/" class="article-date">
+  <time datetime="2017-09-01T00:00:00.000Z" itemprop="datePublished">2017-09-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/01/js笔记/">js笔记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>JS基本数据类型：Number、String 、Boolean 、Null、Undefined</p>
+</li>
+<li><p>null，undefined的区别？</p>
+<ul>
+<li><p>null表示一个对象被定义了，但存放了空指针，转换为数值时为0。</p>
+</li>
+<li><p>undefined表示声明的变量未初始化，转换为数值时为NAN。</p>
+<p>typeof(null) – object;<br>typeof(undefined) – undefined</p>
+</li>
+</ul>
+</li>
+<li><p>同源<br> 要同时满足以下3个条件，才能叫同源：</p>
+<p> 协议相同<br> 端口相同<br> 主机相同</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="ck0lumn6c001bvswsp4938lx4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CD数量" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/10/CD数量/" class="article-date">
+  <time datetime="2017-05-09T16:00:00.000Z" itemprop="datePublished">2017-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/10/CD数量/">CD数量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 你作为一名出道的歌手终于要出自己的第一份专辑了，你计划收录 n 首歌而且每首歌的长度都是 s 秒，每首歌必须完整地收录于一张 CD 当中。每张 CD 的容量长度都是 L 秒，而且你至少得保证同一张 CD 内相邻两首歌中间至少要隔 1 秒。为了辟邪，你决定任意一张 CD 内的歌数不能被 13 这个数字整除，那么请问你出这张专辑至少需要多少张 CD ？</strong></p>
+<p><strong> 需要考虑剩余为13倍数的情况，每张歌曲数量可以通过计算得来。 </strong></p>
+<pre><code>function getCDCount(n, s, l){
+  //计算每张CD歌曲数量
+  var countPerCD = Math.floor((l + 1) / (s + 1));
+  countPerCD = countPerCD &gt; n?n : countPerCD;
+  if(countPerCD % 13 === 0){
+      countPerCD --;
+  }
+
+  var count = n / countPerCD;
+  count = Math.ceil(count);
+
+  //最后剩余数量为13的倍数且比每张少1，则总CD需要+1
+  var leftCount = n % countPerCD;
+  if(leftCount !== 0 &amp;&amp; leftCount % 13 === 0 &amp;&amp; leftCount === countPerCD - 1){
+      count ++;
+  }
+
+  console.log(count);
+  return count;
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="ck0lumn5r000kvswsmgb1wf65" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-self-introduction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/21/self-introduction/" class="article-date">
+  <time datetime="2017-01-20T16:00:00.000Z" itemprop="datePublished">2017-01-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/未分类/">未分类</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/21/self-introduction/">self-introduction</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Hi, I am Su Jiefeng. I obtained my master degree in computer science in Northwest Univercity.</p>
+<p>During my performance period at HW company, I utilized my skills to complete web projects and increase the working efficiency of our team with user interface greatly as a front-end engineer.</p>
+<p>The reason why I choosed this position is that I’m really impressed by the things you do and also I want to challenge and improve myself.</p>
+<p>As a self-motivated persion, I’m sure I can be a great asset to your group.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="ck0lumn6e001fvswsmuuxylcq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-reduce方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/10/reduce方法/" class="article-date">
+  <time datetime="2017-01-09T16:00:00.000Z" itemprop="datePublished">2017-01-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/10/reduce方法/">reduce方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 数组reduce方法 </strong></p>
+<pre><code>// reduce a,b传入初始值则 b为数组第1个值，否则a为第1个，b为第2个，第二次运行则a为上一次的数据，b为第3个值
+//array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+
+[1,2,3,4,5].reduce(function(a,b){
+  console.log(`${a}:${b}:${a + b}`)
+  return a+b;
+}, 0);
+
+// 0:1:1
+// 1:2:3
+// 3:3:6
+// 6:4:10
+// 10:5:15
+[1,2,3,4,5].reduce(function(a,b){
+  console.log(`${a}:${b}:${a + b}`)
+  return a+b;
+});
+
+// 1:2:3
+// 3:3:6
+// 6:4:10
+// 10:5:15
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="ck0lumn6d001dvswsf24h59af" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-curry" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/28/curry/" class="article-date">
@@ -104,7 +335,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="ck0f3rc8l001k4hws0l90p2mm" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="ck0lumn6d001cvswsvnhu3oku" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数式/">函数式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -174,7 +405,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/20/纯函数/" data-id="ck0f3rc9s003u4hwslf0f43o4" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/12/20/纯函数/" data-id="ck0lumn91005ivswsu1p42erv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -220,7 +451,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/05/18/那年真的如风/" data-id="ck0f3rc9z00484hwsj69fe3uj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/05/18/那年真的如风/" data-id="ck0lumn9g0067vswstoggyzbd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -264,7 +495,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/11/10/工作之感悟/" data-id="ck0f3rc9f00384hwsayzpw9n1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2015/11/10/工作之感悟/" data-id="ck0lumn8g0046vswso0armia6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -332,7 +563,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/02/01/判断素数/" data-id="ck0f3rc94002l4hwsiyirtspg" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2015/02/01/判断素数/" data-id="ck0lumn810034vsws6cj2a7fk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -382,191 +613,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/11/13/定寅时歌诀/" data-id="ck0f3rc9f00374hwsnfgqzd5x" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-逐年客气歌" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/11/逐年客气歌/" class="article-date">
-  <time datetime="2014-11-11T11:26:10.000Z" itemprop="datePublished">2014-11-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/11/逐年客气歌/">逐年客气歌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>每年退二是客乡，</p>
-<p>上临实数下临方，</p>
-<p>初中六气排轮取，</p>
-<p>主客兴衰定弱强。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/11/11/逐年客气歌/" data-id="ck0f3rc9x00444hwsgoswtbsz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-定太阴出时歌诀" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/14/定太阴出时歌诀/" class="article-date">
-  <time datetime="2014-10-14T11:37:31.000Z" itemprop="datePublished">2014-10-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/14/定太阴出时歌诀/">定太阴出时歌诀</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>三辰五巳八午升，</p>
-<p>初十出未十三申，</p>
-<p>十五酉时十八戌，</p>
-<p>二十玄上记其神，</p>
-<p>二十三日子时出，</p>
-<p>二十六日丑时行，</p>
-<p>二十八日寅时立，</p>
-<p>三十加来卯上轮。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/10/14/定太阴出时歌诀/" data-id="ck0f3rc9e00364hwstko93lfi" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-逐年主气歌" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/13/逐年主气歌/" class="article-date">
-  <time datetime="2014-10-13T08:14:00.000Z" itemprop="datePublished">2014-10-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/13/逐年主气歌/">逐年主气歌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>初气逐年水主先，</p>
-<p>二君三相火排连，</p>
-<p>四来是土常为主，</p>
-<p>五气金生六水天。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/10/13/逐年主气歌/" data-id="ck0f3rc9w00424hws54y27ygy" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-定太阳出没歌诀" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/22/定太阳出没歌诀/" class="article-date">
-  <time datetime="2014-09-22T06:38:44.000Z" itemprop="datePublished">2014-09-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/22/定太阳出没歌诀/">定太阳出没歌诀</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>正九出乙入庚方，</p>
-<p>二八出兔入鸡场，</p>
-<p>三七发甲入辛地，</p>
-<p>四六生寅入戌乡，</p>
-<p>五月生艮居乾上，</p>
-<p>仲冬出巽入坤方，</p>
-<p>唯有十于十二月，</p>
-<p>出辰入申仔细详。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/09/22/定太阳出没歌诀/" data-id="ck0f3rc9e00354hwsyben6yo0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/11/13/定寅时歌诀/" data-id="ck0lumn8e0042vsws6d6liryf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -610,7 +657,7 @@ let increment = add(1);
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 16px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -632,6 +679,14 @@ let increment = add(1);
       <ul>
         
           <li>
+            <a href="/2019/09/16/JavaScript哈希/">JavaScript哈希</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/最大气球/">最大气球</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/02/状态管理/">状态管理</a>
           </li>
         
@@ -641,14 +696,6 @@ let increment = add(1);
         
           <li>
             <a href="/2019/06/10/compose/">compose</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/08/闭包/">闭包</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/05/JavaScript类与继承/">JavaScript类与继承</a>
           </li>
         
       </ul>

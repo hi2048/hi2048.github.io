@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2019-09-05T14:59:46.811Z</updated>
+  <updated>2019-09-16T04:33:10.127Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript哈希</title>
+    <link href="http://hi2048.github.io/2019/09/16/JavaScript%E5%93%88%E5%B8%8C/"/>
+    <id>http://hi2048.github.io/2019/09/16/JavaScript哈希/</id>
+    <published>2019-09-15T16:00:00.000Z</published>
+    <updated>2019-09-16T04:33:10.127Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong> 表结构与JS对象结构转换，将数据结构A转换为数据结构B。 </strong></p><pre><code>// 定义数据结构const nodeAStruct = function(id, pid, data) {  this.id = id;  this.pid = pid;  this.data = data;}const nodeBStruct = function(id, children, data) {  this.id = id;  this.children = children;  this.data = data;}// 打印：深度遍历const print = (tree) =&gt; {  console.log(tree.data);  if(tree.children &amp;&amp; tree.children.length &gt; 0){    const children = tree.children;    children.forEach(child =&gt; {      print(child);    });  }}// 方法一：递归遍历const convert2Tree = (nodes = [], pid) =&gt; {  const result = [];  let temp = [];  nodes.forEach((node) =&gt; {    if(node.pid === pid){      const nodeB = new nodeBStruct(node.id, [], node.data);      temp = convert2Tree(nodes, node.id);      if(temp.length &gt; 0){        nodeB.children = temp;      }      result.push(nodeB);    }  });  return result;}// 方法二：hash处理const convertNodes2Hash = (nodes = []) =&gt; {  const hash = {};  nodes.forEach((node) =&gt; {    const nodeB = new nodeBStruct(node.id, [], node.data);    if(hash[node.pid]){      hash[node.pid].push(nodeB);    } else{      hash[node.pid] = [nodeB];    }  });  return hash;}const convertR = (hash, pid) =&gt; {  hash[pid].forEach(hp =&gt; {    const hc = hash[hp.id];    hp.children = hc?hc : [];    if(hc){      convertR(hash, hp.id);    }  });  return hash;}const convert2TreeByHash = (nodes = []) =&gt; {  const hash = convertNodes2Hash(nodes);  convertR(hash, -1);  return hash[-1];}const nodes = [];nodes.push(new nodeAStruct(0, -1, &apos;data0&apos;))nodes.push(new nodeAStruct(1, 0, &apos;data1&apos;))nodes.push(new nodeAStruct(2, 0, &apos;data2&apos;))nodes.push(new nodeAStruct(3, 1, &apos;data3&apos;))nodes.push(new nodeAStruct(4, 1, &apos;data4&apos;))nodes.push(new nodeAStruct(5, 2, &apos;data5&apos;))nodes.push(new nodeAStruct(6, 2, &apos;data6&apos;))let tree = convert2TreeByHash(nodes);print(tree[0]);console.log(tree[0])console.log(&apos;-----------------------&apos;);tree = convert2Tree(nodes, -1);print(tree[0]);console.log(tree[0])</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt; 表结构与JS对象结构转换，将数据结构A转换为数据结构B。 &lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 定义数据结构
+const nodeAStruct = function(id, pid, data) {
+  this.id = id;
+  
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最大气球</title>
+    <link href="http://hi2048.github.io/2019/09/15/%E6%9C%80%E5%A4%A7%E6%B0%94%E7%90%83/"/>
+    <id>http://hi2048.github.io/2019/09/15/最大气球/</id>
+    <published>2019-09-14T16:00:00.000Z</published>
+    <updated>2019-09-16T03:29:09.212Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>LeetCode - “气球” 的最大数量<br><strong> 给你一个字符串 text，你需要使用 text 中的字母来拼凑尽可能多的单词 “balloon”（气球）。 </strong><br><strong> 字符串 text 中的每个字母最多只能被使用一次。请你返回最多可以拼凑出多少个单词 “balloon”。 </strong></p><pre><code>/** * @param {string} text * @return {number} 输入：text = &quot;nlaebolko&quot; 输出：1 输入：text = &quot;loonbalxballpoon&quot; 输出：2 输入：text = &quot;leetcode&quot; 输出：0 提示：  - 1 &lt;= text.length &lt;= 10^4  - text 全部由小写英文字母组成 */var getAlphaFromText = (text, alpha) =&gt; {  const reg = new RegExp(`${alpha}`, &apos;g&apos;);  if(reg.test(text)){    return text.match(reg).length;  }  return 0;}//balloonvar maxNumberOfBalloons = function(text) {    if(!text || (text &amp;&amp; text.length === 0)) return 0;    const balloonByteChars = [&apos;b&apos;, &apos;a&apos;, &apos;l&apos;, &apos;o&apos;, &apos;n&apos;];    const ret = balloonByteChars.reduce((count, b) =&gt; {      let len = getAlphaFromText(text, b);      if(b === &apos;l&apos; || b === &apos;o&apos;){        len = Math.floor(len / 2);      }      if(count &gt; len){        count = len;      }      return count;    }, text.length);    return ret;};</code></pre></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;LeetCode - “气球” 的最大数量&lt;br&gt;&lt;strong&gt; 给你一个字符串 text，你需要使用 text 中的字母来拼凑尽可能多的单词 “balloon”（气球）。 &lt;/strong&gt;&lt;br&gt;&lt;strong&gt; 字符串 text 中的每个字母最多只
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title>状态管理</title>
@@ -104,9 +163,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -226,9 +285,9 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -248,6 +307,35 @@ MyClass.prototy
         &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;React生命周期 - React16前&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt; React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） &lt;/strong
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React之setState</title>
+    <link href="http://hi2048.github.io/2018/10/11/React%E4%B9%8BsetState/"/>
+    <id>http://hi2048.github.io/2018/10/11/React之setState/</id>
+    <published>2018-10-10T16:00:00.000Z</published>
+    <updated>2019-09-11T12:14:16.446Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>setState是异步还是同步</p><ul><li>合成事件（react自定义的事件，如在组件中的onClick等）和生命周期函数中是“异步”的。这里的异步并非是真正的异步实现，其本身还是属于同步操作，只是采用了批处理机制。</li><li><p>原生事件（DOM中的原生事件，如通过addEventListener添加的等）和 setTimeout 中都是同步的</p><p>   setState(updater[, callback])</p><p>   updater可以是一个函数或者一个对象。<br>   如果是对象，则执行对象跟state的浅合并。<br>   如果传入一个函数，则会把函数的返回对象跟state进行浅合并。这个函数会传入两个参数state和props，返回一个对象<br>   (state, props) =&gt; stateChange</p><p>   第二个参数，state更新完毕之后调用的回调函数。如果有需要在state更新之后的操作，可以放在这里。不过官方更建议在componentDidUpdate里面处理更新之后的操作。</p></li></ul></li><li><p>使用注意事项</p><ul><li>不要直接修改state</li><li>setState不能保证是同步的</li><li>setState造成不必要的渲染</li></ul></li><li><p>setState的优化</p><ul><li>声名变量能用const就不要用let</li><li>减少setState的调用次数，如可以一次set多个值，不要一个一个set。</li><li>多利用shouldComponentUpdate</li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;setState是异步还是同步&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;合成事件（react自定义的事件，如在组件中的onClick等）和生命周期函数中是“异步”的。这里的异步并非是真正的异步实现，其本身还是属于同步操作，只是采用了批处理机制。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;
       
     
     </summary>
@@ -340,6 +428,35 @@ MyClass.prototy
   </entry>
   
   <entry>
+    <title>React组件</title>
+    <link href="http://hi2048.github.io/2018/05/15/React%E7%BB%84%E4%BB%B6/"/>
+    <id>http://hi2048.github.io/2018/05/15/React组件/</id>
+    <published>2018-05-14T16:00:00.000Z</published>
+    <updated>2019-09-16T07:12:02.936Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>无状态组件：采用函数式定义<br><strong> 不含状态管理 </strong></p><ul><li>不包含任何状态，但可以包含属性，同样的props会得到同样的渲染结果，不会有副作用；</li><li>无状态组件生成时不会实例化，整体渲染性能得到提升；</li><li><p>无状态组件没有this，ref和生命周期；</p><p>   function Welcome(props){</p><pre><code>return (&lt;h1&gt;Hello, {props.name}&lt;/h1&gt;);</code></pre><p>   }</p></li></ul></li></ol><ol start="2"><li><p>有状态组件：采用ES6 Component形式定义<br><strong> 实例化的，并且可以访问组件的生命周期方法 </strong></p><pre><code>class Welcome extends React.Component{  constructor(props){    super(props);    this.state = {      iShow: true    }  }  render(){    return (        this.state.iShow?(&lt;h1&gt; Hello, {this.props.name} &lt;/h1&gt;) : null      )  }}</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;无状态组件：采用函数式定义&lt;br&gt;&lt;strong&gt; 不含状态管理 &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;不包含任何状态，但可以包含属性，同样的props会得到同样的渲染结果，不会有副作用；&lt;/li&gt;
+&lt;li&gt;无状态组件生成时不会实例化，整体渲染性能
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
     <title>同构字符串</title>
     <link href="http://hi2048.github.io/2018/05/09/%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     <id>http://hi2048.github.io/2018/05/09/同构字符串/</id>
@@ -362,9 +479,9 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -392,9 +509,9 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -423,9 +540,9 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -453,9 +570,9 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -476,114 +593,6 @@ MyClass.prototy
 &lt;pre&gt;&lt;code&gt;// break continue return
 // break跳出当前循环 continue结束当前条件 return 返回函数值
 cons
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js笔记</title>
-    <link href="http://hi2048.github.io/2017/09/01/js%E7%AC%94%E8%AE%B0/"/>
-    <id>http://hi2048.github.io/2017/09/01/js笔记/</id>
-    <published>2017-09-01T00:00:00.000Z</published>
-    <updated>2019-09-05T15:00:49.612Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>JS基本数据类型：Number、String 、Boolean 、Null、Undefined</p></li><li><p>null，undefined的区别？</p><ul><li><p>null表示一个对象被定义了，但存放了空指针，转换为数值时为0。</p></li><li><p>undefined表示声明的变量未初始化，转换为数值时为NAN。</p><p>typeof(null) – object;<br>typeof(undefined) – undefined</p></li></ul></li><li><p>同源<br> 要同时满足以下3个条件，才能叫同源：</p><p> 协议相同<br> 端口相同<br> 主机相同</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;JS基本数据类型：Number、String 、Boolean 、Null、Undefined&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;null，undefined的区别？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;null表示一个对象被定义了，但存放了空指针，转换为数值
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CD数量</title>
-    <link href="http://hi2048.github.io/2017/05/10/CD%E6%95%B0%E9%87%8F/"/>
-    <id>http://hi2048.github.io/2017/05/10/CD数量/</id>
-    <published>2017-05-09T16:00:00.000Z</published>
-    <updated>2019-09-10T15:35:24.506Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong> 你作为一名出道的歌手终于要出自己的第一份专辑了，你计划收录 n 首歌而且每首歌的长度都是 s 秒，每首歌必须完整地收录于一张 CD 当中。每张 CD 的容量长度都是 L 秒，而且你至少得保证同一张 CD 内相邻两首歌中间至少要隔 1 秒。为了辟邪，你决定任意一张 CD 内的歌数不能被 13 这个数字整除，那么请问你出这张专辑至少需要多少张 CD ？</strong></p><p><strong> 需要考虑剩余为13倍数的情况，每张歌曲数量可以通过计算得来。 </strong></p><pre><code>function getCDCount(n, s, l){  //计算每张CD歌曲数量  var countPerCD = Math.floor((l + 1) / (s + 1));  countPerCD = countPerCD &gt; n?n : countPerCD;  if(countPerCD % 13 === 0){      countPerCD --;  }  var count = n / countPerCD;  count = Math.ceil(count);  //最后剩余数量为13的倍数且比每张少1，则总CD需要+1  var leftCount = n % countPerCD;  if(leftCount !== 0 &amp;&amp; leftCount % 13 === 0 &amp;&amp; leftCount === countPerCD - 1){      count ++;  }  console.log(count);  return count;}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt; 你作为一名出道的歌手终于要出自己的第一份专辑了，你计划收录 n 首歌而且每首歌的长度都是 s 秒，每首歌必须完整地收录于一张 CD 当中。每张 CD 的容量长度都是 L 秒，而且你至少得保证同一张 CD 内相邻两首歌中间至少要隔 1 秒。为了辟邪，你决定任
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>self-introduction</title>
-    <link href="http://hi2048.github.io/2017/01/21/self-introduction/"/>
-    <id>http://hi2048.github.io/2017/01/21/self-introduction/</id>
-    <published>2017-01-20T16:00:00.000Z</published>
-    <updated>2019-09-11T04:12:27.956Z</updated>
-    
-    <content type="html"><![CDATA[<p>Hi, I am Su Jiefeng. I obtained my master degree in computer science in Northwest Univercity.</p><p>During my performance period at HW company, I utilized my skills to complete web projects and increase the working efficiency of our team with user interface greatly as a front-end engineer.</p><p>The reason why I choosed this position is that I’m really impressed by the things you do and also I want to challenge and improve myself.</p><p>As a self-motivated persion, I’m sure I can be a great asset to your group.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Hi, I am Su Jiefeng. I obtained my master degree in computer science in Northwest Univercity.&lt;/p&gt;
-&lt;p&gt;During my performance period at HW c
-      
-    
-    </summary>
-    
-      <category term="未分类" scheme="http://hi2048.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>reduce方法</title>
-    <link href="http://hi2048.github.io/2017/01/10/reduce%E6%96%B9%E6%B3%95/"/>
-    <id>http://hi2048.github.io/2017/01/10/reduce方法/</id>
-    <published>2017-01-09T16:00:00.000Z</published>
-    <updated>2019-09-10T15:41:06.816Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong> 数组reduce方法 </strong></p><pre><code>// reduce a,b传入初始值则 b为数组第1个值，否则a为第1个，b为第2个，第二次运行则a为上一次的数据，b为第3个值//array.reduce(function(total, currentValue, currentIndex, arr), initialValue)[1,2,3,4,5].reduce(function(a,b){  console.log(`${a}:${b}:${a + b}`)  return a+b;}, 0);// 0:1:1// 1:2:3// 3:3:6// 6:4:10// 10:5:15[1,2,3,4,5].reduce(function(a,b){  console.log(`${a}:${b}:${a + b}`)  return a+b;});// 1:2:3// 3:3:6// 6:4:10// 10:5:15</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt; 数组reduce方法 &lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// reduce a,b传入初始值则 b为数组第1个值，否则a为第1个，b为第2个，第二次运行则a为上一次的数据，b为第3个值
-//array.reduce(function(tot
       
     
     </summary>

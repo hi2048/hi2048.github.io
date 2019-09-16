@@ -64,6 +64,176 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-React之setState" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/11/React之setState/" class="article-date">
+  <time datetime="2018-10-10T16:00:00.000Z" itemprop="datePublished">2018-10-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/11/React之setState/">React之setState</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>setState是异步还是同步</p>
+<ul>
+<li>合成事件（react自定义的事件，如在组件中的onClick等）和生命周期函数中是“异步”的。这里的异步并非是真正的异步实现，其本身还是属于同步操作，只是采用了批处理机制。</li>
+<li><p>原生事件（DOM中的原生事件，如通过addEventListener添加的等）和 setTimeout 中都是同步的</p>
+<p>   setState(updater[, callback])</p>
+<p>   updater可以是一个函数或者一个对象。<br>   如果是对象，则执行对象跟state的浅合并。<br>   如果传入一个函数，则会把函数的返回对象跟state进行浅合并。这个函数会传入两个参数state和props，返回一个对象<br>   (state, props) =&gt; stateChange</p>
+<p>   第二个参数，state更新完毕之后调用的回调函数。如果有需要在state更新之后的操作，可以放在这里。不过官方更建议在componentDidUpdate里面处理更新之后的操作。</p>
+</li>
+</ul>
+</li>
+<li><p>使用注意事项</p>
+<ul>
+<li>不要直接修改state</li>
+<li>setState不能保证是同步的</li>
+<li>setState造成不必要的渲染</li>
+</ul>
+</li>
+<li><p>setState的优化</p>
+<ul>
+<li>声名变量能用const就不要用let</li>
+<li>减少setState的调用次数，如可以一次set多个值，不要一个一个set。</li>
+<li>多利用shouldComponentUpdate</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck0lumn630012vswsvz5u9a6c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-秋" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/05/秋/" class="article-date">
+  <time datetime="2018-10-04T16:00:00.000Z" itemprop="datePublished">2018-10-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/未分类/">未分类</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/05/秋/">秋</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>秋风送爽，炎暑渐消，此时宜甘味以益气，进补应坚持“燥者濡之”，“上燥清气，中燥增液，下燥养血。”同时应早睡早起，早餐宜营养丰富，以预防抑郁症，保持乐观轻松心情。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck0lumn8x0058vswsdhtouhy5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Swagger" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/12/Swagger/" class="article-date">
+  <time datetime="2018-09-11T16:00:00.000Z" itemprop="datePublished">2018-09-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/12/Swagger/">Swagger</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>Swagger解决了什么问题？<br><strong> 接口文档的一致性与可维护性 </strong></p>
+</li>
+<li><p>Swagger是什么？</p>
+<ul>
+<li>通过自己定义的描述文件（yml或json格式），更新接口文档，以及生成各端代码.</li>
+</ul>
+</li>
+<li><p>Swagger可以做什么？</p>
+<ul>
+<li>可以做到生成各种格式的接口文档，生成多种语言的客户端和服务端的代码，以及在线接口调试页面等等。</li>
+</ul>
+</li>
+<li><p>Springfox-swagger</p>
+<ul>
+<li>通过扫描代码去生成这个描述文件</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck0lumn6a0016vswsf1ke38ty" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Fiber" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/11/Fiber/" class="article-date">
@@ -115,7 +285,81 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck0f3rc82000p4hwsyj3lbhlk" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck0lumn5s000lvsws2m41yfhx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React组件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/15/React组件/" class="article-date">
+  <time datetime="2018-05-14T16:00:00.000Z" itemprop="datePublished">2018-05-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/15/React组件/">React组件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>无状态组件：采用函数式定义<br><strong> 不含状态管理 </strong></p>
+<ul>
+<li>不包含任何状态，但可以包含属性，同样的props会得到同样的渲染结果，不会有副作用；</li>
+<li>无状态组件生成时不会实例化，整体渲染性能得到提升；</li>
+<li><p>无状态组件没有this，ref和生命周期；</p>
+<p>   function Welcome(props){</p>
+<pre><code>return (&lt;h1&gt;Hello, {props.name}&lt;/h1&gt;);
+</code></pre><p>   }</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>有状态组件：采用ES6 Component形式定义<br><strong> 实例化的，并且可以访问组件的生命周期方法 </strong></p>
+<pre><code>class Welcome extends React.Component{
+  constructor(props){
+    super(props);
+
+    this.state = {
+      iShow: true
+    }
+  }
+
+  render(){
+    return (
+        this.state.iShow?(&lt;h1&gt; Hello, {this.props.name} &lt;/h1&gt;) : null
+      )
+  }
+}
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck0lumn650015vswsjolg4h9x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -180,7 +424,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck0f3rc9a002y4hwsqdcwqf8m" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck0lumn89003ovsws2mgnpwqk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -233,7 +477,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck0f3rc8p001r4hwsxhmzkfx2" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck0lumn6f001gvsws6mlr0htp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -300,7 +544,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck0f3rc8m001l4hws7lgu68d5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck0lumn6b0017vswsl5mwhlsp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -365,7 +609,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck0f3rc9r003s4hwsddnznh9p" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck0lumn8v0054vsws56wegha1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -471,238 +715,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck0f3rc8c00104hws8r4pdh9j" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-js笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/01/js笔记/" class="article-date">
-  <time datetime="2017-09-01T00:00:00.000Z" itemprop="datePublished">2017-09-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/01/js笔记/">js笔记</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>JS基本数据类型：Number、String 、Boolean 、Null、Undefined</p>
-</li>
-<li><p>null，undefined的区别？</p>
-<ul>
-<li><p>null表示一个对象被定义了，但存放了空指针，转换为数值时为0。</p>
-</li>
-<li><p>undefined表示声明的变量未初始化，转换为数值时为NAN。</p>
-<p>typeof(null) – object;<br>typeof(undefined) – undefined</p>
-</li>
-</ul>
-</li>
-<li><p>同源<br> 要同时满足以下3个条件，才能叫同源：</p>
-<p> 协议相同<br> 端口相同<br> 主机相同</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="ck0f3rc8o001p4hws3i64rd21" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CD数量" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/10/CD数量/" class="article-date">
-  <time datetime="2017-05-09T16:00:00.000Z" itemprop="datePublished">2017-05-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/CD数量/">CD数量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 你作为一名出道的歌手终于要出自己的第一份专辑了，你计划收录 n 首歌而且每首歌的长度都是 s 秒，每首歌必须完整地收录于一张 CD 当中。每张 CD 的容量长度都是 L 秒，而且你至少得保证同一张 CD 内相邻两首歌中间至少要隔 1 秒。为了辟邪，你决定任意一张 CD 内的歌数不能被 13 这个数字整除，那么请问你出这张专辑至少需要多少张 CD ？</strong></p>
-<p><strong> 需要考虑剩余为13倍数的情况，每张歌曲数量可以通过计算得来。 </strong></p>
-<pre><code>function getCDCount(n, s, l){
-  //计算每张CD歌曲数量
-  var countPerCD = Math.floor((l + 1) / (s + 1));
-  countPerCD = countPerCD &gt; n?n : countPerCD;
-  if(countPerCD % 13 === 0){
-      countPerCD --;
-  }
-
-  var count = n / countPerCD;
-  count = Math.ceil(count);
-
-  //最后剩余数量为13的倍数且比每张少1，则总CD需要+1
-  var leftCount = n % countPerCD;
-  if(leftCount !== 0 &amp;&amp; leftCount % 13 === 0 &amp;&amp; leftCount === countPerCD - 1){
-      count ++;
-  }
-
-  console.log(count);
-  return count;
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="ck0f3rc80000l4hwse3nmlhrs" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-self-introduction" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/21/self-introduction/" class="article-date">
-  <time datetime="2017-01-20T16:00:00.000Z" itemprop="datePublished">2017-01-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/未分类/">未分类</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/21/self-introduction/">self-introduction</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Hi, I am Su Jiefeng. I obtained my master degree in computer science in Northwest Univercity.</p>
-<p>During my performance period at HW company, I utilized my skills to complete web projects and increase the working efficiency of our team with user interface greatly as a front-end engineer.</p>
-<p>The reason why I choosed this position is that I’m really impressed by the things you do and also I want to challenge and improve myself.</p>
-<p>As a self-motivated persion, I’m sure I can be a great asset to your group.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="ck0f3rc8n001n4hws6dyg4fje" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-reduce方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/10/reduce方法/" class="article-date">
-  <time datetime="2017-01-09T16:00:00.000Z" itemprop="datePublished">2017-01-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/10/reduce方法/">reduce方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 数组reduce方法 </strong></p>
-<pre><code>// reduce a,b传入初始值则 b为数组第1个值，否则a为第1个，b为第2个，第二次运行则a为上一次的数据，b为第3个值
-//array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
-
-[1,2,3,4,5].reduce(function(a,b){
-  console.log(`${a}:${b}:${a + b}`)
-  return a+b;
-}, 0);
-
-// 0:1:1
-// 1:2:3
-// 3:3:6
-// 6:4:10
-// 10:5:15
-[1,2,3,4,5].reduce(function(a,b){
-  console.log(`${a}:${b}:${a + b}`)
-  return a+b;
-});
-
-// 1:2:3
-// 3:3:6
-// 6:4:10
-// 10:5:15
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="ck0f3rc8o001q4hwsnkonbscb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck0lumn5x000svswsicrwce89" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -748,7 +761,7 @@ return:
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 16px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -770,6 +783,14 @@ return:
       <ul>
         
           <li>
+            <a href="/2019/09/16/JavaScript哈希/">JavaScript哈希</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/最大气球/">最大气球</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/02/状态管理/">状态管理</a>
           </li>
         
@@ -779,14 +800,6 @@ return:
         
           <li>
             <a href="/2019/06/10/compose/">compose</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/08/闭包/">闭包</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/05/JavaScript类与继承/">JavaScript类与继承</a>
           </li>
         
       </ul>

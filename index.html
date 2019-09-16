@@ -64,6 +64,247 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript哈希" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/16/JavaScript哈希/" class="article-date">
+  <time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished">2019-09-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/16/JavaScript哈希/">JavaScript哈希</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 表结构与JS对象结构转换，将数据结构A转换为数据结构B。 </strong></p>
+<pre><code>// 定义数据结构
+const nodeAStruct = function(id, pid, data) {
+  this.id = id;
+  this.pid = pid;
+  this.data = data;
+}
+
+const nodeBStruct = function(id, children, data) {
+  this.id = id;
+  this.children = children;
+  this.data = data;
+}
+
+// 打印：深度遍历
+const print = (tree) =&gt; {
+  console.log(tree.data);
+
+  if(tree.children &amp;&amp; tree.children.length &gt; 0){
+    const children = tree.children;
+
+    children.forEach(child =&gt; {
+      print(child);
+    });
+  }
+}
+
+// 方法一：递归遍历
+const convert2Tree = (nodes = [], pid) =&gt; {
+  const result = [];
+  let temp = [];
+
+  nodes.forEach((node) =&gt; {
+    if(node.pid === pid){
+      const nodeB = new nodeBStruct(node.id, [], node.data);
+
+      temp = convert2Tree(nodes, node.id);
+      if(temp.length &gt; 0){
+        nodeB.children = temp;
+      }
+
+      result.push(nodeB);
+    }
+  });
+
+  return result;
+}
+
+// 方法二：hash处理
+const convertNodes2Hash = (nodes = []) =&gt; {
+  const hash = {};
+  nodes.forEach((node) =&gt; {
+    const nodeB = new nodeBStruct(node.id, [], node.data);
+
+    if(hash[node.pid]){
+      hash[node.pid].push(nodeB);
+    } else{
+      hash[node.pid] = [nodeB];
+    }
+  });
+
+  return hash;
+}
+
+const convertR = (hash, pid) =&gt; {
+  hash[pid].forEach(hp =&gt; {
+    const hc = hash[hp.id];
+    hp.children = hc?hc : [];
+
+    if(hc){
+      convertR(hash, hp.id);
+    }
+  });
+
+  return hash;
+}
+
+const convert2TreeByHash = (nodes = []) =&gt; {
+  const hash = convertNodes2Hash(nodes);
+
+  convertR(hash, -1);
+
+  return hash[-1];
+}
+
+const nodes = [];
+nodes.push(new nodeAStruct(0, -1, &apos;data0&apos;))
+nodes.push(new nodeAStruct(1, 0, &apos;data1&apos;))
+nodes.push(new nodeAStruct(2, 0, &apos;data2&apos;))
+nodes.push(new nodeAStruct(3, 1, &apos;data3&apos;))
+nodes.push(new nodeAStruct(4, 1, &apos;data4&apos;))
+nodes.push(new nodeAStruct(5, 2, &apos;data5&apos;))
+nodes.push(new nodeAStruct(6, 2, &apos;data6&apos;))
+
+let tree = convert2TreeByHash(nodes);
+print(tree[0]);
+console.log(tree[0])
+
+console.log(&apos;-----------------------&apos;);
+
+tree = convert2Tree(nodes, -1);
+print(tree[0]);
+console.log(tree[0])
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ck0lumn61000yvswsorffiaz1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-最大气球" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/15/最大气球/" class="article-date">
+  <time datetime="2019-09-14T16:00:00.000Z" itemprop="datePublished">2019-09-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/15/最大气球/">最大气球</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>LeetCode - “气球” 的最大数量<br><strong> 给你一个字符串 text，你需要使用 text 中的字母来拼凑尽可能多的单词 “balloon”（气球）。 </strong><br><strong> 字符串 text 中的每个字母最多只能被使用一次。请你返回最多可以拼凑出多少个单词 “balloon”。 </strong></p>
+<pre><code>/**
+ * @param {string} text
+ * @return {number}
+
+ 输入：text = &quot;nlaebolko&quot;
+ 输出：1
+
+ 输入：text = &quot;loonbalxballpoon&quot;
+ 输出：2
+
+ 输入：text = &quot;leetcode&quot;
+ 输出：0
+
+ 提示：
+
+  - 1 &lt;= text.length &lt;= 10^4
+  - text 全部由小写英文字母组成
+ */
+var getAlphaFromText = (text, alpha) =&gt; {
+  const reg = new RegExp(`${alpha}`, &apos;g&apos;);
+
+  if(reg.test(text)){
+    return text.match(reg).length;
+  }
+
+  return 0;
+}
+
+//balloon
+var maxNumberOfBalloons = function(text) {
+    if(!text || (text &amp;&amp; text.length === 0)) return 0;
+
+    const balloonByteChars = [&apos;b&apos;, &apos;a&apos;, &apos;l&apos;, &apos;o&apos;, &apos;n&apos;];
+
+    const ret = balloonByteChars.reduce((count, b) =&gt; {
+      let len = getAlphaFromText(text, b);
+
+      if(b === &apos;l&apos; || b === &apos;o&apos;){
+        len = Math.floor(len / 2);
+      }
+
+      if(count &gt; len){
+        count = len;
+      }
+
+      return count;
+    }, text.length);
+
+    return ret;
+};
+</code></pre></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ck0lumn8o004ovsws19cav54l" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-状态管理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/02/状态管理/" class="article-date">
@@ -116,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ck0f3rc9o003p4hws7i73ubkh" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ck0lumn8t0050vswsgmj44b8m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuex/">vuex</a></li></ul>
@@ -175,7 +416,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ck0f3rc8k001g4hws7bujendc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ck0lumn6c0019vswsby2yifvt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -243,7 +484,7 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ck0f3rc8l001j4hwspigyxa38" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ck0lumn6c001avswsumbffnnv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -312,7 +553,7 @@ var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/08/闭包/" data-id="ck0f3rca0004a4hwsbzn5dqic" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/06/08/闭包/" data-id="ck0lumn9h0069vswsmc9ghw87" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -392,7 +633,7 @@ SubClass.prototype = new SuperClass();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/05/05/JavaScript类与继承/" data-id="ck0f3rc8f00184hws3nxxozx3" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/05/05/JavaScript类与继承/" data-id="ck0lumn630011vswstq2nhq3p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -448,7 +689,7 @@ SubClass.prototype = new SuperClass();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck0f3rc8i001d4hws0mq1ua01" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck0lumn640013vswsgprxj9pl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -520,7 +761,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck0f3rc9h003c4hwslyutmxxf" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck0lumn8k004gvswsqntbpa4h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -598,112 +839,10 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck0f3rc8j001e4hwsg1jpv63i" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck0lumn640014vsws7zxazgdy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-秋" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/05/秋/" class="article-date">
-  <time datetime="2018-10-04T16:00:00.000Z" itemprop="datePublished">2018-10-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/未分类/">未分类</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/05/秋/">秋</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>秋风送爽，炎暑渐消，此时宜甘味以益气，进补应坚持“燥者濡之”，“上燥清气，中燥增液，下燥养血。”同时应早睡早起，早餐宜营养丰富，以预防抑郁症，保持乐观轻松心情。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck0f3rc9o003o4hwsg9upixb1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Swagger" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/12/Swagger/" class="article-date">
-  <time datetime="2018-09-11T16:00:00.000Z" itemprop="datePublished">2018-09-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/12/Swagger/">Swagger</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>Swagger解决了什么问题？<br><strong> 接口文档的一致性与可维护性 </strong></p>
-</li>
-<li><p>Swagger是什么？</p>
-<ul>
-<li>通过自己定义的描述文件（yml或json格式），更新接口文档，以及生成各端代码.</li>
-</ul>
-</li>
-<li><p>Swagger可以做什么？</p>
-<ul>
-<li>可以做到生成各种格式的接口文档，生成多种语言的客户端和服务端的代码，以及在线接口调试页面等等。</li>
-</ul>
-</li>
-<li><p>Springfox-swagger</p>
-<ul>
-<li>通过扫描代码去生成这个描述文件</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck0f3rc8m001m4hws9dopnokd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
 
     </footer>
   </div>
@@ -746,7 +885,7 @@ var isHappy = function(n) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 16px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 14px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -768,6 +907,14 @@ var isHappy = function(n) {
       <ul>
         
           <li>
+            <a href="/2019/09/16/JavaScript哈希/">JavaScript哈希</a>
+          </li>
+        
+          <li>
+            <a href="/2019/09/15/最大气球/">最大气球</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/02/状态管理/">状态管理</a>
           </li>
         
@@ -777,14 +924,6 @@ var isHappy = function(n) {
         
           <li>
             <a href="/2019/06/10/compose/">compose</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/08/闭包/">闭包</a>
-          </li>
-        
-          <li>
-            <a href="/2019/05/05/JavaScript类与继承/">JavaScript类与继承</a>
           </li>
         
       </ul>
