@@ -197,7 +197,7 @@ console.log(tree[0])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ck0m2ycej000y1aws9j5bh5ju" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ck0pdemjb000vfnwsvoypkdd9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -293,7 +293,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ck0m2ycfr00391awsy967a1pc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ck0pdemkk003efnwsvpc6ngk8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -357,7 +357,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ck0m2ycfu003e1aws56u00jqt" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ck0pdemkn003kfnwsoqdtw352" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuex/">vuex</a></li></ul>
@@ -416,7 +416,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ck0m2ycet00191aws7awvkcf4" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ck0pdemjj001bfnwslv0wgdly" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -484,7 +484,7 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ck0m2yceu001b1awsl7su1nc7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ck0pdemjo001efnws48z7jsf4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -496,10 +496,10 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
 
 
   
-    <article id="post-闭包" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-数组去重" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/06/08/闭包/" class="article-date">
-  <time datetime="2019-06-07T16:00:00.000Z" itemprop="datePublished">2019-06-08</time>
+    <a href="/2019/02/18/数组去重/" class="article-date">
+  <time datetime="2019-02-17T16:00:00.000Z" itemprop="datePublished">2019-02-18</time>
 </a>
     
   <div class="article-category">
@@ -514,7 +514,7 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/08/闭包/">闭包</a>
+      <a class="article-title" href="/2019/02/18/数组去重/">数组去重</a>
     </h1>
   
 
@@ -523,40 +523,36 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li><p>闭包概念</p>
-<ul>
-<li>能够读取其他函数内部变量的函数。</li>
-<li><p>或简单理解为定义在一个函数内部的函数，内部函数持有外部函数内变量的引用。</p>
-<pre><code>function outFunc(){
-  var outAttr = &quot;outAttr&quot;;
+<li><p>使用Array的filter方法</p>
+<pre><code>const distinctFilter = (arr) =&gt; (arr.filter((item, index) =&gt; (arr.indexOf(item) === index)))
+</code></pre></li>
+<li><p>使用ES6的Set</p>
+<pre><code>const distinctSet = (arr) =&gt; (Array.from(new Set(arr)));
+</code></pre></li>
+<li><p>使用Hash方法</p>
+<pre><code>const distinctHash = (arr) =&gt; {
+  const hash = {};
+  let disArr = [];
 
-  function innerFunc(){
-    console.log(outAttr);
+  for(let i of arr){
+    if(!hash[i]){
+      disArr.push(i);
+      hash[i] = [i];
+    }
   }
 
-  return innerFunc;
+  return disArr;
 }
-
-var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
 </code></pre></li>
-</ul>
-</li>
-<li><p>为什么有闭包</p>
-<ul>
-<li>避免污染全局变量</li>
-<li>利于代码的封装</li>
-<li>使用时注意内在泄露</li>
-</ul>
-</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/08/闭包/" data-id="ck0m2ycg3003z1awsn3gt4dtj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck0pdemkg0037fnwsd6axlt2v" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -565,10 +561,10 @@ var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
 
 
   
-    <article id="post-JavaScript类与继承" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-LRU算法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/05/05/JavaScript类与继承/" class="article-date">
-  <time datetime="2019-05-04T16:00:00.000Z" itemprop="datePublished">2019-05-05</time>
+    <a href="/2019/02/10/LRU算法/" class="article-date">
+  <time datetime="2019-02-09T16:00:00.000Z" itemprop="datePublished">2019-02-10</time>
 </a>
     
   <div class="article-category">
@@ -583,7 +579,7 @@ var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/05/JavaScript类与继承/">JavaScript类与继承</a>
+      <a class="article-title" href="/2019/02/10/LRU算法/">LRU算法</a>
     </h1>
   
 
@@ -591,52 +587,82 @@ var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>定义类</p>
-<pre><code>//定义属性
-function MyClass(attr1, attr2) {
-  this.attr1 = attr1;
-  this.attr2 = attr2;
+        <p><strong> LRU (least recently used) 缓存机制：实现get, put方法。 </strong></p>
+<pre><code>/**
+ * 元素置顶
+ */
+const popItemFromArray = (arr, key) =&gt;{
+  arr.splice(arr.indexOf(key), 1);
+  arr.push(key);
+
+  return arr;
 }
 
-//定义方法
-MyClass.prototype = {
-  constructor : MyClass,
-  myFunc : function() {
-      console.log(this.attr1);
-  }
+/**
+ * 实现思路：ES6 Map [+ 有序数组（或者双向链表）]
+ *
+*/
+var LRUCache = function(capacity) {
+    this.cache = new Map();
+    this.lruArr = new Array();
+    this.curLen = 0;
+    this.capacity = capacity;
 };
-</code></pre></li>
-<li><p>继承类</p>
-<pre><code>//定义父类
-function SuperClass(attr) {
-    this.attr = attr;
-}
 
-SuperClass.prototype = {
-    superFunc : function() {
-        console.log(this.attr);
+LRUCache.prototype.get = function(key) {
+    if(this.cache.has(key)){
+      const value = this.cache.get(key);
+      popItemFromArray(this.lruArr, key);
+
+      return value;
     }
+
+    return -1;
 };
 
-//继承父类
-function SubClass(attr, subAttr) {
-    //继承属性
-    SuperClass.call(this, attr);
-    this.subAttr = subAttr;
-}
-//继承方法
-SubClass.prototype = new SuperClass();
-</code></pre></li>
-</ol>
+LRUCache.prototype.lruDel = function(){
+  const minKey = this.lruArr.shift();
+  const isucc = this.cache.delete(minKey);
 
+  if(isucc){
+    this.curLen--;
+  }
+
+  return isucc;
+}
+
+// iorder : false descend true ascend
+LRUCache.prototype.sort = function(iorder) {
+  return this.lruArr.sort((c1, c2) =&gt; {
+    return c1 - c2;
+  });
+}
+
+LRUCache.prototype.put = function(key, value) {
+    if(this.cache.has(key)){
+      // pop key from lru array
+      popItemFromArray(this.lruArr, key);
+
+      return this.cache.set(key, value);
+    }
+
+    if(this.curLen === this.capacity){
+      this.lruDel();
+    }
+
+    this.curLen++;
+    this.lruArr.push(key);
+
+    return this.cache.set(key, value);
+};
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/05/05/JavaScript类与继承/" data-id="ck0m2ycej000z1awshraeczo7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck0pdemjd000zfnws1o7q8fg4" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -689,7 +715,7 @@ SubClass.prototype = new SuperClass();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck0m2ycel00131awsdt6wdjfb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck0pdemjf0014fnws7x1ongm1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -761,7 +787,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck0m2ycfn00311awsngnu2y02" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck0pdemkg0036fnwsn0wp1s3v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -839,7 +865,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck0m2ycem00151awsi5ndjgev" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck0pdemji0018fnwsmmq7txa5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -854,7 +880,7 @@ var isHappy = function(n) {
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -885,7 +911,7 @@ var isHappy = function(n) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12.5px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -894,7 +920,7 @@ var isHappy = function(n) {
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 

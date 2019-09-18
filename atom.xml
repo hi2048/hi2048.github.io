@@ -170,65 +170,60 @@ const nodeAStruct = function(id, pid, data) {
   </entry>
   
   <entry>
-    <title>闭包</title>
-    <link href="http://hi2048.github.io/2019/06/08/%E9%97%AD%E5%8C%85/"/>
-    <id>http://hi2048.github.io/2019/06/08/闭包/</id>
-    <published>2019-06-07T16:00:00.000Z</published>
-    <updated>2019-09-05T15:00:17.012Z</updated>
+    <title>数组去重</title>
+    <link href="http://hi2048.github.io/2019/02/18/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/"/>
+    <id>http://hi2048.github.io/2019/02/18/数组去重/</id>
+    <published>2019-02-17T16:00:00.000Z</published>
+    <updated>2019-09-18T14:31:10.318Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>闭包概念</p><ul><li>能够读取其他函数内部变量的函数。</li><li><p>或简单理解为定义在一个函数内部的函数，内部函数持有外部函数内变量的引用。</p><pre><code>function outFunc(){  var outAttr = &quot;outAttr&quot;;  function innerFunc(){    console.log(outAttr);  }  return innerFunc;}var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包</code></pre></li></ul></li><li><p>为什么有闭包</p><ul><li>避免污染全局变量</li><li>利于代码的封装</li><li>使用时注意内在泄露</li></ul></li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>使用Array的filter方法</p><pre><code>const distinctFilter = (arr) =&gt; (arr.filter((item, index) =&gt; (arr.indexOf(item) === index)))</code></pre></li><li><p>使用ES6的Set</p><pre><code>const distinctSet = (arr) =&gt; (Array.from(new Set(arr)));</code></pre></li><li><p>使用Hash方法</p><pre><code>const distinctHash = (arr) =&gt; {  const hash = {};  let disArr = [];  for(let i of arr){    if(!hash[i]){      disArr.push(i);      hash[i] = [i];    }  }  return disArr;}</code></pre></li></ol>]]></content>
     
     <summary type="html">
     
       
       
         &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;闭包概念&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;能够读取其他函数内部变量的函数。&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;或简单理解为定义在一个函数内部的函数，内部函数持有外部函数内变量的引用。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function outFunc(){
-  var out
+&lt;li&gt;&lt;p&gt;使用Array的filter方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const distinctFilter = (arr) =&amp;gt; (arr.filter((item, index) =&amp;gt; (arr.indexOf(item) === index)
       
     
     </summary>
     
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
-    <title>JavaScript类与继承</title>
-    <link href="http://hi2048.github.io/2019/05/05/JavaScript%E7%B1%BB%E4%B8%8E%E7%BB%A7%E6%89%BF/"/>
-    <id>http://hi2048.github.io/2019/05/05/JavaScript类与继承/</id>
-    <published>2019-05-04T16:00:00.000Z</published>
-    <updated>2019-09-05T15:00:02.295Z</updated>
+    <title>LRU算法</title>
+    <link href="http://hi2048.github.io/2019/02/10/LRU%E7%AE%97%E6%B3%95/"/>
+    <id>http://hi2048.github.io/2019/02/10/LRU算法/</id>
+    <published>2019-02-09T16:00:00.000Z</published>
+    <updated>2019-09-18T13:24:33.512Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>定义类</p><pre><code>//定义属性function MyClass(attr1, attr2) {  this.attr1 = attr1;  this.attr2 = attr2;}//定义方法MyClass.prototype = {  constructor : MyClass,  myFunc : function() {      console.log(this.attr1);  }};</code></pre></li><li><p>继承类</p><pre><code>//定义父类function SuperClass(attr) {    this.attr = attr;}SuperClass.prototype = {    superFunc : function() {        console.log(this.attr);    }};//继承父类function SubClass(attr, subAttr) {    //继承属性    SuperClass.call(this, attr);    this.subAttr = subAttr;}//继承方法SubClass.prototype = new SuperClass();</code></pre></li></ol>]]></content>
+    <content type="html"><![CDATA[<p><strong> LRU (least recently used) 缓存机制：实现get, put方法。 </strong></p><pre><code>/** * 元素置顶 */const popItemFromArray = (arr, key) =&gt;{  arr.splice(arr.indexOf(key), 1);  arr.push(key);  return arr;}/** * 实现思路：ES6 Map [+ 有序数组（或者双向链表）] **/var LRUCache = function(capacity) {    this.cache = new Map();    this.lruArr = new Array();    this.curLen = 0;    this.capacity = capacity;};LRUCache.prototype.get = function(key) {    if(this.cache.has(key)){      const value = this.cache.get(key);      popItemFromArray(this.lruArr, key);      return value;    }    return -1;};LRUCache.prototype.lruDel = function(){  const minKey = this.lruArr.shift();  const isucc = this.cache.delete(minKey);  if(isucc){    this.curLen--;  }  return isucc;}// iorder : false descend true ascendLRUCache.prototype.sort = function(iorder) {  return this.lruArr.sort((c1, c2) =&gt; {    return c1 - c2;  });}LRUCache.prototype.put = function(key, value) {    if(this.cache.has(key)){      // pop key from lru array      popItemFromArray(this.lruArr, key);      return this.cache.set(key, value);    }    if(this.curLen === this.capacity){      this.lruDel();    }    this.curLen++;    this.lruArr.push(key);    return this.cache.set(key, value);};</code></pre>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;定义类&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//定义属性
-function MyClass(attr1, attr2) {
-  this.attr1 = attr1;
-  this.attr2 = attr2;
-}
-
-//定义方法
-MyClass.prototy
+        &lt;p&gt;&lt;strong&gt; LRU (least recently used) 缓存机制：实现get, put方法。 &lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/**
+ * 元素置顶
+ */
+const popItemFromArray = (arr, key) =&amp;gt;{
       
     
     </summary>
     
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
@@ -428,6 +423,35 @@ MyClass.prototy
   </entry>
   
   <entry>
+    <title>React高阶组件</title>
+    <link href="http://hi2048.github.io/2018/06/10/React%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6/"/>
+    <id>http://hi2048.github.io/2018/06/10/React高阶组件/</id>
+    <published>2018-06-09T16:00:00.000Z</published>
+    <updated>2019-09-18T13:09:21.246Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>高阶组件：higher order Component，装饰器模式</p><p> 基本形式：const EnhancedComponent = higherOrderComponent(WrappedComponent);</p></li><li><p>高阶组件两种常见用法：</p><ul><li><p>属性代理 Props Proxy: 通过WrappedComponent的Props来进行操作</p><pre><code>function hocPropsProxy(WrappedComponent) {  return class hocComponent extends React.Component {    constructor(){      super(props);      this.state = {        name: &apos;&apos;      }    }    render() {      const props = {        name: this.state.name      }      return (          &lt;div className=&quot;layout&quot;&gt;            &lt;WrappedComponent {...this.props} {...props} /&gt;          &lt;/div&gt;        )    }  }}</code></pre></li><li><p>继承反转 Inheritance Inversion：继承自WrappedComponent</p><pre><code>function hocInheritanceInversion(WrappedComponent){  return class hocComponent extends WrappedComponent {    render() {      // 可以实现渲染劫持，实现Loading等功能      return super.render();    }  }}</code></pre></li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;高阶组件：higher order Component，装饰器模式&lt;/p&gt;
+&lt;p&gt; 基本形式：const EnhancedComponent = higherOrderComponent(WrappedComponent);&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
     <title>React组件</title>
     <link href="http://hi2048.github.io/2018/05/15/React%E7%BB%84%E4%BB%B6/"/>
     <id>http://hi2048.github.io/2018/05/15/React组件/</id>
@@ -485,6 +509,38 @@ MyClass.prototy
   </entry>
   
   <entry>
+    <title>React通信</title>
+    <link href="http://hi2048.github.io/2018/01/12/React%E9%80%9A%E4%BF%A1/"/>
+    <id>http://hi2048.github.io/2018/01/12/React通信/</id>
+    <published>2018-01-11T16:00:00.000Z</published>
+    <updated>2019-09-18T13:35:13.015Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>父组件向子组件通信: props</p></li><li><p>子组件向父组件通信: 回调函数</p></li><li><p>跨级组件通信: context</p></li><li><p>非嵌套组件间通信: 自定义事件（发布-订阅模式或者观察者模式）emit</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;父组件向子组件通信: props&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;子组件向父组件通信: 回调函数&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;跨级组件通信: context&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;非嵌套组件间通信: 自定义事件（发布-订阅模式或者观察者
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
     <title>twoSum</title>
     <link href="http://hi2048.github.io/2018/01/11/twoSum/"/>
     <id>http://hi2048.github.io/2018/01/11/twoSum/</id>
@@ -515,53 +571,20 @@ MyClass.prototy
   </entry>
   
   <entry>
-    <title>arrayTwoSum</title>
-    <link href="http://hi2048.github.io/2018/01/10/arrayTwoSum/"/>
-    <id>http://hi2048.github.io/2018/01/10/arrayTwoSum/</id>
-    <published>2018-01-09T16:00:00.000Z</published>
-    <updated>2019-09-10T15:52:00.476Z</updated>
+    <title>React之虚拟Dom</title>
+    <link href="http://hi2048.github.io/2018/01/11/React%E4%B9%8B%E8%99%9A%E6%8B%9FDom/"/>
+    <id>http://hi2048.github.io/2018/01/11/React之虚拟Dom/</id>
+    <published>2018-01-10T16:00:00.000Z</published>
+    <updated>2019-09-18T14:15:39.964Z</updated>
     
-    <content type="html"><![CDATA[<p><strong> 求数组下标，下标区间数值之和为指定值 </strong></p><pre><code>const twoSum = (nums, target) =&gt;{    let count = 0;    for(let i = 0, len = nums.length; i &lt; len;){        count = nums[i];        if(count &gt; target){            i++        } else if(count === target){            return [i, i];        } else{          for(let j = i + 1; j &lt; len; j++){              count += nums[j];              if(count &gt; target){                  i++;                  break;              } else if(count === target){                  return [i, j];              }          }        }    }}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt; 求数组下标，下标区间数值之和为指定值 &lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const twoSum = (nums, target) =&amp;gt;{
-    let count = 0;
-
-    for(let i = 0, len = nu
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>移除链表元素</title>
-    <link href="http://hi2048.github.io/2017/12/10/%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0/"/>
-    <id>http://hi2048.github.io/2017/12/10/移除链表元素/</id>
-    <published>2017-12-09T16:00:00.000Z</published>
-    <updated>2019-09-09T03:41:44.275Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>删除单向链表中值为 val 的所有节点。</p><p><strong>思路：可以添加指向头结节的Head*节点，然后进行删除操作。</strong></p><pre><code>function removeLinkNodes(head, val) {  if(!head) return null;  var prevElement = {    this.next = head;  }  var sPointer = prevElement;  while(sPointer.next){    if(sPointer.next.val === val){      sPointer.next = sPointer.next.next;    } else{      sPointer = sPointer.next;    }  }  return prevElement.next;};</code></pre></li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>为什么引入虚拟Dom<br><strong> JavaScript速度快，Dom操作速度很慢 </strong><br><strong> 虚拟Dom通过diff算法实现Dom操作的优化，本质是通过JavaScript的运算，减少Dom的操作。 </strong></p></li><li><p>虚拟Dom<br><strong> 抽象出虚拟Dom（tagName, props, children） =&gt; 生成Patches（通过diff算法得到虚拟Dom的差异描述） =&gt; Update（通过Patch将差异更新到真实Dom上） </strong></p></li><li><p>Diff算法</p><ul><li>深度遍历，记录差异</li><li>差异类型：涉及最小编辑距离问题</li></ul></li></ol>]]></content>
     
     <summary type="html">
     
       
       
         &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;删除单向链表中值为 val 的所有节点。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;思路：可以添加指向头结节的Head*节点，然后进行删除操作。&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;function removeLinkNodes(head, val) {
+&lt;li&gt;&lt;p&gt;为什么引入虚拟Dom&lt;br&gt;&lt;strong&gt; JavaScript速度快，Dom操作速度很慢 &lt;/strong&gt;&lt;br&gt;&lt;strong&gt; 虚拟Dom通过diff算法实现Dom操作的优化，本质是通过JavaScript的运算，减少Dom的操作。 &lt;/stro
       
     
     </summary>
@@ -569,37 +592,7 @@ MyClass.prototy
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript中的循环中断</title>
-    <link href="http://hi2048.github.io/2017/11/10/JavaScript%E4%B8%AD%E7%9A%84%E5%BE%AA%E7%8E%AF%E4%B8%AD%E6%96%AD/"/>
-    <id>http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/</id>
-    <published>2017-11-09T16:00:00.000Z</published>
-    <updated>2019-09-10T15:25:41.717Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong> 循环中断break, continue, return 比较 </strong></p><pre><code>// break continue return// break跳出当前循环 continue结束当前条件 return 返回函数值console.log(&quot;normal: &quot;)for(var i = 0; i &lt; 2; i++){  console.log(`${i} `);  for(var j = 3; j &lt; 6; j++){    console.log(`${j} `);  }}console.log(&quot;break: &quot;)for(var i = 0; i &lt; 2; i++){  console.log(`${i} `);  for(var j = 3; j &lt; 6; j++){    if(j === 4) break;    console.log(`${j} `);  }}console.log(&quot;continue: &quot;)for(var i = 0; i &lt; 2; i++){  console.log(`${i} `);  for(var j = 3; j &lt; 6; j++){    if(j === 4) continue;    console.log(`${j} `);  }}console.log(&quot;return: &quot;)for(var i = 0; i &lt; 2; i++){  console.log(`${i} `);  for(var j = 3; j &lt; 6; j++){    if(j === 4){      return;    }    console.log(`${j} `);  }}normal:03451345 break:0313continue:035135return:03</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt; 循环中断break, continue, return 比较 &lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// break continue return
-// break跳出当前循环 continue结束当前条件 return 返回函数值
-cons
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
     
   </entry>
   
