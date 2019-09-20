@@ -64,6 +64,78 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-快乐数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/08/快乐数/" class="article-date">
+  <time datetime="2018-12-07T16:00:00.000Z" itemprop="datePublished">2018-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/08/快乐数/">快乐数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>快乐数：<br>正整数，求出每个位置的数字平方和，重复此过程，可以得到数字1，则为快乐数。<br>求取平方和过程中如果重复之前的平方和，则非快乐数。</p>
+<pre><code>var getSquaresSum = function(n){
+    var ss = n.toString().split(&apos;&apos;);
+
+    return ss.reduce(function(count, s){
+        return count + Math.pow(parseInt(s), 2);
+    }, 0)
+}
+
+var isHappy = function(n) {
+    var rets = [n];
+    var count = n;
+
+    while(true){
+        count = getSquaresSum(count);
+        if(count === 1){
+            return true;
+        }
+
+        var index = rets.indexOf(count);
+        if(index !== -1){
+            return false;
+        }
+
+        rets.push(count);
+    }
+};
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck0s34azq002np8wsnptq50ew" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-React生命周期" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/02/React生命周期/" class="article-date">
@@ -130,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck0qmwjdi00163owsfku6n6nv" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck0s34ayr000pp8ws8nn3ulmc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -198,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck0qmwjdi00153owsr6p7krq0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck0s34ayp000np8wsm7pd7nlm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -241,7 +313,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck0qmwjge005n3owsxkvhz3zr" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck0s34azz0034p8wswadtpw53" class="article-share-link">Share</a>
       
       
     </footer>
@@ -300,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck0qmwjdl001d3owsc2d1mvd4" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck0s34ayu000up8wsbyj3kq47" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
@@ -363,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck0qmwjd1000l3owshf0969rg" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck0s34ayb0004p8wssremjc8g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -449,7 +521,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck0qmwjdj00173owswfa34l58" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck0s34ays000rp8ws8pchepxs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -521,7 +593,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck0qmwjdl001c3owsaprxuky1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck0s34ays000sp8ws5n2d01hg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -586,7 +658,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck0qmwjfn003v3owseu3pp4wz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck0s34azk0028p8wst548qiuf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -638,63 +710,10 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck0qmwjdk001a3owsg4i8cd40" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck0s34ayr000qp8wsynza5tmj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-twoSum" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/11/twoSum/" class="article-date">
-  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/11/twoSum/">twoSum</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 求数组中两个数值之和为指定值的下标，可以采用hash来解决 </strong></p>
-<pre><code>const twoSum = (nums, target) =&gt; {
-  let hash = {};
-  for(let i = 0, len = nums.length; i &lt; len; i++){
-    if(typeof hash[target - nums[i]] !== &apos;undefined&apos;){
-      return [hash[target - nums[i]], i];
-    }
-
-    hash[nums[i]] = i;
-  }
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck0qmwjdp001l3owstxrfmf3b" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -727,7 +746,7 @@ var isIsomorphic = function(s, t) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -737,7 +756,7 @@ var isIsomorphic = function(s, t) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -759,6 +778,10 @@ var isIsomorphic = function(s, t) {
       <ul>
         
           <li>
+            <a href="/2019/09/20/求数据流的中位数/">求数据流的中位数</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/16/JavaScript哈希/">JavaScript哈希</a>
           </li>
         
@@ -772,10 +795,6 @@ var isIsomorphic = function(s, t) {
         
           <li>
             <a href="/2019/08/02/Vue生命周期/">Vue生命周期</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/10/compose/">compose</a>
           </li>
         
       </ul>

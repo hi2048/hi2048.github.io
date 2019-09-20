@@ -64,6 +64,175 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-求数据流的中位数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/20/求数据流的中位数/" class="article-date">
+  <time datetime="2019-09-19T16:00:00.000Z" itemprop="datePublished">2019-09-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/20/求数据流的中位数/">求数据流的中位数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 思路：将有序列表分为大小根堆，左侧为大根堆，右侧为小根堆，从而将中位数变成求取大小根堆的根值。 </strong></p>
+<pre><code>class Heap {
+  constructor(iLarge = true){
+    this.heap = new Array();
+    this.isLarge = iLarge;
+  }
+
+  swap(id1, id2) {
+    let temp = this.heap[id1];
+    this.heap[id1] = this.heap[id2];
+    this.heap[id2] = temp;
+  }
+
+  up(id) {
+    let pid = Math.floor((id - 1) / 2);
+
+    if(this.isLarge){
+      if(id !== 0 &amp;&amp; this.heap[pid] &lt; this.heap[id]){
+        this.swap(pid, id);
+        this.up(pid);
+      }
+    } else {
+      if(id !== 0 &amp;&amp; this.heap[pid] &gt; this.heap[id]){
+        this.swap(pid, id);
+        this.up(pid);
+      }
+    }
+  }
+
+  down(id) {
+    let leftChildId = id * 2 + 1;
+    let rightChildId = id * 2 + 2;
+    let len = this.heap.length;
+
+    if(this.isLarge){
+      if(leftChildId &lt; len &amp;&amp; this.heap[leftChildId] &gt; this.heap[id]){
+        this.swap(leftChildId, id);
+        this.down(leftChildId);
+      }
+
+      if(rightChildId &lt; len &amp;&amp; this.heap[rightChildId] &gt; this.heap[id]){
+        this.swap(rightChildId, id);
+        this.down(rightChildId);
+      }
+    } else {
+      if(leftChildId &lt; len &amp;&amp; this.heap[leftChildId] &lt; this.heap[id]){
+        this.swap(leftChildId, id);
+        this.down(leftChildId);
+      }
+
+      if(rightChildId &lt; len &amp;&amp; this.heap[rightChildId] &lt; this.heap[id]){
+        this.swap(rightChildId, id);
+        this.down(rightChildId);
+      }
+    }
+  }
+
+  insert(x) {
+    this.heap.push(x);
+    this.up(this.heap.length - 1);
+  }
+
+  remove(){
+    this.swap(0, this.heap.length - 1);
+    const ret = this.heap.pop();
+
+    this.down(0);
+
+    return ret;
+  }
+
+  pop(){
+    return this.heap.pop();
+  }
+
+  getRoot(){
+    return this.heap[0]
+  }
+
+  getLength(){
+    return this.heap.length;
+  }
+}
+
+/**
+ * initialize your data structure here.
+ */
+var MedianFinder = function() {
+  // 思路：大小根堆 ， 左边为大根堆， 右边为小根堆
+  this.left = new Heap(true);
+  this.right = new Heap(false);
+};
+
+/**
+ * @param {number} num
+ * @return {void}
+ */
+MedianFinder.prototype.addNum = function(num) {
+    // 具体算法： 如果num 大于 left 的最大值，则添加到右侧，添加完成后需要做大小根的平衡操作。
+    if(num &gt; this.left.getRoot()){
+      this.right.insert(num);
+
+      // 大小根平衡操作
+      if(this.right.getLength() &gt; this.left.getLength()){
+        this.left.insert(this.right.remove());
+      }
+    } else{
+      this.left.insert(num);
+
+      if(this.left.getLength() &gt; (this.right.getLength() + 1)){
+        this.right.insert(this.left.remove());
+      }
+    }
+};
+
+/**
+ * @return {number}
+ */
+MedianFinder.prototype.findMedian = function() {
+  let len = this.left.getLength() + this.right.getLength();
+
+  if(len % 2 === 0){
+    return (this.left.getRoot() + this.right.getRoot()) / 2;
+  } else{
+    return this.left.getRoot();
+  }
+};
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/09/20/求数据流的中位数/" data-id="ck0s34azu002vp8wsykyfunz8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript哈希" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/16/JavaScript哈希/" class="article-date">
@@ -197,7 +366,7 @@ console.log(tree[0])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ck0qmwjd9000x3ows8ddwcbru" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ck0s34ayk000fp8wsbykp6fp5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -293,7 +462,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ck0qmwjg600553ows098rsvbn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ck0s34azv002wp8ws8ihy344h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -357,7 +526,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ck0qmwjga005f3owstddrx0wd" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ck0s34azy0032p8wsdbv6hkck" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuex/">vuex</a></li></ul>
@@ -416,7 +585,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ck0qmwjdl001b3owsqdtjh24s" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ck0s34ayv000wp8wsmtepyhl9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -484,7 +653,7 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ck0qmwjdm001f3owsc0f2xwgt" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ck0s34ayx000yp8wsrv3coqf7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -549,7 +718,7 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck0qmwjg0004t3owsniypr0br" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck0s34azu002tp8wsjrda5ksj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -659,7 +828,7 @@ LRUCache.prototype.put = function(key, value) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck0qmwjdh00143owszknbss3g" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck0s34ayo000lp8wsaehj8ct1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -753,7 +922,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck0qmwjd3000p3owsu93lk82b" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck0s34ayc0005p8wsgbfmt2gw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -809,82 +978,10 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck0qmwjdh00133owsxels3hl9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck0s34ayp000mp8wsvlgx2thk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-快乐数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/08/快乐数/" class="article-date">
-  <time datetime="2018-12-07T16:00:00.000Z" itemprop="datePublished">2018-12-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/08/快乐数/">快乐数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>快乐数：<br>正整数，求出每个位置的数字平方和，重复此过程，可以得到数字1，则为快乐数。<br>求取平方和过程中如果重复之前的平方和，则非快乐数。</p>
-<pre><code>var getSquaresSum = function(n){
-    var ss = n.toString().split(&apos;&apos;);
-
-    return ss.reduce(function(count, s){
-        return count + Math.pow(parseInt(s), 2);
-    }, 0)
-}
-
-var isHappy = function(n) {
-    var rets = [n];
-    var count = n;
-
-    while(true){
-        count = getSquaresSum(count);
-        if(count === 1){
-            return true;
-        }
-
-        var index = rets.indexOf(count);
-        if(index !== -1){
-            return false;
-        }
-
-        rets.push(count);
-    }
-};
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck0qmwjfy004p3owsqtm6ajop" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -917,7 +1014,7 @@ var isHappy = function(n) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -927,7 +1024,7 @@ var isHappy = function(n) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -949,6 +1046,10 @@ var isHappy = function(n) {
       <ul>
         
           <li>
+            <a href="/2019/09/20/求数据流的中位数/">求数据流的中位数</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/16/JavaScript哈希/">JavaScript哈希</a>
           </li>
         
@@ -962,10 +1063,6 @@ var isHappy = function(n) {
         
           <li>
             <a href="/2019/08/02/Vue生命周期/">Vue生命周期</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/10/compose/">compose</a>
           </li>
         
       </ul>

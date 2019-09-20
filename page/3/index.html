@@ -64,6 +64,59 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-twoSum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/11/twoSum/" class="article-date">
+  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/twoSum/">twoSum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 求数组中两个数值之和为指定值的下标，可以采用hash来解决 </strong></p>
+<pre><code>const twoSum = (nums, target) =&gt; {
+  let hash = {};
+  for(let i = 0, len = nums.length; i &lt; len; i++){
+    if(typeof hash[target - nums[i]] !== &apos;undefined&apos;){
+      return [hash[target - nums[i]], i];
+    }
+
+    hash[nums[i]] = i;
+  }
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck0s34ayy0011p8wsykv0pxfs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-React之虚拟Dom" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/11/React之虚拟Dom/" class="article-date">
@@ -106,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck0qmwjdj00183owsvapds1a7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck0s34ayq000op8wsdd1c6qhv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -173,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck0qmwjdm001e3owsz4kl5zlg" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck0s34ayu000vp8wsihot4rnk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -238,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck0qmwjgd005l3owsyt4ijets" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck0s34b0k0037p8wshezg4487" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -344,7 +397,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck0qmwjd5000r3ows9l8bvggx" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck0s34aye0008p8wsm55zzo54" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -402,7 +455,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="ck0qmwjdn001g3owsqkd69pwq" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="ck0s34ayw000xp8wss4c3l9yd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -466,7 +519,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="ck0qmwjd1000m3owsyt6725xp" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="ck0s34ay90001p8ws13b81ovm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -512,7 +565,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="ck0qmwjdo001k3owsd7whuokg" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="ck0s34az00014p8wssqrw7t58" class="article-share-link">Share</a>
       
       
     </footer>
@@ -575,7 +628,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="ck0qmwjdn001i3owsfsgys5bn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="ck0s34ayy0010p8wsw3kkdayf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -627,80 +680,10 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="ck0qmwjdn001h3owse0ovcau5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="ck0s34ayx000zp8wsetl5eclz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数式/">函数式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-纯函数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/20/纯函数/" class="article-date">
-  <time datetime="2016-12-19T16:00:00.000Z" itemprop="datePublished">2016-12-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/20/纯函数/">纯函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>什么是纯函数</p>
-<ul>
-<li>相同的输入必定有相同的输出</li>
-<li>没有任何可观察的副作用</li>
-</ul>
-</li>
-<li><p>一般具有副作用的操作</p>
-<ul>
-<li>访问函数以外的系统状态</li>
-<li>修改以参数形式传递过来的对象或者数组</li>
-<li>发起http请求，如Ajax等</li>
-<li>使用或者保存用户输入</li>
-<li>操作DOM</li>
-<li>输出数据到控制台</li>
-<li>Math.random(),或者当前时间,splice等方法</li>
-</ul>
-</li>
-<li><p>纯函数有什么用</p>
-<ul>
-<li>容易测试</li>
-<li>容易重构</li>
-<li><p>结果可以缓存</p>
-<p>   let add = (x, y) =&gt; (x + y);</p>
-</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/20/纯函数/" data-id="ck0qmwjgm005z3owsid1zuqhy" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </footer>
   </div>
@@ -733,7 +716,7 @@ let increment = add(1);
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -743,7 +726,7 @@ let increment = add(1);
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -765,6 +748,10 @@ let increment = add(1);
       <ul>
         
           <li>
+            <a href="/2019/09/20/求数据流的中位数/">求数据流的中位数</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/16/JavaScript哈希/">JavaScript哈希</a>
           </li>
         
@@ -778,10 +765,6 @@ let increment = add(1);
         
           <li>
             <a href="/2019/08/02/Vue生命周期/">Vue生命周期</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/10/compose/">compose</a>
           </li>
         
       </ul>

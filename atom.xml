@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2019-09-16T04:33:10.127Z</updated>
+  <updated>2019-09-20T12:05:00.827Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>求数据流的中位数</title>
+    <link href="http://hi2048.github.io/2019/09/20/%E6%B1%82%E6%95%B0%E6%8D%AE%E6%B5%81%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/"/>
+    <id>http://hi2048.github.io/2019/09/20/求数据流的中位数/</id>
+    <published>2019-09-19T16:00:00.000Z</published>
+    <updated>2019-09-20T12:05:00.827Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong> 思路：将有序列表分为大小根堆，左侧为大根堆，右侧为小根堆，从而将中位数变成求取大小根堆的根值。 </strong></p><pre><code>class Heap {  constructor(iLarge = true){    this.heap = new Array();    this.isLarge = iLarge;  }  swap(id1, id2) {    let temp = this.heap[id1];    this.heap[id1] = this.heap[id2];    this.heap[id2] = temp;  }  up(id) {    let pid = Math.floor((id - 1) / 2);    if(this.isLarge){      if(id !== 0 &amp;&amp; this.heap[pid] &lt; this.heap[id]){        this.swap(pid, id);        this.up(pid);      }    } else {      if(id !== 0 &amp;&amp; this.heap[pid] &gt; this.heap[id]){        this.swap(pid, id);        this.up(pid);      }    }  }  down(id) {    let leftChildId = id * 2 + 1;    let rightChildId = id * 2 + 2;    let len = this.heap.length;    if(this.isLarge){      if(leftChildId &lt; len &amp;&amp; this.heap[leftChildId] &gt; this.heap[id]){        this.swap(leftChildId, id);        this.down(leftChildId);      }      if(rightChildId &lt; len &amp;&amp; this.heap[rightChildId] &gt; this.heap[id]){        this.swap(rightChildId, id);        this.down(rightChildId);      }    } else {      if(leftChildId &lt; len &amp;&amp; this.heap[leftChildId] &lt; this.heap[id]){        this.swap(leftChildId, id);        this.down(leftChildId);      }      if(rightChildId &lt; len &amp;&amp; this.heap[rightChildId] &lt; this.heap[id]){        this.swap(rightChildId, id);        this.down(rightChildId);      }    }  }  insert(x) {    this.heap.push(x);    this.up(this.heap.length - 1);  }  remove(){    this.swap(0, this.heap.length - 1);    const ret = this.heap.pop();    this.down(0);    return ret;  }  pop(){    return this.heap.pop();  }  getRoot(){    return this.heap[0]  }  getLength(){    return this.heap.length;  }}/** * initialize your data structure here. */var MedianFinder = function() {  // 思路：大小根堆 ， 左边为大根堆， 右边为小根堆  this.left = new Heap(true);  this.right = new Heap(false);};/** * @param {number} num * @return {void} */MedianFinder.prototype.addNum = function(num) {    // 具体算法： 如果num 大于 left 的最大值，则添加到右侧，添加完成后需要做大小根的平衡操作。    if(num &gt; this.left.getRoot()){      this.right.insert(num);      // 大小根平衡操作      if(this.right.getLength() &gt; this.left.getLength()){        this.left.insert(this.right.remove());      }    } else{      this.left.insert(num);      if(this.left.getLength() &gt; (this.right.getLength() + 1)){        this.right.insert(this.left.remove());      }    }};/** * @return {number} */MedianFinder.prototype.findMedian = function() {  let len = this.left.getLength() + this.right.getLength();  if(len % 2 === 0){    return (this.left.getRoot() + this.right.getRoot()) / 2;  } else{    return this.left.getRoot();  }};</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt; 思路：将有序列表分为大小根堆，左侧为大根堆，右侧为小根堆，从而将中位数变成求取大小根堆的根值。 &lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;class Heap {
+  constructor(iLarge = true){
+    this.hea
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>JavaScript哈希</title>
@@ -571,36 +603,6 @@ class Heap {
     
     
       <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>twoSum</title>
-    <link href="http://hi2048.github.io/2018/01/11/twoSum/"/>
-    <id>http://hi2048.github.io/2018/01/11/twoSum/</id>
-    <published>2018-01-10T16:00:00.000Z</published>
-    <updated>2019-09-10T16:00:16.268Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong> 求数组中两个数值之和为指定值的下标，可以采用hash来解决 </strong></p><pre><code>const twoSum = (nums, target) =&gt; {  let hash = {};  for(let i = 0, len = nums.length; i &lt; len; i++){    if(typeof hash[target - nums[i]] !== &apos;undefined&apos;){      return [hash[target - nums[i]], i];    }    hash[nums[i]] = i;  }}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt; 求数组中两个数值之和为指定值的下标，可以采用hash来解决 &lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const twoSum = (nums, target) =&amp;gt; {
-  let hash = {};
-  for(let i = 0, l
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
