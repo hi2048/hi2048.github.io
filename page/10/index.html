@@ -64,6 +64,161 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-分宫卦象二" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/16/分宫卦象二/" class="article-date">
+  <time datetime="2013-09-16T06:34:53.000Z" itemprop="datePublished">2013-09-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/周易/">周易</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/16/分宫卦象二/">分宫卦象二</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>巽宫</strong></p>
+<p><strong>巽为风     风天小畜     风火家人     风雷益</strong></p>
+<p><strong>天雷无妄     火雷噬嗑     山雷颐     山风蛊</strong></p>
+<p><strong>离宫</strong></p>
+<p><strong>离为火     火山旅     火风鼎     火水未济</strong></p>
+<p><strong>山水蒙     风水涣     天水讼     天火同人</strong></p>
+<p><strong>坤宫</strong></p>
+<p><strong>坤为地     地雷复     地泽临     地天泰</strong></p>
+<p><strong>雷天大壮     泽天夬     水天需     水地比</strong></p>
+<p><strong>兑宫</strong></p>
+<p><strong>兑为泽     泽水困     泽地萃     泽山咸</strong></p>
+<p><strong>水山蹇     地山谦     雷山小过     雷泽归妹</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck0uyrohz002hr6ws25wweamv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-最长公共子串" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/16/最长公共子串/" class="article-date">
+  <time datetime="2013-09-16T03:08:26.000Z" itemprop="datePublished">2013-09-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/16/最长公共子串/">最长公共子串</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最长公共子串问题主要是让用户输入两个字符串，经过程序的运算，输出两个字符串中的最长的公共子串。</p>
+<p>LCS算法可以很好的解决上述问题，核心是使用矩阵，假设字符串1水平排列，字符串2垂直排列，则可以用一个二维数组来表示，字符串2中的每一个字符与字符串1中的进行比较，相同则置为1，不同则置为0。</p>
+<p>假设两个字符串为，</p>
+<pre>字符串1为：TESTBZZGGZCTESTD
+字符串2为：BEGZZGGZCEND</pre>
+其表示矩阵为，
+<pre>0000100000000100
+0100000000001000
+1000000110000000
+0000011002000000
+0000012001000000
+0000000310000000
+0000000140000000
+0000011005000000
+0000000000600100
+0100000000001000
+1000000000000000
+0000000000000001</pre>
+示例代码为，
+<pre>
+<span style="color: #008000;">//最长公共子串LCS算法</span>
+void lcsAlgo(){
+    string str1, str2;
+    cin&gt;&gt;str1&gt;&gt;str2;
+
+    int maxLen = 0;
+    int maxLoc = 0;
+    int len1 = str1.size();
+    int len2 = str2.size();
+
+    int lcs[100 * 100] = {0};
+
+    for(int i = 0; i &lt; len2; i++){
+        for(int j = 0; j &lt; len1; j++){
+            if(str2.at(i) == str1.at(j)){
+                if(i&gt; 0 &amp;&amp; j&gt; 0){
+                    lcs[i * len2 + j] = lcs[(i - 1) * len2 + j - 1] + 1;
+                    if(lcs[i * len2 + j] &gt; maxLen){
+                        maxLen = lcs[i * len2 + j];
+                        maxLoc = j;
+                    }
+                } else{
+                    lcs[i * len2 + j] = 1;
+                }
+            }
+        }
+    }
+
+    for(i = 0; i &lt; len2; i++){
+        for(int j = 0; j &lt; len1; j++){
+            cout&lt;&lt;lcs[i * len2 + j];
+        }
+        cout&lt;&lt;endl;
+    }
+
+    for(int k = maxLen - 1; k &gt;= 0; k--){
+        if(maxLoc - k &gt;= 0)
+            cout&lt;&lt;str1.at(maxLoc - k);
+    }
+}</pre>
+最长公共子串的运行结果为，
+<pre>ZZGGZC</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck0uyroih003jr6wsb4qippy8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-分宫卦象一" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/15/分宫卦象一/" class="article-date">
@@ -107,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck0s34azg001wp8ws0hb315wz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck0uyrohy002fr6wsa05heoi7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,7 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/14/卦名次序歌/" data-id="ck0s34azj0026p8ws6yma2j93" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/14/卦名次序歌/" data-id="ck0uyroi3002rr6wsib7vy58h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -217,7 +372,7 @@ printf("%d", (*p2)[2]);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck0s34azs002qp8ws65hj49c3" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck0uyroic003ar6wsf827h00p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
@@ -264,7 +419,7 @@ printf("%d", (*p2)[2]);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="ck0s34azk0027p8wsfjch4rqb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="ck0uyroi2002pr6ws3zra64jz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -379,7 +534,7 @@ void bubble_p4(int* a, int n){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="ck0s34azf001up8ws35uqy0c2" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="ck0uyrohx002er6wsyfacdh6q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -459,7 +614,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="ck0s34ayi000dp8wscdzaijg3" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="ck0uyroh3000vr6ws3zpte8c6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -511,7 +666,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="ck0s34ayf0009p8wsr77gz96l" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="ck0uyroh3000ur6ws2pt0en1d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -554,110 +709,9 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="ck0s34b1m0048p8ws9yl8oz3b" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="ck0uyrois0049r6wsz9aw1jj3" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript中的数据类型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/10/JavaScript中的数据类型/" class="article-date">
-  <time datetime="2013-09-10T06:09:50.000Z" itemprop="datePublished">2013-09-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/10/JavaScript中的数据类型/">JavaScript中的数据类型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript是一种大小写敏感的计算机语言，有5种原始的数据类型Undefined、Null、Boolean、Number、和String。</p>
-<p>1. Undefined</p>
-<p>Undefined类型只有一个值，undefined。表示未初始化变量的默认值。</p>
-<p>2. Null</p>
-<p>Null类型只有一个值，null。表示尚未存在的对象。</p>
-<p><pre>注意：alert(null == undefined); //将返回true</pre><br>3. Boolean</p>
-<p>Boolean有两个值true和false。</p>
-<p>4. Number</p>
-<p>Number可以表示32位整数，或是64位浮点数。其中8进制数以0开头，16进制数以0x开头。另外在Number中有一个特殊的值NaN，表示一个非数，即Not a Number。</p>
-<p><pre>注意：alert(NaN == NaN); //将返回false</pre><br>5. String</p>
-<p>String用来表示一个没有固定大小的字符串。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="ck0s34ayi000cp8ws20yd6jfp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript类型转换" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/09/JavaScript类型转换/" class="article-date">
-  <time datetime="2013-09-09T12:33:13.000Z" itemprop="datePublished">2013-09-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/09/JavaScript类型转换/">JavaScript类型转换</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript支持类型的自动转换。</p>
-<p>1. - * /在运算中会将字符串自动转换为数字。</p>
-<p>2. +在运算中字符串则不会转换。</p>
-<p>3. eval会将字符串表达式运行并返回数字。</p>
-<p><pre>var a = “9”;<br>alert(typeof(a + 1) + “: “ + (a + 1));<br>alert(typeof(a - 1) + “: “ + (a - 1));<br>alert(typeof(a <em> 1) + “: “ + (a </em> 1));<br>alert(typeof(a / 1) + “: “ + (a / 1));<br>alert(typeof(eval(“a + 1”)) + “: “ + eval(“a + 1”));</pre><br>根据上述，</p>
-<p>输出值分别为string: 91，number: 8，number: 9，number: 9，string: 91。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="ck0s34ayn000ip8wsxrs0tokg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
     </footer>
   </div>
   
@@ -708,7 +762,7 @@ Obj.prototype.func = function(){
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
@@ -719,6 +773,10 @@ Obj.prototype.func = function(){
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/09/21/有向图的强连通分量算法/">有向图的强连通分量算法</a>
+          </li>
         
           <li>
             <a href="/2019/09/20/求数据流的中位数/">求数据流的中位数</a>
@@ -734,10 +792,6 @@ Obj.prototype.func = function(){
         
           <li>
             <a href="/2019/09/02/状态管理/">状态管理</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/02/Vue生命周期/">Vue生命周期</a>
           </li>
         
       </ul>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2019-09-20T12:05:00.827Z</updated>
+  <updated>2019-09-22T12:23:50.800Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>有向图的强连通分量算法</title>
+    <link href="http://hi2048.github.io/2019/09/21/%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E7%AE%97%E6%B3%95/"/>
+    <id>http://hi2048.github.io/2019/09/21/有向图的强连通分量算法/</id>
+    <published>2019-09-20T16:00:00.000Z</published>
+    <updated>2019-09-22T12:23:50.800Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong> 有向图的强连通分量： Tarjan算法 </strong></p><pre><code>const Stack = require(&apos;./Stack.js&apos;);// 有向图的强连通分量算法// dfs搜索class Tarjan {    constructor(n, connections, iDirected = true){        // 时间戳dfn: dfn[i] dfs搜索编号        this.dfn = [];        // 追溯值low: low[i] 初始值为 dfn[i]，后续可能会产生更新， low[i] = Math.min(low[i], [low|dfn][c]) i为父节点        this.low = [];        this.n = n;        this.connections = connections;        // dfs编号： 时间戳        this.index = 0;        this.stack = new Stack();        // 有向图的强连通分量        this.sccs = new Stack();        // 桥        this.bridges = [];        // true有向图， false单边无向图        this.iDirected = iDirected;    }    t(x, lastEdge) {        this.dfn[x] = this.low[x] = ++this.index;        this.stack.push(x);        for(let c of this.connections) {            // c = [x, y]            // 无向图重边处理            if(!this.iDirected &amp;&amp; c === lastEdge) continue;            // 默认为有向图            let directedX = c[0];            let directedY = c[1];            // 无向图            if(!this.iDirected){                if(x === c[1]){                    directedX = c[1];                    directedY = c[0];                }            }            if(directedX === x){                const y = directedY;                if(!this.dfn[y]){                    this.t(y, c);                    // 若𝑦没被访问过，则说明(𝑥,𝑦)是树枝边，递归访问𝑦,从𝑦回溯后，令𝑙𝑜𝑤[𝑥]=𝑚𝑖𝑛(𝑙𝑜𝑤[𝑥],𝑙𝑜𝑤[𝑦])                    this.low[x] = Math.min(this.low[x], this.low[y]);                    // 关键连接 - 桥                    if(this.low[y] &gt; this.dfn[x]){                        this.bridges.push(c);                    }                } else if(this.stack.has(y)){                    // 若𝑦被访问过且𝑦在栈中，令𝑙𝑜𝑤[𝑥]=𝑚𝑖𝑛(𝑙𝑜𝑤[𝑥],𝑑𝑓𝑛[𝑦])                    this.low[x] = Math.min(this.low[x], this.dfn[y]);                }            }        }        // 𝑙𝑜𝑤[𝑥]=𝑑𝑓𝑛[𝑥]成立，则栈中从𝑥到栈顶的所有节点构成一个强连通分量        if(this.dfn[x] === this.low[x]){            const scc = new Stack();            let y;            do{                y = this.stack.pop();                scc.push(y);            } while(x !== y);            this.sccs.push(scc);        }    }    execute() {        for(let i = 0; i &lt; this.n; i++) {            if(!this.dfn[i])                this.t(i);        }        return this.sccs;    }    getSccs() {        return this.sccs;    }    getBridges() {        return this.bridges;    }    contains(connection) {        const x = connection[0];        const y = connection[1];        for(let scc of this.sccs.getArray()){            if(scc.has(x) &amp;&amp; scc.has(y)){                return true;            }        }        return false;    }    print() {        this.sccs.print();    }}module.exports = Tarjan;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt; 有向图的强连通分量： Tarjan算法 &lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const Stack = require(&amp;apos;./Stack.js&amp;apos;);
+
+// 有向图的强连通分量算法
+// dfs搜索
+class Tarja
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>求数据流的中位数</title>
@@ -40,9 +72,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -73,9 +105,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -101,9 +133,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -195,9 +227,40 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
+  </entry>
+  
+  <entry>
+    <title>Stack实现</title>
+    <link href="http://hi2048.github.io/2019/03/01/Stack%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://hi2048.github.io/2019/03/01/Stack实现/</id>
+    <published>2019-02-28T16:00:00.000Z</published>
+    <updated>2019-09-22T12:14:50.569Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong> 栈FILO：先进后出 </strong></p><pre><code>// 先进后出 FILO: first in last outclass Stack {    constructor(){        this.stack = new Array();    }    pop() {        return this.stack.pop();    }    push(x) {        this.stack.push(x);        return this;    }    empty() {        return this.size() === 0;    }    size() {        return this.stack.length;    }    top() {        return this.stack[this.stack.length - 1];    }    has(x) {        return this.stack.indexOf(x) !== -1;    }    getArray() {        return this.stack;    }    getRoot() {        return this.stack[0];    }    print() {        for(let s of [...this.stack]){        if(s.print){            console.log(`${s}：`);            s.print();        } else{            console.log(s);        }        }        return this;    }}module.exports = Stack;</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt; 栈FILO：先进后出 &lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;// 先进后出 FILO: first in last out
+class Stack {
+    constructor(){
+        this.stack = new Ar
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -224,9 +287,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -255,9 +318,9 @@ const popItemFromArray = (arr, key) =&amp;gt;{
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -289,9 +352,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -346,9 +409,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -534,67 +597,6 @@ class Heap {
 &lt;li&gt;无状态组件：采用函数式定义&lt;br&gt;&lt;strong&gt; 不含状态管理 &lt;/strong&gt;&lt;ul&gt;
 &lt;li&gt;不包含任何状态，但可以包含属性，同样的props会得到同样的渲染结果，不会有副作用；&lt;/li&gt;
 &lt;li&gt;无状态组件生成时不会实例化，整体渲染性能得到提升；&lt;/l
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>同构字符串</title>
-    <link href="http://hi2048.github.io/2018/05/09/%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    <id>http://hi2048.github.io/2018/05/09/同构字符串/</id>
-    <published>2018-05-08T16:00:00.000Z</published>
-    <updated>2019-09-09T14:36:53.724Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>判断两个长度相同的字符串是否是同构字符串。同构字符串为将一个字符串中的相同字符进行替换可以得到另一个字符串。<br><strong> 同构代表两个字符串中每个位置上字符在自身第一次出现的索引相同 </strong></p><pre><code>var isPositionSame = function(ss, ts, index){    var sIndex = ss.indexOf(ss[index]);    var tIndex = ts.indexOf(ts[index]);    return sIndex === tIndex;}var isIsomorphic = function(s, t) {    var ss = s.split(&apos;&apos;);    var ts = t.split(&apos;&apos;);    for(var i = 0, len = ts.length; i &lt; len; i++){        if(!isPositionSame(ss, ts, i)){            return false;        }    }    return true;};</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;判断两个长度相同的字符串是否是同构字符串。同构字符串为将一个字符串中的相同字符进行替换可以得到另一个字符串。&lt;br&gt;&lt;strong&gt; 同构代表两个字符串中每个位置上字符在自身第一次出现的索引相同 &lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var i
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React通信</title>
-    <link href="http://hi2048.github.io/2018/01/12/React%E9%80%9A%E4%BF%A1/"/>
-    <id>http://hi2048.github.io/2018/01/12/React通信/</id>
-    <published>2018-01-11T16:00:00.000Z</published>
-    <updated>2019-09-18T13:35:13.015Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>父组件向子组件通信: props</p></li><li><p>子组件向父组件通信: 回调函数</p></li><li><p>跨级组件通信: context</p></li><li><p>非嵌套组件间通信: 自定义事件（发布-订阅模式或者观察者模式）emit</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;父组件向子组件通信: props&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;子组件向父组件通信: 回调函数&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;跨级组件通信: context&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;非嵌套组件间通信: 自定义事件（发布-订阅模式或者观察者
       
     
     </summary>

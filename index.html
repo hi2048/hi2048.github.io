@@ -64,6 +64,171 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-有向图的强连通分量算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/21/有向图的强连通分量算法/" class="article-date">
+  <time datetime="2019-09-20T16:00:00.000Z" itemprop="datePublished">2019-09-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/21/有向图的强连通分量算法/">有向图的强连通分量算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 有向图的强连通分量： Tarjan算法 </strong></p>
+<pre><code>const Stack = require(&apos;./Stack.js&apos;);
+
+// 有向图的强连通分量算法
+// dfs搜索
+class Tarjan {
+    constructor(n, connections, iDirected = true){
+        // 时间戳dfn: dfn[i] dfs搜索编号
+        this.dfn = [];
+
+        // 追溯值low: low[i] 初始值为 dfn[i]，后续可能会产生更新， low[i] = Math.min(low[i], [low|dfn][c]) i为父节点
+        this.low = [];
+
+        this.n = n;
+        this.connections = connections;
+
+        // dfs编号： 时间戳
+        this.index = 0;
+
+        this.stack = new Stack();
+
+        // 有向图的强连通分量
+        this.sccs = new Stack();
+
+        // 桥
+        this.bridges = [];
+
+        // true有向图， false单边无向图
+        this.iDirected = iDirected;
+    }
+
+    t(x, lastEdge) {
+        this.dfn[x] = this.low[x] = ++this.index;
+        this.stack.push(x);
+
+        for(let c of this.connections) {
+            // c = [x, y]
+            // 无向图重边处理
+            if(!this.iDirected &amp;&amp; c === lastEdge) continue;
+
+            // 默认为有向图
+            let directedX = c[0];
+            let directedY = c[1];
+
+            // 无向图
+            if(!this.iDirected){
+                if(x === c[1]){
+                    directedX = c[1];
+                    directedY = c[0];
+                }
+            }
+
+            if(directedX === x){
+                const y = directedY;
+
+                if(!this.dfn[y]){
+                    this.t(y, c);
+
+                    // 若𝑦没被访问过，则说明(𝑥,𝑦)是树枝边，递归访问𝑦,从𝑦回溯后，令𝑙𝑜𝑤[𝑥]=𝑚𝑖𝑛(𝑙𝑜𝑤[𝑥],𝑙𝑜𝑤[𝑦])
+                    this.low[x] = Math.min(this.low[x], this.low[y]);
+
+                    // 关键连接 - 桥
+                    if(this.low[y] &gt; this.dfn[x]){
+                        this.bridges.push(c);
+                    }
+                } else if(this.stack.has(y)){
+                    // 若𝑦被访问过且𝑦在栈中，令𝑙𝑜𝑤[𝑥]=𝑚𝑖𝑛(𝑙𝑜𝑤[𝑥],𝑑𝑓𝑛[𝑦])
+                    this.low[x] = Math.min(this.low[x], this.dfn[y]);
+                }
+            }
+        }
+
+        // 𝑙𝑜𝑤[𝑥]=𝑑𝑓𝑛[𝑥]成立，则栈中从𝑥到栈顶的所有节点构成一个强连通分量
+        if(this.dfn[x] === this.low[x]){
+            const scc = new Stack();
+
+            let y;
+
+            do{
+                y = this.stack.pop();
+                scc.push(y);
+            } while(x !== y);
+
+            this.sccs.push(scc);
+        }
+    }
+
+    execute() {
+        for(let i = 0; i &lt; this.n; i++) {
+            if(!this.dfn[i])
+                this.t(i);
+        }
+
+        return this.sccs;
+    }
+
+    getSccs() {
+        return this.sccs;
+    }
+
+    getBridges() {
+        return this.bridges;
+    }
+
+    contains(connection) {
+        const x = connection[0];
+        const y = connection[1];
+
+        for(let scc of this.sccs.getArray()){
+            if(scc.has(x) &amp;&amp; scc.has(y)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    print() {
+        this.sccs.print();
+    }
+}
+
+module.exports = Tarjan;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/09/21/有向图的强连通分量算法/" data-id="ck0uyroif003er6wsm12lsyl2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-求数据流的中位数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/20/求数据流的中位数/" class="article-date">
@@ -221,7 +386,7 @@ MedianFinder.prototype.findMedian = function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/20/求数据流的中位数/" data-id="ck0s34azu002vp8wsykyfunz8" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/20/求数据流的中位数/" data-id="ck0uyroih003ir6wsujqna1xm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -366,7 +531,7 @@ console.log(tree[0])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ck0s34ayk000fp8wsbykp6fp5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ck0uyroh60010r6wskudzvxbg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -462,7 +627,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ck0s34azv002wp8ws8ihy344h" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ck0uyroig003hr6wsumyr408u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -526,7 +691,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ck0s34azy0032p8wsdbv6hkck" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ck0uyroij003nr6wsv30lnnq7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuex/">vuex</a></li></ul>
@@ -585,7 +750,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ck0s34ayv000wp8wsmtepyhl9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ck0uyrohi001fr6ws3uzi52kx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -653,7 +818,105 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ck0s34ayx000yp8wsrv3coqf7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ck0uyrohj001hr6wsip5fiid0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Stack实现" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/01/Stack实现/" class="article-date">
+  <time datetime="2019-02-28T16:00:00.000Z" itemprop="datePublished">2019-03-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/01/Stack实现/">Stack实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 栈FILO：先进后出 </strong></p>
+<pre><code>// 先进后出 FILO: first in last out
+class Stack {
+    constructor(){
+        this.stack = new Array();
+    }
+
+    pop() {
+        return this.stack.pop();
+    }
+
+    push(x) {
+        this.stack.push(x);
+
+        return this;
+    }
+
+    empty() {
+        return this.size() === 0;
+    }
+
+    size() {
+        return this.stack.length;
+    }
+
+    top() {
+        return this.stack[this.stack.length - 1];
+    }
+
+    has(x) {
+        return this.stack.indexOf(x) !== -1;
+    }
+
+    getArray() {
+        return this.stack;
+    }
+
+    getRoot() {
+        return this.stack[0];
+    }
+
+    print() {
+        for(let s of [...this.stack]){
+        if(s.print){
+            console.log(`${s}：`);
+            s.print();
+        } else{
+            console.log(s);
+        }
+        }
+
+        return this;
+    }
+}
+
+module.exports = Stack;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/03/01/Stack实现/" data-id="ck0uyrohb001ar6ws2mszstzt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -718,7 +981,7 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck0s34azu002tp8wsjrda5ksj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck0uyroif003dr6wsxrykd0un" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -828,160 +1091,10 @@ LRUCache.prototype.put = function(key, value) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck0s34ayo000lp8wsaehj8ct1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck0uyroh80014r6ws42pt8jg3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Heap实现" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/19/Heap实现/" class="article-date">
-  <time datetime="2019-01-18T16:00:00.000Z" itemprop="datePublished">2019-01-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/19/Heap实现/">Heap实现</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 小根堆实现，大根堆类似 </strong></p>
-<pre><code>// 通过 up down方法实现 堆的有效性
-class Heap {
-  constructor(){
-    this.heap = new Array();
-  }
-
-  swap(id1, id2) {
-    let temp = this.heap[id1];
-    this.heap[id1] = this.heap[id2];
-    this.heap[id2] = temp;
-  }
-
-  up(id) {
-    let pid = Math.floor((id - 1) / 2);
-
-    if(id !== 0 &amp;&amp; this.heap[pid] &gt; this.heap[id]){
-      this.swap(pid, id);
-      this.up(pid);
-    }
-  }
-
-  down(id) {
-    let leftChildId = id * 2 + 1;
-    let rightChildId = id * 2 + 2;
-    let len = this.heap.length;
-
-    if(leftChildId &lt; len &amp;&amp; this.heap[leftChildId] &lt; this.heap[id]){
-      this.swap(leftChildId, id);
-      this.down(leftChildId);
-    }
-
-    if(rightChildId &lt; len &amp;&amp; this.heap[rightChildId] &lt; this.heap[id]){
-      this.swap(rightChildId, id);
-      this.down(rightChildId);
-    }
-  }
-
-  insert(x) {
-    this.heap.push(x);
-    this.up(this.heap.length - 1);
-  }
-
-  remove(){
-    this.swap(0, this.heap.length - 1);
-    const ret = this.heap.pop();
-
-    this.down(0);
-
-    return ret;
-  }
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck0s34ayc0005p8wsgbfmt2gw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React16为什么更新" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/11/React16为什么更新/" class="article-date">
-  <time datetime="2018-12-10T16:00:00.000Z" itemprop="datePublished">2018-12-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/11/React16为什么更新/">React16为什么更新</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> React16更新的根本原因是提升用户体验，解决同步更新带来的界面卡顿问题。 </strong></p>
-<ol>
-<li><p>React16之前的版本中，更新过程是同步的，为什么会导致界面卡顿？<br><strong> 大量的同步计算任务阻塞了浏览器的UI渲染 </strong></p>
-<ul>
-<li>JavaScript是单线程的。</li>
-<li>JavaScript运算、页面布局和页面绘制都是运行在浏览器的主线程当中，他们之间是互斥的关系。</li>
-<li>React加载或者更新时，会调用生命周期函数，计算和对比Virtual DOM，更新UI，整个过程是同步的，如果需要更新的组件数量过大或者计算过于复杂，就会出现用户卡顿的体验。</li>
-</ul>
-</li>
-<li><p>React是如何解决上述问题的？</p>
-<p><strong> 引入了异步渲染(Async Rendering)机制 </strong></p>
-<p>采用分片的思路，提出了Fiber的解决方案。</p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck0s34ayp000mp8wsvlgx2thk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -1033,7 +1146,7 @@ class Heap {
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
@@ -1044,6 +1157,10 @@ class Heap {
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/09/21/有向图的强连通分量算法/">有向图的强连通分量算法</a>
+          </li>
         
           <li>
             <a href="/2019/09/20/求数据流的中位数/">求数据流的中位数</a>
@@ -1059,10 +1176,6 @@ class Heap {
         
           <li>
             <a href="/2019/09/02/状态管理/">状态管理</a>
-          </li>
-        
-          <li>
-            <a href="/2019/08/02/Vue生命周期/">Vue生命周期</a>
           </li>
         
       </ul>
