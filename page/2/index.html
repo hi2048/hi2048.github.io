@@ -64,6 +64,181 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数组去重" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/18/数组去重/" class="article-date">
+  <time datetime="2019-02-17T16:00:00.000Z" itemprop="datePublished">2019-02-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/18/数组去重/">数组去重</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>使用Array的filter方法</p>
+<pre><code>const distinctFilter = (arr) =&gt; (arr.filter((item, index) =&gt; (arr.indexOf(item) === index)))
+</code></pre></li>
+<li><p>使用ES6的Set</p>
+<pre><code>const distinctSet = (arr) =&gt; (Array.from(new Set(arr)));
+</code></pre></li>
+<li><p>使用Hash方法</p>
+<pre><code>const distinctHash = (arr) =&gt; {
+  const hash = {};
+  let disArr = [];
+
+  for(let i of arr){
+    if(!hash[i]){
+      disArr.push(i);
+      hash[i] = [i];
+    }
+  }
+
+  return disArr;
+}
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck14srqtw003p5bwsf0dizvjz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-LRU算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/10/LRU算法/" class="article-date">
+  <time datetime="2019-02-09T16:00:00.000Z" itemprop="datePublished">2019-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/10/LRU算法/">LRU算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> LRU (least recently used) 缓存机制：实现get, put方法。 </strong></p>
+<pre><code>/**
+ * 元素置顶
+ */
+const popItemFromArray = (arr, key) =&gt;{
+  arr.splice(arr.indexOf(key), 1);
+  arr.push(key);
+
+  return arr;
+}
+
+/**
+ * 实现思路：ES6 Map [+ 有序数组（或者双向链表）]
+ *
+*/
+var LRUCache = function(capacity) {
+    this.cache = new Map();
+    this.lruArr = new Array();
+    this.curLen = 0;
+    this.capacity = capacity;
+};
+
+LRUCache.prototype.get = function(key) {
+    if(this.cache.has(key)){
+      const value = this.cache.get(key);
+      popItemFromArray(this.lruArr, key);
+
+      return value;
+    }
+
+    return -1;
+};
+
+LRUCache.prototype.lruDel = function(){
+  const minKey = this.lruArr.shift();
+  const isucc = this.cache.delete(minKey);
+
+  if(isucc){
+    this.curLen--;
+  }
+
+  return isucc;
+}
+
+// iorder : false descend true ascend
+LRUCache.prototype.sort = function(iorder) {
+  return this.lruArr.sort((c1, c2) =&gt; {
+    return c1 - c2;
+  });
+}
+
+LRUCache.prototype.put = function(key, value) {
+    if(this.cache.has(key)){
+      // pop key from lru array
+      popItemFromArray(this.lruArr, key);
+
+      return this.cache.set(key, value);
+    }
+
+    if(this.curLen === this.capacity){
+      this.lruDel();
+    }
+
+    this.curLen++;
+    this.lruArr.push(key);
+
+    return this.cache.set(key, value);
+};
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck14srqst001f5bwspzao6fuu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Heap实现" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/19/Heap实现/" class="article-date">
@@ -146,7 +321,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck0uyroh1000rr6ws37nmml58" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck14srqsm00105bwsgrv191bz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -202,7 +377,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck0uyroh90015r6ws99ab7m25" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck14srqsu001g5bwso7kjj939" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -274,7 +449,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck0uyroib0038r6ws4rz8mz14" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck14srqtu003k5bws6goiwijd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -352,7 +527,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck0uyroha0018r6wsrq2dtrce" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck14srqsv001j5bwsytfvfmf7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -420,7 +595,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck0uyroh90016r6wsq2uzk0zh" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck14srqsu001h5bwsso43gixy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -463,7 +638,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck0uyroik003qr6wso19teg2v" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck14srqu100425bwswr2g1feo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -522,7 +697,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck0uyrohi001er6wsyy557o7v" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck14srqsy001r5bws0pi1x179" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
@@ -585,165 +760,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck0uyrogz000or6ws1ixny9o2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React高阶组件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/10/React高阶组件/" class="article-date">
-  <time datetime="2018-06-09T16:00:00.000Z" itemprop="datePublished">2018-06-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/10/React高阶组件/">React高阶组件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>高阶组件：higher order Component，装饰器模式</p>
-<p> 基本形式：const EnhancedComponent = higherOrderComponent(WrappedComponent);</p>
-</li>
-<li><p>高阶组件两种常见用法：</p>
-<ul>
-<li><p>属性代理 Props Proxy: 通过WrappedComponent的Props来进行操作</p>
-<pre><code>function hocPropsProxy(WrappedComponent) {
-  return class hocComponent extends React.Component {
-    constructor(){
-      super(props);
-
-      this.state = {
-        name: &apos;&apos;
-      }
-    }
-
-    render() {
-      const props = {
-        name: this.state.name
-      }
-
-      return (
-          &lt;div className=&quot;layout&quot;&gt;
-            &lt;WrappedComponent {...this.props} {...props} /&gt;
-          &lt;/div&gt;
-        )
-    }
-  }
-}
-</code></pre></li>
-<li><p>继承反转 Inheritance Inversion：继承自WrappedComponent</p>
-<pre><code>function hocInheritanceInversion(WrappedComponent){
-  return class hocComponent extends WrappedComponent {
-    render() {
-      // 可以实现渲染劫持，实现Loading等功能
-      return super.render();
-    }
-  }
-}
-</code></pre></li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck0uyrohg001br6wsf1rn2e05" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React组件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/15/React组件/" class="article-date">
-  <time datetime="2018-05-14T16:00:00.000Z" itemprop="datePublished">2018-05-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/15/React组件/">React组件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>无状态组件：采用函数式定义<br><strong> 不含状态管理 </strong><ul>
-<li>不包含任何状态，但可以包含属性，同样的props会得到同样的渲染结果，不会有副作用；</li>
-<li>无状态组件生成时不会实例化，整体渲染性能得到提升；</li>
-<li>无状态组件没有this，ref和生命周期；<pre><code>function Welcome(props){
-  return (&lt;h1&gt;Hello, {props.name}&lt;/h1&gt;);
-}
-</code></pre></li>
-</ul>
-</li>
-</ol>
-<ol start="2">
-<li><p>有状态组件：采用ES6 Component形式定义<br><strong> 实例化的，并且可以访问组件的生命周期方法 </strong></p>
-<pre><code>class Welcome extends React.Component{
-  constructor(props){
-    super(props);
-
-    this.state = {
-      iShow: true
-    }
-  }
-
-  render(){
-    return (
-        this.state.iShow?(&lt;h1&gt; Hello, {this.props.name} &lt;/h1&gt;) : null
-      )
-  }
-}
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck0uyrohg001cr6wsmtw0jhc9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck14srqsl000x5bws5chu566a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -758,7 +775,7 @@ var isHappy = function(n) {
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -779,7 +796,7 @@ var isHappy = function(n) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -789,7 +806,7 @@ var isHappy = function(n) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 12px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/设计模式/" style="font-size: 12px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -811,6 +828,10 @@ var isHappy = function(n) {
       <ul>
         
           <li>
+            <a href="/2019/09/29/UML实践/">UML实践</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/21/有向图的强连通分量算法/">有向图的强连通分量算法</a>
           </li>
         
@@ -824,10 +845,6 @@ var isHappy = function(n) {
         
           <li>
             <a href="/2019/09/15/最大气球/">最大气球</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/02/状态管理/">状态管理</a>
           </li>
         
       </ul>

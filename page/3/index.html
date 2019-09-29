@@ -64,6 +64,164 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-React高阶组件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/10/React高阶组件/" class="article-date">
+  <time datetime="2018-06-09T16:00:00.000Z" itemprop="datePublished">2018-06-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/10/React高阶组件/">React高阶组件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>高阶组件：higher order Component，装饰器模式</p>
+<p> 基本形式：const EnhancedComponent = higherOrderComponent(WrappedComponent);</p>
+</li>
+<li><p>高阶组件两种常见用法：</p>
+<ul>
+<li><p>属性代理 Props Proxy: 通过WrappedComponent的Props来进行操作</p>
+<pre><code>function hocPropsProxy(WrappedComponent) {
+  return class hocComponent extends React.Component {
+    constructor(){
+      super(props);
+
+      this.state = {
+        name: &apos;&apos;
+      }
+    }
+
+    render() {
+      const props = {
+        name: this.state.name
+      }
+
+      return (
+          &lt;div className=&quot;layout&quot;&gt;
+            &lt;WrappedComponent {...this.props} {...props} /&gt;
+          &lt;/div&gt;
+        )
+    }
+  }
+}
+</code></pre></li>
+<li><p>继承反转 Inheritance Inversion：继承自WrappedComponent</p>
+<pre><code>function hocInheritanceInversion(WrappedComponent){
+  return class hocComponent extends WrappedComponent {
+    render() {
+      // 可以实现渲染劫持，实现Loading等功能
+      return super.render();
+    }
+  }
+}
+</code></pre></li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck14srqsw001m5bwsvy1b79pl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React组件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/15/React组件/" class="article-date">
+  <time datetime="2018-05-14T16:00:00.000Z" itemprop="datePublished">2018-05-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/15/React组件/">React组件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>无状态组件：采用函数式定义<br><strong> 不含状态管理 </strong><ul>
+<li>不包含任何状态，但可以包含属性，同样的props会得到同样的渲染结果，不会有副作用；</li>
+<li>无状态组件生成时不会实例化，整体渲染性能得到提升；</li>
+<li>无状态组件没有this，ref和生命周期；<pre><code>function Welcome(props){
+  return (&lt;h1&gt;Hello, {props.name}&lt;/h1&gt;);
+}
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>有状态组件：采用ES6 Component形式定义<br><strong> 实例化的，并且可以访问组件的生命周期方法 </strong></p>
+<pre><code>class Welcome extends React.Component{
+  constructor(props){
+    super(props);
+
+    this.state = {
+      iShow: true
+    }
+  }
+
+  render(){
+    return (
+        this.state.iShow?(&lt;h1&gt; Hello, {this.props.name} &lt;/h1&gt;) : null
+      )
+  }
+}
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck14srqsv001k5bwsqnqu8ej0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-同构字符串" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/09/同构字符串/" class="article-date">
@@ -117,7 +275,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck0uyroi5002vr6wsgjv46plb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck14srqtn00355bwsvd0aut9w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -169,61 +327,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck0uyrohb0019r6wszodnw76a" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React之虚拟Dom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/11/React之虚拟Dom/" class="article-date">
-  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/11/React之虚拟Dom/">React之虚拟Dom</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>为什么引入虚拟Dom<br><strong> JavaScript速度快，Dom操作速度很慢 </strong><br><strong> 虚拟Dom通过diff算法实现Dom操作的优化，本质是通过JavaScript的运算，减少Dom的操作。 </strong></p>
-</li>
-<li><p>虚拟Dom<br><strong> 抽象出虚拟Dom（tagName, props, children） =&gt; 生成Patches（通过diff算法得到虚拟Dom的差异描述） =&gt; Update（通过Patch将差异更新到真实Dom上） </strong></p>
-</li>
-<li><p>Diff算法</p>
-<ul>
-<li>深度遍历，记录差异</li>
-<li>差异类型：涉及最小编辑距离问题</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck0uyroha0017r6wsbr3xfx0u" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck14srqsw001l5bwsok938lzl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -276,10 +380,64 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck0uyrohk001lr6wssk3ngzvd" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck14srqt4001y5bwsbgl194vz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React之虚拟Dom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/11/React之虚拟Dom/" class="article-date">
+  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/React之虚拟Dom/">React之虚拟Dom</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>为什么引入虚拟Dom<br><strong> JavaScript速度快，Dom操作速度很慢 </strong><br><strong> 虚拟Dom通过diff算法实现Dom操作的优化，本质是通过JavaScript的运算，减少Dom的操作。 </strong></p>
+</li>
+<li><p>虚拟Dom<br><strong> 抽象出虚拟Dom（tagName, props, children） =&gt; 生成Patches（通过diff算法得到虚拟Dom的差异描述） =&gt; Update（通过Patch将差异更新到真实Dom上） </strong></p>
+</li>
+<li><p>Diff算法</p>
+<ul>
+<li>深度遍历，记录差异</li>
+<li>差异类型：涉及最小编辑距离问题</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck14srqsu001i5bws18339m58" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -343,7 +501,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck0uyrohi001gr6ws5shezj28" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck14srqsy001q5bwsk7xm7jwf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -408,7 +566,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck0uyroil003rr6wsggd02x2o" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck14srqu200445bwsg81y2dfh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -514,7 +672,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck0uyroh0000qr6wswqplq728" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck14srqso00155bwsc0da7lp5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -526,10 +684,10 @@ return:
 
 
   
-    <article id="post-js笔记" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-简单工厂模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/09/01/js笔记/" class="article-date">
-  <time datetime="2017-09-01T00:00:00.000Z" itemprop="datePublished">2017-09-01</time>
+    <a href="/2017/11/10/简单工厂模式/" class="article-date">
+  <time datetime="2017-11-09T16:00:00.000Z" itemprop="datePublished">2017-11-10</time>
 </a>
     
   <div class="article-category">
@@ -544,7 +702,7 @@ return:
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/01/js笔记/">js笔记</a>
+      <a class="article-title" href="/2017/11/10/简单工厂模式/">简单工厂模式</a>
     </h1>
   
 
@@ -553,138 +711,144 @@ return:
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li><p>JS基本数据类型：Number、String 、Boolean 、Null、Undefined</p>
+<li><p>简单工厂模式<br> <a href="/assets/简单工厂模式.png"><img src="/assets/简单工厂模式.png" alt="简单工厂模式"></a></p>
 </li>
-<li><p>null，undefined的区别？</p>
-<ul>
-<li><p>null表示一个对象被定义了，但存放了空指针，转换为数值时为0。</p>
-</li>
-<li><p>undefined表示声明的变量未初始化，转换为数值时为NAN。</p>
-<p>typeof(null) – object;<br>typeof(undefined) – undefined</p>
-</li>
-</ul>
-</li>
-<li><p>同源<br> 要同时满足以下3个条件，才能叫同源：</p>
-<p> 协议相同<br> 端口相同<br> 主机相同</p>
-</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Factory" title="简单工厂模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- operation.js
+class Operation {
+    constructor(numberA, numberB) {
+        this.numberA = numberA;
+        this.numberB = numberB;
+    }
+
+    getResult(numberA = this.numberA, numberB = this.numberB) {
+        return;
+    }
+}
+
+module.exports = Operation;
+
+-- add.js
+const Operation = require(&apos;./operation.js&apos;);
+
+class Add extends Operation{
+    constructor(numberA, numberB) {
+        super(numberA, numberB);
+    }
+
+    getResult(numberA = this.numberA, numberB = this.numberB) {
+        return numberA + numberB;
+    }
+}
+
+module.exports = Add;
+
+-- subtract.js
+const Operation = require(&apos;./operation.js&apos;);
+
+class Subtract extends Operation{
+    constructor(numberA, numberB){
+        super(numberA, numberB);
+    }
+
+    getResult(numberA = this.numberA, numberB = this.numberB){
+        return numberA - numberB;
+    }
+}
+
+module.exports = Subtract;
+
+-- multiply.js
+const Operation = require(&apos;./operation.js&apos;);
+
+class Multiply extends Operation{
+    constructor(numberA, numberB) {
+        super(numberA, numberB);
+    }
+
+    getResult(numberA = this.numberA, numberB = this.numberB){
+        return numberA * numberB;
+    }
+}
+
+module.exports = Multiply;
+
+-- division.js
+const Operation = require(&apos;./operation.js&apos;);
+
+class Division extends Operation{
+    constructor(numberA, numberB) {
+        super(numberA, numberB);
+    }
+
+    getResult(numberA = this.numberA, numberB = this.numberB) {
+        if(numberB === 0) {
+            throw new Error(&apos;Exception with dividend 0.&apos;);
+        }
+
+        return numberA / numberB;
+    }
+}
+
+module.exports = Division;
+
+-- operationFactory.js
+const Operation = require(&apos;./operation.js&apos;);
+const Add = require(&apos;./add.js&apos;);
+const Subtract = require(&apos;./subtract.js&apos;);
+const Multiply = require(&apos;./multiply.js&apos;);
+const Division = require(&apos;./division.js&apos;);
+
+class OperationFactory {
+    constructor(operate){
+        this.operate = operate;
+    }
+
+    createOperator(operate) {
+        switch(this.operate || operate) {
+            case &apos;+&apos;:
+                return new Add();
+            case &apos;-&apos;:
+                return new Subtract();
+            case &apos;*&apos;:
+                return new Multiply();
+            case &apos;/&apos;:
+                return new Division();
+            default:
+                return new Operation();
+        }
+    }
+}
+
+module.exports = OperationFactory;
+
+-- test.js
+const OperationFactory = require(&apos;./operationFactory.js&apos;);
+
+const operationFactory = new OperationFactory();
+const operation = operationFactory.createOperator();
+const add = operationFactory.createOperator(&apos;+&apos;);
+const substract = operationFactory.createOperator(&apos;-&apos;);
+const multiply = operationFactory.createOperator(&apos;*&apos;);
+const division = operationFactory.createOperator(&apos;/&apos;);
+
+console.log(operation.getResult());
+console.log(add.getResult(2, 3));
+console.log(substract.getResult(2, 3));
+console.log(multiply.getResult(2, 3));
+console.log(division.getResult(2, 3));
+console.log(division.getResult(2, 0));
+</code></pre></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="ck0uyrohk001jr6wsnrguxr7x" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/11/10/简单工厂模式/" data-id="ck14srqu200455bws4tp9tu8i" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-CD数量" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/10/CD数量/" class="article-date">
-  <time datetime="2017-05-09T16:00:00.000Z" itemprop="datePublished">2017-05-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/10/CD数量/">CD数量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 你作为一名出道的歌手终于要出自己的第一份专辑了，你计划收录 n 首歌而且每首歌的长度都是 s 秒，每首歌必须完整地收录于一张 CD 当中。每张 CD 的容量长度都是 L 秒，而且你至少得保证同一张 CD 内相邻两首歌中间至少要隔 1 秒。为了辟邪，你决定任意一张 CD 内的歌数不能被 13 这个数字整除，那么请问你出这张专辑至少需要多少张 CD ？</strong></p>
-<p><strong> 需要考虑剩余为13倍数的情况，每张歌曲数量可以通过计算得来。 </strong></p>
-<pre><code>function getCDCount(n, s, l){
-  //计算每张CD歌曲数量
-  var countPerCD = Math.floor((l + 1) / (s + 1));
-  countPerCD = countPerCD &gt; n?n : countPerCD;
-  if(countPerCD % 13 === 0){
-      countPerCD --;
-  }
-
-  var count = n / countPerCD;
-  count = Math.ceil(count);
-
-  //最后剩余数量为13的倍数且比每张少1，则总CD需要+1
-  var leftCount = n % countPerCD;
-  if(leftCount !== 0 &amp;&amp; leftCount % 13 === 0 &amp;&amp; leftCount === countPerCD - 1){
-      count ++;
-  }
-
-  console.log(count);
-  return count;
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="ck0uyrogv000jr6ws4v4c0od3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-self-introduction" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/21/self-introduction/" class="article-date">
-  <time datetime="2017-01-20T16:00:00.000Z" itemprop="datePublished">2017-01-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/未分类/">未分类</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/21/self-introduction/">self-introduction</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Hi, I am Su Jiefeng. I obtained my master degree in computer science in Northwest Univercity.</p>
-<p>During my performance period at HW company, I utilized my skills to complete web projects and increase the working efficiency of our team with user interface greatly as a front-end engineer.</p>
-<p>The reason why I choosed this position is that I’m really impressed by the things you do and also I want to challenge and improve myself.</p>
-<p>As a self-motivated persion, I’m sure I can be a great asset to your group.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="ck0uyrohl001mr6wsthnrlo91" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -695,7 +859,7 @@ return:
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -716,7 +880,7 @@ return:
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -726,7 +890,7 @@ return:
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 12px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/设计模式/" style="font-size: 12px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -748,6 +912,10 @@ return:
       <ul>
         
           <li>
+            <a href="/2019/09/29/UML实践/">UML实践</a>
+          </li>
+        
+          <li>
             <a href="/2019/09/21/有向图的强连通分量算法/">有向图的强连通分量算法</a>
           </li>
         
@@ -761,10 +929,6 @@ return:
         
           <li>
             <a href="/2019/09/15/最大气球/">最大气球</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/02/状态管理/">状态管理</a>
           </li>
         
       </ul>

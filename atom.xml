@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2019-09-22T12:23:50.800Z</updated>
+  <updated>2019-09-29T10:11:35.778Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UML实践</title>
+    <link href="http://hi2048.github.io/2019/09/29/UML%E5%AE%9E%E8%B7%B5/"/>
+    <id>http://hi2048.github.io/2019/09/29/UML实践/</id>
+    <published>2019-09-28T16:00:00.000Z</published>
+    <updated>2019-09-29T10:11:35.778Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>UML<br> <a href="/assets/UML类图.png"><img src="/assets/UML类图.png" alt="UML类图"></a></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/UML" title="UML实践" target="_blank" rel="noopener">github</a></p><pre><code>-- water.jsclass Water {    constructor(){        console.log(&apos;Water constructor.&apos;);    }}module.exports = Water;-- o2.jsclass O2 {    constructor(){        console.log(&apos;O2 constructor.&apos;);    }}module.exports = O2;-- animal.js/*** 依赖关系：O2，Water----&gt;*/const O2 = require(&apos;./o2.js&apos;);const Water = require(&apos;./water.js&apos;);class Animal {    constructor(){        if(new.target === Animal)            throw new Error(`${Animal} cannot be initialized.`);        console.log(&apos;Animal constructor.&apos;);        this.life = true;    }    metaboly(o2 = new O2(), water = new Water()){        return;    }    breed(){}}module.exports = Animal;-- bird.js/*** 继承animal* 实线空心三角*/const Animal = require(&apos;./animal.js&apos;);const Wing = require(&apos;./wing.js&apos;);class Bird extends Animal {    constructor(feather) {        super();        console.log(&apos;Bird constructor.&apos;);        this.feather = feather;        this.wings = new Wing();    }    deposit() {}}module.exports = Bird;-- wing.js/*** 与鸟是组合关系* 鸟 实心菱形* 翅膀 实心箭头* 左右数字： 1   2， 1对2*/class Wing {    constructor(){        console.log(&apos;Wing constructor.&apos;)    }}module.exports = Wing;-- wildGoose.js/*** 继承鸟* 实线空心三角*/const Bird = require(&apos;./bird.js&apos;);class WildGoose extends Bird {    constructor() {        super();        console.log(&apos;WildGoose Construdtor.&apos;);    }    deposit() {        console.log(&apos;WildGoose Deposit.&apos;);    }    fly() {        console.log(&apos;WildGoose Fly.&apos;);    }}module.exports = WildGoose;-- gooseGroup.js/*** 与大雁： 聚合关系* 雁群： 空心菱形* 大雁： 实线箭头*/const WildGoose = require(&apos;./wildGoose.js&apos;);class GooseGroup {    constructor(){        this.wildGooses = new WildGoose();        console.log(&apos;GooseGroup Constructor.&apos;);    }}module.exports = GooseGroup;-- flyInterface.js/*** 接口*/class FlyInterface {    constructor() {        if(new.target === FlyInterface){            throw(&apos;Fly Interface cannot be initialized.&apos;);        }    }    fly() {        console.log(&apos;fly interface fly.&apos;);    }}module.exports = FlyInterface;-- duck.js/*** 继承自鸟* 实线空心三角*/class Duck extends Bird {    constructor() {        super();        console.log(&apos;Duck constructor.&apos;);    }}module.exports = Duck;-- donaldDuck.js/*** 实现接口： talkInterface* 虚线空心三角 或者 实线空心小圆*/const TalkInterface = require(&apos;./talkInterface.js&apos;);class DonaldDuck extends TalkInterface {    constructor(){        super();        console.log(&apos;Donald Duck Constructor.&apos;);    }    talk() {        super.talk();        console.log(&apos;Donald Duck talk.&apos;);    }}module.exports = DonaldDuck;-- talkInterface.jsclass TalkInterface {    constructor(){        if(new.target === TalkInterface){            throw new Error(&apos;Talk Interface cannot be initialized.&apos;);        }        console.log(&apos;Talk Interface Constructor.&apos;);    }    talk() {        console.log(&apos;talk interface talk.&apos;);    }}module.exports = TalkInterface;-- penguin.js/*** 继承自鸟* 实线空心三角*/const Bird = require(&apos;./bird.js&apos;);const Climate = require(&apos;./climate.js&apos;);class Penguin extends Bird {    constructor() {        super();        console.log(&apos;Penguin Constructor.&apos;);        this.climate = new Climate();    }}module.exports = Penguin;-- climate.js/*** 企鹅 关联关系-〉气候* 实线箭头*/class Climate {    constructor(){        console.log(&apos;Climate Constructor.&apos;);    }}module.exports = Climate;-- test.jsconst Animal = require(&apos;./animal.js&apos;);// const animal = new Animal();// animal.metaboly();const Bird = require(&apos;./bird.js&apos;);const bird = new Bird();bird.metaboly();const WildGoose = require(&apos;./wildGoose.js&apos;);// const wildGoose = new WildGoose();const GooseGroup = require(&apos;./gooseGroup.js&apos;);// const gooseGroup = new GooseGroup();const Penguin = require(&apos;./penguin.js&apos;);// const penguin = new Penguin();const DonaldDuck = require(&apos;./donaldDuck.js&apos;);// const donaldDuck = new DonaldDuck();// donaldDuck.talk();const TalkInterface = require(&apos;./talkInterface.js&apos;);// const talkInterface = new TalkInterface();</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;UML&lt;br&gt; &lt;a href=&quot;/assets/UML类图.png&quot;&gt;&lt;img src=&quot;/assets/UML类图.png&quot; alt=&quot;UML类图&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https://github.com/hi20
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>有向图的强连通分量算法</title>
@@ -230,6 +261,35 @@ const nodeAStruct = function(id, pid, data) {
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript中的内存管理</title>
+    <link href="http://hi2048.github.io/2019/03/23/JavaScript%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
+    <id>http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/</id>
+    <published>2019-03-22T16:00:00.000Z</published>
+    <updated>2019-09-23T04:29:27.352Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>内存管理的生命周期<br> <strong> Allocate Memory =&gt; Use Memory =&gt; Release Memory </strong></p></li><li><p>JavaScript中的GC机制</p><ul><li><p>引用机制：主要通过引用计数进行垃圾收集，将“对象是否不再需要”简化定义为“对象是否有引用存在”.<br><strong> 引用机制无法处理对象的循环引用 </strong></p></li><li><p>标记清除（Mark and Sweep）：算法假定设置一个根Root，定期从根开始递归寻找引用，从而获取所有可以获得的对象和不能获得的对象，因此也解决了循环引用的问题。<br><strong> 将“对象是否不再需要”简化定义为“对象是否可以获得”。 </strong></p></li></ul></li><li><p>内存泄露<br> <strong> 不再需要的内存, 无法被释放。 </strong></p></li><li><p>常见内存泄露案例</p><ul><li>全局变量</li><li>定时器和回调函数</li><li>闭包</li><li>Dom引用</li><li>Dom事件</li><li>console.log</li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;内存管理的生命周期&lt;br&gt; &lt;strong&gt; Allocate Memory =&amp;gt; Use Memory =&amp;gt; Release Memory &lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;JavaScript中的GC机制&lt;/p&gt;
+&lt;ul
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -540,63 +600,6 @@ class Heap {
       
         &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;什么是Fiber&lt;br&gt;&lt;strong&gt; React Fibler 采用分片的思路实现UI的异步渲染。 &lt;/strong&gt;&lt;br&gt;React Fiber把更新过程碎片化，分成很多小片，当分配给小片的时间用尽时，则将控制权交出，如果有优先级更高的任务，就开始
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React高阶组件</title>
-    <link href="http://hi2048.github.io/2018/06/10/React%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6/"/>
-    <id>http://hi2048.github.io/2018/06/10/React高阶组件/</id>
-    <published>2018-06-09T16:00:00.000Z</published>
-    <updated>2019-09-18T13:09:21.246Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>高阶组件：higher order Component，装饰器模式</p><p> 基本形式：const EnhancedComponent = higherOrderComponent(WrappedComponent);</p></li><li><p>高阶组件两种常见用法：</p><ul><li><p>属性代理 Props Proxy: 通过WrappedComponent的Props来进行操作</p><pre><code>function hocPropsProxy(WrappedComponent) {  return class hocComponent extends React.Component {    constructor(){      super(props);      this.state = {        name: &apos;&apos;      }    }    render() {      const props = {        name: this.state.name      }      return (          &lt;div className=&quot;layout&quot;&gt;            &lt;WrappedComponent {...this.props} {...props} /&gt;          &lt;/div&gt;        )    }  }}</code></pre></li><li><p>继承反转 Inheritance Inversion：继承自WrappedComponent</p><pre><code>function hocInheritanceInversion(WrappedComponent){  return class hocComponent extends WrappedComponent {    render() {      // 可以实现渲染劫持，实现Loading等功能      return super.render();    }  }}</code></pre></li></ul></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;高阶组件：higher order Component，装饰器模式&lt;/p&gt;
-&lt;p&gt; 基本形式：const EnhancedComponent = higherOrderComponent(WrappedComponent);&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React组件</title>
-    <link href="http://hi2048.github.io/2018/05/15/React%E7%BB%84%E4%BB%B6/"/>
-    <id>http://hi2048.github.io/2018/05/15/React组件/</id>
-    <published>2018-05-14T16:00:00.000Z</published>
-    <updated>2019-09-16T07:20:38.604Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>无状态组件：采用函数式定义<br><strong> 不含状态管理 </strong><ul><li>不包含任何状态，但可以包含属性，同样的props会得到同样的渲染结果，不会有副作用；</li><li>无状态组件生成时不会实例化，整体渲染性能得到提升；</li><li>无状态组件没有this，ref和生命周期；<pre><code>function Welcome(props){  return (&lt;h1&gt;Hello, {props.name}&lt;/h1&gt;);}</code></pre></li></ul></li></ol><ol start="2"><li><p>有状态组件：采用ES6 Component形式定义<br><strong> 实例化的，并且可以访问组件的生命周期方法 </strong></p><pre><code>class Welcome extends React.Component{  constructor(props){    super(props);    this.state = {      iShow: true    }  }  render(){    return (        this.state.iShow?(&lt;h1&gt; Hello, {this.props.name} &lt;/h1&gt;) : null      )  }}</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;无状态组件：采用函数式定义&lt;br&gt;&lt;strong&gt; 不含状态管理 &lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;不包含任何状态，但可以包含属性，同样的props会得到同样的渲染结果，不会有副作用；&lt;/li&gt;
-&lt;li&gt;无状态组件生成时不会实例化，整体渲染性能得到提升；&lt;/l
       
     
     </summary>
