@@ -64,6 +64,76 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-判断素数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/02/01/判断素数/" class="article-date">
+  <time datetime="2015-02-01T00:00:00.000Z" itemprop="datePublished">2015-02-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/02/01/判断素数/">判断素数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>判断素数</p>
+<pre><code>function isPrimeN(n) {
+  if(n == 0 || n==1){
+      return false;
+  }
+
+  if(n==2){
+      return true;
+  }
+
+  for(var i = 2; i &lt;= Math.sqrt(n); i++){
+      if(n % i == 0){
+          return false;
+      }
+  }
+  return true;
+}
+</code></pre></li>
+<li><p>http和https的区别</p>
+<ul>
+<li>https 需要ca证书</li>
+<li>http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。</li>
+<li>http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</li>
+<li>http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2015/02/01/判断素数/" data-id="ck1iv0ytk003f34wsn4l9v4no" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-定寅时歌诀" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/11/13/定寅时歌诀/" class="article-date">
@@ -102,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/11/13/定寅时歌诀/" data-id="ck14srqts003e5bws4i2jrwus" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/11/13/定寅时歌诀/" data-id="ck1iv0ytt003v34wsvm30kve0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -146,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/11/11/逐年客气歌/" data-id="ck14srqu7004h5bwswma8j0z1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/11/11/逐年客气歌/" data-id="ck1iv0yuf005034wsfrusvjnv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -194,7 +264,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/10/14/定太阴出时歌诀/" data-id="ck14srqts003d5bwsxjvsnyrl" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/10/14/定太阴出时歌诀/" data-id="ck1iv0yts003u34wsrtatxw61" class="article-share-link">Share</a>
       
       
     </footer>
@@ -238,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/10/13/逐年主气歌/" data-id="ck14srqu6004e5bws5roem1zs" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/10/13/逐年主气歌/" data-id="ck1iv0yub004v34wskn9w7p2r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -286,7 +356,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/09/22/定太阳出没歌诀/" data-id="ck14srqtr003c5bwsbw2qia2i" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/09/22/定太阳出没歌诀/" data-id="ck1iv0yts003t34ws3xlbqnee" class="article-share-link">Share</a>
       
       
     </footer>
@@ -328,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/13/推五运/" data-id="ck14srqtw003o5bwsgygzs674" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/08/13/推五运/" data-id="ck1iv0yty004634wsezdx2u22" class="article-share-link">Share</a>
       
       
     </footer>
@@ -374,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/10/逐月六气歌/" data-id="ck14srqu8004j5bwsnz379670" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/08/10/逐月六气歌/" data-id="ck1iv0yuf004z34wssmuv5fu3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -420,7 +490,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/07/逐年六气歌/" data-id="ck14srqu6004g5bwsk50syyg6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/08/07/逐年六气歌/" data-id="ck1iv0yue004y34wspk1fy2de" class="article-share-link">Share</a>
       
       
     </footer>
@@ -466,48 +536,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/05/逐年五运歌/" data-id="ck14srqu6004f5bwsi862ocje" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-五运化气歌" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/07/29/五运化气歌/" class="article-date">
-  <time datetime="2014-07-29T09:43:32.000Z" itemprop="datePublished">2014-07-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/07/29/五运化气歌/">五运化气歌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>甲己化土乙庚金，丁壬化木尽成林，丙辛化水滔滔去，戊癸南方火焰侵。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/07/29/五运化气歌/" data-id="ck14srqt800295bws74kmu6f9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/08/05/逐年五运歌/" data-id="ck1iv0yud004x34wscykwyjnp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -551,7 +580,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 12px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/设计模式/" style="font-size: 12px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 15px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 13.33px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18.33px;">算法</a> <a href="/tags/设计模式/" style="font-size: 13.33px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
