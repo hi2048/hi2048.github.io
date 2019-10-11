@@ -64,6 +64,100 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript去掉数组中的重复元素" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/19/JavaScript去掉数组中的重复元素/" class="article-date">
+  <time datetime="2013-09-19T13:13:37.000Z" itemprop="datePublished">2013-09-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/19/JavaScript去掉数组中的重复元素/">JavaScript去掉数组中的重复元素</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用JavaScript的时候，经常需要去掉数组中的一些重复元素，从而使得数组中的元素具有唯一性。</p>
+<p>大体上来说，有三种实现的思路，</p>
+<p>1. 常规方法</p>
+<pre>
+var unique1 = function(arr){
+    var ret = [];
+    if(arr.length &lt; 2) return arr;
+
+    var    isRepeat =  function(arr, elt){
+        for(var i = 0, len = arr.length; i &lt; len; i++)
+            if(arr[i] == elt)
+                return true;
+        return false;
+    }
+
+    for(var i = 0, len = arr.length; i &lt; len; i++)
+        if(!isRepeat(ret, arr[i]))
+            ret.push(arr[i]);
+    return ret;
+}
+</pre>
+2\. 利用对象
+<pre>
+var unique2 = function(arr){
+    var ret = [],
+        o = {};
+    if(arr.length &lt; 2) return arr;
+
+    for(var i = 0, len = arr.length; i &lt; len; i++)
+        if(!o[arr[i]]){
+            o[arr[i]] = 1;
+            ret.push(arr[i]);
+        }
+    return ret;
+}
+</pre>
+3\. 利用正则表达式
+<pre>
+var unique3 = function(arr){
+    return (arr.reverse().join(&#039; &#039;).match(/(\b[^ ]+\b)(?!.* \1( |$))/ig).reverse());
+}
+</pre>
+
+<p>测试数据，</p>
+<pre>
+var arr1 = [&#039;1&#039;];
+var arr2 = [&#039;1&#039;, &#039;123&#039;, &#039;123&#039;, &#039;231&#039;, &#039;2&#039;, &#039;3&#039;];
+</pre>
+运行结果，
+<pre>
+数据1：1
+数据2：1，123，231，2，3
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript去掉数组中的重复元素/" data-id="ck1m4scep000i2vwsgoamu2cv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-十干在十二宫长生表" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/19/十干在十二宫长生表/" class="article-date">
@@ -104,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck1iv0ytl003g34wst621ryjy" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck1m4scfu00282vwskujbkiad" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +313,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck1iv0ysh001c34ws34112sf0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck1m4sceh000a2vwsrnad467q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -275,7 +369,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck1iv0ytj003b34wsizveevnb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck1m4scfs00252vwsngd6wgkd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -400,7 +494,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck1iv0ytl003h34wsl0wybh1t" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck1m4scfv00292vwsz6x0utll" class="article-share-link">Share</a>
       
       
     </footer>
@@ -452,7 +546,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck1iv0yth003834wscekkat6w" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck1m4scfr00212vwsnsplfgbg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -553,7 +647,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck1iv0yu1004a34ws5sgrtlh8" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck1m4scgb00322vwsh1uww10n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -608,7 +702,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck1iv0yth003734wsgkhkm9kc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck1m4scfq00202vwsbd2bfjkk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -655,7 +749,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/14/卦名次序歌/" data-id="ck1iv0ytn003l34wsvqxxls9a" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/14/卦名次序歌/" data-id="ck1m4scfw002b2vwse9uddbhb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -718,56 +812,11 @@ printf("%d", (*p2)[2]);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck1iv0ytx004434wsaeas7h9q" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck1m4scg7002w2vws0vo27gyw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-卦气旺衰" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/11/卦气旺衰/" class="article-date">
-  <time datetime="2013-09-11T06:47:25.000Z" itemprop="datePublished">2013-09-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/11/卦气旺衰/">卦气旺衰</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>春木旺，震卦，巽卦属木，则卦气就旺，坤卦、艮卦则气衰；</strong></p>
-<p><strong>夏火旺，离卦属火，则卦气就旺，乾卦、兑卦则卦气就衰；</strong></p>
-<p><strong>秋金旺，乾卦，兑卦属金，则卦气就旺，震卦、巽卦则气衰；</strong></p>
-<p><strong>冬水旺，坎卦属水，则卦气就旺，离卦则卦气就衰；</strong></p>
-<p><strong>四季的末月（三、六、九、十二月）属土，坤卦、艮卦属土，则卦气就旺，坎卦则气衰。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="ck1iv0ytn003k34wsbch5xim9" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   

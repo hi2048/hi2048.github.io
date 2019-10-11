@@ -3,19 +3,22 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>命中六亲取用 | 苏小蜂的个人博客</title>
+  <title>装饰模式 | 苏小蜂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="生我者为父母，偏印、正印；我生者为子孙，食神、伤官；克我者为官杀，偏官、正官；我克者为妻财，偏财、正财；比和者为兄弟，比肩、劫财。以日干为我在四柱中取用。">
+  <meta name="description" content="装饰模式（Decorator）   代码实例 github -- component.js class Component {     constructor() {         if(new.target === Component) {             throw new Error(`${Component} cannot be initialized.`);">
+<meta name="keywords" content="JavaScript,设计模式,大话设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="命中六亲取用">
-<meta property="og:url" content="http://hi2048.github.io/2014/07/10/命中六亲取用/index.html">
+<meta property="og:title" content="装饰模式">
+<meta property="og:url" content="http://hi2048.github.io/2018/01/09/装饰模式/index.html">
 <meta property="og:site_name" content="苏小蜂的个人博客">
-<meta property="og:description" content="生我者为父母，偏印、正印；我生者为子孙，食神、伤官；克我者为官杀，偏官、正官；我克者为妻财，偏财、正财；比和者为兄弟，比肩、劫财。以日干为我在四柱中取用。">
+<meta property="og:description" content="装饰模式（Decorator）   代码实例 github -- component.js class Component {     constructor() {         if(new.target === Component) {             throw new Error(`${Component} cannot be initialized.`);">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2016-05-31T16:43:38.000Z">
+<meta property="og:image" content="http://hi2048.github.io/assets/装饰模式.png">
+<meta property="og:updated_time" content="2019-10-11T12:41:25.983Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="命中六亲取用">
-<meta name="twitter:description" content="生我者为父母，偏印、正印；我生者为子孙，食神、伤官；克我者为官杀，偏官、正官；我克者为妻财，偏财、正财；比和者为兄弟，比肩、劫财。以日干为我在四柱中取用。">
+<meta name="twitter:title" content="装饰模式">
+<meta name="twitter:description" content="装饰模式（Decorator）   代码实例 github -- component.js class Component {     constructor() {         if(new.target === Component) {             throw new Error(`${Component} cannot be initialized.`);">
+<meta name="twitter:image" content="http://hi2048.github.io/assets/装饰模式.png">
   
     <link rel="alternate" href="/atom.xml" title="苏小蜂的个人博客" type="application/atom+xml">
   
@@ -66,14 +69,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-命中六亲取用" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-装饰模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/07/10/命中六亲取用/" class="article-date">
-  <time datetime="2014-07-10T08:32:49.000Z" itemprop="datePublished">2014-07-10</time>
+    <a href="/2018/01/09/装饰模式/" class="article-date">
+  <time datetime="2018-01-08T16:00:00.000Z" itemprop="datePublished">2018-01-09</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
   </div>
 
   </div>
@@ -84,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      命中六亲取用
+      装饰模式
     </h1>
   
 
@@ -92,33 +95,176 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>生我者为父母，偏印、正印；我生者为子孙，食神、伤官；克我者为官杀，偏官、正官；我克者为妻财，偏财、正财；比和者为兄弟，比肩、劫财。以日干为我在四柱中取用。</p>
+        <ol>
+<li><p>装饰模式（Decorator）<br> <a href="/assets/装饰模式.png"><img src="/assets/装饰模式.png" alt="装饰模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Decorator" title="装饰模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- component.js
+class Component {
+    constructor() {
+        if(new.target === Component) {
+            throw new Error(`${Component} cannot be initialized.`);
+        }
+
+        console.log(&apos;Component constructor.&apos;);
+    }
+
+    Operation() {
+        console.log(&apos;Component operation.&apos;);
+
+        return;
+    }
+}
+
+module.exports = Component;
+
+-- concreteComponent.js
+const Component = require(&apos;./component&apos;);
+
+class ConcreteComponent extends Component {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteComponent constructor.&apos;);
+    }
+
+    Operation() {
+        console.log(&apos;ConcreteComponent Operation.&apos;);
+    }
+}
+
+module.exports = ConcreteComponent;
+
+-- decorator.js
+const Component = require(&apos;./component&apos;);
+
+class Decoration extends Component {
+    constructor(component) {
+        if(new.target === Decoration) {
+            throw new Error(`${Decoration} cannot be initialized.`);
+        }
+
+        super();
+
+        this.component = component;
+
+        console.log(&apos;Decoration constructor.&apos;);
+    }
+
+    Operation() {
+        if(this.component) {
+            this.component.Operation();
+        }
+    }
+}
+
+module.exports = Decoration;
+
+-- concreteDecoratorA.js
+const Decorator = require(&apos;./decorator&apos;);
+
+class ConcreteDecorationA extends Decorator {
+    constructor(component) {
+        super();
+
+        this.component = component;
+        this.decoratorA = &apos;decoratorA&apos;;
+
+        console.log(&apos;ConcreteDecorationA constructor.&apos;);
+    }
+
+    Operation() {
+        super.Operation();
+
+        console.log(this.decoratorA);
+    }
+}
+
+module.exports = ConcreteDecorationA;
+
+-- concreteDecoratorB.js
+const Decorator = require(&apos;./decorator&apos;);
+
+class ConcreteDecoratorB extends Decorator {
+    constructor(component) {
+        super();
+
+        this.component = component;
+        this.decoratorB = &apos;decoratorB&apos;;
+
+        console.log(&apos;ConcreteDecoratorB constructor.&apos;);
+    }
+
+    Operation() {
+        super.Operation();
+
+        console.log(this.decoratorB);
+    }
+}
+
+module.exports = ConcreteDecoratorB;
+
+-- client.js
+const ConcreteComponent = require(&apos;./concreteComponent&apos;);
+const ConcreteDecoratorA = require(&apos;./concreteDecoratorA&apos;);
+const ConcreteDecoratorB = require(&apos;./concreteDecoratorB&apos;);
+
+console.log(&apos;------&apos;);
+const concreteComponent = new ConcreteComponent();
+concreteComponent.Operation();
+console.log(&apos;------&apos;);
+
+// test decorator A 1
+console.log(&apos;------&apos;);
+const decoratorA1 = new ConcreteDecoratorA();
+decoratorA1.Operation();
+console.log(&apos;------&apos;);
+
+// test decorator A 2
+console.log(&apos;------&apos;);
+const decoratorA2 = new ConcreteDecoratorA(concreteComponent);
+decoratorA2.Operation();
+console.log(&apos;------&apos;);
+
+// test decorator B
+console.log(&apos;------&apos;);
+const decoratorB = new ConcreteDecoratorB(concreteComponent);
+decoratorB.Operation();
+console.log(&apos;------&apos;);
+
+// test decorator ABAAB
+const decorationABAAB = new ConcreteDecoratorB(new ConcreteDecoratorA(new ConcreteDecoratorA(new ConcreteDecoratorB(new ConcreteDecoratorA(new ConcreteComponent())))));
+decorationABAAB.Operation();
+</code></pre></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/07/10/命中六亲取用/" data-id="ck1m4scfz002h2vws3x6iv7ru" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/09/装饰模式/" data-id="ck1m4scgk003j2vwsmgk0vxvv" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2014/07/20/让改变发生/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/01/10/arrayTwoSum/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          让改变发生
+          arrayTwoSum
         
       </div>
     </a>
   
   
-    <a href="/2014/07/02/让我们一起来做点与众不同的事情/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/12/10/移除链表元素/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">让我们一起来做点与众不同的事情</div>
+      <div class="article-nav-title">移除链表元素</div>
     </a>
   
 </nav>

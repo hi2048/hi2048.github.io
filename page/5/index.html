@@ -64,6 +64,75 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-闭包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/06/08/闭包/" class="article-date">
+  <time datetime="2015-06-07T16:00:00.000Z" itemprop="datePublished">2015-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/08/闭包/">闭包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>闭包概念</p>
+<ul>
+<li>能够读取其他函数内部变量的函数。</li>
+<li><p>或简单理解为定义在一个函数内部的函数，内部函数持有外部函数内变量的引用。</p>
+<pre><code>function outFunc(){
+  var outAttr = &quot;outAttr&quot;;
+
+  function innerFunc(){
+    console.log(outAttr);
+  }
+
+  return innerFunc;
+}
+
+var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
+</code></pre></li>
+</ul>
+</li>
+<li><p>为什么有闭包</p>
+<ul>
+<li>避免污染全局变量</li>
+<li>利于代码的封装</li>
+<li>使用时注意内在泄露</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2015/06/08/闭包/" data-id="ck1m4scgp003w2vws7cde44na" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-判断素数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/02/01/判断素数/" class="article-date">
@@ -122,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/02/01/判断素数/" data-id="ck1iv0ytk003f34wsn4l9v4no" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2015/02/01/判断素数/" data-id="ck1m4scfu00272vwsdp7ujlab" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -172,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/11/13/定寅时歌诀/" data-id="ck1iv0ytt003v34wsvm30kve0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/11/13/定寅时歌诀/" data-id="ck1m4scg3002n2vwsyekcfkmi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -216,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/11/11/逐年客气歌/" data-id="ck1iv0yuf005034wsfrusvjnv" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/11/11/逐年客气歌/" data-id="ck1m4scgp003v2vwso2g1r970" class="article-share-link">Share</a>
       
       
     </footer>
@@ -264,7 +333,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/10/14/定太阴出时歌诀/" data-id="ck1iv0yts003u34wsrtatxw61" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/10/14/定太阴出时歌诀/" data-id="ck1m4scg2002m2vwsa7ii1hb0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -308,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/10/13/逐年主气歌/" data-id="ck1iv0yub004v34wskn9w7p2r" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/10/13/逐年主气歌/" data-id="ck1m4scgn003q2vwst9k7jkd5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -356,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/09/22/定太阳出没歌诀/" data-id="ck1iv0yts003t34ws3xlbqnee" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/09/22/定太阳出没歌诀/" data-id="ck1m4scg2002k2vws0egbhlmm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -398,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/13/推五运/" data-id="ck1iv0yty004634wsezdx2u22" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/08/13/推五运/" data-id="ck1m4scg8002y2vwsbypmsih7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -444,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/10/逐月六气歌/" data-id="ck1iv0yuf004z34wssmuv5fu3" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/08/10/逐月六气歌/" data-id="ck1m4scgo003u2vws99nnerz3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -490,53 +559,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/07/逐年六气歌/" data-id="ck1iv0yue004y34wspk1fy2de" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-逐年五运歌" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/08/05/逐年五运歌/" class="article-date">
-  <time datetime="2014-08-05T10:37:56.000Z" itemprop="datePublished">2014-08-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/05/逐年五运歌/">逐年五运歌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>大寒木运始行初，</p>
-<p>清明前三火运居，</p>
-<p>芒种后三土运是，</p>
-<p>立秋后六金运推，</p>
-<p>立冬后九水运伏，</p>
-<p>周而复始万年和。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/08/05/逐年五运歌/" data-id="ck1iv0yud004x34wscykwyjnp" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/08/07/逐年六气歌/" data-id="ck1m4scgm003p2vwskkbx8vko" class="article-share-link">Share</a>
       
       
     </footer>
