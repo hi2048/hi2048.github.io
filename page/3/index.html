@@ -64,6 +64,69 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Fiber" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/11/Fiber/" class="article-date">
+  <time datetime="2018-06-10T16:00:00.000Z" itemprop="datePublished">2018-06-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/11/Fiber/">Fiber</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>什么是Fiber<br><strong> React Fibler 采用分片的思路实现UI的异步渲染。 </strong><br>React Fiber把更新过程碎片化，分成很多小片，当分配给小片的时间用尽时，则将控制权交出，如果有优先级更高的任务，就开始做新的任务，没有就断续原来的更新。</p>
+</li>
+<li><p>Fiber运行原理<br><strong> React Fiber一个更新过程被分为两个阶段(Phase)：第一个阶段Reconciliation Phase和第二阶段Commit Phase。 </strong></p>
+<ul>
+<li><p>Reconciliation Phase， 可以被打断，计算与对比虚拟DOM，找出需要更新的DOM<br>componentWillMount<br>componentWillReceiveProps<br>shouldComponentUpdate<br>componentWillUpdate</p>
+</li>
+<li><p>Commit Phase， 无法打断，更新DOM<br>componentDidMount<br>componentDidUpdate<br>componentWillUnmount</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>React16前的生命周期函数componentWillUpdate等，为什么会多次执行？</p>
+<ul>
+<li>requestIdleCallback</li>
+<li>cancelIdleCallback</li>
+</ul>
+<p><strong> 异步渲染的时候，会调用requestIdleCallback API，在回调函数中可以获得当前callback参数（也就是fiber的分片任务），包括执行时间，如果时间不够，分片任务会被打断（使用cancelIdleCallback API），再次执行则会在空闲时重新执行。 </strong></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck1ss7nca00102iwsuqhprflm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-React高阶组件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/10/React高阶组件/" class="article-date">
@@ -138,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck1oybweu0024umwst0h6owad" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck1ss7ncp001o2iwsi7gme8u1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -210,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck1oybwet0022umwspmwlpim7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck1ss7nco001l2iwsxdtct2p1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -275,10 +338,166 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck1oybwfo003pumws8ka68s77" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck1ss7ndg00392iwsywsroj99" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-模板方法模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/05/模板方法模式/" class="article-date">
+  <time datetime="2018-05-04T16:00:00.000Z" itemprop="datePublished">2018-05-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/05/模板方法模式/">模板方法模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>模板方法模式（Template Method）<br> <a href="/assets/模板方法模式.png"><img src="/assets/模板方法模式.png" alt="模板方法模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Template-Method" title="模板方法模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- abstractClass.js
+class AbstractClass {
+    constructor() {
+        if(new.target === AbstractClass)
+            throw new Error(`${AbstractClass} cannot be initialized.`);
+
+        console.log(&apos;AbstractClass constructor.&apos;);
+    }
+
+    templateMethod() {
+        this.primitiveOperation1();
+        this.primitiveOperation2();
+        console.log(&apos;Abstract class template method.&apos;);
+    }
+
+    primitiveOperation1() {
+        throw new Error(`${this.primitiveOperation1} should be overwrite.`)
+    }
+
+    primitiveOperation2() {
+        throw new Error(`${this.primitiveOperation2} should be overwrite.`);
+    }
+}
+
+module.exports = AbstractClass;
+
+-- concreteClass1.js
+const AbstractClass = require(&apos;./abstractClass&apos;);
+
+class ConcreteClass1 extends AbstractClass {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteClass1 constructor.&apos;);
+    }
+
+    primitiveOperation1() {
+        console.log(&apos;ConcreteClass1 primitiveOperation1.&apos;);
+    }
+
+    primitiveOperation2() {
+        console.log(&apos;ConcreteClass1 primitiveOperation2.&apos;);
+    }
+}
+
+module.exports = ConcreteClass1;
+
+-- concreteClass2.js
+const AbstractClass = require(&apos;./abstractClass&apos;);
+
+class ConcreteClass2 extends AbstractClass {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteClass2 constructor.&apos;);
+    }
+
+    primitiveOperation1() {
+        console.log(&apos;ConcreteClass2 primitiveOperation1.&apos;);
+    }
+
+    primitiveOperation2() {
+        console.log(&apos;ConcreteClass2 primitiveOperation2.&apos;);
+    }
+}
+
+module.exports = ConcreteClass2;
+
+-- concreteClass3.js
+const AbstractClass = require(&apos;./abstractClass&apos;);
+
+class ConcreteClass3 extends AbstractClass {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteClass3 constructor.&apos;);
+    }
+
+    primitiveOperation2() {
+        console.log(&apos;ConcreteClass3 primitiveOperation2.&apos;);
+    }
+}
+
+module.exports = ConcreteClass3;
+
+-- client.js
+const AbstractClass = require(&apos;./abstractClass&apos;);
+const ConcreteClass1 = require(&apos;./concreteClass1&apos;);
+const ConcreteClass2 = require(&apos;./concreteClass2&apos;);
+const ConcreteClass3 = require(&apos;./concreteClass3&apos;);
+
+// test1
+// const abstractClass = new AbstractClass();
+
+// test concrete class 1
+const concreteClass1 = new ConcreteClass1();
+concreteClass1.templateMethod();
+console.log(&apos;------&apos;);
+
+// test concrete class 2
+const concreteClass2 = new ConcreteClass2();
+concreteClass2.templateMethod();
+console.log(&apos;------&apos;);
+
+// test concrete class 3
+const concreteClass3 = new ConcreteClass3();
+concreteClass3.templateMethod();
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/05/05/模板方法模式/" data-id="ck1ss7nds00422iwsr4yos61s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -419,7 +638,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck1oybwfn003numwsqbtbdadz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck1ss7nde00352iws3kz250f9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -543,7 +762,7 @@ concreteProduct.method();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck1oybwfu0040umwsp9pvfhyu" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck1ss7ndl003l2iws5idv9vfb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -667,7 +886,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck1oybwf7002sumwsuaal3peb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck1ss7ncz002b2iwserlhldik" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -719,7 +938,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck1oybwet0023umwsk7itujet" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck1ss7nco001m2iwsxexsra4s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -773,130 +992,10 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck1oybwes0020umwsb6gpwhg8" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck1ss7ncn001k2iwsu3pad9hv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-twoSum" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/11/twoSum/" class="article-date">
-  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/11/twoSum/">twoSum</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 求数组中两个数值之和为指定值的下标，可以采用hash来解决 </strong></p>
-<pre><code>const twoSum = (nums, target) =&gt; {
-  let hash = {};
-  for(let i = 0, len = nums.length; i &lt; len; i++){
-    if(typeof hash[target - nums[i]] !== &apos;undefined&apos;){
-      return [hash[target - nums[i]], i];
-    }
-
-    hash[nums[i]] = i;
-  }
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck1oybwf1002gumwsbl44x2ki" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-arrayTwoSum" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/10/arrayTwoSum/" class="article-date">
-  <time datetime="2018-01-09T16:00:00.000Z" itemprop="datePublished">2018-01-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/arrayTwoSum/">arrayTwoSum</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 求数组下标，下标区间数值之和为指定值 </strong></p>
-<pre><code>const twoSum = (nums, target) =&gt;{
-    let count = 0;
-
-    for(let i = 0, len = nums.length; i &lt; len;){
-        count = nums[i];
-
-        if(count &gt; target){
-            i++
-        } else if(count === target){
-            return [i, i];
-        } else{
-          for(let j = i + 1; j &lt; len; j++){
-              count += nums[j];
-
-              if(count &gt; target){
-                  i++;
-                  break;
-              } else if(count === target){
-                  return [i, j];
-              }
-          }
-        }
-    }
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck1oybwex002aumwstnb3hmcv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -939,7 +1038,7 @@ new Subject();
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 15px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18.33px;">算法</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 16px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 

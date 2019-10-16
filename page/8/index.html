@@ -64,6 +64,157 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-坤卦中干支旺衰" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/23/坤卦中干支旺衰/" class="article-date">
+  <time datetime="2013-10-23T09:22:04.000Z" itemprop="datePublished">2013-10-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/周易/">周易</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/23/坤卦中干支旺衰/">坤卦中干支旺衰</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>坤卦    庚、申、戊、未</p>
+<p>‘’    癸酉   世</p>
+<p>‘’    癸亥</p>
+<p>‘’    癸丑</p>
+<p>‘’    乙卯    应</p>
+<p>‘’    乙巳</p>
+<p>‘’    乙未</p>
+<p>坤卦是八纯卦之一，阴旺至极，位居辰、戌、丑、未月，未、申年、月、日、时，属土，旺于四季、戊、己、丑、未、辰、戌、纳音土，土旺需耗。土盛则蓄水（癸、子水），耗则被木克（乙、卯），癸、子水旺于申子辰三合水局，卯木生癸水。所以坤卦納干表现为癸、乙，在数字为0、2。</p>
+<p>癸巳30、90……            癸亥60、120……                 乙巳42、102…..           乙亥12、72……</p>
+<p>癸酉0、10、70…..        癸卯40、100……                 乙酉22、82…..             乙卯52、112……</p>
+<p>癸丑50、110……          癸未20、80……                   乙丑02、62……            乙未32、92……</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/10/23/坤卦中干支旺衰/" data-id="ck1ss7ndk003g2iws1m1qped8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-全排列算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/20/全排列算法/" class="article-date">
+  <time datetime="2013-10-20T11:50:26.000Z" itemprop="datePublished">2013-10-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/20/全排列算法/">全排列算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>全排列中一种简单的算法是采用递归的思想，化繁为简。</p>
+<p>对于字符数组cs，主要过程如下，</p>
+<p>1. 交换cs[0]与递归开始索引sIndex，剩余的n - 1个字符，递归进行</p>
+<p>2. 交换cs[1]与递归开始索引sIndex，剩余的n - 1个字符，递归进行</p>
+<p>…</p>
+<p>直到cs[n]，完成全排列。</p>
+<p>Java具体实现代码如下，</p>
+<pre>import java.util.*;
+
+public class STest {
+    public static void fperm(char[] cs, int sIndex, int eIndex){
+        if(sIndex == eIndex) {
+            for(int i = 0; i &lt; eIndex; i++)
+                System.out.print(cs[i]);
+            System.out.println();
+        }
+
+        for(int i = sIndex; i &lt; eIndex; i++){
+            char temp = cs[sIndex];
+            cs[sIndex] = cs[i];
+            cs[i] = temp;
+
+            fperm(cs, sIndex + 1, eIndex);
+
+            cs[i] = cs[sIndex];
+            cs[sIndex] = temp;
+        }
+    }
+
+    public static void main(String[] args){
+        char[] cs = {'a', 'b', 'c', 'd'};
+        fperm(cs, 0, cs.length);
+    }
+}</pre>
+程序运行结果如下，
+<pre>abcd
+abdc
+acbd
+acdb
+adcb
+adbc
+bacd
+badc
+bcad
+bcda
+bdca
+bdac
+cbad
+cbda
+cabd
+cadb
+cdab
+cdba
+dbca
+dbac
+dcba
+dcab
+dacb
+dabc</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/10/20/全排列算法/" data-id="ck1ss7nd2002g2iws1uutgwcz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-乾卦中干支旺衰" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/10/20/乾卦中干支旺衰/" class="article-date">
@@ -105,7 +256,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/20/乾卦中干支旺衰/" data-id="ck1oybwf4002lumwsm6ahos36" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/20/乾卦中干支旺衰/" data-id="ck1ss7ncw00232iwskoqukucl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/18/三合中的数字(二）/" data-id="ck1oybwf3002jumwsb42okgmb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/18/三合中的数字(二）/" data-id="ck1ss7ncw00222iwsjqpt3e5e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -201,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/16/三合中的数字（一）/" data-id="ck1oybwf3002kumwsrfsvs9w6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/16/三合中的数字（一）/" data-id="ck1ss7ncy00282iwsfil3qszh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -249,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/15/晕车不用愁/" data-id="ck1oybwg0004cumwspxvbfl4o" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/15/晕车不用愁/" data-id="ck1ss7ndq003x2iwsxdf68ch7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -299,7 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/13/八卦里的数字/" data-id="ck1oybwff0038umws311et606" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/13/八卦里的数字/" data-id="ck1ss7nda002w2iwsolt2diug" class="article-share-link">Share</a>
       
       
     </footer>
@@ -362,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/13/模式匹配-BF算法/" data-id="ck1oybwg2004gumws634bt0n9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/13/模式匹配-BF算法/" data-id="ck1ss7ndr00412iwsr5pau2wc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -410,7 +561,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/13/10000阶乘的未尾有几个0？/" data-id="ck1oybwe6000vumwsx7rvy0pm" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/13/10000阶乘的未尾有几个0？/" data-id="ck1ss7nc8000x2iwsp3cjxrdd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -457,97 +608,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/12/预测中的原神、忌神、仇神/" data-id="ck1oybwgi005aumws1mhnu7k1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-善待自己的身体" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/10/09/善待自己的身体/" class="article-date">
-  <time datetime="2013-10-09T09:43:08.000Z" itemprop="datePublished">2013-10-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/10/09/善待自己的身体/">善待自己的身体</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>随着改革开放，市场经济的冲击，社会的竞争越来越激烈，人们生活节奏的加快，从牙牙学语的小孩到拄着拐杖的老人无不感到身心疲惫。就拿小孩来说，当他们刚学会说话的时候，大人们就忙于教他们学这学那，不管年龄，还嫌小孩愚笨，何不顺应自然成长加以合理引导；当小孩进入少年时期，大人们就忙于教他们边学功课，边学其他，如音乐、书画、太极拳、外加补课等等，像是要他们把所有的东西都学完，而忘记他们正是长身体的时候，何不在他们精力充沛的情况下，培养和发展孩子的兴趣、爱好；还有现在的年轻人，动不动就熬夜，不按时吃饭，休息，有的为了挣多多的钱，不惜加班加点，全然把老祖宗的“日出而作，日落而息。”的传统置之不理；还有老人们也整天忙这忙那，全然忘记自己的身体已进入修养期；还有的年轻人，只图一时的美观，不管身体能不能接受，是热还是冷，只要好看就穿。等等一些现象，无不透支着自己身体的能量，消耗自身的气血，损伤元气，伤害身体，甚至使原本消耗的身体得不到恢复，继续消耗，渐渐的涌出了一批“过劳模”大军，使一些原本老年人得的慢性病。如颈椎病、冠心病、脑溢血、脑梗、高血压等病变进入了年轻人行列。</p>
-<p>由此可见，大部分人们不太关心自己的身体，一直搞内耗，对自己不好，可我们想想：是谁在默默的支持着我们的学习、工作、娱乐等等无论你给它吃什么、喝什么、它都会接受。不管吃、喝的好坏，他都会把它消化、吸收、转化成能量，为你工作、学习、娱乐以及各种活动提供所需能量。其实我们的身体是很辛苦的，是我们的切身朋友，一定要善待自己的身体。</p>
-<p>我们要活的有声有色，要有财富、荣耀、车子、房子等自己想要的一切，首先要善待自己的身体，养成良好的养生习惯，达到生活、学习、工作、娱乐个不误，走出一个适合自己良好发展路子来。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/09/善待自己的身体/" data-id="ck1oybwfr003tumwsplgu9blh" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-原神旺象的几种情况" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/10/08/原神旺象的几种情况/" class="article-date">
-  <time datetime="2013-10-08T09:19:23.000Z" itemprop="datePublished">2013-10-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/10/08/原神旺象的几种情况/">原神旺象的几种情况</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>1、原神临长生帝旺于日建。</strong></p>
-<p><strong>2、原神动而化进神。</strong></p>
-<p><strong>3、原神临月、日建。</strong></p>
-<p><strong>4、原神临月、日建、又临动爻。</strong></p>
-<p><strong>5、原神动，忌神也动。</strong></p>
-<p><strong>6、原神临月、日建动而临空化空。</strong></p>
-<p><strong>临空化空并非无用，因有动不为空，填空之日不为空，出空之间不为空。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/08/原神旺象的几种情况/" data-id="ck1oybwfo003oumwsv4gb9hvo" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/12/预测中的原神、忌神、仇神/" data-id="ck1ss7ne3004w2iwsvzet6vqe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -591,7 +652,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 15px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18.33px;">算法</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 16px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 

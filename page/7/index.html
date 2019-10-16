@@ -64,6 +64,127 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-让我们一起来做点与众不同的事情" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/07/02/让我们一起来做点与众不同的事情/" class="article-date">
+  <time datetime="2014-07-02T14:08:52.000Z" itemprop="datePublished">2014-07-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/07/02/让我们一起来做点与众不同的事情/">让我们一起来做点与众不同的事情</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>生活在不知不觉间，会慢慢将你磨平。给自己点信心，给自己点勇气，给自己梦想，加油，未来！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2014/07/02/让我们一起来做点与众不同的事情/" data-id="ck1ss7ndz004l2iwsezhnhrry" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript类与继承" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/05/05/JavaScript类与继承/" class="article-date">
+  <time datetime="2014-05-04T16:00:00.000Z" itemprop="datePublished">2014-05-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/05/05/JavaScript类与继承/">JavaScript类与继承</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>定义类</p>
+<pre><code>//定义属性
+function MyClass(attr1, attr2) {
+  this.attr1 = attr1;
+  this.attr2 = attr2;
+}
+
+//定义方法
+MyClass.prototype = {
+  constructor : MyClass,
+  myFunc : function() {
+      console.log(this.attr1);
+  }
+};
+</code></pre></li>
+<li><p>继承类</p>
+<pre><code>//定义父类
+function SuperClass(attr) {
+    this.attr = attr;
+}
+
+SuperClass.prototype = {
+    superFunc : function() {
+        console.log(this.attr);
+    }
+};
+
+//继承父类
+function SubClass(attr, subAttr) {
+    //继承属性
+    SuperClass.call(this, attr);
+    this.subAttr = subAttr;
+}
+//继承方法
+SubClass.prototype = new SuperClass();
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2014/05/05/JavaScript类与继承/" data-id="ck1ss7ncf001d2iwsl980r0xt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-十年之后" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/02/22/十年之后/" class="article-date">
@@ -104,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/02/22/十年之后/" data-id="ck1oybwfm003kumws2b13q4lx" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/02/22/十年之后/" data-id="ck1ss7ndd00322iwsz6nysovf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/11/09/艮卦中干支旺衰/" data-id="ck1oybwga004wumwsltsi386h" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/11/09/艮卦中干支旺衰/" data-id="ck1ss7ndy004i2iwsbhbldvjh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -195,7 +316,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/11/07/兑卦中干支旺衰/" data-id="ck1oybwf8002vumws2axi7eg1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/11/07/兑卦中干支旺衰/" data-id="ck1ss7nd3002h2iws8dy9q52c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/11/06/离卦中干支旺衰/" data-id="ck1oybwg4004mumwsm3kg9pzz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/11/06/离卦中干支旺衰/" data-id="ck1ss7ndu00482iwsnnd00w0b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -286,7 +407,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/11/04/坎卦中干支旺衰/" data-id="ck1oybwfs003uumwsyn44xw2r" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/11/04/坎卦中干支旺衰/" data-id="ck1ss7ndj003f2iwsgmf502or" class="article-share-link">Share</a>
       
       
     </footer>
@@ -331,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/11/02/鼻炎不用愁/" data-id="ck1oybwgi005cumwsqzhue27d" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/11/02/鼻炎不用愁/" data-id="ck1ss7ne3004x2iwsr1c5hxor" class="article-share-link">Share</a>
       
       
     </footer>
@@ -382,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/27/巽卦中干支旺衰/" data-id="ck1oybwfv0041umwsagd4ig4l" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/27/巽卦中干支旺衰/" data-id="ck1ss7ndm003m2iwsa5izguff" class="article-share-link">Share</a>
       
       
     </footer>
@@ -422,160 +543,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/25/震卦中干支旺衰/" data-id="ck1oybwgh0059umws1avzm7cq" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/25/震卦中干支旺衰/" data-id="ck1ss7ne2004v2iws89of9ydi" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-坤卦中干支旺衰" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/10/23/坤卦中干支旺衰/" class="article-date">
-  <time datetime="2013-10-23T09:22:04.000Z" itemprop="datePublished">2013-10-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/10/23/坤卦中干支旺衰/">坤卦中干支旺衰</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>坤卦    庚、申、戊、未</p>
-<p>‘’    癸酉   世</p>
-<p>‘’    癸亥</p>
-<p>‘’    癸丑</p>
-<p>‘’    乙卯    应</p>
-<p>‘’    乙巳</p>
-<p>‘’    乙未</p>
-<p>坤卦是八纯卦之一，阴旺至极，位居辰、戌、丑、未月，未、申年、月、日、时，属土，旺于四季、戊、己、丑、未、辰、戌、纳音土，土旺需耗。土盛则蓄水（癸、子水），耗则被木克（乙、卯），癸、子水旺于申子辰三合水局，卯木生癸水。所以坤卦納干表现为癸、乙，在数字为0、2。</p>
-<p>癸巳30、90……            癸亥60、120……                 乙巳42、102…..           乙亥12、72……</p>
-<p>癸酉0、10、70…..        癸卯40、100……                 乙酉22、82…..             乙卯52、112……</p>
-<p>癸丑50、110……          癸未20、80……                   乙丑02、62……            乙未32、92……</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/23/坤卦中干支旺衰/" data-id="ck1oybwfs003vumwsohh0c4sc" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-全排列算法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/10/20/全排列算法/" class="article-date">
-  <time datetime="2013-10-20T11:50:26.000Z" itemprop="datePublished">2013-10-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/10/20/全排列算法/">全排列算法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>全排列中一种简单的算法是采用递归的思想，化繁为简。</p>
-<p>对于字符数组cs，主要过程如下，</p>
-<p>1. 交换cs[0]与递归开始索引sIndex，剩余的n - 1个字符，递归进行</p>
-<p>2. 交换cs[1]与递归开始索引sIndex，剩余的n - 1个字符，递归进行</p>
-<p>…</p>
-<p>直到cs[n]，完成全排列。</p>
-<p>Java具体实现代码如下，</p>
-<pre>import java.util.*;
-
-public class STest {
-    public static void fperm(char[] cs, int sIndex, int eIndex){
-        if(sIndex == eIndex) {
-            for(int i = 0; i &lt; eIndex; i++)
-                System.out.print(cs[i]);
-            System.out.println();
-        }
-
-        for(int i = sIndex; i &lt; eIndex; i++){
-            char temp = cs[sIndex];
-            cs[sIndex] = cs[i];
-            cs[i] = temp;
-
-            fperm(cs, sIndex + 1, eIndex);
-
-            cs[i] = cs[sIndex];
-            cs[sIndex] = temp;
-        }
-    }
-
-    public static void main(String[] args){
-        char[] cs = {'a', 'b', 'c', 'd'};
-        fperm(cs, 0, cs.length);
-    }
-}</pre>
-程序运行结果如下，
-<pre>abcd
-abdc
-acbd
-acdb
-adcb
-adbc
-bacd
-badc
-bcad
-bcda
-bdca
-bdac
-cbad
-cbda
-cabd
-cadb
-cdab
-cdba
-dbca
-dbac
-dcba
-dcab
-dacb
-dabc</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/20/全排列算法/" data-id="ck1oybwf9002wumwscq9padof" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-
     </footer>
   </div>
   
@@ -617,7 +587,7 @@ dabc</pre>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 15px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18.33px;">算法</a> <a href="/tags/设计模式/" style="font-size: 15px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 16px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/设计模式/" style="font-size: 16px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 

@@ -73,9 +73,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -103,9 +103,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -136,9 +136,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -164,9 +164,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -258,9 +258,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -318,9 +318,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -347,9 +347,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -378,9 +378,9 @@ const popItemFromArray = (arr, key) =&amp;gt;{
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -412,9 +412,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -469,9 +469,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -586,20 +586,22 @@ class Heap {
   </entry>
   
   <entry>
-    <title>Fiber</title>
-    <link href="http://hi2048.github.io/2018/06/11/Fiber/"/>
-    <id>http://hi2048.github.io/2018/06/11/Fiber/</id>
-    <published>2018-06-10T16:00:00.000Z</published>
-    <updated>2019-09-11T10:00:46.794Z</updated>
+    <title>外观模式</title>
+    <link href="http://hi2048.github.io/2018/06/15/%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2018/06/15/外观模式/</id>
+    <published>2018-06-14T16:00:00.000Z</published>
+    <updated>2019-10-16T04:29:36.718Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>什么是Fiber<br><strong> React Fibler 采用分片的思路实现UI的异步渲染。 </strong><br>React Fiber把更新过程碎片化，分成很多小片，当分配给小片的时间用尽时，则将控制权交出，如果有优先级更高的任务，就开始做新的任务，没有就断续原来的更新。</p></li><li><p>Fiber运行原理<br><strong> React Fiber一个更新过程被分为两个阶段(Phase)：第一个阶段Reconciliation Phase和第二阶段Commit Phase。 </strong></p><ul><li><p>Reconciliation Phase， 可以被打断，计算与对比虚拟DOM，找出需要更新的DOM<br>componentWillMount<br>componentWillReceiveProps<br>shouldComponentUpdate<br>componentWillUpdate</p></li><li><p>Commit Phase， 无法打断，更新DOM<br>componentDidMount<br>componentDidUpdate<br>componentWillUnmount</p></li></ul></li></ol><ol start="3"><li><p>React16前的生命周期函数componentWillUpdate等，为什么会多次执行？</p><ul><li>requestIdleCallback</li><li>cancelIdleCallback</li></ul><p><strong> 异步渲染的时候，会调用requestIdleCallback API，在回调函数中可以获得当前callback参数（也就是fiber的分片任务），包括执行时间，如果时间不够，分片任务会被打断（使用cancelIdleCallback API），再次执行则会在空闲时重新执行。 </strong></p></li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>外观模式（Facade）<br> <a href="/assets/外观模式.png"><img src="/assets/外观模式.png" alt="外观模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Facade" title="外观模式" target="_blank" rel="noopener">github</a></p><pre><code>-- subSystemOne.jsclass SubSystemOne {    constructor() {        console.log(&apos;SubSystemOne constructor.&apos;);    }    methodOne() {        console.log(&apos;SubSystemOne methodOne.&apos;);    }}module.exports = SubSystemOne;-- subSystemTwo.jsclass SubSystemTwo {    constructor() {        console.log(&apos;SubSystemTwo constructor.&apos;);    }    methodTwo() {        console.log(&apos;SubSystemTwo methodTwo.&apos;);    }}module.exports = SubSystemTwo;-- subSystemThree.jsclass SubSystemThree {    constructor() {        console.log(&apos;SubSystemThree constructor.&apos;);    }    methodThree() {        console.log(&apos;SubSystemThree methodThree.&apos;);    }}module.exports = SubSystemThree;-- subSystemFour.jsclass SubSystemFour {    constructor() {        console.log(&apos;SubSystemFour constructor.&apos;);    }    methodFour() {        console.log(&apos;SubSystemFour methodFour.&apos;);    }}module.exports = SubSystemFour;-- facade.jsconst SubSystemOne = require(&apos;./subSystemOne&apos;);const SubSystemTwo = require(&apos;./subSystemTwo&apos;);const SubSystemThree = require(&apos;./subSystemThree&apos;);const SubSystemFour = require(&apos;./subSystemFour&apos;);class Facade {    constructor() {        this.subSystemOne = new SubSystemOne();        this.subSystemTwo = new SubSystemTwo();        this.subSystemThree = new SubSystemThree();        this.subSystemFour = new SubSystemFour();        console.log(&apos;Facade constructor.&apos;);    }    methodA() {        console.log(&apos;Facade methodA.&apos;);        this.subSystemOne.methodOne();        this.subSystemTwo.methodTwo();        this.subSystemFour.methodFour();    }    methodB() {        console.log(&apos;Facade methodB.&apos;);        this.subSystemThree.methodThree();        this.subSystemFour.methodFour();    }}module.exports = Facade;-- client.jsconst Facade = require(&apos;./facade&apos;);const facade = new Facade();console.log(&apos;------&apos;);facade.methodA();console.log(&apos;------&apos;);facade.methodB();</code></pre></li></ol>]]></content>
     
     <summary type="html">
     
       
       
         &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;什么是Fiber&lt;br&gt;&lt;strong&gt; React Fibler 采用分片的思路实现UI的异步渲染。 &lt;/strong&gt;&lt;br&gt;React Fiber把更新过程碎片化，分成很多小片，当分配给小片的时间用尽时，则将控制权交出，如果有优先级更高的任务，就开始
+&lt;li&gt;&lt;p&gt;外观模式（Facade）&lt;br&gt; &lt;a href=&quot;/assets/外观模式.png&quot;&gt;&lt;img src=&quot;/assets/外观模式.png&quot; alt=&quot;外观模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https://g
       
     
     </summary>
@@ -607,7 +609,11 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
