@@ -64,6 +64,98 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-二叉树求取后序遍历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/25/二叉树求取后序遍历/" class="article-date">
+  <time datetime="2013-09-25T08:32:46.000Z" itemprop="datePublished">2013-09-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/25/二叉树求取后序遍历/">二叉树求取后序遍历</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如何根据二叉树的前序遍历与中序遍历，求出后序遍历？</p>
+<p>二叉树的前序遍历：根 左 右</p>
+<p>二叉树的中序遍历：左 根 右</p>
+<p>可以从前序中得知二叉树的根所在，从中序遍历得知根的左右子树，最后使用递归求得二叉树，从而求出后序遍历的结果。</p>
+<p>例如已知，</p>
+<p>前序遍历为：a b d e c f g h i</p>
+<p>中序遍历为：e d b c a h g i f</p>
+<p>因而可以求得此二叉树如下，</p>
+<p><a href="/assets/cal_postorder.png"><img src="/assets/cal_postorder.png" alt="cal_postorder"></a></p>
+<p>从而后序遍历为：e d c b h i g f a</p>
+<p>程序实现如下，</p>
+<pre>
+#include&lt;stdio.h&gt;
+#include&lt;iostream&gt;
+
+using namespace std;
+
+int findRootIndex(char c, char *in, int in_start, int in_end){
+    for(int i = in_start; i &lt;= in_end; i++)
+        if(c == in[i])
+            return i;
+    return -1;
+}
+
+void calPostorderTraversal(char *p, int p_start, int p_end, char *in, int in_start, int in_end){
+    char c = p[p_start];
+    int n = findRootIndex(p[p_start], in, in_start, in_end);
+
+    if(in_start &gt; in_end) return;
+    if(in_end == in_start) {
+        cout&lt;&lt;c;
+        return;
+    }
+
+    calPostorderTraversal(p, p_start + 1, p_start + n - in_start, in, in_start, n - 1);
+    calPostorderTraversal(p, p_start + n + 1 - in_start, p_end, in, n + 1, in_end);
+
+    cout&lt;&lt;c;
+}
+
+int main(){
+    char preorder[] = &quot;abdecfghi&quot;;
+    char inorder[] = &quot;edbcahgif&quot;;
+    int len = sizeof(preorder);
+
+    calPostorderTraversal(preorder, 0, len - 1, inorder, 0, len - 1);
+
+    return 0;
+}
+</pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/25/二叉树求取后序遍历/" data-id="ck1us1mna0027e1wsynns17ij" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-十二地支中所藏干歌诀" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/24/十二地支中所藏干歌诀/" class="article-date">
@@ -106,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/24/十二地支中所藏干歌诀/" data-id="ck1tecyta002yknwspw3rinew" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/24/十二地支中所藏干歌诀/" data-id="ck1us1mno002ze1wsaupfge80" class="article-share-link">Share</a>
       
       
     </footer>
@@ -161,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/23/十二地支的关系/" data-id="ck1tecytb002zknwsbvgx3s1o" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/23/十二地支的关系/" data-id="ck1us1mnn002ye1wssh0rahv6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -210,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/22/十天干关系/" data-id="ck1tecytb0031knwsdmbupmje" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/22/十天干关系/" data-id="ck1us1mnq0034e1wse0gy7oyx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -343,7 +435,7 @@ obj4 name: obj4, obj4 obj_inner name: obj44
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript中浅复制与深复制/" data-id="ck1tecyse0016knwsg0i1dqaf" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript中浅复制与深复制/" data-id="ck1us1mmr0017e1wssla1e9e6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -429,7 +521,7 @@ alert(obj.func()());</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript闭包/" data-id="ck1tecysh001fknws4o5owj0w" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript闭包/" data-id="ck1us1mmv001fe1wspetmbr07" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -481,7 +573,7 @@ alert(obj.func()());</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/20/五行关系/" data-id="ck1tecysy0028knwsaox0n7k8" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/20/五行关系/" data-id="ck1us1mnb0028e1ws5qpy31gf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -573,7 +665,7 @@ var arr2 = [&#039;1&#039;, &#039;123&#039;, &#039;123&#039;, &#039;231&#039;, &#
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript去掉数组中的重复元素/" data-id="ck1tecysg001bknwsukabw0dn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript去掉数组中的重复元素/" data-id="ck1us1mmt001be1wsjywz6g98" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -625,7 +717,7 @@ var arr2 = [&#039;1&#039;, &#039;123&#039;, &#039;123&#039;, &#039;231&#039;, &#
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck1tecytc0032knws4hjdv8da" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck1us1mnp0032e1ws6rumfq9u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -740,65 +832,11 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck1tecysd0014knwsojbsznr6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck1us1mmq0016e1wscvdlmpz3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-十二宫解释" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/18/十二宫解释/" class="article-date">
-  <time datetime="2013-09-18T09:48:02.000Z" itemprop="datePublished">2013-09-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/18/十二宫解释/">十二宫解释</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>《三命通会》十二宫解释：</strong></p>
-<p><strong>长生象万物发生向荣，如人始生而向长也。</strong></p>
-<p><strong>沐浴（败）象以万物始生，形体柔脆，易为所损，如人生后三日，以沐浴之，不至困绝也。</strong></p>
-<p><strong>冠带象万物渐荣秀，如人具衣冠也。</strong></p>
-<p><strong>临官如人之临官也。</strong></p>
-<p><strong>帝旺象万物成熟，如人之兴旺也。</strong></p>
-<p><strong>衰象万物形衰，如人之气衰也。</strong></p>
-<p><strong>病象万物病，如人之病也。</strong></p>
-<p><strong>死象万物死，如人之死也。</strong></p>
-<p><strong>墓（库）象万物成功之藏库，如人之终而归墓也。</strong></p>
-<p><strong>绝（受气、胞）象万物在地中，未有其象，如母腹空，未有物也。</strong></p>
-<p><strong>胎（受胎）象天地气交，氤氲造物，其物在地中萌芽，始有其气，如人受父母之气也。</strong></p>
-<p><strong>养（形成）象万物在地中形成，如人之在母腹成形也。</strong></p>
-<p>&nbsp;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck1tecytb0030knws4ni7sppn" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -849,7 +887,7 @@ t11.onclick = function(event){
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 

@@ -73,9 +73,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -103,9 +103,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -136,9 +136,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -164,9 +164,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -258,9 +258,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -318,9 +318,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -347,9 +347,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -378,9 +378,9 @@ const popItemFromArray = (arr, key) =&amp;gt;{
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -412,9 +412,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -469,9 +469,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -586,22 +586,22 @@ class Heap {
   </entry>
   
   <entry>
-    <title>建造者模式</title>
-    <link href="http://hi2048.github.io/2018/07/12/%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://hi2048.github.io/2018/07/12/建造者模式/</id>
-    <published>2018-07-11T16:00:00.000Z</published>
-    <updated>2019-10-16T14:46:59.983Z</updated>
+    <title>观察者模式</title>
+    <link href="http://hi2048.github.io/2018/08/02/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2018/08/02/观察者模式/</id>
+    <published>2018-08-01T16:00:00.000Z</published>
+    <updated>2019-10-17T14:03:39.006Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>建造者模式（Builder）<br> <a href="/assets/建造者模式.png"><img src="/assets/建造者模式.png" alt="建造者模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Builder" title="建造者模式" target="_blank" rel="noopener">github</a></p><pre><code>-- product.jsclass Product {    constructor() {        this.parts = new Array();        console.log(&apos;Product constructor.&apos;);    }    add(part) {        this.parts.push(part);    }    show() {        console.log(...this.parts);    }}module.exports = Product;-- builder.jsclass Builder {    constructor() {        if(new.target === Builder)            throw new Error(`${Builder} cannot be initialized.`);        console.log(&apos;Builder constructor.&apos;);    }    buildPartA() {        throw new Error(`${this.buildPartA} should be overwrite.`);    }    buildPartB() {        throw new Error(`${this.buildPartB} should be overwrite.`);    }    getResult() {        throw new Error(`${this.getResult} should be overwrite.`);    }}module.exports = Builder;-- concreteBuilder1.jsconst Builder = require(&apos;./builder&apos;);const Product = require(&apos;./product&apos;);class ConcreteBuilder1 extends Builder {    constructor(product) {        super();        this.product = product || new Product();        console.log(&apos;ConcreteBuilder1 constructor.&apos;);    }    buildPartA() {        this.product.add(&apos;partA1&apos;);    }    buildPartB() {        this.product.add(&apos;partB1&apos;);    }    getResult() {        return this.product;    }}module.exports = ConcreteBuilder1;-- concreteBuilder2.jsconst Builder = require(&apos;./builder&apos;);const Product = require(&apos;./product&apos;);class ConcreteBuilder2 extends Builder {    constructor(product) {        super();        this.product = product || new Product();        console.log(&apos;ConcreteBuilder2 constructor.&apos;);    }    buildPartA() {        this.product.add(&apos;partA2&apos;);    }    buildPartB() {        this.product.add(&apos;partB2&apos;);    }    getResult() {        return this.product;    }}module.exports = ConcreteBuilder2;-- director.jsclass Director {    constructor() {        console.log(&apos;Director constructor.&apos;);    }    construct(builder) {        builder.buildPartA();        builder.buildPartB();        console.log(&apos;Director construct.&apos;);    }}module.exports = Director;-- client.jsconst Director = require(&apos;./director&apos;);const Product = require(&apos;./product&apos;);const ConcreteBuilder1 = require(&apos;./concreteBuilder1&apos;);const ConcreteBuilder2 = require(&apos;./concreteBuilder2&apos;);const director = new Director();console.log(&apos;------&apos;);const concreteBuilder1 = new ConcreteBuilder1();director.construct(concreteBuilder1);concreteBuilder1.getResult().show();console.log(&apos;------&apos;);const productB = new Product();const concreteBuilder2 = new ConcreteBuilder2(productB);director.construct(concreteBuilder2);console.log(&apos;product B: &apos;);productB.show();console.log(&apos;concreteBuilder2 getResult: &apos;);concreteBuilder2.getResult().show();console.log(&apos;------&apos;);</code></pre></li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>观察者模式（Observer）<br> <a href="/assets/观察者模式.png"><img src="/assets/观察者模式.png" alt="观察者模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Observer" title="观察者模式" target="_blank" rel="noopener">github</a></p><pre><code>-- subject.jsclass Subject {    constructor() {        if(new.target === Subject)            throw new Error(`${Subject} cannot be initialized.`);        this.observers = new Set();        console.log(&quot;Subject constructor.&quot;);    }    attach(observer) {        this.observers.add(observer);    }    detach(observer) {        this.observers.delete(observer);    }    notify() {        console.log(&apos;notify&apos;);        this.observers.forEach((observer) =&gt; (observer.update()));    }}module.exports = Subject;-- concreteSubject.jsconst Subject = require(&apos;./subject&apos;);class ConcreteSubject extends Subject {    constructor(subjectState = &quot;ConcreteSubject&quot;) {        super();        this.subjectState = subjectState;        console.log(&apos;ConcreteSubject constructor.&apos;);    }    setSubjectState(subjectState) {        this.subjectState = subjectState;        this.notify();    }}module.exports = ConcreteSubject;-- observer.jsclass Observer {    constructor() {        if(new.target === Observer)            throw new Error(`${Observer} cannot be initialized.`);        console.log(&apos;Observer constructor.&apos;);    }    update() {        throw new Error(`${this.update} should be overwrite.`);    }}module.exports = Observer;-- concreteObserver.jsconst Observer = require(&apos;./observer&apos;);class ConcreteObserver extends Observer {    constructor(name = &quot;concreteObserver&quot;, subject = {}) {        super();        this.name = name;        this.subject = subject;        this.observerState = subject.subjectState;        console.log(&apos;ConcreteObserver constructor.&apos;);    }    update() {        this.observerState = this.subject.subjectState;        console.log(`${this.observerState} notify ${this.name}.`);    }}module.exports = ConcreteObserver;-- client.jsconst ConcreteSubject = require(&apos;./concreteSubject&apos;);const ConcreteObserver = require(&apos;./concreteObserver&apos;);const concreteSubject = new ConcreteSubject();const concreteObserverX = new ConcreteObserver(&apos;X&apos;, concreteSubject);const concreteObserverXX = new ConcreteObserver(&apos;X&apos;, concreteSubject);const concreteObserverY = new ConcreteObserver(&apos;Y&apos;, concreteSubject);const concreteObserverZ = new ConcreteObserver(&apos;Z&apos;, concreteSubject);console.log(&apos;------&apos;);concreteSubject.setSubjectState(&apos;Changed ConcreteSubject SubjectState.&apos;);console.log(&apos;------&apos;);concreteSubject.attach(concreteObserverX);concreteSubject.setSubjectState(&apos;subjectState 1&apos;);console.log(&apos;------&apos;);concreteSubject.detach(concreteObserverX);concreteSubject.setSubjectState(&apos;subjectState 2&apos;);console.log(&apos;------&apos;);concreteSubject.attach(concreteObserverX);concreteSubject.attach(concreteObserverY);concreteSubject.attach(concreteObserverX);concreteSubject.setSubjectState(&apos;subjectState 3&apos;);console.log(&apos;------&apos;);concreteSubject.attach(concreteObserverZ);concreteSubject.setSubjectState(&apos;subjectState 4&apos;);console.log(&apos;------&apos;);concreteSubject.detach(concreteObserverX);concreteSubject.setSubjectState(&apos;subjectState 5&apos;);console.log(&apos;------&apos;);concreteSubject.detach(concreteObserverX);concreteSubject.setSubjectState(&apos;subjectState 6&apos;);console.log(&apos;------&apos;);concreteSubject.detach(concreteObserverY);concreteSubject.detach(concreteObserverZ);concreteSubject.setSubjectState(&apos;subjectState 7&apos;);console.log(&apos;------&apos;);concreteSubject.attach(concreteObserverY);concreteSubject.attach(concreteObserverX);concreteSubject.attach(concreteObserverXX);concreteSubject.setSubjectState(&apos;subjectState 8&apos;);console.log(&apos;------&apos;);</code></pre></li></ol>]]></content>
     
     <summary type="html">
     
       
       
         &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;建造者模式（Builder）&lt;br&gt; &lt;a href=&quot;/assets/建造者模式.png&quot;&gt;&lt;img src=&quot;/assets/建造者模式.png&quot; alt=&quot;建造者模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;观察者模式（Observer）&lt;br&gt; &lt;a href=&quot;/assets/观察者模式.png&quot;&gt;&lt;img src=&quot;/assets/观察者模式.png&quot; alt=&quot;观察者模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;http
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;htt
       
     
     </summary>
