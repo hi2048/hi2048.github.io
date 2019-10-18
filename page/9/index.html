@@ -64,6 +64,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-模式匹配-BF算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/13/模式匹配-BF算法/" class="article-date">
+  <time datetime="2013-10-13T07:15:21.000Z" itemprop="datePublished">2013-10-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/13/模式匹配-BF算法/">模式匹配-BF算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>BF算法是普通的模式匹配算法，效率较为低下，但是由于其思想与实现都较为简单，因此有一定的参考价值。</p>
+<p>假设源串为S，目标串为T</p>
+<p>算法过程：</p>
+<p>1. 比较s[0]与t[0]是否相等，如果相等，则依次比较s[1]与t[1]，s[2]与t[2]直到结束，如果相等则匹配成功，并返回匹配成功的开始字符串索引，否则进入2</p>
+<p>2. 比较s[1]与t[0]是否相等，与上相同</p>
+<p>3. 直到s串结束，如果还未匹配成功，则匹配失败，返回-1。</p>
+<p>程序实现如下：</p>
+<pre>int bf(string s, string t){
+    int s_index = 0, t_index = 0;
+    while(s_index &lt; s.size()){
+        while(t_index &lt; t.size()){
+            if(s[s_index + t_index] != t[t_index])
+                break;
+            else
+                t_index++;
+            if(t_index == t.size())
+                return s_index;
+        }
+        s_index++;
+        t_index = 0;
+    }
+
+    return -1;
+}</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/10/13/模式匹配-BF算法/" data-id="ck1vy06dr003a9zwso7vqe7qt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-10000阶乘的未尾有几个0？" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/10/13/10000阶乘的未尾有几个0？/" class="article-date">
@@ -100,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/13/10000阶乘的未尾有几个0？/" data-id="ck1us1mme000ye1ws7cqteeef" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/13/10000阶乘的未尾有几个0？/" data-id="ck1vy06bw00039zws9o97q57t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -147,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/12/预测中的原神、忌神、仇神/" data-id="ck1us1mol004ze1wsozk4a3xy" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/12/预测中的原神、忌神、仇神/" data-id="ck1vy06e400469zwsiet9bywz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/09/善待自己的身体/" data-id="ck1us1mnw003ee1ws8r834m2k" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/09/善待自己的身体/" data-id="ck1vy06dg002k9zws190disx6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -237,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/08/原神旺象的几种情况/" data-id="ck1us1mns0038e1ws6mnntbkm" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/08/原神旺象的几种情况/" data-id="ck1vy06de002g9zwsf4hsad3v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -278,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/03/做人与做事/" data-id="ck1us1mnc002be1wsr7wwwa0x" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/03/做人与做事/" data-id="ck1vy06d0001h9zwsmsyndxtu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -322,7 +387,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/02/一爻动的学问/" data-id="ck1us1mn70023e1wsyslx8hs0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/02/一爻动的学问/" data-id="ck1vy06cw00199zwscf41xvvm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -370,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/01/浅谈面试/" data-id="ck1us1mo70044e1ws043o51n0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/01/浅谈面试/" data-id="ck1vy06ds003b9zwsh86t1h5h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -411,7 +476,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/29/真正的朋友/" data-id="ck1us1mo90049e1wsh6kq2tdj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/29/真正的朋友/" data-id="ck1vy06du003g9zwsrqcbd25w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -460,59 +525,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/28/爻的六合/" data-id="ck1us1mo70045e1ws046qxliy" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-五行逐月节气生旺歌" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/27/五行逐月节气生旺歌/" class="article-date">
-  <time datetime="2013-09-27T04:38:04.000Z" itemprop="datePublished">2013-09-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/27/五行逐月节气生旺歌/">五行逐月节气生旺歌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>子月上旬十日壬，中旬下旬方论癸。</strong></p>
-<p><strong>丑月九日癸之余，却除三辛皆属己。</strong></p>
-<p><strong>新春戊丙皆七朝，十六甲木方是真，</strong></p>
-<p><strong>卯月阳木就初旬，中下两旬阴木是。</strong></p>
-<p><strong>三月九朝万事乙，三日癸库余属戊。</strong></p>
-<p><strong>初夏九日论庚金，十六丙火五戊持。</strong></p>
-<p><strong>五月阳火属上旬，丁火十日九日己。</strong></p>
-<p><strong>未月九日丁火明，三朝是乙余是己。</strong></p>
-<p><strong>孟秋己七戊三朝，三壬十七庚金备。</strong></p>
-<p><strong>酉月还有十日壬，二十辛金属旺地。</strong></p>
-<p><strong>戌月九日辛金胜，三丁十八戊土居。</strong></p>
-<p><strong>亥月七戊五日甲，余皆壬旺君须记。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/27/五行逐月节气生旺歌/" data-id="ck1us1mnb0029e1wscyc8sicb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/28/爻的六合/" data-id="ck1vy06dt003e9zws4bzl7adl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -525,7 +538,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
   </nav>
 
 </section>

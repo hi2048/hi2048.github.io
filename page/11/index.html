@@ -64,6 +64,123 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript中事件冒泡" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/19/JavaScript中事件冒泡/" class="article-date">
+  <time datetime="2013-09-19T08:02:37.000Z" itemprop="datePublished">2013-09-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/19/JavaScript中事件冒泡/">JavaScript中事件冒泡</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>所谓的事件冒泡，主要指的是从里向外的一种事件传播机制。</p>
+<p>例如以下代码，</p>
+<p>HTML结构为，</p>
+<pre>
+&lt;div id=&quot;t1&quot;&gt;
+    &lt;div id=&quot;t11&quot;&gt;我是里层的t11。&lt;/div&gt;
+    &lt;div id=&quot;t12&quot;&gt;我是里层的t12。&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+JS代码为，
+<pre>window.onload = function(){
+    var t1 = document.getElementById("t1");
+    var t11 = document.getElementById("t11");
+    var t12 = document.getElementById("t12");
+    var body = document.body;
+
+    window.onclick = function(event){
+        alert('我是window.onclick。');
+    }
+
+    document.onclick = function(event){
+        alert('我是document.onclick。');
+    }
+
+    body.onclick = function(event){
+        alert('我是body.onclick。');
+    }
+
+    t1.onclick = function(event){
+        alert('我是外层的。');
+    }
+
+    t11.onclick = function(event){
+        alert('我是里层的。');
+    }
+}</pre>
+代码运行结果为，
+<pre>
+点击t11：
+我是里层的。
+我是外层的。
+我是body.onclick。
+我是document.onclick。
+我是window.onclick。
+点击t12：
+我是外层的。
+我是body.onclick。
+我是document.onclick。
+我是window.onclick。
+</pre>
+如何阻止事件的冒泡，
+<pre>
+function stopBubble(e){
+    if(e && e.stopPropagation)
+        e.stopPropagation();
+    else
+        window.event.cancelBubble = true;
+}
+</pre>
+加入阻止事件冒泡代码,
+<pre>
+t11.onclick = function(event){
+    alert('我是里层的。');
+    stopBubble(event);
+}
+</pre>
+程序运行结果，
+<pre>
+点击t11：
+我是里层的。
+点击t12：
+我是外层的。
+我是body.onclick。
+我是document.onclick。
+我是window.onclick。
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck1vy06c5000b9zws64nukyzy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-十二宫解释" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/18/十二宫解释/" class="article-date">
@@ -108,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck1us1mno0030e1wsj21zvsc3" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck1vy06da00269zwsai4rdrbq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -233,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck1us1mnq0033e1wsqejs5shv" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck1vy06db00299zwss0zgj246" class="article-share-link">Share</a>
       
       
     </footer>
@@ -285,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck1us1mnn002xe1ws9onhldek" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck1vy06d900239zws13grue4m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -386,7 +503,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck1us1mo5003ze1wst9fqgfon" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck1vy06dq00389zwsa73bygkt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -441,7 +558,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck1us1mnm002ve1wswflcg80w" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck1vy06d800219zws7malh7j3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -488,7 +605,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/14/卦名次序歌/" data-id="ck1us1mns0037e1wsf30zaqiv" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/14/卦名次序歌/" data-id="ck1vy06dc002c9zwswhorc95d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -551,7 +668,7 @@ printf("%d", (*p2)[2]);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck1us1mo3003te1ws0zawgn76" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck1vy06dn00319zwsti5jqpbe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
@@ -598,7 +715,7 @@ printf("%d", (*p2)[2]);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="ck1us1mnr0036e1ws6m8urueh" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="ck1vy06dd002d9zwsgvquihwo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -713,7 +830,7 @@ void bubble_p4(int* a, int n){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="ck1us1mnl002ue1wssghkzryg" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="ck1vy06d800209zwsi654jrpo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -725,90 +842,10 @@ void bubble_p4(int* a, int n){
 
 
   
-    <article id="post-JavaScript中类的创建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/10/JavaScript中类的创建/" class="article-date">
-  <time datetime="2013-09-10T09:02:09.000Z" itemprop="datePublished">2013-09-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/10/JavaScript中类的创建/">JavaScript中类的创建</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JavaScript中的所有事物都是对象，其中对象是带有属性和方法的特殊数据类型，也可以将对象看作是一个无序的属性集合。常用的类的定义方法有3种，</p>
-<p>1. 直接定义类</p>
-<pre>
-方式1：
-var obj = {};
-obj.id = 1;
-obj.name = 'object';
-obj.func = function(){
-    alert(this.id + ': ' + this.name);
-}
-方式2：
-var obj = {
-    'id': 1,
-    'name': 'object',
-    'func': function(){
-        alert(this.id + ': ' + this.name);
-    }
-};
-</pre>
-2\. 使用关键字function定义类
-<pre>
-function Obj(){
-    var self = this;
-    self.id = 1;
-    self.name = 'object';
-    self.func = function(){
-        alert(self.id + ': ' + self.name);
-    }
-}
-</pre>
-3\. 使用原型的方式定义类
-<pre>
-function Obj(){}
-Obj.prototype.id = 1;
-Obj.prototype.name = 'object';
-Obj.prototype.func = function(){
-    alert(this.id + ': ' + this.name);
-}
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="ck1us1mmu001de1wsvp09spsg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/10/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/12/">Next &raquo;</a>
   </nav>
 
 </section>
