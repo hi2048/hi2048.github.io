@@ -503,6 +503,38 @@ class Heap {
   </entry>
   
   <entry>
+    <title>状态模式</title>
+    <link href="http://hi2048.github.io/2018/10/21/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2018/10/21/状态模式/</id>
+    <published>2018-10-20T16:00:00.000Z</published>
+    <updated>2019-10-19T12:48:21.274Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>状态模式（State）<br> <a href="/assets/状态模式.png"><img src="/assets/状态模式.png" alt="状态模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/State" title="状态模式" target="_blank" rel="noopener">github</a></p><pre><code>-- state.jsclass State {    constructor() {        if(new.target === State)            throw new Error(`${State} cannot be initialized.`);        console.log(&apos;State constructor.&apos;);    }    handle() {        throw new Error(`${this.handle} should be overwrite.`);    }}module.exports = State;-- concreteStateA.jsconst State = require(&apos;./state&apos;);class ConcreteStateA extends State {    constructor() {        super();        console.log(&apos;ConcreteStateA constructor.&apos;);    }    handle(context) {        console.log(&apos;Current State: ConcreteStateA. &apos;);        context.setState(&apos;ConcreteStateB&apos;);    }}module.exports = ConcreteStateA;-- concreteStateB.jsconst State = require(&apos;./state&apos;);class ConcreteStateB extends State {    constructor() {        super();        console.log(&apos;ConcreteStateB constructor.&apos;);    };    handle(context) {        console.log(&apos;Current State: ConcreteStateB. &apos;);        context.setState(&apos;ConcreteStateC&apos;);    };}module.exports = ConcreteStateB;-- concreteStateC.jsconst State = require(&apos;./state&apos;);class ConcreteStateC extends State {    constructor() {        super();        console.log(&apos;ConcreteStateC constructor.&apos;);    };    handle(context) {        console.log(&apos;Current State: ConcreteStateC. &apos;);        context.setState(&apos;ConcreteStateA&apos;);    };}module.exports = ConcreteStateC;-- states.jsconst ConcreteStateA = require(&apos;./concreteStateA&apos;);const ConcreteStateB = require(&apos;./concreteStateB&apos;);const ConcreteStateC = require(&apos;./concreteStateC&apos;);module.exports = {    ConcreteStateA,    ConcreteStateB,    ConcreteStateC};-- context.jsconst states = require(&apos;./states&apos;);class Context {    constructor(state = &apos;ConcreteStateA&apos;) {        this.state = state;        console.log(&apos;Context constructor.&apos;);    }    setState(state) {        this.state = state;    };    request() {        new states[this.state]().handle(this);    };}module.exports = Context;-- client.jsconst Context = require(&apos;./context&apos;);const context = new Context();context.request();context.request();context.request();context.request();</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;状态模式（State）&lt;br&gt; &lt;a href=&quot;/assets/状态模式.png&quot;&gt;&lt;img src=&quot;/assets/状态模式.png&quot; alt=&quot;状态模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https://gi
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>React之setState</title>
     <link href="http://hi2048.github.io/2018/10/11/React%E4%B9%8BsetState/"/>
     <id>http://hi2048.github.io/2018/10/11/React之setState/</id>
@@ -582,38 +614,6 @@ class Heap {
     
     
       <category term="Spring" scheme="http://hi2048.github.io/tags/Spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>抽象工厂模式</title>
-    <link href="http://hi2048.github.io/2018/09/10/%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://hi2048.github.io/2018/09/10/抽象工厂模式/</id>
-    <published>2018-09-09T16:00:00.000Z</published>
-    <updated>2019-10-18T09:18:47.332Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>抽象工厂模式（Abstract Factory）<br> <a href="/assets/抽象工厂模式.png"><img src="/assets/抽象工厂模式.png" alt="抽象工厂模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Abstract-Factory" title="抽象工厂模式" target="_blank" rel="noopener">github</a></p><pre><code>-- abstractProductA.jsclass AbstractProductA {    constructor() {        if(new.target === AbstractProductA)            throw new Error(`${AbstractProductA} cannot be initialized.`);        console.log(&apos;AbstractProductA constructor.&apos;);    }    method() {        throw new Error(`${this.method} should be overwrite.`);    }}module.exports = AbstractProductA;-- productA1.jsconst AbstractProductA = require(&apos;./abstractProductA&apos;);class ProductA1 extends AbstractProductA {    constructor() {        super();        console.log(&apos;ProductA1 constructor.&apos;);    }    method() {        console.log(&apos;ProductA1 method.&apos;);    }}module.exports = ProductA1;-- productA2.jsconst AbstractProductA = require(&apos;./abstractProductA&apos;);class ProductA2 extends AbstractProductA {    constructor() {        super();        console.log(&apos;ProductA2 constructor.&apos;);    }    method() {        console.log(&apos;ProductA2 method.&apos;);    }}module.exports = ProductA2;-- abstractProductB.jsclass AbstractProductB {    constructor() {        if(new.target === AbstractProductB)            throw new Error(`${AbstractProductB} cannot be initialized.`);        console.log(&apos;AbstractProductB constructor.&apos;);    }    method() {        throw new Error(`${this.method} should be overwrite.`);    }}module.exports = AbstractProductB;-- productB1.jsconst AbstractProductB = require(&apos;./abstractProductB&apos;);class ProductB1 extends AbstractProductB {    constructor() {        super();        console.log(&apos;ProductB1 constructor.&apos;);    }    method() {        console.log(&apos;ProductB1 method.&apos;);    }}module.exports = ProductB1;-- productB2.jsconst AbstractProductB = require(&apos;./abstractProductB&apos;);class ProductB2 extends AbstractProductB {    constructor() {        super();        console.log(&apos;ProductB2 constructor.&apos;);    }    method() {        console.log(&apos;ProductB2 method.&apos;);    }}module.exports = ProductB2;-- abstractFactory.jsclass AbstractFactory {    constructor() {        if(new.target === AbstractFactory)            throw new Error(`${AbstractFactory} cannot be initialized.`);        console.log(&apos;AbstractFactory constructor.&apos;);    };    createProductA() {        throw new Error(`${this.createProductA} should be overwrite.`);    };    createProductB() {        throw new Error(`${this.createProductB} should be overwrite.`);    };}module.exports = AbstractFactory;-- concreteFactory1.jsconst AbstractFactory = require(&apos;./abstractFactory&apos;);const ProductA1 = require(&apos;./productA1&apos;);const ProductB1 = require(&apos;./productB1&apos;);class ConcreteFactory1 extends AbstractFactory {    constructor() {        super();        console.log(&apos;ConcreteFactory1 constructor.&apos;);    }    createProductA() {        return new ProductA1();    }    createProductB() {        return new ProductB1();    }}module.exports = ConcreteFactory1;-- concreteFactory2.jsconst AbstractFactory = require(&apos;./abstractFactory&apos;);const ProductA2 = require(&apos;./productA2&apos;);const ProductB2 = require(&apos;./productB2&apos;);class ConcreteFactory2 extends AbstractFactory {    constructor() {        super();        console.log(&apos;ConcreteFactory2 constructor.&apos;);    }    createProductA() {        return new ProductA2();    }    createProductB() {        return new ProductB2();    }}module.exports = ConcreteFactory2;-- client.jsconst ConcreteFactory1 = require(&apos;./concreteFactory1&apos;);const ConcreteFactory2 = require(&apos;./concreteFactory2&apos;);const concreteFactory1 = new ConcreteFactory1();const concreteFactory2 = new ConcreteFactory2();console.log(&apos;------&apos;);concreteFactory1.createProductA().method();console.log(&apos;------&apos;);concreteFactory1.createProductB().method();console.log(&apos;------&apos;);concreteFactory2.createProductA().method();concreteFactory2.createProductB().method();console.log(&apos;------&apos;);-- productClasses.jsconst ProductA1 = require(&apos;./productA1&apos;);const ProductA2 = require(&apos;./productA2&apos;);const ProductB1 = require(&apos;./productB1&apos;);const ProductB2 = require(&apos;./productB2&apos;);const productClasses = {    ProductA1,    ProductA2,    ProductB1,    ProductB2};module.exports = productClasses;-- productAccess.jsconst productClasses = require(&apos;./productClasses&apos;);class ProductAccess {    constructor() {        console.log(&apos;ProductAccess constructor.&apos;);    }    create(product = &apos;ProductA1&apos;) {        return new productClasses[product]();    }}module.exports = ProductAccess;-- client2.jsconst ProductAccess = require(&apos;./productAccess&apos;);const productClasses = require(&apos;./productClasses&apos;);console.dir(productClasses);console.log(&apos;------&apos;);const productAccess = new ProductAccess();console.log(&apos;------&apos;);productAccess.create().method();console.log(&apos;------&apos;);productAccess.create(&apos;ProductB1&apos;).method();console.log(&apos;------&apos;);productAccess.create(&apos;ProductA1&apos;).method();console.log(&apos;------&apos;);productAccess.create(&apos;ProductA2&apos;).method();productAccess.create(&apos;ProductB2&apos;).method();console.log(&apos;------&apos;);</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;抽象工厂模式（Abstract Factory）&lt;br&gt; &lt;a href=&quot;/assets/抽象工厂模式.png&quot;&gt;&lt;img src=&quot;/assets/抽象工厂模式.png&quot; alt=&quot;抽象工厂模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   

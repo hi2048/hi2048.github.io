@@ -117,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck1vy06do00349zws7pjdx5ht" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck1xk9zyu003x90ws20ejlacl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -227,7 +227,7 @@ LRUCache.prototype.put = function(key, value) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck1vy06cl000n9zwsm653xo45" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck1xk9zxr001g90wsu93aud40" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -321,7 +321,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck1vy06c3000a9zwsnxulakff" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck1xk9zxl001290wsj3purf2o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -377,7 +377,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck1vy06cm000p9zwsvpsfnuf4" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck1xk9zxs001i90wsjb0faey1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -449,7 +449,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck1vy06dl002x9zwsy2bv5al5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck1xk9zys003q90wsbgc42o8f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -527,10 +527,172 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck1vy06co000t9zws3uk28oxl" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck1xk9zxt001m90wsce7attre" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-状态模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/21/状态模式/" class="article-date">
+  <time datetime="2018-10-20T16:00:00.000Z" itemprop="datePublished">2018-10-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/21/状态模式/">状态模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>状态模式（State）<br> <a href="/assets/状态模式.png"><img src="/assets/状态模式.png" alt="状态模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/State" title="状态模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- state.js
+class State {
+    constructor() {
+        if(new.target === State)
+            throw new Error(`${State} cannot be initialized.`);
+
+        console.log(&apos;State constructor.&apos;);
+    }
+
+    handle() {
+        throw new Error(`${this.handle} should be overwrite.`);
+    }
+}
+
+module.exports = State;
+
+-- concreteStateA.js
+const State = require(&apos;./state&apos;);
+
+class ConcreteStateA extends State {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteStateA constructor.&apos;);
+    }
+
+    handle(context) {
+        console.log(&apos;Current State: ConcreteStateA. &apos;);
+
+        context.setState(&apos;ConcreteStateB&apos;);
+    }
+}
+
+module.exports = ConcreteStateA;
+
+-- concreteStateB.js
+const State = require(&apos;./state&apos;);
+
+class ConcreteStateB extends State {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteStateB constructor.&apos;);
+    };
+
+    handle(context) {
+        console.log(&apos;Current State: ConcreteStateB. &apos;);
+
+        context.setState(&apos;ConcreteStateC&apos;);
+    };
+}
+
+module.exports = ConcreteStateB;
+
+-- concreteStateC.js
+const State = require(&apos;./state&apos;);
+
+class ConcreteStateC extends State {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteStateC constructor.&apos;);
+    };
+
+    handle(context) {
+        console.log(&apos;Current State: ConcreteStateC. &apos;);
+
+        context.setState(&apos;ConcreteStateA&apos;);
+    };
+}
+
+module.exports = ConcreteStateC;
+
+-- states.js
+const ConcreteStateA = require(&apos;./concreteStateA&apos;);
+const ConcreteStateB = require(&apos;./concreteStateB&apos;);
+const ConcreteStateC = require(&apos;./concreteStateC&apos;);
+
+module.exports = {
+    ConcreteStateA,
+    ConcreteStateB,
+    ConcreteStateC
+};
+
+-- context.js
+const states = require(&apos;./states&apos;);
+
+class Context {
+    constructor(state = &apos;ConcreteStateA&apos;) {
+        this.state = state;
+
+        console.log(&apos;Context constructor.&apos;);
+    }
+
+    setState(state) {
+        this.state = state;
+    };
+
+    request() {
+        new states[this.state]().handle(this);
+    };
+}
+
+module.exports = Context;
+
+-- client.js
+const Context = require(&apos;./context&apos;);
+
+const context = new Context();
+context.request();
+context.request();
+context.request();
+
+context.request();
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck1xk9zyy004590ws2e6egogm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -595,7 +757,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck1vy06cm000o9zws42nonhel" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck1xk9zxr001h90wsmu72s4ui" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -638,7 +800,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck1vy06du003i9zwsz8al1y5d" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck1xk9zz1004c90wse98rwm61" class="article-share-link">Share</a>
       
       
     </footer>
@@ -697,294 +859,10 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck1vy06cs00119zws7pe69mig" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck1xk9zxx001u90ws6ke9tx0p" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-抽象工厂模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/10/抽象工厂模式/" class="article-date">
-  <time datetime="2018-09-09T16:00:00.000Z" itemprop="datePublished">2018-09-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/10/抽象工厂模式/">抽象工厂模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>抽象工厂模式（Abstract Factory）<br> <a href="/assets/抽象工厂模式.png"><img src="/assets/抽象工厂模式.png" alt="抽象工厂模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Abstract-Factory" title="抽象工厂模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- abstractProductA.js
-class AbstractProductA {
-    constructor() {
-        if(new.target === AbstractProductA)
-            throw new Error(`${AbstractProductA} cannot be initialized.`);
-
-        console.log(&apos;AbstractProductA constructor.&apos;);
-    }
-
-    method() {
-        throw new Error(`${this.method} should be overwrite.`);
-    }
-}
-
-module.exports = AbstractProductA;
-
--- productA1.js
-const AbstractProductA = require(&apos;./abstractProductA&apos;);
-
-class ProductA1 extends AbstractProductA {
-    constructor() {
-        super();
-
-        console.log(&apos;ProductA1 constructor.&apos;);
-    }
-
-    method() {
-        console.log(&apos;ProductA1 method.&apos;);
-    }
-}
-
-module.exports = ProductA1;
-
--- productA2.js
-const AbstractProductA = require(&apos;./abstractProductA&apos;);
-
-class ProductA2 extends AbstractProductA {
-    constructor() {
-        super();
-
-        console.log(&apos;ProductA2 constructor.&apos;);
-    }
-
-    method() {
-        console.log(&apos;ProductA2 method.&apos;);
-    }
-}
-
-module.exports = ProductA2;
-
--- abstractProductB.js
-class AbstractProductB {
-    constructor() {
-        if(new.target === AbstractProductB)
-            throw new Error(`${AbstractProductB} cannot be initialized.`);
-
-        console.log(&apos;AbstractProductB constructor.&apos;);
-    }
-
-    method() {
-        throw new Error(`${this.method} should be overwrite.`);
-    }
-}
-
-module.exports = AbstractProductB;
-
--- productB1.js
-const AbstractProductB = require(&apos;./abstractProductB&apos;);
-
-class ProductB1 extends AbstractProductB {
-    constructor() {
-        super();
-
-        console.log(&apos;ProductB1 constructor.&apos;);
-    }
-
-    method() {
-        console.log(&apos;ProductB1 method.&apos;);
-    }
-}
-
-module.exports = ProductB1;
-
--- productB2.js
-const AbstractProductB = require(&apos;./abstractProductB&apos;);
-
-class ProductB2 extends AbstractProductB {
-    constructor() {
-        super();
-
-        console.log(&apos;ProductB2 constructor.&apos;);
-    }
-
-    method() {
-        console.log(&apos;ProductB2 method.&apos;);
-    }
-}
-
-module.exports = ProductB2;
-
--- abstractFactory.js
-class AbstractFactory {
-    constructor() {
-        if(new.target === AbstractFactory)
-            throw new Error(`${AbstractFactory} cannot be initialized.`);
-
-        console.log(&apos;AbstractFactory constructor.&apos;);
-    };
-
-    createProductA() {
-        throw new Error(`${this.createProductA} should be overwrite.`);
-    };
-
-    createProductB() {
-        throw new Error(`${this.createProductB} should be overwrite.`);
-    };
-}
-
-module.exports = AbstractFactory;
-
--- concreteFactory1.js
-const AbstractFactory = require(&apos;./abstractFactory&apos;);
-const ProductA1 = require(&apos;./productA1&apos;);
-const ProductB1 = require(&apos;./productB1&apos;);
-
-class ConcreteFactory1 extends AbstractFactory {
-    constructor() {
-        super();
-
-        console.log(&apos;ConcreteFactory1 constructor.&apos;);
-    }
-
-    createProductA() {
-        return new ProductA1();
-    }
-
-    createProductB() {
-        return new ProductB1();
-    }
-}
-
-module.exports = ConcreteFactory1;
-
--- concreteFactory2.js
-const AbstractFactory = require(&apos;./abstractFactory&apos;);
-const ProductA2 = require(&apos;./productA2&apos;);
-const ProductB2 = require(&apos;./productB2&apos;);
-
-class ConcreteFactory2 extends AbstractFactory {
-    constructor() {
-        super();
-
-        console.log(&apos;ConcreteFactory2 constructor.&apos;);
-    }
-
-    createProductA() {
-        return new ProductA2();
-    }
-
-    createProductB() {
-        return new ProductB2();
-    }
-}
-
-module.exports = ConcreteFactory2;
-
--- client.js
-const ConcreteFactory1 = require(&apos;./concreteFactory1&apos;);
-const ConcreteFactory2 = require(&apos;./concreteFactory2&apos;);
-
-const concreteFactory1 = new ConcreteFactory1();
-const concreteFactory2 = new ConcreteFactory2();
-console.log(&apos;------&apos;);
-
-concreteFactory1.createProductA().method();
-console.log(&apos;------&apos;);
-
-concreteFactory1.createProductB().method();
-console.log(&apos;------&apos;);
-
-concreteFactory2.createProductA().method();
-concreteFactory2.createProductB().method();
-console.log(&apos;------&apos;);
-
--- productClasses.js
-const ProductA1 = require(&apos;./productA1&apos;);
-const ProductA2 = require(&apos;./productA2&apos;);
-const ProductB1 = require(&apos;./productB1&apos;);
-const ProductB2 = require(&apos;./productB2&apos;);
-
-const productClasses = {
-    ProductA1,
-    ProductA2,
-    ProductB1,
-    ProductB2
-};
-
-module.exports = productClasses;
-
--- productAccess.js
-const productClasses = require(&apos;./productClasses&apos;);
-
-class ProductAccess {
-    constructor() {
-        console.log(&apos;ProductAccess constructor.&apos;);
-    }
-
-    create(product = &apos;ProductA1&apos;) {
-        return new productClasses[product]();
-    }
-}
-
-module.exports = ProductAccess;
-
--- client2.js
-const ProductAccess = require(&apos;./productAccess&apos;);
-const productClasses = require(&apos;./productClasses&apos;);
-
-console.dir(productClasses);
-console.log(&apos;------&apos;);
-
-const productAccess = new ProductAccess();
-console.log(&apos;------&apos;);
-
-productAccess.create().method();
-console.log(&apos;------&apos;);
-
-productAccess.create(&apos;ProductB1&apos;).method();
-console.log(&apos;------&apos;);
-
-productAccess.create(&apos;ProductA1&apos;).method();
-console.log(&apos;------&apos;);
-
-productAccess.create(&apos;ProductA2&apos;).method();
-productAccess.create(&apos;ProductB2&apos;).method();
-console.log(&apos;------&apos;);
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/10/抽象工厂模式/" data-id="ck1vy06dl002w9zwsdgpdwhes" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>

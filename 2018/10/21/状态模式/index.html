@@ -3,19 +3,22 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>爻的六合 | 苏小蜂的个人博客</title>
+  <title>状态模式 | 苏小蜂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="世间万物，都有分有合，合久必分，分久必合，合中有克、有生；有先分后合，先合后分；有相合为好，有相合为坏，这都是自然界发展的必然规律。 爻的六合：子丑合、寅亥合、卯戌合、辰酉合、巳申合、午未合。爻与爻合，爻与日、月合，有贪合忘生，有贪合忘克，合中有吉、有凶。 合必是一一相合。如：一子合一丑；不能二合一或一和二。如：二子合一丑或二丑合一子，这争合为不牢之合。 二合的几种情况： 1、日、月与爻合。日、月">
+  <meta name="description" content="状态模式（State）   代码实例 github -- state.js class State {     constructor() {         if(new.target === State)             throw new Error(`${State} cannot be initialized.`);          console.log(&amp;apos;Sta">
+<meta name="keywords" content="JavaScript,设计模式,大话设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="爻的六合">
-<meta property="og:url" content="http://hi2048.github.io/2013/09/28/爻的六合/index.html">
+<meta property="og:title" content="状态模式">
+<meta property="og:url" content="http://hi2048.github.io/2018/10/21/状态模式/index.html">
 <meta property="og:site_name" content="苏小蜂的个人博客">
-<meta property="og:description" content="世间万物，都有分有合，合久必分，分久必合，合中有克、有生；有先分后合，先合后分；有相合为好，有相合为坏，这都是自然界发展的必然规律。 爻的六合：子丑合、寅亥合、卯戌合、辰酉合、巳申合、午未合。爻与爻合，爻与日、月合，有贪合忘生，有贪合忘克，合中有吉、有凶。 合必是一一相合。如：一子合一丑；不能二合一或一和二。如：二子合一丑或二丑合一子，这争合为不牢之合。 二合的几种情况： 1、日、月与爻合。日、月">
+<meta property="og:description" content="状态模式（State）   代码实例 github -- state.js class State {     constructor() {         if(new.target === State)             throw new Error(`${State} cannot be initialized.`);          console.log(&amp;apos;Sta">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2016-05-31T16:43:38.000Z">
+<meta property="og:image" content="http://hi2048.github.io/assets/状态模式.png">
+<meta property="og:updated_time" content="2019-10-19T12:48:21.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="爻的六合">
-<meta name="twitter:description" content="世间万物，都有分有合，合久必分，分久必合，合中有克、有生；有先分后合，先合后分；有相合为好，有相合为坏，这都是自然界发展的必然规律。 爻的六合：子丑合、寅亥合、卯戌合、辰酉合、巳申合、午未合。爻与爻合，爻与日、月合，有贪合忘生，有贪合忘克，合中有吉、有凶。 合必是一一相合。如：一子合一丑；不能二合一或一和二。如：二子合一丑或二丑合一子，这争合为不牢之合。 二合的几种情况： 1、日、月与爻合。日、月">
+<meta name="twitter:title" content="状态模式">
+<meta name="twitter:description" content="状态模式（State）   代码实例 github -- state.js class State {     constructor() {         if(new.target === State)             throw new Error(`${State} cannot be initialized.`);          console.log(&amp;apos;Sta">
+<meta name="twitter:image" content="http://hi2048.github.io/assets/状态模式.png">
   
     <link rel="alternate" href="/atom.xml" title="苏小蜂的个人博客" type="application/atom+xml">
   
@@ -66,14 +69,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-爻的六合" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-状态模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/09/28/爻的六合/" class="article-date">
-  <time datetime="2013-09-28T12:34:50.000Z" itemprop="datePublished">2013-09-28</time>
+    <a href="/2018/10/21/状态模式/" class="article-date">
+  <time datetime="2018-10-20T16:00:00.000Z" itemprop="datePublished">2018-10-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
   </div>
 
   </div>
@@ -84,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      爻的六合
+      状态模式
     </h1>
   
 
@@ -92,41 +95,154 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>世间万物，都有分有合，合久必分，分久必合，合中有克、有生；有先分后合，先合后分；有相合为好，有相合为坏，这都是自然界发展的必然规律。</strong></p>
-<p><strong>爻的六合：子丑合、寅亥合、卯戌合、辰酉合、巳申合、午未合。爻与爻合，爻与日、月合，有贪合忘生，有贪合忘克，合中有吉、有凶。</strong></p>
-<p><strong>合必是一一相合。如：一子合一丑；不能二合一或一和二。如：二子合一丑或二丑合一子，这争合为不牢之合。</strong></p>
-<p><strong>二合的几种情况：</strong></p>
-<p><strong>1、日、月与爻合。<strong>日、月与</strong>静爻、动爻合，是休囚之爻得旺相。</strong></p>
-<p><strong>2、爻与爻合。爻动化合，为化生扶；**</strong>动爻与动爻相合，因动而逢合，合而受绊，难于行动。**</p>
-<p><strong>3、卦逢六合。内外六爻自行相合。</strong></p>
-<p><strong>4、卦变六合。变卦内外六爻自行相合。</strong></p>
-<p><strong>5、六合卦变六合卦。是先合而后又合。</strong></p>
+        <ol>
+<li><p>状态模式（State）<br> <a href="/assets/状态模式.png"><img src="/assets/状态模式.png" alt="状态模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/State" title="状态模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- state.js
+class State {
+    constructor() {
+        if(new.target === State)
+            throw new Error(`${State} cannot be initialized.`);
+
+        console.log(&apos;State constructor.&apos;);
+    }
+
+    handle() {
+        throw new Error(`${this.handle} should be overwrite.`);
+    }
+}
+
+module.exports = State;
+
+-- concreteStateA.js
+const State = require(&apos;./state&apos;);
+
+class ConcreteStateA extends State {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteStateA constructor.&apos;);
+    }
+
+    handle(context) {
+        console.log(&apos;Current State: ConcreteStateA. &apos;);
+
+        context.setState(&apos;ConcreteStateB&apos;);
+    }
+}
+
+module.exports = ConcreteStateA;
+
+-- concreteStateB.js
+const State = require(&apos;./state&apos;);
+
+class ConcreteStateB extends State {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteStateB constructor.&apos;);
+    };
+
+    handle(context) {
+        console.log(&apos;Current State: ConcreteStateB. &apos;);
+
+        context.setState(&apos;ConcreteStateC&apos;);
+    };
+}
+
+module.exports = ConcreteStateB;
+
+-- concreteStateC.js
+const State = require(&apos;./state&apos;);
+
+class ConcreteStateC extends State {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteStateC constructor.&apos;);
+    };
+
+    handle(context) {
+        console.log(&apos;Current State: ConcreteStateC. &apos;);
+
+        context.setState(&apos;ConcreteStateA&apos;);
+    };
+}
+
+module.exports = ConcreteStateC;
+
+-- states.js
+const ConcreteStateA = require(&apos;./concreteStateA&apos;);
+const ConcreteStateB = require(&apos;./concreteStateB&apos;);
+const ConcreteStateC = require(&apos;./concreteStateC&apos;);
+
+module.exports = {
+    ConcreteStateA,
+    ConcreteStateB,
+    ConcreteStateC
+};
+
+-- context.js
+const states = require(&apos;./states&apos;);
+
+class Context {
+    constructor(state = &apos;ConcreteStateA&apos;) {
+        this.state = state;
+
+        console.log(&apos;Context constructor.&apos;);
+    }
+
+    setState(state) {
+        this.state = state;
+    };
+
+    request() {
+        new states[this.state]().handle(this);
+    };
+}
+
+module.exports = Context;
+
+-- client.js
+const Context = require(&apos;./context&apos;);
+
+const context = new Context();
+context.request();
+context.request();
+context.request();
+
+context.request();
+</code></pre></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/28/爻的六合/" data-id="ck1xk9zyz004890wsd9377667" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck1xk9zyy004590ws2e6egogm" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2013/09/29/真正的朋友/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/12/02/React生命周期/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          真正的朋友
+          React生命周期
         
       </div>
     </a>
   
   
-    <a href="/2013/09/27/五行逐月节气生旺歌/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/10/11/React之setState/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">五行逐月节气生旺歌</div>
+      <div class="article-nav-title">React之setState</div>
     </a>
   
 </nav>
