@@ -73,9 +73,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -103,9 +103,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -136,9 +136,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -164,9 +164,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -258,9 +258,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -318,9 +318,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -347,9 +347,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -378,9 +378,9 @@ const popItemFromArray = (arr, key) =&amp;gt;{
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -412,9 +412,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -469,9 +469,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -499,6 +499,38 @@ class Heap {
     
     
       <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>适配器模式</title>
+    <link href="http://hi2048.github.io/2018/11/06/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2018/11/06/适配器模式/</id>
+    <published>2018-11-05T16:00:00.000Z</published>
+    <updated>2019-10-20T10:18:33.441Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>适配器模式（Adapter）<br> <a href="/assets/适配器模式.png"><img src="/assets/适配器模式.png" alt="适配器模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Adapter" title="适配器模式" target="_blank" rel="noopener">github</a></p><pre><code>-- target.jsclass Target {    constructor() {        if(new.target === Target)            throw new Error(`${Target} cannot be initialized.`);        console.log(&apos;Target constructor.&apos;);    }    request() {        throw new Error(`${this.request} should be overwrite.`);    }}module.exports = Target;-- adapter.jsconst Target = require(&apos;./target&apos;);const Adaptee = require(&apos;./adaptee&apos;);class Adapter extends Target {    constructor(adaptee = new Adaptee()) {        super();        this.adaptee = adaptee;        console.log(&apos;Adapter constructor.&apos;);    }    request() {        this.adaptee.specificRequest();    }}module.exports = Adapter;-- adaptee.jsclass Adaptee {    constructor() {        console.log(&apos;Adaptee constructor.&apos;);    }    specificRequest() {        console.log(&apos;Adaptee specificRequest.&apos;);    }}module.exports = Adaptee;-- client.jsconst Adapter = require(&apos;./adapter&apos;);const Adaptee = require(&apos;./adaptee&apos;);const adapter = new Adapter(new Adaptee());adapter.request();console.log(&apos;------&apos;);const adapter2 = new Adapter();adapter2.request();console.log(&apos;------&apos;);</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;适配器模式（Adapter）&lt;br&gt; &lt;a href=&quot;/assets/适配器模式.png&quot;&gt;&lt;img src=&quot;/assets/适配器模式.png&quot; alt=&quot;适配器模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;http
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -584,36 +616,6 @@ class Heap {
     
       <category term="未分类" scheme="http://hi2048.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>Swagger</title>
-    <link href="http://hi2048.github.io/2018/09/12/Swagger/"/>
-    <id>http://hi2048.github.io/2018/09/12/Swagger/</id>
-    <published>2018-09-11T16:00:00.000Z</published>
-    <updated>2019-09-06T06:24:46.889Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>Swagger解决了什么问题？<br><strong> 接口文档的一致性与可维护性 </strong></p></li><li><p>Swagger是什么？</p><ul><li>通过自己定义的描述文件（yml或json格式），更新接口文档，以及生成各端代码.</li></ul></li><li><p>Swagger可以做什么？</p><ul><li>可以做到生成各种格式的接口文档，生成多种语言的客户端和服务端的代码，以及在线接口调试页面等等。</li></ul></li><li><p>Springfox-swagger</p><ul><li>通过扫描代码去生成这个描述文件</li></ul></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Swagger解决了什么问题？&lt;br&gt;&lt;strong&gt; 接口文档的一致性与可维护性 &lt;/strong&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Swagger是什么？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;通过自己定义的描述文件（yml或json格式），更新接口文档，以及生
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Spring" scheme="http://hi2048.github.io/tags/Spring/"/>
     
   </entry>
   
