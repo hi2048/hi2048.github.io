@@ -3,15 +3,22 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Archives: 2018 | 苏小蜂的个人博客</title>
+  <title>备忘录模式 | 苏小蜂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="苏小蜂的个人博客">
-<meta property="og:url" content="http://hi2048.github.io/archives/2018/page/3/index.html">
+  <meta name="description" content="备忘录模式（Memento）   代码实例 github -- originator.js const Memento = require(&amp;apos;./memento&amp;apos;);  class Originator {     constructor(state = &amp;apos;initial state&amp;apos;) {         this.state = state;">
+<meta name="keywords" content="JavaScript,设计模式,大话设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="备忘录模式">
+<meta property="og:url" content="http://hi2048.github.io/2018/12/02/备忘录模式/index.html">
 <meta property="og:site_name" content="苏小蜂的个人博客">
+<meta property="og:description" content="备忘录模式（Memento）   代码实例 github -- originator.js const Memento = require(&amp;apos;./memento&amp;apos;);  class Originator {     constructor(state = &amp;apos;initial state&amp;apos;) {         this.state = state;">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://hi2048.github.io/assets/备忘录模式.png">
+<meta property="og:updated_time" content="2019-10-20T12:28:43.599Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="苏小蜂的个人博客">
+<meta name="twitter:title" content="备忘录模式">
+<meta name="twitter:description" content="备忘录模式（Memento）   代码实例 github -- originator.js const Memento = require(&amp;apos;./memento&amp;apos;);  class Originator {     constructor(state = &amp;apos;initial state&amp;apos;) {         this.state = state;">
+<meta name="twitter:image" content="http://hi2048.github.io/assets/备忘录模式.png">
   
     <link rel="alternate" href="/atom.xml" title="苏小蜂的个人博客" type="application/atom+xml">
   
@@ -62,139 +69,155 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/02/15/代理模式/" class="archive-article-date">
-  <time datetime="2018-02-14T16:00:00.000Z" itemprop="datePublished">Feb 15</time>
+        <section id="main"><article id="post-备忘录模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/02/备忘录模式/" class="article-date">
+  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/15/代理模式/">代理模式</a>
+    <h1 class="article-title" itemprop="name">
+      备忘录模式
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/12/React通信/" class="archive-article-date">
-  <time datetime="2018-01-11T16:00:00.000Z" itemprop="datePublished">Jan 12</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/12/React通信/">React通信</a>
-    </h1>
-  
+        <ol>
+<li><p>备忘录模式（Memento）<br> <a href="/assets/备忘录模式.png"><img src="/assets/备忘录模式.png" alt="备忘录模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Memento" title="备忘录模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- originator.js
+const Memento = require(&apos;./memento&apos;);
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/11/twoSum/" class="archive-article-date">
-  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">Jan 11</time>
-</a>
+class Originator {
+    constructor(state = &apos;initial state&apos;) {
+        this.state = state;
+
+        console.log(&apos;Originator constructor.&apos;);
+    }
+
+    setState(state) {
+        this.state = state;
+
+        console.log(this.state);
+    }
+
+    setMemento(memento) {
+        this.state = memento.getState();
+
+        console.log(`Originator setMemento state: ${this.state}.`);
+    }
+
+    createMemento() {
+        console.log(`Originator createMemento state: ${this.state}.`);
+
+        return new Memento(this.state);
+    }
+}
+
+module.exports = Originator;
+
+-- memento.js
+class Memento {
+    constructor(state) {
+        this.state = state;
+
+        console.log(&apos;Memento constructor.&apos;);
+    }
+
+    getState() {
+        return this.state;
+    }
+}
+
+module.exports = Memento;
+
+-- caretaker.js
+const Memento = require(&apos;./memento&apos;);
+
+class Caretaker {
+    constructor() {
+        console.log(&apos;Caretaker constructor.&apos;);
+    }
+
+    setMemento(memento) {
+        this.memento = memento;
+    }
+
+    getMemento() {
+        return this.memento;
+    }
+}
+
+module.exports = Caretaker;
+
+-- client.js
+const Originator = require(&apos;./originator&apos;);
+const Caretaker = require(&apos;./caretaker&apos;);
+
+const originator = new Originator();
+const caretaker = new Caretaker();
+
+const memento1 = originator.createMemento();
+caretaker.setMemento(memento1);
+originator.setState(&apos;state1&apos;);
+originator.setMemento(caretaker.getMemento());
+console.log(&apos;------&apos;);
+
+originator.setState(&apos;state2&apos;);
+caretaker.setMemento(originator.createMemento());
+originator.setState(&apos;state3&apos;);
+originator.setMemento(caretaker.getMemento());
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/11/twoSum/">twoSum</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/11/React之虚拟Dom/" class="archive-article-date">
-  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">Jan 11</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck1z0o0cy003u00wseogm0x0t" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/11/React之虚拟Dom/">React之虚拟Dom</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/10/arrayTwoSum/" class="archive-article-date">
-  <time datetime="2018-01-09T16:00:00.000Z" itemprop="datePublished">Jan 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/10/arrayTwoSum/">arrayTwoSum</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/09/装饰模式/" class="archive-article-date">
-  <time datetime="2018-01-08T16:00:00.000Z" itemprop="datePublished">Jan 9</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/09/装饰模式/">装饰模式</a>
-    </h1>
+    <a href="/2018/12/08/快乐数/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          快乐数
+        
+      </div>
+    </a>
   
+  
+    <a href="/2018/12/02/React生命周期/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">React生命周期</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/2018/page/2/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span>
-  </nav>
 
 </section>
         

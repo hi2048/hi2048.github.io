@@ -117,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck1yubodf003wlqwslk0ug64m" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck1z0o0d7004d00wsjis7dzp1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -227,7 +227,7 @@ LRUCache.prototype.put = function(key, value) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck1yuboc9001glqws9uav1qd4" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck1z0o0bw001t00ws3vcq47yv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -321,7 +321,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck1yuboc20012lqws73m7qrpp" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck1z0o0bo001c00ws9w7zp35t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -377,7 +377,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck1yubocb001jlqwskj8s9trp" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck1z0o0bx001v00wsgv12bfi5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -449,10 +449,141 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck1yubodc003qlqwsgt3paphb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck1z0o0d4004500wsk44guym6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-备忘录模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/02/备忘录模式/" class="article-date">
+  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/02/备忘录模式/">备忘录模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>备忘录模式（Memento）<br> <a href="/assets/备忘录模式.png"><img src="/assets/备忘录模式.png" alt="备忘录模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Memento" title="备忘录模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- originator.js
+const Memento = require(&apos;./memento&apos;);
+
+class Originator {
+    constructor(state = &apos;initial state&apos;) {
+        this.state = state;
+
+        console.log(&apos;Originator constructor.&apos;);
+    }
+
+    setState(state) {
+        this.state = state;
+
+        console.log(this.state);
+    }
+
+    setMemento(memento) {
+        this.state = memento.getState();
+
+        console.log(`Originator setMemento state: ${this.state}.`);
+    }
+
+    createMemento() {
+        console.log(`Originator createMemento state: ${this.state}.`);
+
+        return new Memento(this.state);
+    }
+}
+
+module.exports = Originator;
+
+-- memento.js
+class Memento {
+    constructor(state) {
+        this.state = state;
+
+        console.log(&apos;Memento constructor.&apos;);
+    }
+
+    getState() {
+        return this.state;
+    }
+}
+
+module.exports = Memento;
+
+-- caretaker.js
+const Memento = require(&apos;./memento&apos;);
+
+class Caretaker {
+    constructor() {
+        console.log(&apos;Caretaker constructor.&apos;);
+    }
+
+    setMemento(memento) {
+        this.memento = memento;
+    }
+
+    getMemento() {
+        return this.memento;
+    }
+}
+
+module.exports = Caretaker;
+
+-- client.js
+const Originator = require(&apos;./originator&apos;);
+const Caretaker = require(&apos;./caretaker&apos;);
+
+const originator = new Originator();
+const caretaker = new Caretaker();
+
+const memento1 = originator.createMemento();
+caretaker.setMemento(memento1);
+originator.setState(&apos;state1&apos;);
+originator.setMemento(caretaker.getMemento());
+console.log(&apos;------&apos;);
+
+originator.setState(&apos;state2&apos;);
+caretaker.setMemento(originator.createMemento());
+originator.setState(&apos;state3&apos;);
+originator.setMemento(caretaker.getMemento());
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck1z0o0cy003u00wseogm0x0t" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -527,7 +658,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck1yubocc001llqws2ca24205" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck1z0o0by001x00wsoahuefk9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -635,7 +766,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck1yuboel004plqwsd536d3ud" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck1z0o0dt005600wsf80dp13q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -797,7 +928,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck1yubodq0048lqws86t3wh72" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck1z0o0dc004n00wsv3g1w8rw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -865,52 +996,11 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck1yuboca001ilqwsfil2xulv" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck1z0o0by001w00wsfw1jpwh1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-秋" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/05/秋/" class="article-date">
-  <time datetime="2018-10-04T16:00:00.000Z" itemprop="datePublished">2018-10-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/未分类/">未分类</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/05/秋/">秋</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>秋风送爽，炎暑渐消，此时宜甘味以益气，进补应坚持“燥者濡之”，“上燥清气，中燥增液，下燥养血。”同时应早睡早起，早餐宜营养丰富，以预防抑郁症，保持乐观轻松心情。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck1yubods004clqwsigt1rn88" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   

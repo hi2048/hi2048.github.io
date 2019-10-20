@@ -64,6 +64,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-指针数组和数组指针" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/13/指针数组和数组指针/" class="article-date">
+  <time datetime="2013-09-13T13:48:20.000Z" itemprop="datePublished">2013-09-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/13/指针数组和数组指针/">指针数组和数组指针</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>指针数组即存储指针的数组；数组指针即指向数组的指针。</p>
+<p>指针数组的形式，</p>
+<pre>
+int *p[n];
+</pre>
+数组指针的形式，
+<pre>
+int (*p)[n]
+</pre>
+指针数组与数组指针在实际中的应用，
+<pre>
+int a[3] = {1, 2, 3};
+int *p1[3], (*p2)[3];
+
+for(int i = 0; i < 3; i++){
+    p1[i] = &a[i];
+}
+
+p2 = &a;
+
+printf("%d", *p1[1]);
+printf("\n");
+printf("%d", (*p2)[2]);
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck1z0o0d6004900ws4bnmgiyz" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-卦气旺衰" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/11/卦气旺衰/" class="article-date">
@@ -99,7 +164,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="ck1yubod20036lqwssen023w1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="ck1z0o0cs003j00wsdbd02ihs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -214,7 +279,7 @@ void bubble_p4(int* a, int n){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="ck1yubocw002ulqwsvfzbhs4i" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="ck1z0o0cm003800wslclnvwpn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -294,7 +359,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="ck1yuboc7001alqwsbxaoe05t" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="ck1z0o0bt001m00wsap2nfz04" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -346,7 +411,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="ck1yuboc40015lqwsh8jeh70b" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="ck1z0o0bp001e00ws2br61m54" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -389,7 +454,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="ck1yuboey0051lqws8kf4za9w" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="ck1z0o0dy005g00wsk1amap7m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -440,7 +505,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="ck1yuboc60019lqwsutkfigw6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="ck1z0o0bs001k00wsbkn2sj75" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -488,7 +553,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="ck1yuboc9001flqws6td2a32q" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="ck1z0o0bw001s00wsve8hr9re" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -537,7 +602,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/日干推时干歌诀/" data-id="ck1yubodh003zlqws9lazs786" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/09/日干推时干歌诀/" data-id="ck1z0o0d7004c00ws6167u9ou" class="article-share-link">Share</a>
       
       
     </footer>
@@ -584,55 +649,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/08/年推月干口诀/" data-id="ck1yubodb003nlqwsw6krpa48" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-二十四节气口诀" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/07/二十四节气口诀/" class="article-date">
-  <time datetime="2013-09-07T07:28:14.000Z" itemprop="datePublished">2013-09-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/07/二十四节气口诀/">二十四节气口诀</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>春雨惊春清谷天，</strong></p>
-<p><strong>夏满芒夏暑相连，</strong></p>
-<p><strong>秋处露秋寒霜降，</strong></p>
-<p><strong>冬雪雪冬小大寒</strong>。</p>
-<p><strong>上半年是六、二一，</strong></p>
-<p><strong>下半年是八、二三，</strong></p>
-<p><strong>二十四节紧相连，</strong></p>
-<p><strong>天后相差一两天。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/07/二十四节气口诀/" data-id="ck1yubock0024lqwsg8k5vr02" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/08/年推月干口诀/" data-id="ck1z0o0d3004300wszm2dw4ng" class="article-share-link">Share</a>
       
       
     </footer>
