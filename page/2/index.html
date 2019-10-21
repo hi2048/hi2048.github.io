@@ -117,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck1z0o0d7004d00wsjis7dzp1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck20gtnfz003xsdwsfpe7gb4t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -227,7 +227,7 @@ LRUCache.prototype.put = function(key, value) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck1z0o0bw001t00ws3vcq47yv" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck20gtneh001fsdwsqb0rzs03" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -321,10 +321,153 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck1z0o0bo001c00ws9w7zp35t" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck20gtnea0012sdwsdxccyvf1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-组合模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/05/组合模式/" class="article-date">
+  <time datetime="2019-01-04T16:00:00.000Z" itemprop="datePublished">2019-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/05/组合模式/">组合模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>组合模式（Composite）<br> <a href="/assets/组合模式.png"><img src="/assets/组合模式.png" alt="组合模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Composite" title="组合模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- component.js
+class Component {
+    constructor(name = &apos;Component&apos;) {
+        if(new.target === Component)
+            throw new Error(`${Component} cannot be initialized.`);
+
+        this.name = name;
+    }
+
+    add(c) {
+        throw new Error(`${this.add} should be overwrite.`);
+    }
+
+    remove(c) {
+        throw new Error(`${this.remove} should be overwrite.`);
+    }
+
+    display() {
+        throw new Error(`${this.display} should be overwrite.`);
+    }
+}
+
+module.exports = Component;
+
+-- composite.js
+const Component = require(&apos;./component&apos;);
+
+class Composite extends Component {
+    constructor(name) {
+        super(name);
+
+        this.components = new Set();
+    }
+
+    add(c) {
+        this.components.add(c);
+    }
+
+    remove(c) {
+        this.components.delete(c);
+    }
+
+    display(depth = 1) {
+        console.log(`${&apos;-&apos;.repeat(depth)} ${this.name}`);
+
+        this.components.forEach((component) =&gt; (component.display(depth + 2)));
+    }
+}
+
+module.exports = Composite;
+
+-- leaf.js
+const Component = require(&apos;./component&apos;);
+
+class Leaf extends Component {
+    constructor(name) {
+        super(name);
+    }
+
+    display(depth = 1) {
+        console.log(`${&apos;-&apos;.repeat(depth)} ${this.name}`);
+    }
+}
+
+module.exports = Leaf;
+
+-- client.js
+const Composite = require(&apos;./composite&apos;);
+const Leaf = require(&apos;./leaf&apos;);
+
+const root = new Composite(&apos;Root&apos;);
+
+root.add(new Leaf(&apos;Leaf11&apos;));
+root.add(new Leaf(&apos;Leaf12&apos;));
+
+const composite1 = new Composite(&apos;Composite11&apos;);
+root.add(composite1);
+
+const leaf21 = new Leaf(&apos;Leaf21&apos;);
+composite1.add(leaf21);
+
+const composite2 = new Composite(&apos;Composite21&apos;);
+composite1.add(composite2);
+
+composite1.add(new Leaf(&apos;Leaf22&apos;));
+
+composite2.add(new Leaf(&apos;Leaf31&apos;));
+
+root.add(new Leaf(&apos;Leaf13&apos;));
+
+const leaf14 = new Leaf(&apos;Leaf14&apos;);
+root.add(leaf14);
+composite1.remove(leaf21);
+
+root.display(2);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ck20gtngc004jsdwsm1jl0z74" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -377,7 +520,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck1z0o0bx001v00wsgv12bfi5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck20gtnej001jsdws5076g9rf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -449,7 +592,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck1z0o0d4004500wsk44guym6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck20gtnfw003rsdwsmg6lkvwe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -580,7 +723,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck1z0o0cy003u00wseogm0x0t" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck20gtnfp003hsdwswg55uue8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -658,7 +801,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck1z0o0by001x00wsoahuefk9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck20gtnek001lsdws6vy4o1lm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -766,7 +909,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck1z0o0dt005600wsf80dp13q" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck20gtngi004rsdwsy13hdalz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -928,78 +1071,10 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck1z0o0dc004n00wsv3g1w8rw" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck20gtng70049sdwsqvjrlqup" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React之setState" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/11/React之setState/" class="article-date">
-  <time datetime="2018-10-10T16:00:00.000Z" itemprop="datePublished">2018-10-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/11/React之setState/">React之setState</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>setState是异步还是同步</p>
-<ul>
-<li>合成事件（react自定义的事件，如在组件中的onClick等）和生命周期函数中是“异步”的。这里的异步并非是真正的异步实现，其本身还是属于同步操作，只是采用了批处理机制。</li>
-<li><p>原生事件（DOM中的原生事件，如通过addEventListener添加的等）和 setTimeout 中都是同步的</p>
-<p>   setState(updater[, callback])</p>
-<p>   updater可以是一个函数或者一个对象。<br>   如果是对象，则执行对象跟state的浅合并。<br>   如果传入一个函数，则会把函数的返回对象跟state进行浅合并。这个函数会传入两个参数state和props，返回一个对象<br>   (state, props) =&gt; stateChange</p>
-<p>   第二个参数，state更新完毕之后调用的回调函数。如果有需要在state更新之后的操作，可以放在这里。不过官方更建议在componentDidUpdate里面处理更新之后的操作。</p>
-</li>
-</ul>
-</li>
-<li><p>使用注意事项</p>
-<ul>
-<li>不要直接修改state</li>
-<li>setState不能保证是同步的</li>
-<li>setState造成不必要的渲染</li>
-</ul>
-</li>
-<li><p>setState的优化</p>
-<ul>
-<li>声名变量能用const就不要用let</li>
-<li>减少setState的调用次数，如可以一次set多个值，不要一个一个set。</li>
-<li>多利用shouldComponentUpdate</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck1z0o0by001w00wsfw1jpwh1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>

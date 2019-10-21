@@ -419,6 +419,38 @@ class Heap {
   </entry>
   
   <entry>
+    <title>组合模式</title>
+    <link href="http://hi2048.github.io/2019/01/05/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2019/01/05/组合模式/</id>
+    <published>2019-01-04T16:00:00.000Z</published>
+    <updated>2019-10-21T13:34:04.669Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>组合模式（Composite）<br> <a href="/assets/组合模式.png"><img src="/assets/组合模式.png" alt="组合模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Composite" title="组合模式" target="_blank" rel="noopener">github</a></p><pre><code>-- component.jsclass Component {    constructor(name = &apos;Component&apos;) {        if(new.target === Component)            throw new Error(`${Component} cannot be initialized.`);        this.name = name;    }    add(c) {        throw new Error(`${this.add} should be overwrite.`);    }    remove(c) {        throw new Error(`${this.remove} should be overwrite.`);    }    display() {        throw new Error(`${this.display} should be overwrite.`);    }}module.exports = Component;-- composite.jsconst Component = require(&apos;./component&apos;);class Composite extends Component {    constructor(name) {        super(name);        this.components = new Set();    }    add(c) {        this.components.add(c);    }    remove(c) {        this.components.delete(c);    }    display(depth = 1) {        console.log(`${&apos;-&apos;.repeat(depth)} ${this.name}`);        this.components.forEach((component) =&gt; (component.display(depth + 2)));    }}module.exports = Composite;-- leaf.jsconst Component = require(&apos;./component&apos;);class Leaf extends Component {    constructor(name) {        super(name);    }    display(depth = 1) {        console.log(`${&apos;-&apos;.repeat(depth)} ${this.name}`);    }}module.exports = Leaf;-- client.jsconst Composite = require(&apos;./composite&apos;);const Leaf = require(&apos;./leaf&apos;);const root = new Composite(&apos;Root&apos;);root.add(new Leaf(&apos;Leaf11&apos;));root.add(new Leaf(&apos;Leaf12&apos;));const composite1 = new Composite(&apos;Composite11&apos;);root.add(composite1);const leaf21 = new Leaf(&apos;Leaf21&apos;);composite1.add(leaf21);const composite2 = new Composite(&apos;Composite21&apos;);composite1.add(composite2);composite1.add(new Leaf(&apos;Leaf22&apos;));composite2.add(new Leaf(&apos;Leaf31&apos;));root.add(new Leaf(&apos;Leaf13&apos;));const leaf14 = new Leaf(&apos;Leaf14&apos;);root.add(leaf14);composite1.remove(leaf21);root.display(2);</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;组合模式（Composite）&lt;br&gt; &lt;a href=&quot;/assets/组合模式.png&quot;&gt;&lt;img src=&quot;/assets/组合模式.png&quot; alt=&quot;组合模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https:
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>React16为什么更新</title>
     <link href="http://hi2048.github.io/2018/12/11/React16%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9B%B4%E6%96%B0/"/>
     <id>http://hi2048.github.io/2018/12/11/React16为什么更新/</id>
@@ -595,35 +627,6 @@ class Heap {
       <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React之setState</title>
-    <link href="http://hi2048.github.io/2018/10/11/React%E4%B9%8BsetState/"/>
-    <id>http://hi2048.github.io/2018/10/11/React之setState/</id>
-    <published>2018-10-10T16:00:00.000Z</published>
-    <updated>2019-09-11T12:14:16.446Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>setState是异步还是同步</p><ul><li>合成事件（react自定义的事件，如在组件中的onClick等）和生命周期函数中是“异步”的。这里的异步并非是真正的异步实现，其本身还是属于同步操作，只是采用了批处理机制。</li><li><p>原生事件（DOM中的原生事件，如通过addEventListener添加的等）和 setTimeout 中都是同步的</p><p>   setState(updater[, callback])</p><p>   updater可以是一个函数或者一个对象。<br>   如果是对象，则执行对象跟state的浅合并。<br>   如果传入一个函数，则会把函数的返回对象跟state进行浅合并。这个函数会传入两个参数state和props，返回一个对象<br>   (state, props) =&gt; stateChange</p><p>   第二个参数，state更新完毕之后调用的回调函数。如果有需要在state更新之后的操作，可以放在这里。不过官方更建议在componentDidUpdate里面处理更新之后的操作。</p></li></ul></li><li><p>使用注意事项</p><ul><li>不要直接修改state</li><li>setState不能保证是同步的</li><li>setState造成不必要的渲染</li></ul></li><li><p>setState的优化</p><ul><li>声名变量能用const就不要用let</li><li>减少setState的调用次数，如可以一次set多个值，不要一个一个set。</li><li>多利用shouldComponentUpdate</li></ul></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;setState是异步还是同步&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;合成事件（react自定义的事件，如在组件中的onClick等）和生命周期函数中是“异步”的。这里的异步并非是真正的异步实现，其本身还是属于同步操作，只是采用了批处理机制。&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
     
   </entry>
   
