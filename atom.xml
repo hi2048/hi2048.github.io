@@ -73,9 +73,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -103,9 +103,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -136,9 +136,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -164,9 +164,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -258,9 +258,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -318,9 +318,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -347,9 +347,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -378,9 +378,41 @@ const popItemFromArray = (arr, key) =&amp;gt;{
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
+  </entry>
+  
+  <entry>
+    <title>迭代器模式</title>
+    <link href="http://hi2048.github.io/2019/02/08/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2019/02/08/迭代器模式/</id>
+    <published>2019-02-07T16:00:00.000Z</published>
+    <updated>2019-10-22T14:24:09.619Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>迭代器模式（Iterator）<br> <a href="/assets/迭代器模式.png"><img src="/assets/迭代器模式.png" alt="迭代器模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Iterator" title="迭代器模式" target="_blank" rel="noopener">github</a></p><pre><code>-- aggregate.jsclass Aggregate {    constructor() {        if(new.target === Aggregate)            throw new Error(`${Aggregate} cannot be initialized.`);    }    createIterator() {        throw new Error(`${this.createIterator} should be overwrite.`);    }}module.exports = Aggregate;-- iterator.jsclass Iterator {    constructor() {        if(new.target === Iterator)            throw new Error(`${Iterator} cannot be initialized.`);    }    first() {        throw new Error(`${this.first} should be overwrite.`);    }    next() {        throw new Error(`${this.next} should be overwrite.`);    }    isDone() {        throw new Error(`${this.isDone} should be overwrite.`);    }    currentItem() {        throw new Error(`${this.currentItem} should be overwrite.`);    }}module.exports = Iterator;-- concreteAggregate1.jsconst Aggregate = require(&apos;./aggregate&apos;);const ConcreteIterator = require(&apos;./concreteIterator1&apos;);class ConcreteAggregate extends Aggregate {    constructor() {        super();        this.aggregate = new Array();    }    add(item) {        this.aggregate.push(item);    }    get(index) {        return this.aggregate[index];    }    count() {        return this.aggregate.length;    }    createIterator() {        return new ConcreteIterator(this);    }}module.exports = ConcreteAggregate;-- concreteIterator1.jsconst Iterator = require(&apos;./iterator&apos;);class ConcreteIterator extends Iterator {    constructor(aggregate = {}) {        super();        this.aggregate = aggregate;        this.cur = 0;    }    first() {        return this.aggregate.get(0);    }    next() {        this.cur++;        if(this.cur &lt; this.aggregate.count()) {            return this.currentItem();        }        return undefined;    }    isDone() {        return this.cur &lt; this.aggregate.count()? false : true;    }    currentItem() {        return this.aggregate.get(this.cur);    }}module.exports = ConcreteIterator;-- concreteAggregate2.jsconst Aggregate = require(&apos;./aggregate&apos;);const ConcreteIterator2 = require(&apos;./concreteIterator2&apos;);class ConcreteAggregate2 extends Aggregate {    constructor() {        super();    }    createIterator() {        return new ConcreteIterator2(this);    }}module.exports = ConcreteAggregate2;-- concreteIterator2.jsconst Iterator = require(&apos;./iterator&apos;);class ConcreteIterator2 extends Iterator {    constructor(aggregate = {}) {        super();        this.aggregate = aggregate;        this.initAggregateIterator();        // init iterator        this.iterator = this.aggregate[Symbol.iterator]();    }    initAggregateIterator() {        this.aggregate[Symbol.iterator] = function() {            const aggregate = this;            const keys = Object.keys(aggregate);            let curIndex = 0;            return {                first: function() {                    return aggregate[keys[curIndex]];                },                next: function () {                    curIndex++;                    if(curIndex &lt; keys.length) {                        return this.currentItem();                    }                    return undefined;                },                isDone: function() {                    return curIndex &lt; keys.length? false : true;                },                currentItem: function() {                    return aggregate[keys[curIndex]];                }            }        }    }    first() {        return this.iterator.first();    }    next() {        return this.iterator.next();    }    isDone() {        return this.iterator.isDone();    }    currentItem() {        return this.iterator.currentItem();    }}module.exports = ConcreteIterator2;-- concreteAggregate3.jsconst Aggregate = require(&apos;./aggregate&apos;);const ConcreteIterator3 = require(&apos;./concreteIterator3&apos;);class ConcreteAggregate3 extends Aggregate {    constructor() {        super();    }    createIterator() {        return new ConcreteIterator3(this);    }}module.exports = ConcreteAggregate3;-- concreteIterator3.jsconst Iterator = require(&apos;./iterator&apos;);class ConcreteIterator3 extends Iterator {    constructor(aggregate = {}) {        super();        this.aggregate = aggregate;        this.initAggregateIterator();        // init iterator        this.iterator = this.aggregate[Symbol.iterator]();    }    initAggregateIterator() {        this.aggregate[Symbol.iterator] = function *() {            const aggregateValues = Object.values(this);            for(let value of aggregateValues) {                yield value;            }        }    }    next() {        return this.iterator.next();    }}module.exports = ConcreteIterator3;-- client.jsconst ConcreteAggregate1 = require(&apos;./concreteAggregate1&apos;);const ConcreteAggregate2  = require(&apos;./concreteAggregate2&apos;);const ConcreteAggregate3 = require(&apos;./concreteAggregate3&apos;);const concreteAggregate1 = new ConcreteAggregate1();concreteAggregate1.add(&apos;a&apos;);concreteAggregate1.add(&apos;b&apos;);concreteAggregate1.add(&apos;c&apos;);console.log(&apos;Iterator dp1: &apos;);const iterator1 = concreteAggregate1.createIterator();let iteratorValueDP1 = iterator1.first();while(!iterator1.isDone()) {    console.log(`${iteratorValueDP1} `);    iteratorValueDP1 = iterator1.next();}console.log(&apos;------&apos;);console.log(&apos;Iterator dp2: &apos;);const concreteAggregate2 = new ConcreteAggregate2();concreteAggregate2[&apos;0&apos;] = &apos;a&apos;;concreteAggregate2[&apos;1&apos;] = &apos;b&apos;;concreteAggregate2[&apos;2&apos;] = &apos;c&apos;;const iterator2 = concreteAggregate2.createIterator();let iteratorValueDP2 = iterator2.first();while(!iterator2.isDone()) {    console.log(`${iteratorValueDP2} `);    iteratorValueDP2 = iterator2.next();}console.log(&apos;------&apos;);console.log(&apos;Iterator dp3: &apos;);const concreteAggregate3 = new ConcreteAggregate3();concreteAggregate3[1] = &apos;a&apos;;concreteAggregate3[2] = &apos;b&apos;;concreteAggregate3[3] = &apos;c&apos;;const iterator3 = concreteAggregate3.createIterator();let iteratorValueDP3 = iterator3.next();while(!iteratorValueDP3.done) {    console.log(`${iteratorValueDP3.value} `);    iteratorValueDP3 = iterator3.next();}console.log(&apos;------&apos;);</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;迭代器模式（Iterator）&lt;br&gt; &lt;a href=&quot;/assets/迭代器模式.png&quot;&gt;&lt;img src=&quot;/assets/迭代器模式.png&quot; alt=&quot;迭代器模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;htt
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -412,9 +444,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -501,9 +533,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -583,38 +615,6 @@ class Heap {
 &lt;li&gt;&lt;p&gt;适配器模式（Adapter）&lt;br&gt; &lt;a href=&quot;/assets/适配器模式.png&quot;&gt;&lt;img src=&quot;/assets/适配器模式.png&quot; alt=&quot;适配器模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;http
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>状态模式</title>
-    <link href="http://hi2048.github.io/2018/10/21/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://hi2048.github.io/2018/10/21/状态模式/</id>
-    <published>2018-10-20T16:00:00.000Z</published>
-    <updated>2019-10-19T12:48:21.274Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>状态模式（State）<br> <a href="/assets/状态模式.png"><img src="/assets/状态模式.png" alt="状态模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/State" title="状态模式" target="_blank" rel="noopener">github</a></p><pre><code>-- state.jsclass State {    constructor() {        if(new.target === State)            throw new Error(`${State} cannot be initialized.`);        console.log(&apos;State constructor.&apos;);    }    handle() {        throw new Error(`${this.handle} should be overwrite.`);    }}module.exports = State;-- concreteStateA.jsconst State = require(&apos;./state&apos;);class ConcreteStateA extends State {    constructor() {        super();        console.log(&apos;ConcreteStateA constructor.&apos;);    }    handle(context) {        console.log(&apos;Current State: ConcreteStateA. &apos;);        context.setState(&apos;ConcreteStateB&apos;);    }}module.exports = ConcreteStateA;-- concreteStateB.jsconst State = require(&apos;./state&apos;);class ConcreteStateB extends State {    constructor() {        super();        console.log(&apos;ConcreteStateB constructor.&apos;);    };    handle(context) {        console.log(&apos;Current State: ConcreteStateB. &apos;);        context.setState(&apos;ConcreteStateC&apos;);    };}module.exports = ConcreteStateB;-- concreteStateC.jsconst State = require(&apos;./state&apos;);class ConcreteStateC extends State {    constructor() {        super();        console.log(&apos;ConcreteStateC constructor.&apos;);    };    handle(context) {        console.log(&apos;Current State: ConcreteStateC. &apos;);        context.setState(&apos;ConcreteStateA&apos;);    };}module.exports = ConcreteStateC;-- states.jsconst ConcreteStateA = require(&apos;./concreteStateA&apos;);const ConcreteStateB = require(&apos;./concreteStateB&apos;);const ConcreteStateC = require(&apos;./concreteStateC&apos;);module.exports = {    ConcreteStateA,    ConcreteStateB,    ConcreteStateC};-- context.jsconst states = require(&apos;./states&apos;);class Context {    constructor(state = &apos;ConcreteStateA&apos;) {        this.state = state;        console.log(&apos;Context constructor.&apos;);    }    setState(state) {        this.state = state;    };    request() {        new states[this.state]().handle(this);    };}module.exports = Context;-- client.jsconst Context = require(&apos;./context&apos;);const context = new Context();context.request();context.request();context.request();context.request();</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;状态模式（State）&lt;br&gt; &lt;a href=&quot;/assets/状态模式.png&quot;&gt;&lt;img src=&quot;/assets/状态模式.png&quot; alt=&quot;状态模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https://gi
       
     
     </summary>

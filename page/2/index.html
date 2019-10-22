@@ -117,7 +117,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck20gtnfz003xsdwsfpe7gb4t" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck21y2bp3003y7rws4pthpr6m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -227,10 +227,342 @@ LRUCache.prototype.put = function(key, value) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck20gtneh001fsdwsqb0rzs03" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck21y2bnx001k7rwsscd7nvgf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-迭代器模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/08/迭代器模式/" class="article-date">
+  <time datetime="2019-02-07T16:00:00.000Z" itemprop="datePublished">2019-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/08/迭代器模式/">迭代器模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>迭代器模式（Iterator）<br> <a href="/assets/迭代器模式.png"><img src="/assets/迭代器模式.png" alt="迭代器模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Iterator" title="迭代器模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- aggregate.js
+class Aggregate {
+    constructor() {
+        if(new.target === Aggregate)
+            throw new Error(`${Aggregate} cannot be initialized.`);
+    }
+
+    createIterator() {
+        throw new Error(`${this.createIterator} should be overwrite.`);
+    }
+}
+
+module.exports = Aggregate;
+
+-- iterator.js
+class Iterator {
+    constructor() {
+        if(new.target === Iterator)
+            throw new Error(`${Iterator} cannot be initialized.`);
+    }
+
+    first() {
+        throw new Error(`${this.first} should be overwrite.`);
+    }
+
+    next() {
+        throw new Error(`${this.next} should be overwrite.`);
+    }
+
+    isDone() {
+        throw new Error(`${this.isDone} should be overwrite.`);
+    }
+
+    currentItem() {
+        throw new Error(`${this.currentItem} should be overwrite.`);
+    }
+}
+
+module.exports = Iterator;
+
+-- concreteAggregate1.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator = require(&apos;./concreteIterator1&apos;);
+
+class ConcreteAggregate extends Aggregate {
+    constructor() {
+        super();
+
+        this.aggregate = new Array();
+    }
+
+    add(item) {
+        this.aggregate.push(item);
+    }
+
+    get(index) {
+        return this.aggregate[index];
+    }
+
+    count() {
+        return this.aggregate.length;
+    }
+
+    createIterator() {
+        return new ConcreteIterator(this);
+    }
+}
+
+module.exports = ConcreteAggregate;
+
+-- concreteIterator1.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator extends Iterator {
+    constructor(aggregate = {}) {
+        super();
+
+        this.aggregate = aggregate;
+        this.cur = 0;
+    }
+
+    first() {
+        return this.aggregate.get(0);
+    }
+
+    next() {
+        this.cur++;
+
+        if(this.cur &lt; this.aggregate.count()) {
+            return this.currentItem();
+        }
+
+        return undefined;
+    }
+
+    isDone() {
+        return this.cur &lt; this.aggregate.count()? false : true;
+    }
+
+    currentItem() {
+        return this.aggregate.get(this.cur);
+    }
+}
+
+module.exports = ConcreteIterator;
+
+-- concreteAggregate2.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator2 = require(&apos;./concreteIterator2&apos;);
+
+class ConcreteAggregate2 extends Aggregate {
+    constructor() {
+        super();
+    }
+
+    createIterator() {
+        return new ConcreteIterator2(this);
+    }
+}
+
+module.exports = ConcreteAggregate2;
+
+-- concreteIterator2.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator2 extends Iterator {
+    constructor(aggregate = {}) {
+        super();
+
+        this.aggregate = aggregate;
+
+        this.initAggregateIterator();
+
+        // init iterator
+        this.iterator = this.aggregate[Symbol.iterator]();
+    }
+
+    initAggregateIterator() {
+        this.aggregate[Symbol.iterator] = function() {
+            const aggregate = this;
+            const keys = Object.keys(aggregate);
+            let curIndex = 0;
+
+            return {
+                first: function() {
+                    return aggregate[keys[curIndex]];
+                },
+                next: function () {
+                    curIndex++;
+
+                    if(curIndex &lt; keys.length) {
+                        return this.currentItem();
+                    }
+
+                    return undefined;
+                },
+                isDone: function() {
+                    return curIndex &lt; keys.length? false : true;
+                },
+                currentItem: function() {
+                    return aggregate[keys[curIndex]];
+                }
+            }
+        }
+    }
+
+    first() {
+        return this.iterator.first();
+    }
+
+    next() {
+        return this.iterator.next();
+    }
+
+    isDone() {
+        return this.iterator.isDone();
+    }
+
+    currentItem() {
+        return this.iterator.currentItem();
+    }
+}
+
+module.exports = ConcreteIterator2;
+
+-- concreteAggregate3.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator3 = require(&apos;./concreteIterator3&apos;);
+
+class ConcreteAggregate3 extends Aggregate {
+    constructor() {
+        super();
+    }
+
+    createIterator() {
+        return new ConcreteIterator3(this);
+    }
+}
+
+module.exports = ConcreteAggregate3;
+
+-- concreteIterator3.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator3 extends Iterator {
+    constructor(aggregate = {}) {
+        super();
+
+        this.aggregate = aggregate;
+        this.initAggregateIterator();
+
+        // init iterator
+        this.iterator = this.aggregate[Symbol.iterator]();
+    }
+
+    initAggregateIterator() {
+        this.aggregate[Symbol.iterator] = function *() {
+            const aggregateValues = Object.values(this);
+
+            for(let value of aggregateValues) {
+                yield value;
+            }
+        }
+    }
+
+    next() {
+        return this.iterator.next();
+    }
+}
+
+module.exports = ConcreteIterator3;
+
+-- client.js
+const ConcreteAggregate1 = require(&apos;./concreteAggregate1&apos;);
+const ConcreteAggregate2  = require(&apos;./concreteAggregate2&apos;);
+const ConcreteAggregate3 = require(&apos;./concreteAggregate3&apos;);
+
+const concreteAggregate1 = new ConcreteAggregate1();
+concreteAggregate1.add(&apos;a&apos;);
+concreteAggregate1.add(&apos;b&apos;);
+concreteAggregate1.add(&apos;c&apos;);
+
+console.log(&apos;Iterator dp1: &apos;);
+const iterator1 = concreteAggregate1.createIterator();
+
+let iteratorValueDP1 = iterator1.first();
+while(!iterator1.isDone()) {
+    console.log(`${iteratorValueDP1} `);
+
+    iteratorValueDP1 = iterator1.next();
+}
+console.log(&apos;------&apos;);
+
+console.log(&apos;Iterator dp2: &apos;);
+const concreteAggregate2 = new ConcreteAggregate2();
+concreteAggregate2[&apos;0&apos;] = &apos;a&apos;;
+concreteAggregate2[&apos;1&apos;] = &apos;b&apos;;
+concreteAggregate2[&apos;2&apos;] = &apos;c&apos;;
+
+const iterator2 = concreteAggregate2.createIterator();
+
+let iteratorValueDP2 = iterator2.first();
+while(!iterator2.isDone()) {
+    console.log(`${iteratorValueDP2} `);
+
+    iteratorValueDP2 = iterator2.next();
+}
+console.log(&apos;------&apos;);
+
+console.log(&apos;Iterator dp3: &apos;);
+const concreteAggregate3 = new ConcreteAggregate3();
+concreteAggregate3[1] = &apos;a&apos;;
+concreteAggregate3[2] = &apos;b&apos;;
+concreteAggregate3[3] = &apos;c&apos;;
+
+const iterator3 = concreteAggregate3.createIterator();
+
+let iteratorValueDP3 = iterator3.next();
+while(!iteratorValueDP3.done) {
+    console.log(`${iteratorValueDP3.value} `);
+
+    iteratorValueDP3 = iterator3.next();
+}
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ck21y2bpi004t7rwsl0d3wxm2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -321,7 +653,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck20gtnea0012sdwsdxccyvf1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck21y2bnk00137rws1r2q6dv4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -464,7 +796,7 @@ root.display(2);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ck20gtngc004jsdwsm1jl0z74" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ck21y2bpf004m7rws3399rex8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -520,7 +852,7 @@ root.display(2);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck20gtnej001jsdws5076g9rf" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck21y2bnw001h7rws23rtly6x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -592,7 +924,7 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck20gtnfw003rsdwsmg6lkvwe" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck21y2bp1003u7rws9o4qxhhf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -723,7 +1055,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck20gtnfp003hsdwswg55uue8" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck21y2bov003h7rws8lohlv3f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -801,7 +1133,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck20gtnek001lsdws6vy4o1lm" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck21y2bnz001o7rwssuae38gz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -909,169 +1241,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck20gtngi004rsdwsy13hdalz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-状态模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/21/状态模式/" class="article-date">
-  <time datetime="2018-10-20T16:00:00.000Z" itemprop="datePublished">2018-10-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/21/状态模式/">状态模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>状态模式（State）<br> <a href="/assets/状态模式.png"><img src="/assets/状态模式.png" alt="状态模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/State" title="状态模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- state.js
-class State {
-    constructor() {
-        if(new.target === State)
-            throw new Error(`${State} cannot be initialized.`);
-
-        console.log(&apos;State constructor.&apos;);
-    }
-
-    handle() {
-        throw new Error(`${this.handle} should be overwrite.`);
-    }
-}
-
-module.exports = State;
-
--- concreteStateA.js
-const State = require(&apos;./state&apos;);
-
-class ConcreteStateA extends State {
-    constructor() {
-        super();
-
-        console.log(&apos;ConcreteStateA constructor.&apos;);
-    }
-
-    handle(context) {
-        console.log(&apos;Current State: ConcreteStateA. &apos;);
-
-        context.setState(&apos;ConcreteStateB&apos;);
-    }
-}
-
-module.exports = ConcreteStateA;
-
--- concreteStateB.js
-const State = require(&apos;./state&apos;);
-
-class ConcreteStateB extends State {
-    constructor() {
-        super();
-
-        console.log(&apos;ConcreteStateB constructor.&apos;);
-    };
-
-    handle(context) {
-        console.log(&apos;Current State: ConcreteStateB. &apos;);
-
-        context.setState(&apos;ConcreteStateC&apos;);
-    };
-}
-
-module.exports = ConcreteStateB;
-
--- concreteStateC.js
-const State = require(&apos;./state&apos;);
-
-class ConcreteStateC extends State {
-    constructor() {
-        super();
-
-        console.log(&apos;ConcreteStateC constructor.&apos;);
-    };
-
-    handle(context) {
-        console.log(&apos;Current State: ConcreteStateC. &apos;);
-
-        context.setState(&apos;ConcreteStateA&apos;);
-    };
-}
-
-module.exports = ConcreteStateC;
-
--- states.js
-const ConcreteStateA = require(&apos;./concreteStateA&apos;);
-const ConcreteStateB = require(&apos;./concreteStateB&apos;);
-const ConcreteStateC = require(&apos;./concreteStateC&apos;);
-
-module.exports = {
-    ConcreteStateA,
-    ConcreteStateB,
-    ConcreteStateC
-};
-
--- context.js
-const states = require(&apos;./states&apos;);
-
-class Context {
-    constructor(state = &apos;ConcreteStateA&apos;) {
-        this.state = state;
-
-        console.log(&apos;Context constructor.&apos;);
-    }
-
-    setState(state) {
-        this.state = state;
-    };
-
-    request() {
-        new states[this.state]().handle(this);
-    };
-}
-
-module.exports = Context;
-
--- client.js
-const Context = require(&apos;./context&apos;);
-
-const context = new Context();
-context.request();
-context.request();
-context.request();
-
-context.request();
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck20gtng70049sdwsqvjrlqup" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck21y2bpj004v7rwsidomhnw5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>

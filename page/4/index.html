@@ -64,6 +64,78 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-React组件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/15/React组件/" class="article-date">
+  <time datetime="2018-05-14T16:00:00.000Z" itemprop="datePublished">2018-05-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/15/React组件/">React组件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>无状态组件：采用函数式定义<br><strong> 不含状态管理 </strong><ul>
+<li>不包含任何状态，但可以包含属性，同样的props会得到同样的渲染结果，不会有副作用；</li>
+<li>无状态组件生成时不会实例化，整体渲染性能得到提升；</li>
+<li>无状态组件没有this，ref和生命周期；<pre><code>function Welcome(props){
+  return (&lt;h1&gt;Hello, {props.name}&lt;/h1&gt;);
+}
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>有状态组件：采用ES6 Component形式定义<br><strong> 实例化的，并且可以访问组件的生命周期方法 </strong></p>
+<pre><code>class Welcome extends React.Component{
+  constructor(props){
+    super(props);
+
+    this.state = {
+      iShow: true
+    }
+  }
+
+  render(){
+    return (
+        this.state.iShow?(&lt;h1&gt; Hello, {this.props.name} &lt;/h1&gt;) : null
+      )
+  }
+}
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck21y2bny001m7rws7xlhnqhu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-同构字符串" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/09/同构字符串/" class="article-date">
@@ -117,7 +189,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck20gtnfi0038sdwsyul2018i" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck21y2boq00397rws97pytc8o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -273,7 +345,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/05/模板方法模式/" data-id="ck20gtng10044sdws50n4mhp7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/05/模板方法模式/" data-id="ck21y2bp700467rwsxw51elsl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -417,7 +489,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck20gtnfi0037sdwsy9ypmv7l" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck21y2boq00387rwswpasebma" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -541,7 +613,7 @@ concreteProduct.method();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck20gtnfs003lsdwsla1t3yu0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck21y2boy003n7rwsdn6nsx6f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -665,7 +737,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck20gtnew002asdwsy3wj482p" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck21y2boa002c7rwsh4g7e7ft" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -717,7 +789,61 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck20gtnek001msdws6tgnc5ao" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck21y2bnz001n7rwsh6iob53w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React之虚拟Dom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/11/React之虚拟Dom/" class="article-date">
+  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/React之虚拟Dom/">React之虚拟Dom</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>为什么引入虚拟Dom<br><strong> JavaScript速度快，Dom操作速度很慢 </strong><br><strong> 虚拟Dom通过diff算法实现Dom操作的优化，本质是通过JavaScript的运算，减少Dom的操作。 </strong></p>
+</li>
+<li><p>虚拟Dom<br><strong> 抽象出虚拟Dom（tagName, props, children） =&gt; 生成Patches（通过diff算法得到虚拟Dom的差异描述） =&gt; Update（通过Patch将差异更新到真实Dom上） </strong></p>
+</li>
+<li><p>Diff算法</p>
+<ul>
+<li>深度遍历，记录差异</li>
+<li>差异类型：涉及最小编辑距离问题</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck21y2bny001l7rws2sxkwews" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -770,64 +896,10 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck20gtnes0021sdwsaq5r644u" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck21y2bo500217rwseqttc5or" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React之虚拟Dom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/11/React之虚拟Dom/" class="article-date">
-  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/11/React之虚拟Dom/">React之虚拟Dom</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>为什么引入虚拟Dom<br><strong> JavaScript速度快，Dom操作速度很慢 </strong><br><strong> 虚拟Dom通过diff算法实现Dom操作的优化，本质是通过JavaScript的运算，减少Dom的操作。 </strong></p>
-</li>
-<li><p>虚拟Dom<br><strong> 抽象出虚拟Dom（tagName, props, children） =&gt; 生成Patches（通过diff算法得到虚拟Dom的差异描述） =&gt; Update（通过Patch将差异更新到真实Dom上） </strong></p>
-</li>
-<li><p>Diff算法</p>
-<ul>
-<li>深度遍历，记录差异</li>
-<li>差异类型：涉及最小编辑距离问题</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck20gtnej001ksdwsytliu8jv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -891,194 +963,10 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck20gtneq001xsdwsps7jhrmk" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck21y2bo2001u7rwsaw0dspnu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-装饰模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/09/装饰模式/" class="article-date">
-  <time datetime="2018-01-08T16:00:00.000Z" itemprop="datePublished">2018-01-09</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/09/装饰模式/">装饰模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>装饰模式（Decorator）<br> <a href="/assets/装饰模式.png"><img src="/assets/装饰模式.png" alt="装饰模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Decorator" title="装饰模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- component.js
-class Component {
-    constructor() {
-        if(new.target === Component) {
-            throw new Error(`${Component} cannot be initialized.`);
-        }
-
-        console.log(&apos;Component constructor.&apos;);
-    }
-
-    Operation() {
-        console.log(&apos;Component operation.&apos;);
-
-        return;
-    }
-}
-
-module.exports = Component;
-
--- concreteComponent.js
-const Component = require(&apos;./component&apos;);
-
-class ConcreteComponent extends Component {
-    constructor() {
-        super();
-
-        console.log(&apos;ConcreteComponent constructor.&apos;);
-    }
-
-    Operation() {
-        console.log(&apos;ConcreteComponent Operation.&apos;);
-    }
-}
-
-module.exports = ConcreteComponent;
-
--- decorator.js
-const Component = require(&apos;./component&apos;);
-
-class Decoration extends Component {
-    constructor(component) {
-        if(new.target === Decoration) {
-            throw new Error(`${Decoration} cannot be initialized.`);
-        }
-
-        super();
-
-        this.component = component;
-
-        console.log(&apos;Decoration constructor.&apos;);
-    }
-
-    Operation() {
-        if(this.component) {
-            this.component.Operation();
-        }
-    }
-}
-
-module.exports = Decoration;
-
--- concreteDecoratorA.js
-const Decorator = require(&apos;./decorator&apos;);
-
-class ConcreteDecorationA extends Decorator {
-    constructor(component) {
-        super();
-
-        this.component = component;
-        this.decoratorA = &apos;decoratorA&apos;;
-
-        console.log(&apos;ConcreteDecorationA constructor.&apos;);
-    }
-
-    Operation() {
-        super.Operation();
-
-        console.log(this.decoratorA);
-    }
-}
-
-module.exports = ConcreteDecorationA;
-
--- concreteDecoratorB.js
-const Decorator = require(&apos;./decorator&apos;);
-
-class ConcreteDecoratorB extends Decorator {
-    constructor(component) {
-        super();
-
-        this.component = component;
-        this.decoratorB = &apos;decoratorB&apos;;
-
-        console.log(&apos;ConcreteDecoratorB constructor.&apos;);
-    }
-
-    Operation() {
-        super.Operation();
-
-        console.log(this.decoratorB);
-    }
-}
-
-module.exports = ConcreteDecoratorB;
-
--- client.js
-const ConcreteComponent = require(&apos;./concreteComponent&apos;);
-const ConcreteDecoratorA = require(&apos;./concreteDecoratorA&apos;);
-const ConcreteDecoratorB = require(&apos;./concreteDecoratorB&apos;);
-
-console.log(&apos;------&apos;);
-const concreteComponent = new ConcreteComponent();
-concreteComponent.Operation();
-console.log(&apos;------&apos;);
-
-// test decorator A 1
-console.log(&apos;------&apos;);
-const decoratorA1 = new ConcreteDecoratorA();
-decoratorA1.Operation();
-console.log(&apos;------&apos;);
-
-// test decorator A 2
-console.log(&apos;------&apos;);
-const decoratorA2 = new ConcreteDecoratorA(concreteComponent);
-decoratorA2.Operation();
-console.log(&apos;------&apos;);
-
-// test decorator B
-console.log(&apos;------&apos;);
-const decoratorB = new ConcreteDecoratorB(concreteComponent);
-decoratorB.Operation();
-console.log(&apos;------&apos;);
-
-// test decorator ABAAB
-const decorationABAAB = new ConcreteDecoratorB(new ConcreteDecoratorA(new ConcreteDecoratorA(new ConcreteDecoratorB(new ConcreteDecoratorA(new ConcreteComponent())))));
-decorationABAAB.Operation();
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/09/装饰模式/" data-id="ck20gtngg004nsdwsjixkp2tg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>

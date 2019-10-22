@@ -64,6 +64,141 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript中浅复制与深复制" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/20/JavaScript中浅复制与深复制/" class="article-date">
+  <time datetime="2013-09-20T10:51:06.000Z" itemprop="datePublished">2013-09-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/20/JavaScript中浅复制与深复制/">JavaScript中浅复制与深复制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在进行面向对象的编程中，一个常见的问题就是对象之间的赋值，由于JavaScript采用的是引用的传递，因而当需要建立一个新的对象时，就需要使用到对象的复制。</p>
+<p>常用的对象复制包含了浅复制与深复制。</p>
+<p>所谓的浅复制，指的是仅仅复制对象中的基本类型，而深复制，则指的是利用递归的方法，对对象进行全面的复制，包含对象中的对象。</p>
+<p>浅复制实现代码，</p>
+<pre>
+Object.prototype.clone1 = function(){
+    var o = new Object();
+
+    for(var e in this)
+        o[e] = this[e];
+
+    return o;
+}
+</pre>
+深复制实现代码，
+<pre>
+Object.prototype.clone2 = function(){
+    var o = new Object();
+
+    for(var e in this){
+        if(typeof this[e] != &#039;object&#039;){
+            o[e] = this[e];
+        }
+        else{
+            o[e] = this[e].clone2();
+        }
+    }
+
+    return o;
+}
+</pre>
+测试1，
+<pre>
+var obj1 = {
+    &#039;name&#039; : &#039;obj1&#039;,
+    &#039;obj_inner&#039; : {&#039;name&#039; : &#039;obj11&#039;}
+}
+var obj2 = obj1;
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj2 name: &#039; + obj2.name + &#039;, &#039; + &#039;obj2 obj_inner name: &#039; + obj2.obj_inner.name);
+obj2.name = &#039;obj2&#039;;
+obj2.obj_inner.name = &#039;obj22&#039;;
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj2 name: &#039; + obj2.name + &#039;, &#039; + &#039;obj2 obj_inner name: &#039; + obj2.obj_inner.name);
+</pre>
+运行程序结果为，
+<pre>
+obj1 name: obj1, obj1 obj_inner name: obj11
+obj2 name: obj1, obj2 obj_inner name: obj11
+obj1 name: obj2, obj1 obj_inner name: obj22
+obj2 name: obj2, obj2 obj_inner name: obj22
+</pre>
+测试2，
+<pre>
+var obj1 = {
+    &#039;name&#039; : &#039;obj1&#039;,
+    &#039;obj_inner&#039; : {&#039;name&#039; : &#039;obj11&#039;}
+}
+var obj3 = obj1.clone1();
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj3 name: &#039; + obj3.name + &#039;, &#039; + &#039;obj3 obj_inner name: &#039; + obj3.obj_inner.name);
+obj3.name = &#039;obj3&#039;;
+obj3.obj_inner.name = &#039;obj33&#039;;
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj3 name: &#039; + obj3.name + &#039;, &#039; + &#039;obj3 obj_inner name: &#039; + obj3.obj_inner.name);
+</pre>
+运行程序结果为，
+<pre>
+obj1 name: obj1, obj1 obj_inner name: obj11
+obj3 name: obj1, obj3 obj_inner name: obj11
+obj1 name: obj1, obj1 obj_inner name: obj33
+obj3 name: obj3, obj3 obj_inner name: obj33
+</pre>
+测试3，
+<pre>
+var obj1 = {
+    &#039;name&#039; : &#039;obj1&#039;,
+    &#039;obj_inner&#039; : {&#039;name&#039; : &#039;obj11&#039;}
+}
+var obj4 = obj1.clone2();
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj4 name: &#039; + obj4.name + &#039;, &#039; + &#039;obj4 obj_inner name: &#039; + obj4.obj_inner.name);
+obj4.name = &#039;obj4&#039;;
+obj4.obj_inner.name = &#039;obj44&#039;;
+alert(&#039;obj1 name: &#039; + obj1.name + &#039;, &#039; + &#039;obj1 obj_inner name: &#039; + obj1.obj_inner.name);
+alert(&#039;obj4 name: &#039; + obj4.name + &#039;, &#039; + &#039;obj4 obj_inner name: &#039; + obj4.obj_inner.name);
+</pre>
+运行程序结果为，
+<pre>
+obj1 name: obj1, obj1 obj_inner name: obj11
+obj4 name: obj1, obj4 obj_inner name: obj11
+obj1 name: obj1, obj1 obj_inner name: obj11
+obj4 name: obj4, obj4 obj_inner name: obj44
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript中浅复制与深复制/" data-id="ck21y2bnn00187rwsnd2w5dfu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript闭包" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/20/JavaScript闭包/" class="article-date">
@@ -138,7 +273,7 @@ alert(obj.func()());</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript闭包/" data-id="ck20gtneh001gsdwsn4286wtf" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript闭包/" data-id="ck21y2bnv001f7rws0qex2u64" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -190,7 +325,7 @@ alert(obj.func()());</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/20/五行关系/" data-id="ck20gtnew0029sdwselbonakm" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/20/五行关系/" data-id="ck21y2bo900297rwsv05hpduy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -282,7 +417,7 @@ var arr2 = [&#039;1&#039;, &#039;123&#039;, &#039;123&#039;, &#039;231&#039;, &#
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript去掉数组中的重复元素/" data-id="ck20gtnef001bsdwspmrh7u2t" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript去掉数组中的重复元素/" data-id="ck21y2bnn001a7rws6ty7mdyh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -334,7 +469,7 @@ var arr2 = [&#039;1&#039;, &#039;123&#039;, &#039;123&#039;, &#039;231&#039;, &#
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck20gtnfg0033sdws7istgt9a" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck21y2boo00357rwsvavlpcwc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,7 +584,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck20gtnec0014sdwslfgy9cd3" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck21y2bnl00157rwsdd5ntvv4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -505,7 +640,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck20gtnf9002zsdwsr7ks3yjt" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck21y2bol002z7rwszkvppvwb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -630,7 +765,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck20gtnfe0032sdwsmae4jfjo" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck21y2bon00337rws0ifz6916" class="article-share-link">Share</a>
       
       
     </footer>
@@ -682,7 +817,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck20gtnf7002wsdwsmx5uughy" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck21y2bok002x7rwsuwg96smf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -783,64 +918,11 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck20gtng10042sdwsubt787ta" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck21y2bp500437rws0i11wgxj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-分宫卦象一" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/15/分宫卦象一/" class="article-date">
-  <time datetime="2013-09-15T07:31:26.000Z" itemprop="datePublished">2013-09-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/15/分宫卦象一/">分宫卦象一</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>乾宫</strong></p>
-<p><strong>乾为天     天风姤     天山遁     天地否</strong></p>
-<p><strong>风地观     山地剥     火地晋     火天大有</strong></p>
-<p><strong>坎宫</strong></p>
-<p><strong>坎为水     水泽节     水雷屯     水火既济</strong></p>
-<p><strong>泽火革     雷火丰     地火明夷     地水师</strong></p>
-<p><strong>艮宫</strong></p>
-<p><strong>艮为山     山火贲     山天大畜     山泽损</strong></p>
-<p><strong>火泽睽     天泽履     风泽中孚     风山渐</strong></p>
-<p><strong>震宫</strong></p>
-<p><strong>震为雷     雷地豫     雷水解     雷风恒</strong></p>
-<p><strong>地风升     水风井     泽风大过     泽雷随</strong></p>
-<p>&nbsp;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck20gtnf6002usdws9hxz42g5" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
