@@ -14,7 +14,7 @@
 <meta property="og:description" content="迭代器模式（Iterator）   代码实例 github -- aggregate.js class Aggregate {     constructor() {         if(new.target === Aggregate)             throw new Error(`${Aggregate} cannot be initialized.`);     }">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://hi2048.github.io/assets/迭代器模式.png">
-<meta property="og:updated_time" content="2019-10-22T14:24:09.619Z">
+<meta property="og:updated_time" content="2019-10-23T13:01:53.620Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="迭代器模式">
 <meta name="twitter:description" content="迭代器模式（Iterator）   代码实例 github -- aggregate.js class Aggregate {     constructor() {         if(new.target === Aggregate)             throw new Error(`${Aggregate} cannot be initialized.`);     }">
@@ -383,13 +383,102 @@ while(!iteratorValueDP3.done) {
     iteratorValueDP3 = iterator3.next();
 }
 console.log(&apos;------&apos;);
+
+-- concreteAggregate4.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator4 = require(&apos;./concreteIterator4&apos;);
+
+class ConcreteAggregate4 extends Aggregate {
+    constructor() {
+        super();
+
+        this.item = new Array();
+
+        // super array simulate indexer
+        this.extend(this.item, this, Reflect.getPrototypeOf(this));
+
+        return this.item;
+    }
+
+    extend(target, ...origins) {
+        for(let origin of origins) {
+            const keys = Reflect.ownKeys(origin);
+
+            for(let key of keys) {
+                target[key] = origin[key];
+            }
+        }
+    }
+
+    createIterator() {
+        return new ConcreteIterator4(this.item);
+    }
+}
+
+module.exports = ConcreteAggregate4;
+
+-- concreteIterator4.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator4 extends Iterator {
+    constructor(aggregate = []) {
+        super();
+
+        this.aggregate = aggregate;
+        this.curIndex = 0;
+    }
+
+    first() {
+        return this.aggregate[this.curIndex];
+    }
+
+    next() {
+        let ret = null;
+        this.curIndex ++;
+
+        if(this.curIndex &lt; this.aggregate.length) {
+            ret = this.currentItem();
+        }
+
+        return ret;
+    }
+
+    isDone() {
+        return this.curIndex &lt; this.aggregate.length?false : true;
+    }
+
+    currentItem() {
+        return this.aggregate[this.curIndex];
+    }
+}
+
+module.exports = ConcreteIterator4;
+
+-- client2.js
+const ConcreteAggregate4 = require(&apos;./concreteAggregate4&apos;);
+
+const concreteAggregate4 = new ConcreteAggregate4();
+concreteAggregate4[0] = &apos;a&apos;;
+concreteAggregate4[1] = &apos;b&apos;;
+concreteAggregate4[2] = &apos;c&apos;;
+
+const iterator = concreteAggregate4.createIterator();
+
+let iteratorValue = iterator.first();
+while(!iterator.isDone()) {
+    console.log(`${iteratorValue} `);
+
+    iteratorValue = iterator.next();
+}
+
+console.log(&apos;------&apos;);
 </code></pre></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ck21y2bpi004t7rwsl0d3wxm2" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ck23af4uz004r9xwswnbqtx4b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
