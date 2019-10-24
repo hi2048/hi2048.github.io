@@ -64,6 +64,83 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-单例模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/18/单例模式/" class="article-date">
+  <time datetime="2019-02-17T16:00:00.000Z" itemprop="datePublished">2019-02-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/18/单例模式/">单例模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>单例模式（Singleton）<br> <a href="/assets/单例模式.png"><img src="/assets/单例模式.png" alt="单例模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Singleton" title="单例模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- singleton.js
+class Singleton {
+    constructor(name = &apos;Singleton&apos;) {
+        if(!Singleton.instance) {
+            this.name = name;
+            Singleton.instance = this;
+        }
+
+        return Singleton.instance
+    }
+
+    static getInstance(name) {
+        return new Singleton(name);
+    }
+}
+
+module.exports = Singleton;
+
+-- client.js
+const Singleton = require(&apos;./singleton&apos;);
+
+const singleton = Singleton.getInstance();
+const singleton2 = Singleton.getInstance(&apos;singleton2&apos;);
+const singleton3 = new Singleton(&apos;singleton3&apos;);
+const singleton4 = new Singleton(&apos;singleton4&apos;);
+
+console.log(singleton === singleton2);
+console.log(singleton === singleton3);
+console.log(singleton === singleton4);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/02/18/单例模式/" data-id="ck24noivq003i1cws4y9r2c4u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-数组去重" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/02/18/数组去重/" class="article-date">
@@ -117,7 +194,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck23af4ui003z9xws6wiwaijh" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck24noiw8004f1cwsi8qah8pp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -227,7 +304,7 @@ LRUCache.prototype.put = function(key, value) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck23af4sy001i9xwszuhr5fn0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck24noiut001v1cws8gh5u9sr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -648,7 +725,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ck23af4uz004r9xwswnbqtx4b" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ck24noiwo005a1cwsz5123hgr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -742,7 +819,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck23af4sq00139xws70x5pnfa" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck24noiub001b1cws4l34qt9q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -885,7 +962,7 @@ root.display(2);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ck23af4uw004k9xws4ljeqkz1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ck24noiwl00541cwsl7oemqal" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -941,7 +1018,7 @@ root.display(2);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck23af4t0001l9xwswynmvrri" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck24noiuu001x1cws4rnnyx22" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -1013,88 +1090,10 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck23af4ug003t9xws0lr810ei" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck24noiw500491cwshexkaxk8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React生命周期" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/02/React生命周期/" class="article-date">
-  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/02/React生命周期/">React生命周期</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>React生命周期 - React16前</p>
-<p><strong> React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） </strong></p>
-<ul>
-<li><p>initialization：初始化props和state。<br>constructor</p>
-</li>
-<li><p>mounting：执行一次。<br>componentWillMount, render, componentDidMount</p>
-</li>
-<li><p>update：setState引起的state更新或者父组件重新render引起的props更新。<br>componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate</p>
-</li>
-<li><p>unmount: 执行一次<br>componentWillUnmount</p>
-</li>
-</ul>
-<p><a href="/assets/React-lifecycle-before.png"><img src="/assets/React-lifecycle-before.png" alt="React生命周期"></a></p>
-</li>
-</ol>
-<ol start="2">
-<li><p>React生命周期</p>
-<ul>
-<li>引入了两个新的生命周期函数<br>getDerivedStateFromProps，getSnapshotBeforeUpdate</li>
-</ul>
-<p><a href="/assets/React-lifecycle.png"><img src="/assets/React-lifecycle.png" alt="React16生命周期"></a></p>
-</li>
-<li><p>为什么会变化</p>
-<p><strong> React16推出Fiber，如果开启async rendering，会导致render函数之前的所有函数，有可能被执行多次。 </strong></p>
-<ul>
-<li>componentWillMount</li>
-<li>componentWillReceiveProps</li>
-<li>componentWillUpdate</li>
-<li>shouldComponentUpdate</li>
-</ul>
-<p>其中shouldComponentUpdate为纯函数，返回Boolean，没有副作用，而其他三个函数，开发者如果在里面执行有副作用的操作，如Ajax等，会产生不可预期的结果。所以其余三个统一被getDerivedStateFromProps替代，并且<strong> 采用静态函数，用禁止来替代以前的建议 </strong>。</p>
-<p>react的component中static属性，里面放函数，官方解释：<br><strong> you can run them before any component instances are created, and the methods do not have access to the props or state of your components. </strong></p>
-<p><strong> 静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state。 </strong></p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck23af4t3001p9xws6ihzholz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -1222,7 +1221,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck23af4ua003h9xwsflsf64ht" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck24noivz003x1cws5rek8fov" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1234,10 +1233,10 @@ console.log(&apos;------&apos;);
 
 
   
-    <article id="post-适配器模式" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-React生命周期" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/11/06/适配器模式/" class="article-date">
-  <time datetime="2018-11-05T16:00:00.000Z" itemprop="datePublished">2018-11-06</time>
+    <a href="/2018/12/02/React生命周期/" class="article-date">
+  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
 </a>
     
   <div class="article-category">
@@ -1252,7 +1251,7 @@ console.log(&apos;------&apos;);
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/06/适配器模式/">适配器模式</a>
+      <a class="article-title" href="/2018/12/02/React生命周期/">React生命周期</a>
     </h1>
   
 
@@ -1261,79 +1260,49 @@ console.log(&apos;------&apos;);
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li><p>适配器模式（Adapter）<br> <a href="/assets/适配器模式.png"><img src="/assets/适配器模式.png" alt="适配器模式"></a></p>
+<li><p>React生命周期 - React16前</p>
+<p><strong> React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） </strong></p>
+<ul>
+<li><p>initialization：初始化props和state。<br>constructor</p>
 </li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Adapter" title="适配器模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- target.js
-class Target {
-    constructor() {
-        if(new.target === Target)
-            throw new Error(`${Target} cannot be initialized.`);
-
-        console.log(&apos;Target constructor.&apos;);
-    }
-
-    request() {
-        throw new Error(`${this.request} should be overwrite.`);
-    }
-}
-
-module.exports = Target;
-
--- adapter.js
-const Target = require(&apos;./target&apos;);
-const Adaptee = require(&apos;./adaptee&apos;);
-
-class Adapter extends Target {
-    constructor(adaptee = new Adaptee()) {
-        super();
-
-        this.adaptee = adaptee;
-
-        console.log(&apos;Adapter constructor.&apos;);
-    }
-
-    request() {
-        this.adaptee.specificRequest();
-    }
-}
-
-module.exports = Adapter;
-
--- adaptee.js
-class Adaptee {
-    constructor() {
-        console.log(&apos;Adaptee constructor.&apos;);
-    }
-
-    specificRequest() {
-        console.log(&apos;Adaptee specificRequest.&apos;);
-    }
-}
-
-module.exports = Adaptee;
-
--- client.js
-const Adapter = require(&apos;./adapter&apos;);
-const Adaptee = require(&apos;./adaptee&apos;);
-
-const adapter = new Adapter(new Adaptee());
-adapter.request();
-console.log(&apos;------&apos;);
-
-const adapter2 = new Adapter();
-adapter2.request();
-console.log(&apos;------&apos;);
-</code></pre></li>
+<li><p>mounting：执行一次。<br>componentWillMount, render, componentDidMount</p>
+</li>
+<li><p>update：setState引起的state更新或者父组件重新render引起的props更新。<br>componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate</p>
+</li>
+<li><p>unmount: 执行一次<br>componentWillUnmount</p>
+</li>
+</ul>
+<p><a href="/assets/React-lifecycle-before.png"><img src="/assets/React-lifecycle-before.png" alt="React生命周期"></a></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>React生命周期</p>
+<ul>
+<li>引入了两个新的生命周期函数<br>getDerivedStateFromProps，getSnapshotBeforeUpdate</li>
+</ul>
+<p><a href="/assets/React-lifecycle.png"><img src="/assets/React-lifecycle.png" alt="React16生命周期"></a></p>
+</li>
+<li><p>为什么会变化</p>
+<p><strong> React16推出Fiber，如果开启async rendering，会导致render函数之前的所有函数，有可能被执行多次。 </strong></p>
+<ul>
+<li>componentWillMount</li>
+<li>componentWillReceiveProps</li>
+<li>componentWillUpdate</li>
+<li>shouldComponentUpdate</li>
+</ul>
+<p>其中shouldComponentUpdate为纯函数，返回Boolean，没有副作用，而其他三个函数，开发者如果在里面执行有副作用的操作，如Ajax等，会产生不可预期的结果。所以其余三个统一被getDerivedStateFromProps替代，并且<strong> 采用静态函数，用禁止来替代以前的建议 </strong>。</p>
+<p>react的component中static属性，里面放函数，官方解释：<br><strong> you can run them before any component instances are created, and the methods do not have access to the props or state of your components. </strong></p>
+<p><strong> 静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state。 </strong></p>
+</li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck23af4v1004u9xws56ua4w5l" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck24noiux00211cwsv1f4o0v3" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>

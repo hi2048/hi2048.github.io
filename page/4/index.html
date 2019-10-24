@@ -64,6 +64,92 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-React高阶组件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/10/React高阶组件/" class="article-date">
+  <time datetime="2018-06-09T16:00:00.000Z" itemprop="datePublished">2018-06-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/10/React高阶组件/">React高阶组件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>高阶组件：higher order Component，装饰器模式</p>
+<p> 基本形式：const EnhancedComponent = higherOrderComponent(WrappedComponent);</p>
+</li>
+<li><p>高阶组件两种常见用法：</p>
+<ul>
+<li><p>属性代理 Props Proxy: 通过WrappedComponent的Props来进行操作</p>
+<pre><code>function hocPropsProxy(WrappedComponent) {
+  return class hocComponent extends React.Component {
+    constructor(){
+      super(props);
+
+      this.state = {
+        name: &apos;&apos;
+      }
+    }
+
+    render() {
+      const props = {
+        name: this.state.name
+      }
+
+      return (
+          &lt;div className=&quot;layout&quot;&gt;
+            &lt;WrappedComponent {...this.props} {...props} /&gt;
+          &lt;/div&gt;
+        )
+    }
+  }
+}
+</code></pre></li>
+<li><p>继承反转 Inheritance Inversion：继承自WrappedComponent</p>
+<pre><code>function hocInheritanceInversion(WrappedComponent){
+  return class hocComponent extends WrappedComponent {
+    render() {
+      // 可以实现渲染劫持，实现Loading等功能
+      return super.render();
+    }
+  }
+}
+</code></pre></li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck24noiuy00241cwslx9oxkf4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-React组件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/15/React组件/" class="article-date">
@@ -124,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck23af4sz001k9xwsd296ppsl" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck24noiux00221cws4eg5whgn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -189,7 +275,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck23af4u6003a9xwsh5ile7j7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck24noivv003q1cwsuagx28d6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -345,7 +431,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/05/模板方法模式/" data-id="ck23af4up00469xws8p42ct4l" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/05/模板方法模式/" data-id="ck24noiwc004m1cwsm1knn5uw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -489,7 +575,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck23af4u300379xwsxhz1x9qf" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck24noivu003o1cwslhln5xrf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -613,7 +699,7 @@ concreteProduct.method();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck23af4ud003o9xwsptsrze65" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck24noiw300431cwsq56sma6a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -737,7 +823,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck23af4th002d9xws8pc2g5fn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck24noivc002s1cwsjbnrhots" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -789,7 +875,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck23af4t2001n9xwsqrl7c3k2" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck24noiuy00231cwse66k0y57" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -843,7 +929,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck23af4t0001m9xwsb02625ph" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck24noiuw00201cwsw9pu1ksa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -896,74 +982,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck23af4ta00219xwsw4frp7ut" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-arrayTwoSum" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/10/arrayTwoSum/" class="article-date">
-  <time datetime="2018-01-09T16:00:00.000Z" itemprop="datePublished">2018-01-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/10/arrayTwoSum/">arrayTwoSum</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 求数组下标，下标区间数值之和为指定值 </strong></p>
-<pre><code>const twoSum = (nums, target) =&gt;{
-    let count = 0;
-
-    for(let i = 0, len = nums.length; i &lt; len;){
-        count = nums[i];
-
-        if(count &gt; target){
-            i++
-        } else if(count === target){
-            return [i, i];
-        } else{
-          for(let j = i + 1; j &lt; len; j++){
-              count += nums[j];
-
-              if(count &gt; target){
-                  i++;
-                  break;
-              } else if(count === target){
-                  return [i, j];
-              }
-          }
-        }
-    }
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck23af4t5001u9xwsk4h42u51" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck24noiv5002g1cws5bhkekh7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>

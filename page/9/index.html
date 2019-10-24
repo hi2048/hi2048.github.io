@@ -64,6 +64,106 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-全排列算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/20/全排列算法/" class="article-date">
+  <time datetime="2013-10-20T11:50:26.000Z" itemprop="datePublished">2013-10-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/20/全排列算法/">全排列算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>全排列中一种简单的算法是采用递归的思想，化繁为简。</p>
+<p>对于字符数组cs，主要过程如下，</p>
+<p>1. 交换cs[0]与递归开始索引sIndex，剩余的n - 1个字符，递归进行</p>
+<p>2. 交换cs[1]与递归开始索引sIndex，剩余的n - 1个字符，递归进行</p>
+<p>…</p>
+<p>直到cs[n]，完成全排列。</p>
+<p>Java具体实现代码如下，</p>
+<pre>import java.util.*;
+
+public class STest {
+    public static void fperm(char[] cs, int sIndex, int eIndex){
+        if(sIndex == eIndex) {
+            for(int i = 0; i &lt; eIndex; i++)
+                System.out.print(cs[i]);
+            System.out.println();
+        }
+
+        for(int i = sIndex; i &lt; eIndex; i++){
+            char temp = cs[sIndex];
+            cs[sIndex] = cs[i];
+            cs[i] = temp;
+
+            fperm(cs, sIndex + 1, eIndex);
+
+            cs[i] = cs[sIndex];
+            cs[sIndex] = temp;
+        }
+    }
+
+    public static void main(String[] args){
+        char[] cs = {'a', 'b', 'c', 'd'};
+        fperm(cs, 0, cs.length);
+    }
+}</pre>
+程序运行结果如下，
+<pre>abcd
+abdc
+acbd
+acdb
+adcb
+adbc
+bacd
+badc
+bcad
+bcda
+bdca
+bdac
+cbad
+cbda
+cabd
+cadb
+cdab
+cdba
+dbca
+dbac
+dcba
+dcab
+dacb
+dabc</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/10/20/全排列算法/" data-id="ck24noivf002x1cwsgppwcqab" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-乾卦中干支旺衰" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/10/20/乾卦中干支旺衰/" class="article-date">
@@ -105,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/20/乾卦中干支旺衰/" data-id="ck23af4tc00259xws9hfvb1xk" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/20/乾卦中干支旺衰/" data-id="ck24noiv8002k1cwsftjm5jjz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/18/三合中的数字(二）/" data-id="ck23af4tc00249xwskvhga89a" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/18/三合中的数字(二）/" data-id="ck24noiv7002j1cws7olctyle" class="article-share-link">Share</a>
       
       
     </footer>
@@ -201,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/16/三合中的数字（一）/" data-id="ck23af4te00289xws3itv6tpe" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/16/三合中的数字（一）/" data-id="ck24noiva002o1cwsh0pioagd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -249,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/15/晕车不用愁/" data-id="ck23af4uj00419xwsm3za5f12" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/15/晕车不用愁/" data-id="ck24noiw9004h1cwsok2sdxgz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -299,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/13/八卦里的数字/" data-id="ck23af4ty00319xwsqs10n5dd" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/13/八卦里的数字/" data-id="ck24noivl00391cwsl1160vau" class="article-share-link">Share</a>
       
       
     </footer>
@@ -362,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/13/模式匹配-BF算法/" data-id="ck23af4ul00449xws7u41swjg" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/13/模式匹配-BF算法/" data-id="ck24noiwb004l1cws910g0vrw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -410,7 +510,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/13/10000阶乘的未尾有几个0？/" data-id="ck23af4sl000w9xwsdoy5mf5a" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/13/10000阶乘的未尾有几个0？/" data-id="ck24noiu3000w1cws78hrqazp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -457,7 +557,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/12/预测中的原神、忌神、仇神/" data-id="ck23af4v700569xws7txwe21u" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/12/预测中的原神、忌神、仇神/" data-id="ck24noiwu005l1cwskkmkrrzk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -500,54 +600,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/09/善待自己的身体/" data-id="ck23af4u9003e9xws3u8c5oqz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-原神旺象的几种情况" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/10/08/原神旺象的几种情况/" class="article-date">
-  <time datetime="2013-10-08T09:19:23.000Z" itemprop="datePublished">2013-10-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/10/08/原神旺象的几种情况/">原神旺象的几种情况</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>1、原神临长生帝旺于日建。</strong></p>
-<p><strong>2、原神动而化进神。</strong></p>
-<p><strong>3、原神临月、日建。</strong></p>
-<p><strong>4、原神临月、日建、又临动爻。</strong></p>
-<p><strong>5、原神动，忌神也动。</strong></p>
-<p><strong>6、原神临月、日建动而临空化空。</strong></p>
-<p><strong>临空化空并非无用，因有动不为空，填空之日不为空，出空之间不为空。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/08/原神旺象的几种情况/" data-id="ck23af4u500399xwswk24urmj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/09/善待自己的身体/" data-id="ck24noivy003u1cwsyd3xsi3o" class="article-share-link">Share</a>
       
       
     </footer>

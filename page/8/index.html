@@ -64,6 +64,86 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript类与继承" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/05/05/JavaScript类与继承/" class="article-date">
+  <time datetime="2014-05-04T16:00:00.000Z" itemprop="datePublished">2014-05-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/05/05/JavaScript类与继承/">JavaScript类与继承</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>定义类</p>
+<pre><code>//定义属性
+function MyClass(attr1, attr2) {
+  this.attr1 = attr1;
+  this.attr2 = attr2;
+}
+
+//定义方法
+MyClass.prototype = {
+  constructor : MyClass,
+  myFunc : function() {
+      console.log(this.attr1);
+  }
+};
+</code></pre></li>
+<li><p>继承类</p>
+<pre><code>//定义父类
+function SuperClass(attr) {
+    this.attr = attr;
+}
+
+SuperClass.prototype = {
+    superFunc : function() {
+        console.log(this.attr);
+    }
+};
+
+//继承父类
+function SubClass(attr, subAttr) {
+    //继承属性
+    SuperClass.call(this, attr);
+    this.subAttr = subAttr;
+}
+//继承方法
+SubClass.prototype = new SuperClass();
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2014/05/05/JavaScript类与继承/" data-id="ck24noiur001r1cwsltjm0b8d" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-十年之后" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/02/22/十年之后/" class="article-date">
@@ -104,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/02/22/十年之后/" data-id="ck23af4u200359xwstz058o0p" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/02/22/十年之后/" data-id="ck24noivs003l1cws1o6i9gbo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/11/09/艮卦中干支旺衰/" data-id="ck23af4uy004o9xws9winvj3a" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/11/09/艮卦中干支旺衰/" data-id="ck24noiwl00531cwsl58j4c3k" class="article-share-link">Share</a>
       
       
     </footer>
@@ -195,7 +275,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/11/07/兑卦中干支旺衰/" data-id="ck23af4ti002f9xws2yjbg85a" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/11/07/兑卦中干支旺衰/" data-id="ck24noive002v1cws63tzd66d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -246,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/11/06/离卦中干支旺衰/" data-id="ck23af4us004d9xwsx0f5ncba" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/11/06/离卦中干支旺衰/" data-id="ck24noiwg004t1cwssv2iojmx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -286,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/11/04/坎卦中干支旺衰/" data-id="ck23af4u9003f9xwsz47evbph" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/11/04/坎卦中干支旺衰/" data-id="ck24noivy003v1cwskl524bo4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -331,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/11/02/鼻炎不用愁/" data-id="ck23af4v700579xwsldfna2cs" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/11/02/鼻炎不用愁/" data-id="ck24noiwv005n1cwsetwngq68" class="article-share-link">Share</a>
       
       
     </footer>
@@ -382,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/27/巽卦中干支旺衰/" data-id="ck23af4ue003p9xwsc5aj5cdm" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/27/巽卦中干支旺衰/" data-id="ck24noiw400451cwsd1pj5fo0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -422,7 +502,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/25/震卦中干支旺衰/" data-id="ck23af4v600559xws501qh660" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/25/震卦中干支旺衰/" data-id="ck24noiwt005j1cws0ycfsjnm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -473,109 +553,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/23/坤卦中干支旺衰/" data-id="ck23af4u9003g9xwsgpisxf5f" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/23/坤卦中干支旺衰/" data-id="ck24noivz003w1cwspa0p5onc" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-全排列算法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/10/20/全排列算法/" class="article-date">
-  <time datetime="2013-10-20T11:50:26.000Z" itemprop="datePublished">2013-10-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/10/20/全排列算法/">全排列算法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>全排列中一种简单的算法是采用递归的思想，化繁为简。</p>
-<p>对于字符数组cs，主要过程如下，</p>
-<p>1. 交换cs[0]与递归开始索引sIndex，剩余的n - 1个字符，递归进行</p>
-<p>2. 交换cs[1]与递归开始索引sIndex，剩余的n - 1个字符，递归进行</p>
-<p>…</p>
-<p>直到cs[n]，完成全排列。</p>
-<p>Java具体实现代码如下，</p>
-<pre>import java.util.*;
-
-public class STest {
-    public static void fperm(char[] cs, int sIndex, int eIndex){
-        if(sIndex == eIndex) {
-            for(int i = 0; i &lt; eIndex; i++)
-                System.out.print(cs[i]);
-            System.out.println();
-        }
-
-        for(int i = sIndex; i &lt; eIndex; i++){
-            char temp = cs[sIndex];
-            cs[sIndex] = cs[i];
-            cs[i] = temp;
-
-            fperm(cs, sIndex + 1, eIndex);
-
-            cs[i] = cs[sIndex];
-            cs[sIndex] = temp;
-        }
-    }
-
-    public static void main(String[] args){
-        char[] cs = {'a', 'b', 'c', 'd'};
-        fperm(cs, 0, cs.length);
-    }
-}</pre>
-程序运行结果如下，
-<pre>abcd
-abdc
-acbd
-acdb
-adcb
-adbc
-bacd
-badc
-bcad
-bcda
-bdca
-bdac
-cbad
-cbda
-cabd
-cadb
-cdab
-cdba
-dbca
-dbac
-dcba
-dcab
-dacb
-dabc</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/20/全排列算法/" data-id="ck23af4ti002g9xwszvabb8gc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
-
     </footer>
   </div>
   

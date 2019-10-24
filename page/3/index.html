@@ -64,6 +64,114 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-适配器模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/11/06/适配器模式/" class="article-date">
+  <time datetime="2018-11-05T16:00:00.000Z" itemprop="datePublished">2018-11-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/06/适配器模式/">适配器模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>适配器模式（Adapter）<br> <a href="/assets/适配器模式.png"><img src="/assets/适配器模式.png" alt="适配器模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Adapter" title="适配器模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- target.js
+class Target {
+    constructor() {
+        if(new.target === Target)
+            throw new Error(`${Target} cannot be initialized.`);
+
+        console.log(&apos;Target constructor.&apos;);
+    }
+
+    request() {
+        throw new Error(`${this.request} should be overwrite.`);
+    }
+}
+
+module.exports = Target;
+
+-- adapter.js
+const Target = require(&apos;./target&apos;);
+const Adaptee = require(&apos;./adaptee&apos;);
+
+class Adapter extends Target {
+    constructor(adaptee = new Adaptee()) {
+        super();
+
+        this.adaptee = adaptee;
+
+        console.log(&apos;Adapter constructor.&apos;);
+    }
+
+    request() {
+        this.adaptee.specificRequest();
+    }
+}
+
+module.exports = Adapter;
+
+-- adaptee.js
+class Adaptee {
+    constructor() {
+        console.log(&apos;Adaptee constructor.&apos;);
+    }
+
+    specificRequest() {
+        console.log(&apos;Adaptee specificRequest.&apos;);
+    }
+}
+
+module.exports = Adaptee;
+
+-- client.js
+const Adapter = require(&apos;./adapter&apos;);
+const Adaptee = require(&apos;./adaptee&apos;);
+
+const adapter = new Adapter(new Adaptee());
+adapter.request();
+console.log(&apos;------&apos;);
+
+const adapter2 = new Adapter();
+adapter2.request();
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck24noiwp005b1cws6bn0id8f" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-状态模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/21/状态模式/" class="article-date">
@@ -214,7 +322,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck23af4uq004a9xwsz8n57330" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck24noiwe004q1cwsy6jbr2hn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -282,7 +390,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck23af4sy001h9xws2uro9hx7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck24noiuv001y1cwsmixx6w2h" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -325,7 +433,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck23af4us004e9xwsyv3104wd" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck24noiwg004u1cwsnk9z04oj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -384,7 +492,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck23af4t6001v9xwsb9mtr7p8" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck24noiv2002a1cwsj1r8b2w7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
@@ -668,7 +776,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/10/抽象工厂模式/" data-id="ck23af4uf003s9xwsfqchrgj1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/09/10/抽象工厂模式/" data-id="ck24noiw6004a1cws4g8ogrrx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -851,7 +959,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/08/02/观察者模式/" data-id="ck23af4v0004s9xwszf83nq5i" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/08/02/观察者模式/" data-id="ck24noiwn00571cwsoqdgk5v4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1035,7 +1143,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/07/12/建造者模式/" data-id="ck23af4uf003r9xws4m8pr73i" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/07/12/建造者模式/" data-id="ck24noiw500471cwslvhxi9q1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1177,7 +1285,7 @@ facade.methodB();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/15/外观模式/" data-id="ck23af4ub003j9xwsswob00l1" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/15/外观模式/" data-id="ck24noiw0003y1cwsx4e61i2c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1240,93 +1348,7 @@ facade.methodB();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck23af4sn000z9xwsykdm0qze" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React高阶组件" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/10/React高阶组件/" class="article-date">
-  <time datetime="2018-06-09T16:00:00.000Z" itemprop="datePublished">2018-06-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/10/React高阶组件/">React高阶组件</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>高阶组件：higher order Component，装饰器模式</p>
-<p> 基本形式：const EnhancedComponent = higherOrderComponent(WrappedComponent);</p>
-</li>
-<li><p>高阶组件两种常见用法：</p>
-<ul>
-<li><p>属性代理 Props Proxy: 通过WrappedComponent的Props来进行操作</p>
-<pre><code>function hocPropsProxy(WrappedComponent) {
-  return class hocComponent extends React.Component {
-    constructor(){
-      super(props);
-
-      this.state = {
-        name: &apos;&apos;
-      }
-    }
-
-    render() {
-      const props = {
-        name: this.state.name
-      }
-
-      return (
-          &lt;div className=&quot;layout&quot;&gt;
-            &lt;WrappedComponent {...this.props} {...props} /&gt;
-          &lt;/div&gt;
-        )
-    }
-  }
-}
-</code></pre></li>
-<li><p>继承反转 Inheritance Inversion：继承自WrappedComponent</p>
-<pre><code>function hocInheritanceInversion(WrappedComponent){
-  return class hocComponent extends WrappedComponent {
-    render() {
-      // 可以实现渲染劫持，实现Loading等功能
-      return super.render();
-    }
-  }
-}
-</code></pre></li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck23af4t2001o9xwsb3zwvabj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck24noiu700141cwslg953m90" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>

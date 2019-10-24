@@ -64,6 +64,73 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-arrayTwoSum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/10/arrayTwoSum/" class="article-date">
+  <time datetime="2018-01-09T16:00:00.000Z" itemprop="datePublished">2018-01-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/10/arrayTwoSum/">arrayTwoSum</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 求数组下标，下标区间数值之和为指定值 </strong></p>
+<pre><code>const twoSum = (nums, target) =&gt;{
+    let count = 0;
+
+    for(let i = 0, len = nums.length; i &lt; len;){
+        count = nums[i];
+
+        if(count &gt; target){
+            i++
+        } else if(count === target){
+            return [i, i];
+        } else{
+          for(let j = i + 1; j &lt; len; j++){
+              count += nums[j];
+
+              if(count &gt; target){
+                  i++;
+                  break;
+              } else if(count === target){
+                  return [i, j];
+              }
+          }
+        }
+    }
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck24noiv100281cwssw98c9ft" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-装饰模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/01/09/装饰模式/" class="article-date">
@@ -236,7 +303,7 @@ decorationABAAB.Operation();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/09/装饰模式/" data-id="ck23af4uz004q9xwsdzsz6w0f" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/09/装饰模式/" data-id="ck24noiwm00561cwsjak5vyar" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -301,7 +368,7 @@ decorationABAAB.Operation();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck23af4uu004h9xwsqlyxwdel" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck24noiwh004v1cwsm8tfntnx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -470,10 +537,116 @@ console.log(cs.getResult(600));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/12/08/策略模式/" data-id="ck23af4uw004j9xwsbotpg6n8" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/12/08/策略模式/" data-id="ck24noiwj004z1cwslsc6z18e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-JavaScript中的循环中断" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/10/JavaScript中的循环中断/" class="article-date">
+  <time datetime="2017-11-09T16:00:00.000Z" itemprop="datePublished">2017-11-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/10/JavaScript中的循环中断/">JavaScript中的循环中断</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 循环中断break, continue, return 比较 </strong></p>
+<pre><code>// break continue return
+// break跳出当前循环 continue结束当前条件 return 返回函数值
+console.log(&quot;normal: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    console.log(`${j} `);
+  }
+}
+
+console.log(&quot;break: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    if(j === 4) break;
+    console.log(`${j} `);
+  }
+}
+
+console.log(&quot;continue: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    if(j === 4) continue;
+    console.log(`${j} `);
+  }
+}
+
+console.log(&quot;return: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    if(j === 4){
+      return;
+    }
+    console.log(`${j} `);
+  }
+}
+
+normal:
+0
+3
+4
+5
+1
+3
+4
+5 
+break:
+0
+3
+1
+3
+continue:
+0
+3
+5
+1
+3
+5
+return:
+0
+3
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck24noiul001i1cws827svndy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </footer>
   </div>
@@ -642,116 +815,10 @@ console.log(division.getResult(2, 0));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/11/10/简单工厂模式/" data-id="ck23af4uw004l9xwswu2snuj8" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/11/10/简单工厂模式/" data-id="ck24noiwj00501cwsjzh8mcon" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript中的循环中断" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/10/JavaScript中的循环中断/" class="article-date">
-  <time datetime="2017-11-09T16:00:00.000Z" itemprop="datePublished">2017-11-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/10/JavaScript中的循环中断/">JavaScript中的循环中断</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 循环中断break, continue, return 比较 </strong></p>
-<pre><code>// break continue return
-// break跳出当前循环 continue结束当前条件 return 返回函数值
-console.log(&quot;normal: &quot;)
-for(var i = 0; i &lt; 2; i++){
-  console.log(`${i} `);
-  for(var j = 3; j &lt; 6; j++){
-    console.log(`${j} `);
-  }
-}
-
-console.log(&quot;break: &quot;)
-for(var i = 0; i &lt; 2; i++){
-  console.log(`${i} `);
-  for(var j = 3; j &lt; 6; j++){
-    if(j === 4) break;
-    console.log(`${j} `);
-  }
-}
-
-console.log(&quot;continue: &quot;)
-for(var i = 0; i &lt; 2; i++){
-  console.log(`${i} `);
-  for(var j = 3; j &lt; 6; j++){
-    if(j === 4) continue;
-    console.log(`${j} `);
-  }
-}
-
-console.log(&quot;return: &quot;)
-for(var i = 0; i &lt; 2; i++){
-  console.log(`${i} `);
-  for(var j = 3; j &lt; 6; j++){
-    if(j === 4){
-      return;
-    }
-    console.log(`${j} `);
-  }
-}
-
-normal:
-0
-3
-4
-5
-1
-3
-4
-5 
-break:
-0
-3
-1
-3
-continue:
-0
-3
-5
-1
-3
-5
-return:
-0
-3
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck23af4st00189xwsu86u51b6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </footer>
   </div>
@@ -806,7 +873,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="ck23af4t9001z9xwszl411kpc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="ck24noiv4002e1cwstge534a3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -870,7 +937,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="ck23af4sk000v9xws9al3vh9m" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="ck24noiu5000z1cwsl3t08kzt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -916,7 +983,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="ck23af4ta00209xws28kk1tep" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="ck24noiv5002f1cwspacurz31" class="article-share-link">Share</a>
       
       
     </footer>
@@ -979,62 +1046,10 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="ck23af4t8001y9xws60kqlm2r" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="ck24noiv4002d1cws2qph1bat" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-curry" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/28/curry/" class="article-date">
-  <time datetime="2016-12-27T16:00:00.000Z" itemprop="datePublished">2016-12-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/28/curry/">curry</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>什么是函数式编程curry：将带有多个参数的复杂函数，返回一个接受部分参数的函数，同时处理剩余的参数。</p>
-</li>
-<li><p>为什么要使用curry?</p>
-<p><strong> 可以完成对高阶函数的降阶处理，简单来说就是可以将复杂问题拆分成简单问题。 </strong></p>
-<pre><code>let add = (x) =&gt; (y) =&gt; (x + y)
-
-let increment = add(1);
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="ck23af4t8001x9xwsgm8zm8wq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数式/">函数式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>

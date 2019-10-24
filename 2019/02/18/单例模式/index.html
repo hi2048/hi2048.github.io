@@ -3,20 +3,22 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>Swagger | 苏小蜂的个人博客</title>
+  <title>单例模式 | 苏小蜂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Swagger解决了什么问题？ 接口文档的一致性与可维护性   Swagger是什么？  通过自己定义的描述文件（yml或json格式），更新接口文档，以及生成各端代码.   Swagger可以做什么？  可以做到生成各种格式的接口文档，生成多种语言的客户端和服务端的代码，以及在线接口调试页面等等。   Springfox-swagger  通过扫描代码去生成这个描述文件">
-<meta name="keywords" content="Spring">
+  <meta name="description" content="单例模式（Singleton）   代码实例 github -- singleton.js class Singleton {     constructor(name = &amp;apos;Singleton&amp;apos;) {         if(!Singleton.instance) {             this.name = name;             Singleton.i">
+<meta name="keywords" content="JavaScript,设计模式,大话设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swagger">
-<meta property="og:url" content="http://hi2048.github.io/2018/09/12/Swagger/index.html">
+<meta property="og:title" content="单例模式">
+<meta property="og:url" content="http://hi2048.github.io/2019/02/18/单例模式/index.html">
 <meta property="og:site_name" content="苏小蜂的个人博客">
-<meta property="og:description" content="Swagger解决了什么问题？ 接口文档的一致性与可维护性   Swagger是什么？  通过自己定义的描述文件（yml或json格式），更新接口文档，以及生成各端代码.   Swagger可以做什么？  可以做到生成各种格式的接口文档，生成多种语言的客户端和服务端的代码，以及在线接口调试页面等等。   Springfox-swagger  通过扫描代码去生成这个描述文件">
+<meta property="og:description" content="单例模式（Singleton）   代码实例 github -- singleton.js class Singleton {     constructor(name = &amp;apos;Singleton&amp;apos;) {         if(!Singleton.instance) {             this.name = name;             Singleton.i">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-06T06:24:46.889Z">
+<meta property="og:image" content="http://hi2048.github.io/assets/单例模式.png">
+<meta property="og:updated_time" content="2019-10-24T11:52:46.047Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swagger">
-<meta name="twitter:description" content="Swagger解决了什么问题？ 接口文档的一致性与可维护性   Swagger是什么？  通过自己定义的描述文件（yml或json格式），更新接口文档，以及生成各端代码.   Swagger可以做什么？  可以做到生成各种格式的接口文档，生成多种语言的客户端和服务端的代码，以及在线接口调试页面等等。   Springfox-swagger  通过扫描代码去生成这个描述文件">
+<meta name="twitter:title" content="单例模式">
+<meta name="twitter:description" content="单例模式（Singleton）   代码实例 github -- singleton.js class Singleton {     constructor(name = &amp;apos;Singleton&amp;apos;) {         if(!Singleton.instance) {             this.name = name;             Singleton.i">
+<meta name="twitter:image" content="http://hi2048.github.io/assets/单例模式.png">
   
     <link rel="alternate" href="/atom.xml" title="苏小蜂的个人博客" type="application/atom+xml">
   
@@ -67,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Swagger" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-单例模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/09/12/Swagger/" class="article-date">
-  <time datetime="2018-09-11T16:00:00.000Z" itemprop="datePublished">2018-09-12</time>
+    <a href="/2019/02/18/单例模式/" class="article-date">
+  <time datetime="2019-02-17T16:00:00.000Z" itemprop="datePublished">2019-02-18</time>
 </a>
     
   <div class="article-category">
@@ -85,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Swagger
+      单例模式
     </h1>
   
 
@@ -94,32 +96,48 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li><p>Swagger解决了什么问题？<br><strong> 接口文档的一致性与可维护性 </strong></p>
+<li><p>单例模式（Singleton）<br> <a href="/assets/单例模式.png"><img src="/assets/单例模式.png" alt="单例模式"></a></p>
 </li>
-<li><p>Swagger是什么？</p>
-<ul>
-<li>通过自己定义的描述文件（yml或json格式），更新接口文档，以及生成各端代码.</li>
-</ul>
-</li>
-<li><p>Swagger可以做什么？</p>
-<ul>
-<li>可以做到生成各种格式的接口文档，生成多种语言的客户端和服务端的代码，以及在线接口调试页面等等。</li>
-</ul>
-</li>
-<li><p>Springfox-swagger</p>
-<ul>
-<li>通过扫描代码去生成这个描述文件</li>
-</ul>
-</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Singleton" title="单例模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- singleton.js
+class Singleton {
+    constructor(name = &apos;Singleton&apos;) {
+        if(!Singleton.instance) {
+            this.name = name;
+            Singleton.instance = this;
+        }
+
+        return Singleton.instance
+    }
+
+    static getInstance(name) {
+        return new Singleton(name);
+    }
+}
+
+module.exports = Singleton;
+
+-- client.js
+const Singleton = require(&apos;./singleton&apos;);
+
+const singleton = Singleton.getInstance();
+const singleton2 = Singleton.getInstance(&apos;singleton2&apos;);
+const singleton3 = new Singleton(&apos;singleton3&apos;);
+const singleton4 = new Singleton(&apos;singleton4&apos;);
+
+console.log(singleton === singleton2);
+console.log(singleton === singleton3);
+console.log(singleton === singleton4);
+</code></pre></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck24noiv2002a1cwsj1r8b2w7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/单例模式/" data-id="ck24noivq003i1cws4y9r2c4u" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -127,19 +145,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/10/05/秋/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/01/Stack实现/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          秋
+          Stack实现
         
       </div>
     </a>
   
   
-    <a href="/2018/09/10/抽象工厂模式/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/02/18/数组去重/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">抽象工厂模式</div>
+      <div class="article-nav-title">数组去重</div>
     </a>
   
 </nav>
