@@ -64,6 +64,69 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Fiber" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/11/Fiber/" class="article-date">
+  <time datetime="2018-06-10T16:00:00.000Z" itemprop="datePublished">2018-06-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/11/Fiber/">Fiber</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>什么是Fiber<br><strong> React Fibler 采用分片的思路实现UI的异步渲染。 </strong><br>React Fiber把更新过程碎片化，分成很多小片，当分配给小片的时间用尽时，则将控制权交出，如果有优先级更高的任务，就开始做新的任务，没有就断续原来的更新。</p>
+</li>
+<li><p>Fiber运行原理<br><strong> React Fiber一个更新过程被分为两个阶段(Phase)：第一个阶段Reconciliation Phase和第二阶段Commit Phase。 </strong></p>
+<ul>
+<li><p>Reconciliation Phase， 可以被打断，计算与对比虚拟DOM，找出需要更新的DOM<br>componentWillMount<br>componentWillReceiveProps<br>shouldComponentUpdate<br>componentWillUpdate</p>
+</li>
+<li><p>Commit Phase， 无法打断，更新DOM<br>componentDidMount<br>componentDidUpdate<br>componentWillUnmount</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>React16前的生命周期函数componentWillUpdate等，为什么会多次执行？</p>
+<ul>
+<li>requestIdleCallback</li>
+<li>cancelIdleCallback</li>
+</ul>
+<p><strong> 异步渲染的时候，会调用requestIdleCallback API，在回调函数中可以获得当前callback参数（也就是fiber的分片任务），包括执行时间，如果时间不够，分片任务会被打断（使用cancelIdleCallback API），再次执行则会在空闲时重新执行。 </strong></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck27mtmrl001998wsj1aas900" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-React高阶组件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/10/React高阶组件/" class="article-date">
@@ -138,7 +201,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck24noiuy00241cwslx9oxkf4" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck27mtms0002598wspl86d6cc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -210,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck24noiux00221cws4eg5whgn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck27mtmrz002398wsz3yivrvx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -275,7 +338,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck24noivv003q1cwsuagx28d6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck27mtmst003r98wspru7zbua" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -431,7 +494,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/05/模板方法模式/" data-id="ck24noiwc004m1cwsm1knn5uw" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/05/模板方法模式/" data-id="ck27mtmt7004o98wsny43a9ns" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -575,7 +638,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck24noivu003o1cwslhln5xrf" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck27mtmss003p98ws1ci7jqg7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -699,7 +762,7 @@ concreteProduct.method();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck24noiw300431cwsq56sma6a" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck27mtmsy004498wsfi634xuc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -823,7 +886,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck24noivc002s1cwsjbnrhots" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck27mtmsc002t98wskq8l5p0w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -875,61 +938,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck24noiuy00231cwse66k0y57" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React之虚拟Dom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/11/React之虚拟Dom/" class="article-date">
-  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/11/React之虚拟Dom/">React之虚拟Dom</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>为什么引入虚拟Dom<br><strong> JavaScript速度快，Dom操作速度很慢 </strong><br><strong> 虚拟Dom通过diff算法实现Dom操作的优化，本质是通过JavaScript的运算，减少Dom的操作。 </strong></p>
-</li>
-<li><p>虚拟Dom<br><strong> 抽象出虚拟Dom（tagName, props, children） =&gt; 生成Patches（通过diff算法得到虚拟Dom的差异描述） =&gt; Update（通过Patch将差异更新到真实Dom上） </strong></p>
-</li>
-<li><p>Diff算法</p>
-<ul>
-<li>深度遍历，记录差异</li>
-<li>差异类型：涉及最小编辑距离问题</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck24noiuw00201cwsw9pu1ksa" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck27mtmrz002498wsvz6iht2v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -982,7 +991,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck24noiv5002g1cws5bhkekh7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck27mtms5002h98wsykjxdxxk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>

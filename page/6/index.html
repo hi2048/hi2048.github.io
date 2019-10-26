@@ -64,6 +64,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-reduce方法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/10/reduce方法/" class="article-date">
+  <time datetime="2017-01-09T16:00:00.000Z" itemprop="datePublished">2017-01-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/10/reduce方法/">reduce方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 数组reduce方法 </strong></p>
+<pre><code>// reduce a,b传入初始值则 b为数组第1个值，否则a为第1个，b为第2个，第二次运行则a为上一次的数据，b为第3个值
+//array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+
+[1,2,3,4,5].reduce(function(a,b){
+  console.log(`${a}:${b}:${a + b}`)
+  return a+b;
+}, 0);
+
+// 0:1:1
+// 1:2:3
+// 3:3:6
+// 6:4:10
+// 10:5:15
+[1,2,3,4,5].reduce(function(a,b){
+  console.log(`${a}:${b}:${a + b}`)
+  return a+b;
+});
+
+// 1:2:3
+// 3:3:6
+// 6:4:10
+// 10:5:15
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="ck27mtms5002f98wsggzm6q16" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-curry" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/28/curry/" class="article-date">
@@ -104,7 +169,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="ck24noiv3002c1cws3r35t5ko" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="ck27mtms4002d98ws9ro51fyi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数式/">函数式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -174,7 +239,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/20/纯函数/" data-id="ck24noiwk00511cwscx0tay0y" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/12/20/纯函数/" data-id="ck27mtmtn005498wskfbc4efa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -220,7 +285,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/05/18/那年真的如风/" data-id="ck24noiws005i1cwsfnyonj8d" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/05/18/那年真的如风/" data-id="ck27mtmtw005k98wsn4xb0eni" class="article-share-link">Share</a>
       
       
     </footer>
@@ -264,7 +329,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/11/10/工作之感悟/" data-id="ck24noiw200421cws22ykiodn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2015/11/10/工作之感悟/" data-id="ck27mtmsy004398wskqfh8o3f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -331,7 +396,7 @@ var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/06/08/闭包/" data-id="ck24noiwt005k1cws20x66v58" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2015/06/08/闭包/" data-id="ck27mtmtw005l98ws8v3yy9h7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -401,7 +466,7 @@ var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/02/01/判断素数/" data-id="ck24noivo003f1cwsnnculb2j" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2015/02/01/判断素数/" data-id="ck27mtmsm003e98ws8vmff72g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -451,7 +516,7 @@ var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/11/13/定寅时歌诀/" data-id="ck24noiw100411cws3u67c902" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/11/13/定寅时歌诀/" data-id="ck27mtmsx004298wsm5frwolo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -495,7 +560,7 @@ var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/11/11/逐年客气歌/" data-id="ck24noiwr005f1cwsu02rbn5u" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/11/11/逐年客气歌/" data-id="ck27mtmtu005h98wsf3nnjvyp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -543,51 +608,7 @@ var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/10/14/定太阴出时歌诀/" data-id="ck24noiw100401cwsy05xudms" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-逐年主气歌" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/10/13/逐年主气歌/" class="article-date">
-  <time datetime="2014-10-13T08:14:00.000Z" itemprop="datePublished">2014-10-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/10/13/逐年主气歌/">逐年主气歌</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>初气逐年水主先，</p>
-<p>二君三相火排连，</p>
-<p>四来是土常为主，</p>
-<p>五气金生六水天。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2014/10/13/逐年主气歌/" data-id="ck24noiwp005c1cwsqcu1ie3w" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2014/10/14/定太阴出时歌诀/" data-id="ck27mtmsx004098wsfoeks1t5" class="article-share-link">Share</a>
       
       
     </footer>

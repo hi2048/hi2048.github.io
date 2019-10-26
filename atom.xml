@@ -294,6 +294,38 @@ const nodeAStruct = function(id, pid, data) {
   </entry>
   
   <entry>
+    <title>桥接模式</title>
+    <link href="http://hi2048.github.io/2019/03/05/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2019/03/05/桥接模式/</id>
+    <published>2019-03-04T16:00:00.000Z</published>
+    <updated>2019-10-26T14:00:12.036Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>桥接模式（Bridge）<br> <a href="/assets/桥接模式.png"><img src="/assets/桥接模式.png" alt="桥接模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Bridge" title="桥接模式" target="_blank" rel="noopener">github</a></p><pre><code>-- abstraction.jsclass Abstraction {    constructor(implementor) {        if(new.target === Abstraction)            throw new Error(`${Abstraction} cannot be initialized.`);        this.implementor = implementor;    }    setImplementor(implementor) {        implementor &amp;&amp; (this.implementor = implementor);        return this;    }    operation() {        throw new Error(`${this.operation} should be overwrite.`);    }}module.exports = Abstraction;-- implementor.jsclass Implementor {    constructor() {        if(new.target === Implementor) {            throw new Error(`${Implementor} cannot be initialized.`);        }    }    operation() {        throw new Error(`${this.operation} should be overwrite.`);    }}module.exports = Implementor;-- refinedAbstraction.jsconst Abstraction = require(&apos;./abstraction&apos;);class RefinedAbstraction extends Abstraction {    constructor(implementor = {}) {        super(implementor);    }    operation() {        console.log(&apos;RefinedAbstraction operation.&apos;);        this.implementor.operation &amp;&amp; this.implementor.operation();        return this;    }}module.exports = RefinedAbstraction;-- concreteImplementorA.jsconst Implementor = require(&apos;./implementor&apos;);class ConcreteImplementorA extends Implementor {    constructor() {        super();    }    operation() {        console.log(&apos;ConcreteImplementorA operation.&apos;);    }}module.exports = ConcreteImplementorA;-- concreteImplementorB.jsconst Implementor = require(&apos;./implementor&apos;);class ConcreteImplementorB extends Implementor {    constructor() {        super();    }    operation() {        console.log(&apos;ConcreteImplementorB operation.&apos;);    }}module.exports = ConcreteImplementorB;-- client.jsconst RefinedAbstraction = require(&apos;./refinedAbstraction&apos;);const ConcreteImplementorA = require(&apos;./concreteImplementorA&apos;);const ConcreteImplementorB = require(&apos;./concreteImplementorB&apos;);const refinedAbstraction = new RefinedAbstraction();const concreteImplementorA = new ConcreteImplementorA();const concreteImplementorB = new ConcreteImplementorB();refinedAbstraction.operation();console.log(&apos;------&apos;);refinedAbstraction.setImplementor().operation();console.log(&apos;------&apos;);refinedAbstraction.setImplementor(concreteImplementorA).operation();console.log(&apos;------&apos;);refinedAbstraction.setImplementor().operation();console.log(&apos;------&apos;);refinedAbstraction.setImplementor(concreteImplementorB).operation();console.log(&apos;------&apos;);new RefinedAbstraction(new ConcreteImplementorB()).operation().setImplementor().operation().setImplementor(new ConcreteImplementorA()).operation();console.log(&apos;------&apos;);</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;桥接模式（Bridge）&lt;br&gt; &lt;a href=&quot;/assets/桥接模式.png&quot;&gt;&lt;img src=&quot;/assets/桥接模式.png&quot; alt=&quot;桥接模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https://g
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Stack实现</title>
     <link href="http://hi2048.github.io/2019/03/01/Stack%E5%AE%9E%E7%8E%B0/"/>
     <id>http://hi2048.github.io/2019/03/01/Stack实现/</id>
@@ -568,38 +600,6 @@ class Heap {
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>备忘录模式</title>
-    <link href="http://hi2048.github.io/2018/12/02/%E5%A4%87%E5%BF%98%E5%BD%95%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://hi2048.github.io/2018/12/02/备忘录模式/</id>
-    <published>2018-12-01T16:00:00.000Z</published>
-    <updated>2019-10-20T12:28:43.599Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>备忘录模式（Memento）<br> <a href="/assets/备忘录模式.png"><img src="/assets/备忘录模式.png" alt="备忘录模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Memento" title="备忘录模式" target="_blank" rel="noopener">github</a></p><pre><code>-- originator.jsconst Memento = require(&apos;./memento&apos;);class Originator {    constructor(state = &apos;initial state&apos;) {        this.state = state;        console.log(&apos;Originator constructor.&apos;);    }    setState(state) {        this.state = state;        console.log(this.state);    }    setMemento(memento) {        this.state = memento.getState();        console.log(`Originator setMemento state: ${this.state}.`);    }    createMemento() {        console.log(`Originator createMemento state: ${this.state}.`);        return new Memento(this.state);    }}module.exports = Originator;-- memento.jsclass Memento {    constructor(state) {        this.state = state;        console.log(&apos;Memento constructor.&apos;);    }    getState() {        return this.state;    }}module.exports = Memento;-- caretaker.jsconst Memento = require(&apos;./memento&apos;);class Caretaker {    constructor() {        console.log(&apos;Caretaker constructor.&apos;);    }    setMemento(memento) {        this.memento = memento;    }    getMemento() {        return this.memento;    }}module.exports = Caretaker;-- client.jsconst Originator = require(&apos;./originator&apos;);const Caretaker = require(&apos;./caretaker&apos;);const originator = new Originator();const caretaker = new Caretaker();const memento1 = originator.createMemento();caretaker.setMemento(memento1);originator.setState(&apos;state1&apos;);originator.setMemento(caretaker.getMemento());console.log(&apos;------&apos;);originator.setState(&apos;state2&apos;);caretaker.setMemento(originator.createMemento());originator.setState(&apos;state3&apos;);originator.setMemento(caretaker.getMemento());console.log(&apos;------&apos;);</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;备忘录模式（Memento）&lt;br&gt; &lt;a href=&quot;/assets/备忘录模式.png&quot;&gt;&lt;img src=&quot;/assets/备忘录模式.png&quot; alt=&quot;备忘录模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;http
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
