@@ -265,6 +265,38 @@ const nodeAStruct = function(id, pid, data) {
   </entry>
   
   <entry>
+    <title>命令模式</title>
+    <link href="http://hi2048.github.io/2019/04/18/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2019/04/18/命令模式/</id>
+    <published>2019-04-17T16:00:00.000Z</published>
+    <updated>2019-10-27T12:52:15.129Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>命令模式（Command）<br> <a href="/assets/命令模式.png"><img src="/assets/命令模式.png" alt="命令模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Command" title="命令模式" target="_blank" rel="noopener">github</a></p><pre><code>-- command.jsclass Command {    constructor(receiver) {        if(new.target === Command)            throw new Error(`${Command} cannot be initialized.`);        this.receiver = receiver;    }    setReceiver(receiver) {        return receiver &amp;&amp; (this.receiver = receiver);    }    execute() {        throw new Error(`{this.execute} should be overwrite.`);    }}module.exports = Command;-- concreteCommand.jsconst Command = require(&apos;./command&apos;);class ConcreteCommand extends Command {    constructor(receiver = {}) {        super(receiver);    }    execute() {        this.receiver.action();    }}module.exports = ConcreteCommand;-- invoker.jsclass Invoker {    constructor() {        this.orders = new Set();    }    addCommand(command) {        return command &amp;&amp; this.orders.add(command);    }    removeCommand(command) {        return command &amp;&amp; this.orders.delete(command);    }    notify() {        this.orders.forEach(order =&gt; (order.execute()));    }}module.exports = Invoker;-- receiver.jsclass Receiver {    action() {        console.log(&apos;Receiver action.&apos;);    }}module.exports = Receiver;-- client.jsconst Invoker = require(&apos;./invoker&apos;);const Receiver = require(&apos;./receiver&apos;);const ConcreteCommand = require(&apos;./concreteCommand&apos;);const invoker = new Invoker();const receiver = new Receiver();const concreteCommand1 = new ConcreteCommand();concreteCommand1.setReceiver(receiver);const concreteCommand2 = new ConcreteCommand(receiver);const concreteCommand3 = new ConcreteCommand(receiver);invoker.addCommand(concreteCommand1);invoker.addCommand();invoker.addCommand(concreteCommand1);invoker.addCommand(concreteCommand2);invoker.addCommand(concreteCommand3);invoker.removeCommand();invoker.removeCommand(concreteCommand1);invoker.removeCommand();invoker.removeCommand(concreteCommand1);invoker.notify();</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;命令模式（Command）&lt;br&gt; &lt;a href=&quot;/assets/命令模式.png&quot;&gt;&lt;img src=&quot;/assets/命令模式.png&quot; alt=&quot;命令模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https://
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript中的内存管理</title>
     <link href="http://hi2048.github.io/2019/03/23/JavaScript%E4%B8%AD%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/"/>
     <id>http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/</id>
@@ -600,33 +632,6 @@ class Heap {
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React生命周期</title>
-    <link href="http://hi2048.github.io/2018/12/02/React%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
-    <id>http://hi2048.github.io/2018/12/02/React生命周期/</id>
-    <published>2018-12-01T16:00:00.000Z</published>
-    <updated>2019-09-11T08:42:28.187Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>React生命周期 - React16前</p><p><strong> React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） </strong></p><ul><li><p>initialization：初始化props和state。<br>constructor</p></li><li><p>mounting：执行一次。<br>componentWillMount, render, componentDidMount</p></li><li><p>update：setState引起的state更新或者父组件重新render引起的props更新。<br>componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate</p></li><li><p>unmount: 执行一次<br>componentWillUnmount</p></li></ul><p><a href="/assets/React-lifecycle-before.png"><img src="/assets/React-lifecycle-before.png" alt="React生命周期"></a></p></li></ol><ol start="2"><li><p>React生命周期</p><ul><li>引入了两个新的生命周期函数<br>getDerivedStateFromProps，getSnapshotBeforeUpdate</li></ul><p><a href="/assets/React-lifecycle.png"><img src="/assets/React-lifecycle.png" alt="React16生命周期"></a></p></li><li><p>为什么会变化</p><p><strong> React16推出Fiber，如果开启async rendering，会导致render函数之前的所有函数，有可能被执行多次。 </strong></p><ul><li>componentWillMount</li><li>componentWillReceiveProps</li><li>componentWillUpdate</li><li>shouldComponentUpdate</li></ul><p>其中shouldComponentUpdate为纯函数，返回Boolean，没有副作用，而其他三个函数，开发者如果在里面执行有副作用的操作，如Ajax等，会产生不可预期的结果。所以其余三个统一被getDerivedStateFromProps替代，并且<strong> 采用静态函数，用禁止来替代以前的建议 </strong>。</p><p>react的component中static属性，里面放函数，官方解释：<br><strong> you can run them before any component instances are created, and the methods do not have access to the props or state of your components. </strong></p><p><strong> 静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state。 </strong></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;React生命周期 - React16前&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt; React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） &lt;/strong
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
     
   </entry>
   
