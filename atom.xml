@@ -73,9 +73,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -103,9 +103,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -136,9 +136,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -164,9 +164,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -258,9 +258,41 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
+  </entry>
+  
+  <entry>
+    <title>职责链模式</title>
+    <link href="http://hi2048.github.io/2019/05/02/%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2019/05/02/职责链模式/</id>
+    <published>2019-05-01T16:00:00.000Z</published>
+    <updated>2019-10-29T12:19:18.862Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>职责链模式（ChainOfResponsibility）<br> <a href="/assets/职责链模式.png"><img src="/assets/职责链模式.png" alt="职责链模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/ChainOfResponsibility" title="职责链模式" target="_blank" rel="noopener">github</a></p><pre><code>-- handler.jsclass Handler {    constructor(successor) {        if(new.target === Handler) {            throw new Error(`${Handler} cannot be initialized.`);        }        this.successor = successor;    }    setSuccessor(successor) {        successor &amp;&amp; (this.successor = successor);        return this;    }    handleRequest() {        throw new Error(`${this.handleRequest} should be overwrite.`);    }}module.exports = Handler;-- concreteHandler1.jsconst Handler = require(&apos;./handler&apos;);class ConcreteHandler1 extends Handler {    constructor(successor) {        super(successor);    }    handleRequest(request) {        if(request &lt; 10) {            console.log(&apos;Concretehandler1 handleRequest.&apos;);        } else {            this.successor &amp;&amp; this.successor.handleRequest(request);        }    }}module.exports = ConcreteHandler1;-- concreteHandler2.jsconst Handler = require(&apos;./handler&apos;);class ConcreteHandler2 extends Handler {    constructor(successor) {        super(successor);    }    handleRequest(request) {        if(request &lt; 20){            console.log(&apos;ConcreteHandler2 handleRequest.&apos;);        } else {            this.successor &amp;&amp; this.successor.handleRequest(request);        }    }}module.exports = ConcreteHandler2;-- concreteHandler3.jsconst Handler = require(&apos;./handler&apos;);class ConcreteHandler3 extends Handler {    constructor(successor) {        super(successor);    }    handleRequest(request) {        console.log(&apos;ConcreteHandler3 handleRequest.&apos;);    }}module.exports = ConcreteHandler3;-- client.jsconst ConcreteHandler1 = require(&apos;./concreteHandler1&apos;);const ConcreteHandler2 = require(&apos;./concreteHandler2&apos;);const ConcreteHandler3 = require(&apos;./concreteHandler3&apos;);const concreteHandler3 = new ConcreteHandler3();const concreteHandler2 = new ConcreteHandler2();const concreteHandler1 = new ConcreteHandler1(concreteHandler2);concreteHandler2.setSuccessor(concreteHandler3);const request = [9, 10, 19, 20, 30, 999];request.forEach(req =&gt; (concreteHandler1.handleRequest(req)));</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;职责链模式（ChainOfResponsibility）&lt;br&gt; &lt;a href=&quot;/assets/职责链模式.png&quot;&gt;&lt;img src=&quot;/assets/职责链模式.png&quot; alt=&quot;职责链模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -382,9 +414,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -443,9 +475,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -474,9 +506,9 @@ const popItemFromArray = (arr, key) =&amp;gt;{
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -540,9 +572,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -602,36 +634,6 @@ class Heap {
     
     
       <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快乐数</title>
-    <link href="http://hi2048.github.io/2018/12/08/%E5%BF%AB%E4%B9%90%E6%95%B0/"/>
-    <id>http://hi2048.github.io/2018/12/08/快乐数/</id>
-    <published>2018-12-07T16:00:00.000Z</published>
-    <updated>2019-09-08T13:53:44.932Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>快乐数：<br>正整数，求出每个位置的数字平方和，重复此过程，可以得到数字1，则为快乐数。<br>求取平方和过程中如果重复之前的平方和，则非快乐数。</p><pre><code>var getSquaresSum = function(n){    var ss = n.toString().split(&apos;&apos;);    return ss.reduce(function(count, s){        return count + Math.pow(parseInt(s), 2);    }, 0)}var isHappy = function(n) {    var rets = [n];    var count = n;    while(true){        count = getSquaresSum(count);        if(count === 1){            return true;        }        var index = rets.indexOf(count);        if(index !== -1){            return false;        }        rets.push(count);    }};</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;快乐数：&lt;br&gt;正整数，求出每个位置的数字平方和，重复此过程，可以得到数字1，则为快乐数。&lt;br&gt;求取平方和过程中如果重复之前的平方和，则非快乐数。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;var getSquaresSum = function(n){
-    v
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
