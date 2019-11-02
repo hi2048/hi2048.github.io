@@ -64,6 +64,86 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript中类的创建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/10/JavaScript中类的创建/" class="article-date">
+  <time datetime="2013-09-10T09:02:09.000Z" itemprop="datePublished">2013-09-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/10/JavaScript中类的创建/">JavaScript中类的创建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript中的所有事物都是对象，其中对象是带有属性和方法的特殊数据类型，也可以将对象看作是一个无序的属性集合。常用的类的定义方法有3种，</p>
+<p>1. 直接定义类</p>
+<pre>
+方式1：
+var obj = {};
+obj.id = 1;
+obj.name = 'object';
+obj.func = function(){
+    alert(this.id + ': ' + this.name);
+}
+方式2：
+var obj = {
+    'id': 1,
+    'name': 'object',
+    'func': function(){
+        alert(this.id + ': ' + this.name);
+    }
+};
+</pre>
+2\. 使用关键字function定义类
+<pre>
+function Obj(){
+    var self = this;
+    self.id = 1;
+    self.name = 'object';
+    self.func = function(){
+        alert(self.id + ': ' + self.name);
+    }
+}
+</pre>
+3\. 使用原型的方式定义类
+<pre>
+function Obj(){}
+Obj.prototype.id = 1;
+Obj.prototype.name = 'object';
+Obj.prototype.func = function(){
+    alert(this.id + ': ' + this.name);
+}
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="ck2hezrci001cx1ws94ymgw8l" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript中变量的作用域" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/10/JavaScript中变量的作用域/" class="article-date">
@@ -104,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="ck2btkrko0019pfwsno6ehmu6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="ck2hezrcg0017x1wsoxiya5fi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -147,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="ck2btkrmn005apfwsjjrazxwz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="ck2hezred005dx1wsh89m1bzl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -198,7 +278,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="ck2btkrkt001bpfwshevx05ol" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="ck2hezrci001bx1wsarteqwu4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -246,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="ck2btkrkw001hpfws7fxfiw0s" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="ck2hezrck001hx1ws73g5dl5c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -295,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/日干推时干歌诀/" data-id="ck2btkrm40045pfwstqu9cda9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/09/日干推时干歌诀/" data-id="ck2hezrdv0044x1wsbhtdzdft" class="article-share-link">Share</a>
       
       
     </footer>
@@ -342,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/08/年推月干口诀/" data-id="ck2btkrly003rpfwsqya8qeep" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/08/年推月干口诀/" data-id="ck2hezrdr003ux1wslwld8qo5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -390,7 +470,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/07/二十四节气口诀/" data-id="ck2btkrl70027pfwsmrlzpalf" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/07/二十四节气口诀/" data-id="ck2hezrd10028x1wse2phfe7a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,7 +529,7 @@ e. 浏览器解析HTML，并开始显示
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/07/HTTP协议请求过程/" data-id="ck2btkrkm0015pfwsn5bvwliy" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/07/HTTP协议请求过程/" data-id="ck2hezrcf0015x1wskqt5jwep" class="article-share-link">Share</a>
       
       
     </footer>
@@ -503,80 +583,7 @@ e. 浏览器解析HTML，并开始显示
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/06/周易预测月份的划定/" data-id="ck2btkrls003epfws03okn8lz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-六十甲子及纳音" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/05/六十甲子及纳音/" class="article-date">
-  <time datetime="2013-09-05T10:45:51.000Z" itemprop="datePublished">2013-09-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/05/六十甲子及纳音/">六十甲子及纳音</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>1、甲子、2、乙丑海中金；</strong></p>
-<p><strong>3、丙寅、4、丁卯炉中火；</strong></p>
-<p><strong>5、戊辰、6、己巳大林木；</strong></p>
-<p><strong>7、庚午、8、辛未路旁土；</strong></p>
-<p><strong>9、壬申、10、癸酉剑锋金；</strong></p>
-<p><strong>11、甲戌、12、乙亥山头火；</strong></p>
-<p><strong>13、丙子、14、丁丑涧下水；</strong></p>
-<p><strong>15、戊寅、16、己卯城头土；</strong></p>
-<p><strong>17、庚辰、18、辛巳白蜡金；</strong></p>
-<p><strong>19、壬午、20、癸未杨柳木；</strong></p>
-<p><strong>21、甲申、22、乙酉泉中水；</strong></p>
-<p><strong>23、丙戌、24、丁亥屋上土；</strong></p>
-<p><strong>25、戊子、26、己丑霹雳火；</strong></p>
-<p><strong>27、庚寅、28、辛卯炉中火；</strong></p>
-<p><strong>29、壬辰、30、癸巳长流水；</strong></p>
-<p><strong>31、甲午、32、乙未沙中金；</strong></p>
-<p><strong>33、丙申、34、丁酉山下火；</strong></p>
-<p><strong>35、戊戌、36、己亥平地木；</strong></p>
-<p><strong>37、庚子、38、辛丑壁上土；</strong></p>
-<p><strong>39、壬寅、40、癸卯金箔金；</strong></p>
-<p><strong>41、甲辰、42、乙巳复灯火；</strong></p>
-<p><strong>43、丙午、44、丁未天河水；</strong></p>
-<p><strong>45、戊申、46、己酉大驿土；</strong></p>
-<p><strong>47、庚戌、48、辛亥钗钏金；</strong></p>
-<p><strong>49、壬子、50、癸丑桑柘木；</strong></p>
-<p><strong>51、甲寅、52、乙卯大溪水；</strong></p>
-<p><strong>53、丙辰、54、丁巳沙中土；</strong></p>
-<p><strong>55、戊午、56、己未天上火；</strong></p>
-<p><strong>57、庚申、58、辛酉石榴木；</strong></p>
-<p><strong>59、壬戌、60、癸亥大海水。</strong></p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/05/六十甲子及纳音/" data-id="ck2btkrlj002upfwsni2pt97t" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/06/周易预测月份的划定/" data-id="ck2hezrdj003ex1wsn1kuf6f3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -589,7 +596,7 @@ e. 浏览器解析HTML，并开始显示
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/12/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/14/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -620,7 +627,7 @@ e. 浏览器解析HTML，并开始显示
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18.33px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.33px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 

@@ -73,9 +73,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -103,9 +103,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -136,9 +136,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -164,9 +164,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -258,9 +258,41 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+  </entry>
+  
+  <entry>
+    <title>中介者模式</title>
+    <link href="http://hi2048.github.io/2019/05/22/%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2019/05/22/中介者模式/</id>
+    <published>2019-05-21T16:00:00.000Z</published>
+    <updated>2019-10-30T13:24:47.889Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>中介者模式（Mediator）<br> <a href="/assets/中介者模式.png"><img src="/assets/中介者模式.png" alt="中介者模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Mediator" title="中介者模式" target="_blank" rel="noopener">github</a></p><pre><code>-- mediator.jsclass Mediator {    constructor() {        if(new.target === Mediator)            throw new Error(`${Mediator} cannot be initialized.`);        this.colleagues = new Set();    }    addColleague(colleague) {        colleague &amp;&amp; this.colleagues.add(colleague);        return this;    }    removeColleague(colleague) {        this.colleagues.delete(colleague);        return this;    }    send(message, colleague) {        throw new Error(`${this.send} should be overwrite.`);    }}module.exports = Mediator;-- concreteMediator.jsconst Mediator = require(&apos;./mediator&apos;);class ConcreteMediator extends Mediator {    constructor() {        super();    }    send(message, colleague) {        this.colleagues.forEach(coll =&gt; {            if(coll !== colleague) {                coll.notify(message);            }        });    }}module.exports = ConcreteMediator;-- colleague.jsclass Colleague {    constructor(mediator) {        if(new.target === Colleague) {            throw new Error(`${Colleague} cannot be initialized.`);        }        this.mediator = mediator;    }    setMediator(mediator) {        mediator &amp;&amp; (this.mediator = mediator);        return this;    }    send(message) {        this.mediator.send(message, this);    }    notify(message) {        throw new Error(`${this.notify} should be overwrite.`);    }}module.exports = Colleague;-- concreteColleague1.jsconst Colleague = require(&apos;./colleague&apos;);class ConcreteColleague1 extends Colleague {    constructor(mediator) {        super(mediator);    }    notify(message) {        console.log(`ConcreteColleague1 notify ${message}.`);    }}module.exports = ConcreteColleague1;-- concreteColleague2.jsconst Colleague = require(&apos;./colleague&apos;);class ConcreteColleague2 extends Colleague {    constructor(mediator) {        super(mediator);    }    notify(message) {        console.log(`ConcreteColleague2 notify ${message}.`);    }}module.exports = ConcreteColleague2;-- client.jsconst ConcreteMediator = require(&apos;./concreteMediator&apos;);const ConcreteColleague1 = require(&apos;./concreteColleague1&apos;);const ConcreteColleague2 = require(&apos;./concreteColleague2&apos;);const concreteMediator = new ConcreteMediator();const concreteColleague1 = new ConcreteColleague1(concreteMediator);const concreteColleague2 = new ConcreteColleague2(concreteMediator);concreteMediator.addColleague(concreteColleague1);concreteMediator.addColleague(concreteColleague2);concreteColleague1.send(&apos;concreteColleague1 send message 1&apos;);concreteColleague2.send(&apos;concreteColleague2 send message 2&apos;);concreteColleague2.send(&apos;concreteColleague2 send message 3&apos;);concreteColleague1.send(&apos;concreteColleague1 send message 4&apos;);</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;中介者模式（Mediator）&lt;br&gt; &lt;a href=&quot;/assets/中介者模式.png&quot;&gt;&lt;img src=&quot;/assets/中介者模式.png&quot; alt=&quot;中介者模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;htt
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
@@ -414,9 +446,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -475,9 +507,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -506,9 +538,9 @@ const popItemFromArray = (arr, key) =&amp;gt;{
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -572,9 +604,9 @@ class Heap {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -607,33 +639,6 @@ class Heap {
       <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React16为什么更新</title>
-    <link href="http://hi2048.github.io/2018/12/11/React16%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9B%B4%E6%96%B0/"/>
-    <id>http://hi2048.github.io/2018/12/11/React16为什么更新/</id>
-    <published>2018-12-10T16:00:00.000Z</published>
-    <updated>2019-09-11T09:35:37.523Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong> React16更新的根本原因是提升用户体验，解决同步更新带来的界面卡顿问题。 </strong></p><ol><li><p>React16之前的版本中，更新过程是同步的，为什么会导致界面卡顿？<br><strong> 大量的同步计算任务阻塞了浏览器的UI渲染 </strong></p><ul><li>JavaScript是单线程的。</li><li>JavaScript运算、页面布局和页面绘制都是运行在浏览器的主线程当中，他们之间是互斥的关系。</li><li>React加载或者更新时，会调用生命周期函数，计算和对比Virtual DOM，更新UI，整个过程是同步的，如果需要更新的组件数量过大或者计算过于复杂，就会出现用户卡顿的体验。</li></ul></li><li><p>React是如何解决上述问题的？</p><p><strong> 引入了异步渲染(Async Rendering)机制 </strong></p><p>采用分片的思路，提出了Fiber的解决方案。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt; React16更新的根本原因是提升用户体验，解决同步更新带来的界面卡顿问题。 &lt;/strong&gt;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;React16之前的版本中，更新过程是同步的，为什么会导致界面卡顿？&lt;br&gt;&lt;strong&gt; 大量的同步计算任务阻塞了浏览器的
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
     
   </entry>
   

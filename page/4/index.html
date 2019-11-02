@@ -64,6 +64,189 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/02/观察者模式/" class="article-date">
+  <time datetime="2018-08-01T16:00:00.000Z" itemprop="datePublished">2018-08-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/02/观察者模式/">观察者模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>观察者模式（Observer）<br> <a href="/assets/观察者模式.png"><img src="/assets/观察者模式.png" alt="观察者模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Observer" title="观察者模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- subject.js
+class Subject {
+    constructor() {
+        if(new.target === Subject)
+            throw new Error(`${Subject} cannot be initialized.`);
+
+        this.observers = new Set();
+
+        console.log(&quot;Subject constructor.&quot;);
+    }
+
+    attach(observer) {
+        this.observers.add(observer);
+    }
+
+    detach(observer) {
+        this.observers.delete(observer);
+    }
+
+    notify() {
+        console.log(&apos;notify&apos;);
+        this.observers.forEach((observer) =&gt; (observer.update()));
+    }
+}
+
+module.exports = Subject;
+
+-- concreteSubject.js
+const Subject = require(&apos;./subject&apos;);
+
+class ConcreteSubject extends Subject {
+    constructor(subjectState = &quot;ConcreteSubject&quot;) {
+        super();
+
+        this.subjectState = subjectState;
+
+        console.log(&apos;ConcreteSubject constructor.&apos;);
+    }
+
+    setSubjectState(subjectState) {
+        this.subjectState = subjectState;
+        this.notify();
+    }
+}
+
+module.exports = ConcreteSubject;
+
+-- observer.js
+class Observer {
+    constructor() {
+        if(new.target === Observer)
+            throw new Error(`${Observer} cannot be initialized.`);
+
+        console.log(&apos;Observer constructor.&apos;);
+    }
+
+    update() {
+        throw new Error(`${this.update} should be overwrite.`);
+    }
+}
+
+module.exports = Observer;
+
+-- concreteObserver.js
+const Observer = require(&apos;./observer&apos;);
+
+class ConcreteObserver extends Observer {
+    constructor(name = &quot;concreteObserver&quot;, subject = {}) {
+        super();
+
+        this.name = name;
+        this.subject = subject;
+        this.observerState = subject.subjectState;
+
+        console.log(&apos;ConcreteObserver constructor.&apos;);
+    }
+
+    update() {
+        this.observerState = this.subject.subjectState;
+        console.log(`${this.observerState} notify ${this.name}.`);
+    }
+}
+
+module.exports = ConcreteObserver;
+
+-- client.js
+const ConcreteSubject = require(&apos;./concreteSubject&apos;);
+const ConcreteObserver = require(&apos;./concreteObserver&apos;);
+
+const concreteSubject = new ConcreteSubject();
+const concreteObserverX = new ConcreteObserver(&apos;X&apos;, concreteSubject);
+const concreteObserverXX = new ConcreteObserver(&apos;X&apos;, concreteSubject);
+const concreteObserverY = new ConcreteObserver(&apos;Y&apos;, concreteSubject);
+const concreteObserverZ = new ConcreteObserver(&apos;Z&apos;, concreteSubject);
+console.log(&apos;------&apos;);
+
+concreteSubject.setSubjectState(&apos;Changed ConcreteSubject SubjectState.&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.attach(concreteObserverX);
+concreteSubject.setSubjectState(&apos;subjectState 1&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.detach(concreteObserverX);
+concreteSubject.setSubjectState(&apos;subjectState 2&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.attach(concreteObserverX);
+concreteSubject.attach(concreteObserverY);
+concreteSubject.attach(concreteObserverX);
+concreteSubject.setSubjectState(&apos;subjectState 3&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.attach(concreteObserverZ);
+concreteSubject.setSubjectState(&apos;subjectState 4&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.detach(concreteObserverX);
+concreteSubject.setSubjectState(&apos;subjectState 5&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.detach(concreteObserverX);
+concreteSubject.setSubjectState(&apos;subjectState 6&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.detach(concreteObserverY);
+concreteSubject.detach(concreteObserverZ);
+concreteSubject.setSubjectState(&apos;subjectState 7&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.attach(concreteObserverY);
+concreteSubject.attach(concreteObserverX);
+concreteSubject.attach(concreteObserverXX);
+concreteSubject.setSubjectState(&apos;subjectState 8&apos;);
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/08/02/观察者模式/" data-id="ck2hezre80050x1wsnzxfguug" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-建造者模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/12/建造者模式/" class="article-date">
@@ -236,7 +419,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/07/12/建造者模式/" data-id="ck2btkrlz003tpfwswxhluot3" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/07/12/建造者模式/" data-id="ck2hezrds003vx1wsnynlld4x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -378,7 +561,7 @@ facade.methodB();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/15/外观模式/" data-id="ck2btkrlw003mpfwssnhqmghn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/15/外观模式/" data-id="ck2hezrdm003lx1ws1ig8moml" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -441,7 +624,7 @@ facade.methodB();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck2btkrkl0013pfwsootomcp6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ck2hezrce0013x1wsbi06n8ha" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -527,7 +710,7 @@ facade.methodB();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck2btkrl0001qpfws9qt08hub" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ck2hezrco001qx1wskfz58j7s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -599,7 +782,7 @@ facade.methodB();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck2btkrl0001ppfwsbdiq7v9g" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ck2hezrco001px1wshkze8yl1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -664,7 +847,7 @@ var isIsomorphic = function(s, t) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck2btkrlr003bpfwsax6980bn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/09/同构字符串/" data-id="ck2hezrdk003gx1wss0pel6uh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -820,7 +1003,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/05/05/模板方法模式/" data-id="ck2btkrm6004apfwsnce3im59" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/05/05/模板方法模式/" data-id="ck2hezrdy004bx1ws5tgb426o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -964,7 +1147,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck2btkrlq0039pfwsnkc39wdy" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck2hezrdh003bx1wseve26far" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1088,131 +1271,7 @@ concreteProduct.method();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck2btkrly003qpfwsvtkgv8rd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-代理模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/02/15/代理模式/" class="article-date">
-  <time datetime="2018-02-14T16:00:00.000Z" itemprop="datePublished">2018-02-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/15/代理模式/">代理模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>代理模式（Proxy）<br> <a href="/assets/代理模式.png"><img src="/assets/代理模式.png" alt="代理模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Proxy" title="代理模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- subject.js
-class Subject {
-    constructor() {
-        if(new.target === Subject)
-            throw new Error(`${Subject} cannot be initialized.`);
-
-        console.log(&apos;Subject constructor.&apos;);
-    }
-
-    request() {
-        console.log(&apos;Subject request.&apos;);
-
-        return;
-    }
-}
-
-module.exports = Subject;
-
--- realSubject.js
-const Subject = require(&apos;./subject&apos;);
-
-class RealSubject extends Subject {
-    constructor() {
-        super();
-
-        console.log(&apos;RealSubject constructor.&apos;);
-    }
-
-    request() {
-        console.log(&apos;RealSubject request.&apos;);
-    }
-}
-
-module.exports = RealSubject;
-
--- proxy.js
-const Subject = require(&apos;./subject&apos;);
-const RealSubject = require(&apos;./realSubject&apos;);
-
-class Proxy extends Subject {
-    constructor(realSubject) {
-        super();
-
-        this.realSubject = this.initRealSubject(realSubject);
-
-        console.log(&apos;Proxy constructor.&apos;);
-    }
-
-    initRealSubject(realSubject) {
-        return realSubject || new RealSubject();
-    }
-
-    getRealSubject() {
-        return this.realSubject;
-    }
-
-    request() {
-        this.getRealSubject().request();
-    }
-}
-
-module.exports = Proxy;
-
--- client.js
-const Subject = require(&apos;./subject&apos;);
-const RealSubject = require(&apos;./realSubject&apos;);
-const Proxy = require(&apos;./proxy&apos;);
-
-const proxy = new Proxy();
-proxy.request();
-
-console.log(&apos;------&apos;);
-new Proxy(new RealSubject()).request();
-
-console.log(&apos;------&apos;);
-new Subject();
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck2btkrlb002cpfws700vzmqk" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck2hezrdq003rx1wsgujv40bp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1227,7 +1286,7 @@ new Subject();
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -1258,7 +1317,7 @@ new Subject();
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 12px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 18px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18.33px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.33px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
