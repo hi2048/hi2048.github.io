@@ -64,6 +64,143 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-职责链模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/05/02/职责链模式/" class="article-date">
+  <time datetime="2019-05-01T16:00:00.000Z" itemprop="datePublished">2019-05-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/02/职责链模式/">职责链模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>职责链模式（ChainOfResponsibility）<br> <a href="/assets/职责链模式.png"><img src="/assets/职责链模式.png" alt="职责链模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/ChainOfResponsibility" title="职责链模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- handler.js
+class Handler {
+    constructor(successor) {
+        if(new.target === Handler) {
+            throw new Error(`${Handler} cannot be initialized.`);
+        }
+
+        this.successor = successor;
+    }
+
+    setSuccessor(successor) {
+        successor &amp;&amp; (this.successor = successor);
+
+        return this;
+    }
+
+    handleRequest() {
+        throw new Error(`${this.handleRequest} should be overwrite.`);
+    }
+}
+
+module.exports = Handler;
+
+-- concreteHandler1.js
+const Handler = require(&apos;./handler&apos;);
+
+class ConcreteHandler1 extends Handler {
+    constructor(successor) {
+        super(successor);
+    }
+
+    handleRequest(request) {
+        if(request &lt; 10) {
+            console.log(&apos;Concretehandler1 handleRequest.&apos;);
+        } else {
+            this.successor &amp;&amp; this.successor.handleRequest(request);
+        }
+    }
+}
+
+module.exports = ConcreteHandler1;
+
+-- concreteHandler2.js
+const Handler = require(&apos;./handler&apos;);
+
+class ConcreteHandler2 extends Handler {
+    constructor(successor) {
+        super(successor);
+    }
+
+    handleRequest(request) {
+        if(request &lt; 20){
+            console.log(&apos;ConcreteHandler2 handleRequest.&apos;);
+        } else {
+            this.successor &amp;&amp; this.successor.handleRequest(request);
+        }
+    }
+}
+
+module.exports = ConcreteHandler2;
+
+-- concreteHandler3.js
+const Handler = require(&apos;./handler&apos;);
+
+class ConcreteHandler3 extends Handler {
+    constructor(successor) {
+        super(successor);
+    }
+
+    handleRequest(request) {
+        console.log(&apos;ConcreteHandler3 handleRequest.&apos;);
+    }
+}
+
+module.exports = ConcreteHandler3;
+
+-- client.js
+const ConcreteHandler1 = require(&apos;./concreteHandler1&apos;);
+const ConcreteHandler2 = require(&apos;./concreteHandler2&apos;);
+const ConcreteHandler3 = require(&apos;./concreteHandler3&apos;);
+
+const concreteHandler3 = new ConcreteHandler3();
+const concreteHandler2 = new ConcreteHandler2();
+const concreteHandler1 = new ConcreteHandler1(concreteHandler2);
+concreteHandler2.setSuccessor(concreteHandler3);
+
+const request = [9, 10, 19, 20, 30, 999];
+
+request.forEach(req =&gt; (concreteHandler1.handleRequest(req)));
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/05/02/职责链模式/" data-id="ck2k8vn5o004t13ws7njg0ggk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-命令模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/18/命令模式/" class="article-date">
@@ -191,7 +328,7 @@ invoker.notify();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/04/18/命令模式/" data-id="ck2hezrdl003ix1wsq5928d7c" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/04/18/命令模式/" data-id="ck2k8vn53003h13wsjflnybx9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -257,7 +394,7 @@ invoker.notify();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/" data-id="ck2hezrch0019x1wsbv09p46x" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/" data-id="ck2k8vn3y001813wsurhmrcg1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -415,7 +552,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/05/桥接模式/" data-id="ck2hezrdx0049x1ws7ahx8w4x" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/05/桥接模式/" data-id="ck2k8vn5e004913ws4p66xnr1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -513,7 +650,7 @@ module.exports = Stack;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/01/Stack实现/" data-id="ck2hezrcq001ux1ws0sl4kiw5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/01/Stack实现/" data-id="ck2k8vn46001q13wsw84ffpyx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -590,7 +727,7 @@ console.log(singleton === singleton4);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/单例模式/" data-id="ck2hezrdg0038x1wsd43ulmox" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/单例模式/" data-id="ck2k8vn4x003613ws9zy4fmcx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -655,7 +792,7 @@ console.log(singleton === singleton4);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck2hezrdw0045x1wsigjoinyy" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck2k8vn5b004313wsj4ud68w5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -765,7 +902,7 @@ LRUCache.prototype.put = function(key, value) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck2hezrcm001lx1wsb7y7ryzh" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck2k8vn42001h13wspkttl6f2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1186,7 +1323,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ck2hezre8004zx1wstox2vpuq" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ck2k8vn5r005113wsxur8jpqs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1280,153 +1417,10 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck2hezrcf0014x1ws2s3w0cqe" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck2k8vn3w001313wszzlwlysx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-组合模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/05/组合模式/" class="article-date">
-  <time datetime="2019-01-04T16:00:00.000Z" itemprop="datePublished">2019-01-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/05/组合模式/">组合模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>组合模式（Composite）<br> <a href="/assets/组合模式.png"><img src="/assets/组合模式.png" alt="组合模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Composite" title="组合模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- component.js
-class Component {
-    constructor(name = &apos;Component&apos;) {
-        if(new.target === Component)
-            throw new Error(`${Component} cannot be initialized.`);
-
-        this.name = name;
-    }
-
-    add(c) {
-        throw new Error(`${this.add} should be overwrite.`);
-    }
-
-    remove(c) {
-        throw new Error(`${this.remove} should be overwrite.`);
-    }
-
-    display() {
-        throw new Error(`${this.display} should be overwrite.`);
-    }
-}
-
-module.exports = Component;
-
--- composite.js
-const Component = require(&apos;./component&apos;);
-
-class Composite extends Component {
-    constructor(name) {
-        super(name);
-
-        this.components = new Set();
-    }
-
-    add(c) {
-        this.components.add(c);
-    }
-
-    remove(c) {
-        this.components.delete(c);
-    }
-
-    display(depth = 1) {
-        console.log(`${&apos;-&apos;.repeat(depth)} ${this.name}`);
-
-        this.components.forEach((component) =&gt; (component.display(depth + 2)));
-    }
-}
-
-module.exports = Composite;
-
--- leaf.js
-const Component = require(&apos;./component&apos;);
-
-class Leaf extends Component {
-    constructor(name) {
-        super(name);
-    }
-
-    display(depth = 1) {
-        console.log(`${&apos;-&apos;.repeat(depth)} ${this.name}`);
-    }
-}
-
-module.exports = Leaf;
-
--- client.js
-const Composite = require(&apos;./composite&apos;);
-const Leaf = require(&apos;./leaf&apos;);
-
-const root = new Composite(&apos;Root&apos;);
-
-root.add(new Leaf(&apos;Leaf11&apos;));
-root.add(new Leaf(&apos;Leaf12&apos;));
-
-const composite1 = new Composite(&apos;Composite11&apos;);
-root.add(composite1);
-
-const leaf21 = new Leaf(&apos;Leaf21&apos;);
-composite1.add(leaf21);
-
-const composite2 = new Composite(&apos;Composite21&apos;);
-composite1.add(composite2);
-
-composite1.add(new Leaf(&apos;Leaf22&apos;));
-
-composite2.add(new Leaf(&apos;Leaf31&apos;));
-
-root.add(new Leaf(&apos;Leaf13&apos;));
-
-const leaf14 = new Leaf(&apos;Leaf14&apos;);
-root.add(leaf14);
-composite1.remove(leaf21);
-
-root.display(2);
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ck2hezre6004sx1wscszbrbwz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>

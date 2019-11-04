@@ -64,6 +64,130 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-工厂方法模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/09/工厂方法模式/" class="article-date">
+  <time datetime="2018-03-08T16:00:00.000Z" itemprop="datePublished">2018-03-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/09/工厂方法模式/">工厂方法模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>工厂方法模式（Factory Method）<br> <a href="/assets/工厂方法模式.png"><img src="/assets/工厂方法模式.png" alt="工厂方法模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Factory-Method" title="工厂方法模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- product.js
+class Product {
+    constructor() {
+        if(new.target === Product)
+            throw new Error(`${Product} cannot be initialized.`);
+
+        console.log(&apos;Product constructor.&apos;);
+    }
+
+    method() {
+        return;
+    }
+}
+
+module.exports = Product;
+
+-- concreteProduct.js
+const Product = require(&apos;./product&apos;);
+
+class ConcreteProduct extends Product {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteProduct constructor&apos;);
+    }
+
+    method() {
+        console.log(&apos;ConcreteProduct method&apos;);
+    }
+}
+
+module.exports = ConcreteProduct;
+
+-- creator.js
+class Creator {
+    constructor() {
+        if(new.target === Creator)
+            throw new Error(`${Creator} cannot be initialized.`);
+
+        console.log(&apos;Creator constructor.&apos;);
+    }
+
+    factoryMethod() {
+        return;
+    }
+}
+
+module.exports = Creator;
+
+-- concreteCreator.js
+const Creator = require(&apos;./creator&apos;);
+const ConcreteProduct = require(&apos;./concreteProduct&apos;);
+
+class ConcreteCreator extends Creator {
+    constructor(product) {
+        super();
+
+        this.product = product;
+
+        console.log(&apos;ConcreteCreator constructor.&apos;);
+    }
+
+    factoryMethod() {
+        return this.product || new ConcreteProduct();
+    }
+}
+
+module.exports = ConcreteCreator;
+
+-- client.js
+const ConcreteCreator = require(&apos;./concreteCreator&apos;);
+
+const concreteCreator = new ConcreteCreator();
+const concreteProduct = concreteCreator.factoryMethod();
+
+concreteProduct.method();
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck2k8vn57003r13wsf3yfttvh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-代理模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/15/代理模式/" class="article-date">
@@ -176,7 +300,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck2hezrd4002gx1wswruzoafz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck2k8vn4g002d13wsqtlezaup" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -228,7 +352,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck2hezrcn001nx1wsts3gnp6r" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck2k8vn45001n13wsse8cyu3t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -281,7 +405,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck2hezrcy0021x1wskeinoecv" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck2k8vn4b002113wstm1bcgo2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -335,7 +459,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck2hezrcn001mx1wsi84s8po9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck2k8vn44001l13ws58uq2o97" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -402,7 +526,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck2hezrcx001yx1ws8p0e65nr" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck2k8vn48001u13wsgtnx1p4s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -586,7 +710,7 @@ decorationABAAB.Operation();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/09/装饰模式/" data-id="ck2hezre7004wx1wsa2dju6cx" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/09/装饰模式/" data-id="ck2k8vn5p004w13ws92s9uxgy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -651,7 +775,7 @@ decorationABAAB.Operation();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck2hezre2004kx1wspza8w5u2" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck2k8vn5l004l13ws69xqpfl5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -820,116 +944,10 @@ console.log(cs.getResult(600));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/12/08/策略模式/" data-id="ck2hezre5004rx1wsm0aaj4hj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/12/08/策略模式/" data-id="ck2k8vn5m004o13wsdutw4nlz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-JavaScript中的循环中断" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/10/JavaScript中的循环中断/" class="article-date">
-  <time datetime="2017-11-09T16:00:00.000Z" itemprop="datePublished">2017-11-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/10/JavaScript中的循环中断/">JavaScript中的循环中断</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 循环中断break, continue, return 比较 </strong></p>
-<pre><code>// break continue return
-// break跳出当前循环 continue结束当前条件 return 返回函数值
-console.log(&quot;normal: &quot;)
-for(var i = 0; i &lt; 2; i++){
-  console.log(`${i} `);
-  for(var j = 3; j &lt; 6; j++){
-    console.log(`${j} `);
-  }
-}
-
-console.log(&quot;break: &quot;)
-for(var i = 0; i &lt; 2; i++){
-  console.log(`${i} `);
-  for(var j = 3; j &lt; 6; j++){
-    if(j === 4) break;
-    console.log(`${j} `);
-  }
-}
-
-console.log(&quot;continue: &quot;)
-for(var i = 0; i &lt; 2; i++){
-  console.log(`${i} `);
-  for(var j = 3; j &lt; 6; j++){
-    if(j === 4) continue;
-    console.log(`${j} `);
-  }
-}
-
-console.log(&quot;return: &quot;)
-for(var i = 0; i &lt; 2; i++){
-  console.log(`${i} `);
-  for(var j = 3; j &lt; 6; j++){
-    if(j === 4){
-      return;
-    }
-    console.log(`${j} `);
-  }
-}
-
-normal:
-0
-3
-4
-5
-1
-3
-4
-5 
-break:
-0
-3
-1
-3
-continue:
-0
-3
-5
-1
-3
-5
-return:
-0
-3
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck2hezrcg0018x1wsolvv799y" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
     </footer>
   </div>
@@ -1098,7 +1116,7 @@ console.log(division.getResult(2, 0));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/11/10/简单工厂模式/" data-id="ck2hezre4004qx1wsi8je2y87" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/11/10/简单工厂模式/" data-id="ck2k8vn5m004p13wssnx4r35k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>

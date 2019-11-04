@@ -236,6 +236,38 @@ const nodeAStruct = function(id, pid, data) {
   </entry>
   
   <entry>
+    <title>享元模式</title>
+    <link href="http://hi2048.github.io/2019/06/15/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2019/06/15/享元模式/</id>
+    <published>2019-06-14T16:00:00.000Z</published>
+    <updated>2019-11-04T09:50:47.306Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>享元模式（Flyweight）<br> <a href="/assets/享元模式.png"><img src="/assets/享元模式.png" alt="享元模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Flyweight" title="享元模式" target="_blank" rel="noopener">github</a></p><pre><code>-- flyweight.jsclass Flyweight {    constructor() {        if(new.target === Flyweight)            throw new Error(`${Flyweight} cannot be initialized.`);    }    operation(extrinsicState) {        throw new Error(`${this.operation} should be overwrite.`);    }}module.exports = Flyweight;-- concreteFlyweight.jsconst Flyweight = require(&apos;./flyweight&apos;);class ConcreteFlyweight extends Flyweight {    constructor() {        super();    }    operation(extrinsicState) {        console.log(`ConcreteFlyweight operation: shared ${extrinsicState}`);    }}module.exports = ConcreteFlyweight;-- unsharedConcreteFlyweight.jsconst Flyweight = require(&apos;./flyweight&apos;);class UnsharedConcreteFlyweight extends Flyweight {    constructor() {        super();    }    operation(extrinsicState) {        console.log(`UnsharedConcreteFlyweight operation: unshared ${extrinsicState}`);    }}module.exports = UnsharedConcreteFlyweight;-- flyweightFactory.jsclass FlyweightFactory {    constructor() {        this.flyweights = new Map();    }    getFlyweight(key) {        return this.flyweights.get(key);    }    setFlyweight(key, value) {        this.flyweights.set(key, value);    }    getFlyweightCount() {        return this.flyweights.size;    }}module.exports = FlyweightFactory;-- client.jsconst ConcreteFlyweight = require(&apos;./concreteFlyweight&apos;);const UnsharedConcreteFlyweight = require(&apos;./unsharedConcreteFlyweight&apos;);const FlyweightFactory = require(&apos;./flyweightFactory&apos;);const concreteFlyweight = new ConcreteFlyweight();const unsharedConcreteFlyweight = new UnsharedConcreteFlyweight();const flyweightFactory = new FlyweightFactory();flyweightFactory.setFlyweight(&apos;x&apos;, concreteFlyweight);flyweightFactory.setFlyweight(&apos;y&apos;, new ConcreteFlyweight());flyweightFactory.setFlyweight(&apos;z&apos;, new ConcreteFlyweight());console.log(flyweightFactory.getFlyweightCount());let extrinsicState = 20;flyweightFactory.getFlyweight(&apos;x&apos;).operation(--extrinsicState);flyweightFactory.getFlyweight(&apos;y&apos;).operation(--extrinsicState);flyweightFactory.getFlyweight(&apos;z&apos;).operation(--extrinsicState);unsharedConcreteFlyweight.operation(--extrinsicState);</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;享元模式（Flyweight）&lt;br&gt; &lt;a href=&quot;/assets/享元模式.png&quot;&gt;&lt;img src=&quot;/assets/享元模式.png&quot; alt=&quot;享元模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https:
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>compose</title>
     <link href="http://hi2048.github.io/2019/06/10/compose/"/>
     <id>http://hi2048.github.io/2019/06/10/compose/</id>
@@ -607,38 +639,6 @@ class Heap {
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>组合模式</title>
-    <link href="http://hi2048.github.io/2019/01/05/%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://hi2048.github.io/2019/01/05/组合模式/</id>
-    <published>2019-01-04T16:00:00.000Z</published>
-    <updated>2019-10-21T13:34:04.669Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>组合模式（Composite）<br> <a href="/assets/组合模式.png"><img src="/assets/组合模式.png" alt="组合模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Composite" title="组合模式" target="_blank" rel="noopener">github</a></p><pre><code>-- component.jsclass Component {    constructor(name = &apos;Component&apos;) {        if(new.target === Component)            throw new Error(`${Component} cannot be initialized.`);        this.name = name;    }    add(c) {        throw new Error(`${this.add} should be overwrite.`);    }    remove(c) {        throw new Error(`${this.remove} should be overwrite.`);    }    display() {        throw new Error(`${this.display} should be overwrite.`);    }}module.exports = Component;-- composite.jsconst Component = require(&apos;./component&apos;);class Composite extends Component {    constructor(name) {        super(name);        this.components = new Set();    }    add(c) {        this.components.add(c);    }    remove(c) {        this.components.delete(c);    }    display(depth = 1) {        console.log(`${&apos;-&apos;.repeat(depth)} ${this.name}`);        this.components.forEach((component) =&gt; (component.display(depth + 2)));    }}module.exports = Composite;-- leaf.jsconst Component = require(&apos;./component&apos;);class Leaf extends Component {    constructor(name) {        super(name);    }    display(depth = 1) {        console.log(`${&apos;-&apos;.repeat(depth)} ${this.name}`);    }}module.exports = Leaf;-- client.jsconst Composite = require(&apos;./composite&apos;);const Leaf = require(&apos;./leaf&apos;);const root = new Composite(&apos;Root&apos;);root.add(new Leaf(&apos;Leaf11&apos;));root.add(new Leaf(&apos;Leaf12&apos;));const composite1 = new Composite(&apos;Composite11&apos;);root.add(composite1);const leaf21 = new Leaf(&apos;Leaf21&apos;);composite1.add(leaf21);const composite2 = new Composite(&apos;Composite21&apos;);composite1.add(composite2);composite1.add(new Leaf(&apos;Leaf22&apos;));composite2.add(new Leaf(&apos;Leaf31&apos;));root.add(new Leaf(&apos;Leaf13&apos;));const leaf14 = new Leaf(&apos;Leaf14&apos;);root.add(leaf14);composite1.remove(leaf21);root.display(2);</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;组合模式（Composite）&lt;br&gt; &lt;a href=&quot;/assets/组合模式.png&quot;&gt;&lt;img src=&quot;/assets/组合模式.png&quot; alt=&quot;组合模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https:
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   

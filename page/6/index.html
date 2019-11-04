@@ -64,6 +64,112 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript中的循环中断" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/10/JavaScript中的循环中断/" class="article-date">
+  <time datetime="2017-11-09T16:00:00.000Z" itemprop="datePublished">2017-11-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/10/JavaScript中的循环中断/">JavaScript中的循环中断</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 循环中断break, continue, return 比较 </strong></p>
+<pre><code>// break continue return
+// break跳出当前循环 continue结束当前条件 return 返回函数值
+console.log(&quot;normal: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    console.log(`${j} `);
+  }
+}
+
+console.log(&quot;break: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    if(j === 4) break;
+    console.log(`${j} `);
+  }
+}
+
+console.log(&quot;continue: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    if(j === 4) continue;
+    console.log(`${j} `);
+  }
+}
+
+console.log(&quot;return: &quot;)
+for(var i = 0; i &lt; 2; i++){
+  console.log(`${i} `);
+  for(var j = 3; j &lt; 6; j++){
+    if(j === 4){
+      return;
+    }
+    console.log(`${j} `);
+  }
+}
+
+normal:
+0
+3
+4
+5
+1
+3
+4
+5 
+break:
+0
+3
+1
+3
+continue:
+0
+3
+5
+1
+3
+5
+return:
+0
+3
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="ck2k8vn3z001913wsrha9b1cy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-js笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/09/01/js笔记/" class="article-date">
@@ -110,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="ck2hezrcx001zx1wso4vpuv71" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="ck2k8vn4a001y13wsrg3b4zvn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -174,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="ck2hezrcd000zx1wstoaiz8tc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="ck2k8vn3t000x13ws2t52dhzm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -220,7 +326,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="ck2hezrcz0023x1wsidx8trzx" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="ck2k8vn4b002013wsqatromef" class="article-share-link">Share</a>
       
       
     </footer>
@@ -283,7 +389,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="ck2hezrcx0020x1wsllkc7xyf" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="ck2k8vn4a001z13ws93be4oeq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -335,7 +441,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="ck2hezrcr001wx1wskqprbioz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="ck2k8vn49001w13wsqwamk9j8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数式/">函数式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -405,7 +511,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/20/纯函数/" data-id="ck2hezre4004ox1wscx9s34p7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/12/20/纯函数/" data-id="ck2k8vn5m004q13wsesmyebr1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -451,7 +557,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/05/18/那年真的如风/" data-id="ck2hezreb0058x1wsgfb3o9sq" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/05/18/那年真的如风/" data-id="ck2k8vn5t005813wsuw1yptq2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -495,7 +601,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/11/10/工作之感悟/" data-id="ck2hezrdo003px1ws9zf0wobx" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2015/11/10/工作之感悟/" data-id="ck2k8vn57003q13wsprvc84a6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -562,77 +668,7 @@ var myFunc = outFunc(); // myFunc为一个引入outAttr的闭包
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/06/08/闭包/" data-id="ck2hezrec0059x1wseljdgoex" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-判断素数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/02/01/判断素数/" class="article-date">
-  <time datetime="2015-02-01T00:00:00.000Z" itemprop="datePublished">2015-02-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/01/判断素数/">判断素数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>判断素数</p>
-<pre><code>function isPrimeN(n) {
-  if(n == 0 || n==1){
-      return false;
-  }
-
-  if(n==2){
-      return true;
-  }
-
-  for(var i = 2; i &lt;= Math.sqrt(n); i++){
-      if(n % i == 0){
-          return false;
-      }
-  }
-  return true;
-}
-</code></pre></li>
-<li><p>http和https的区别</p>
-<ul>
-<li>https 需要ca证书</li>
-<li>http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。</li>
-<li>http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。</li>
-<li>http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/02/01/判断素数/" data-id="ck2hezrde0032x1wsd24m1mhn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2015/06/08/闭包/" data-id="ck2k8vn5v005a13wshtud0y87" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
