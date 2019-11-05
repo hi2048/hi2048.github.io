@@ -73,9 +73,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -103,9 +103,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -136,9 +136,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -164,9 +164,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -236,6 +236,38 @@ const nodeAStruct = function(id, pid, data) {
   </entry>
   
   <entry>
+    <title>解释器模式</title>
+    <link href="http://hi2048.github.io/2019/07/22/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://hi2048.github.io/2019/07/22/解释器模式/</id>
+    <published>2019-07-21T16:00:00.000Z</published>
+    <updated>2019-11-05T12:13:26.633Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>解释器模式（Interpreter）<br> <a href="/assets/解释器模式.png"><img src="/assets/解释器模式.png" alt="解释器模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Interpreter" title="解释器模式" target="_blank" rel="noopener">github</a></p><pre><code>-- abstractExpression.jsclass AbstractExpression {    constructor() {        if(new.target === AbstractExpression) {            throw new Error(`${AbstractExpression} cannot be initialized.`);        }    }    interpret() {        throw new Error(`${this.interpret} should be overwrite.`);    }}module.exports = AbstractExpression;-- context.jsclass Context {    constructor(content) {        this.content = content;    }    setContent(content) {        return content &amp;&amp; (this.content = content);    }    getContent() {        return this.content;    }}module.exports = Context;-- terminalExpression.jsconst AbstractExpression = require(&apos;./abstractExpression&apos;);class TerminalExpression extends AbstractExpression {    interpret(context) {        console.log(`TerminalExpression interpret ${context}.`);    }}module.exports = TerminalExpression;-- nonterminalExpression.jsconst AbstractExpression = require(&apos;./abstractExpression&apos;);class NonterminalExpression extends AbstractExpression {    interpret(context) {        console.log(`NonterminalExpression interpret ${context}.`);    }}module.exports = NonterminalExpression;-- reTools.jsmodule.exports = {    numbers: /[0-9]/,    operators: /[+*/-]/,    verificationRule: /[0-9+*/-]/};-- abstractExpressionOperation.jsconst reTools = require(&apos;./reTools&apos;);class AbstractExpressionOperation {    constructor(operator) {        if(new.target === AbstractExpressionOperation)            throw new Error(`${AbstractExpressionOperation} cannot be initialized.`);        this.operator = operator;    }    interpret(operator = this.operator, prevExpresstion = this.prevExpresstion, nextExpression = this.nextExpression) {        if(new RegExp(reTools.verificationRule).test(operator)) {            return this.execute(operator, prevExpresstion, nextExpression);        }    }    execute(c, exp1, exp2) {        throw new Error(`${this.execute} should be overwrite.`);    }}module.exports = AbstractExpressionOperation;-- terminalExpressionNumber.jsconst AbstractExpressionOperation = require(&apos;./abstractExpressionOperation&apos;);class TerminalExpressionNumber extends AbstractExpressionOperation {    execute(number = this.operator) {        return number;    }}module.exports = TerminalExpressionNumber;-- nonterminalExpressionPlus.jsconst AbstractExpressionOperation = require(&apos;./abstractExpressionOperation&apos;);class NonterminalExpressionPlus extends AbstractExpressionOperation {    constructor(operator, prevExpression, nextExpression) {        super(operator);        this.prevExpression = prevExpression;        this.nextExpression = nextExpression;    }    setPrevExpression(prevExpression) {        return prevExpression &amp;&amp; (this.prevExpression = prevExpression);    }    setNextExpression(nextExpression) {        return nextExpression &amp;&amp; (this.nextExpression = nextExpression);    }    execute(operator = this.operator, expression1 = this.prevExpression, expression2 = this.nextExpression) {        console.log(`NonterminalExpressionPlus execute: ${expression1.interpret()} + ${expression2.interpret()} = ${+expression1.interpret() + +expression2.interpret()} .`);        return +expression1.interpret() + +expression2.interpret();    }}module.exports = NonterminalExpressionPlus;-- nonterminalExpressionMinus.jsconst AbstractExpressionOperation = require(&apos;./abstractExpressionOperation&apos;);class NonterminalExpressionMinus extends AbstractExpressionOperation {    constructor(operator, prevExpression, nextExpression) {        super(operator);        this.prevExpression = prevExpression;        this.nextExpression = nextExpression;    }    setPrevExpression(prevExpression) {        return prevExpression &amp;&amp; (this.prevExpression = prevExpression);    }    setNextExpression(nextExpression) {        return nextExpression &amp;&amp; (this.nextExpression = nextExpression);    }    execute(operator = this.operator, expression1 = this.prevExpression, expression2 = this.nextExpression) {        console.log(`NonterminalExpressionMinus execute: ${expression1.interpret()} - ${expression2.interpret()} = ${expression1.interpret() - expression2.interpret()} .`);        return expression1.interpret() - expression2.interpret();    }}module.exports = NonterminalExpressionMinus;-- client.jsconst Context = require(&apos;./context&apos;);const TerminalExpression = require(&apos;./terminalExpression&apos;);const NonterminalExpression = require(&apos;./nonterminalExpression&apos;);const reTools = require(&apos;./reTools&apos;);const TerminalExpressionNumber = require(&apos;./terminalExpressionNumber&apos;);const NonterminalExpressionPlus = require(&apos;./nonterminalExpressionPlus&apos;);const NonterminalExpressionMinus = require(&apos;./nonterminalExpressionMinus&apos;);const context = new Context(&apos;Interpreter DP&apos;);const terminalExpression = new TerminalExpression();const nonterminalExpression = new NonterminalExpression();const interpreter1 = new Set();interpreter1.add(terminalExpression);interpreter1.add(new TerminalExpression());interpreter1.add(nonterminalExpression);interpreter1.forEach(interpreter =&gt; (interpreter.interpret(context.getContent())));console.log(&apos;------&apos;);const context2 = new Context(&apos;1 + 2&apos;);const content = context2.getContent();let experssions = [];for(let c of content) {    if(new RegExp(reTools.numbers).test(c)) {        experssions.push(new TerminalExpressionNumber(c))    } else if(c === &apos;+&apos;) {        experssions.push(new NonterminalExpressionPlus(c));    } else if(c === &apos;-&apos;) {        experssions.push(new NonterminalExpressionMinus(c));    }}experssions.forEach((expression, index, expressions) =&gt; {    if(!(expression instanceof TerminalExpressionNumber)) {        expression.setPrevExpression(expressions[index - 1]);        expression.setNextExpression(expressions[index + 1]);        expression.interpret()    }});console.log(&apos;------&apos;);const context3 = new Context(&apos;2 - 3&apos;);const expressions3 = [];for(let c of context3.getContent()) {    if(new RegExp(reTools.numbers).test(c)) {        expressions3.push(new TerminalExpressionNumber(c));    } else if(c === &apos;+&apos;) {        expressions3.push(new NonterminalExpressionPlus(c));    } else if(c === &apos;-&apos;) {        expressions3.push(new NonterminalExpressionMinus(c));    }}expressions3.forEach((expression, index, expressions) =&gt; {    if(!(expression instanceof TerminalExpressionNumber)) {        expression.interpret(undefined, expressions[index - 1], expressions[index + 1]);    }});console.log(&apos;------&apos;);</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;解释器模式（Interpreter）&lt;br&gt; &lt;a href=&quot;/assets/解释器模式.png&quot;&gt;&lt;img src=&quot;/assets/解释器模式.png&quot; alt=&quot;解释器模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>享元模式</title>
     <link href="http://hi2048.github.io/2019/06/15/%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F/"/>
     <id>http://hi2048.github.io/2019/06/15/享元模式/</id>
@@ -290,9 +322,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -478,9 +510,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -539,9 +571,9 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -570,9 +602,9 @@ const popItemFromArray = (arr, key) =&amp;gt;{
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -605,40 +637,6 @@ const popItemFromArray = (arr, key) =&amp;gt;{
       <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Heap实现</title>
-    <link href="http://hi2048.github.io/2019/01/19/Heap%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://hi2048.github.io/2019/01/19/Heap实现/</id>
-    <published>2019-01-18T16:00:00.000Z</published>
-    <updated>2019-09-19T11:46:09.241Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong> 小根堆实现，大根堆类似 </strong></p><pre><code>// 通过 up down方法实现 堆的有效性class Heap {  constructor(){    this.heap = new Array();  }  swap(id1, id2) {    let temp = this.heap[id1];    this.heap[id1] = this.heap[id2];    this.heap[id2] = temp;  }  up(id) {    let pid = Math.floor((id - 1) / 2);    if(id !== 0 &amp;&amp; this.heap[pid] &gt; this.heap[id]){      this.swap(pid, id);      this.up(pid);    }  }  down(id) {    let leftChildId = id * 2 + 1;    let rightChildId = id * 2 + 2;    let len = this.heap.length;    if(leftChildId &lt; len &amp;&amp; this.heap[leftChildId] &lt; this.heap[id]){      this.swap(leftChildId, id);      this.down(leftChildId);    }    if(rightChildId &lt; len &amp;&amp; this.heap[rightChildId] &lt; this.heap[id]){      this.swap(rightChildId, id);      this.down(rightChildId);    }  }  insert(x) {    this.heap.push(x);    this.up(this.heap.length - 1);  }  remove(){    this.swap(0, this.heap.length - 1);    const ret = this.heap.pop();    this.down(0);    return ret;  }}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt; 小根堆实现，大根堆类似 &lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// 通过 up down方法实现 堆的有效性
-class Heap {
-  constructor(){
-    this.heap = new Array();
-  }
-
-  s
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   

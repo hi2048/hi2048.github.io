@@ -64,6 +64,100 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript去掉数组中的重复元素" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/19/JavaScript去掉数组中的重复元素/" class="article-date">
+  <time datetime="2013-09-19T13:13:37.000Z" itemprop="datePublished">2013-09-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/19/JavaScript去掉数组中的重复元素/">JavaScript去掉数组中的重复元素</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用JavaScript的时候，经常需要去掉数组中的一些重复元素，从而使得数组中的元素具有唯一性。</p>
+<p>大体上来说，有三种实现的思路，</p>
+<p>1. 常规方法</p>
+<pre>
+var unique1 = function(arr){
+    var ret = [];
+    if(arr.length &lt; 2) return arr;
+
+    var    isRepeat =  function(arr, elt){
+        for(var i = 0, len = arr.length; i &lt; len; i++)
+            if(arr[i] == elt)
+                return true;
+        return false;
+    }
+
+    for(var i = 0, len = arr.length; i &lt; len; i++)
+        if(!isRepeat(ret, arr[i]))
+            ret.push(arr[i]);
+    return ret;
+}
+</pre>
+2\. 利用对象
+<pre>
+var unique2 = function(arr){
+    var ret = [],
+        o = {};
+    if(arr.length &lt; 2) return arr;
+
+    for(var i = 0, len = arr.length; i &lt; len; i++)
+        if(!o[arr[i]]){
+            o[arr[i]] = 1;
+            ret.push(arr[i]);
+        }
+    return ret;
+}
+</pre>
+3\. 利用正则表达式
+<pre>
+var unique3 = function(arr){
+    return (arr.reverse().join(&#039; &#039;).match(/(\b[^ ]+\b)(?!.* \1( |$))/ig).reverse());
+}
+</pre>
+
+<p>测试数据，</p>
+<pre>
+var arr1 = [&#039;1&#039;];
+var arr2 = [&#039;1&#039;, &#039;123&#039;, &#039;123&#039;, &#039;231&#039;, &#039;2&#039;, &#039;3&#039;];
+</pre>
+运行结果，
+<pre>
+数据1：1
+数据2：1，123，231，2，3
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript去掉数组中的重复元素/" data-id="ck2lthbmr001cn7wsdvy3onhd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-十干在十二宫长生表" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/19/十干在十二宫长生表/" class="article-date">
@@ -104,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck2k8vn4w003513wsktddq9k6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck2lthbnv0038n7wsov1q0p54" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +313,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck2k8vn3y001713wsc3qf72kx" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck2lthbmm0015n7wswtepn0f8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -275,7 +369,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck2k8vn4w003313wser3nhkkk" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck2lthbnu0034n7wsn9vehkhu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -400,7 +494,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck2k8vn4x003713wswb4wgyk7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/17/十干生旺实用图/" data-id="ck2lthbnv0037n7wsxqkwwdhd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -452,7 +546,7 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck2k8vn4u002z13ws9j5pb6dd" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/16/分宫卦象二/" data-id="ck2lthbnr0030n7wsk0xhs2nk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -553,7 +647,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck2k8vn5d004713wsfcjqszb6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/16/最长公共子串/" data-id="ck2lthbod0048n7ws545pbrc8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -608,7 +702,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck2k8vn4t002w13wssfyaz9p7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/15/分宫卦象一/" data-id="ck2lthbnq002yn7wsr2esgcdc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -655,7 +749,7 @@ void lcsAlgo(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/14/卦名次序歌/" data-id="ck2k8vn4y003913wslq349nti" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/14/卦名次序歌/" data-id="ck2lthbnx003bn7ws19aek8k4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -718,56 +812,11 @@ printf("%d", (*p2)[2]);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck2k8vn5a004013wsp4nf8atb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="ck2lthboa0041n7wsnurhoqmb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-卦气旺衰" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/11/卦气旺衰/" class="article-date">
-  <time datetime="2013-09-11T06:47:25.000Z" itemprop="datePublished">2013-09-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/11/卦气旺衰/">卦气旺衰</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>春木旺，震卦，巽卦属木，则卦气就旺，坤卦、艮卦则气衰；</strong></p>
-<p><strong>夏火旺，离卦属火，则卦气就旺，乾卦、兑卦则卦气就衰；</strong></p>
-<p><strong>秋金旺，乾卦，兑卦属金，则卦气就旺，震卦、巽卦则气衰；</strong></p>
-<p><strong>冬水旺，坎卦属水，则卦气就旺，离卦则卦气就衰；</strong></p>
-<p><strong>四季的末月（三、六、九、十二月）属土，坤卦、艮卦属土，则卦气就旺，坎卦则气衰。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="ck2k8vn4z003a13wsupvj9v9s" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -818,7 +867,7 @@ printf("%d", (*p2)[2]);
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
