@@ -64,6 +64,427 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-迭代器模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/08/迭代器模式/" class="article-date">
+  <time datetime="2019-02-07T16:00:00.000Z" itemprop="datePublished">2019-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/08/迭代器模式/">迭代器模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>迭代器模式（Iterator）<br> <a href="/assets/迭代器模式.png"><img src="/assets/迭代器模式.png" alt="迭代器模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Iterator" title="迭代器模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- aggregate.js
+class Aggregate {
+    constructor() {
+        if(new.target === Aggregate)
+            throw new Error(`${Aggregate} cannot be initialized.`);
+    }
+
+    createIterator() {
+        throw new Error(`${this.createIterator} should be overwrite.`);
+    }
+}
+
+module.exports = Aggregate;
+
+-- iterator.js
+class Iterator {
+    constructor() {
+        if(new.target === Iterator)
+            throw new Error(`${Iterator} cannot be initialized.`);
+    }
+
+    first() {
+        throw new Error(`${this.first} should be overwrite.`);
+    }
+
+    next() {
+        throw new Error(`${this.next} should be overwrite.`);
+    }
+
+    isDone() {
+        throw new Error(`${this.isDone} should be overwrite.`);
+    }
+
+    currentItem() {
+        throw new Error(`${this.currentItem} should be overwrite.`);
+    }
+}
+
+module.exports = Iterator;
+
+-- concreteAggregate1.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator = require(&apos;./concreteIterator1&apos;);
+
+class ConcreteAggregate extends Aggregate {
+    constructor() {
+        super();
+
+        this.aggregate = new Array();
+    }
+
+    add(item) {
+        this.aggregate.push(item);
+    }
+
+    get(index) {
+        return this.aggregate[index];
+    }
+
+    count() {
+        return this.aggregate.length;
+    }
+
+    createIterator() {
+        return new ConcreteIterator(this);
+    }
+}
+
+module.exports = ConcreteAggregate;
+
+-- concreteIterator1.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator extends Iterator {
+    constructor(aggregate = {}) {
+        super();
+
+        this.aggregate = aggregate;
+        this.cur = 0;
+    }
+
+    first() {
+        return this.aggregate.get(0);
+    }
+
+    next() {
+        this.cur++;
+
+        if(this.cur &lt; this.aggregate.count()) {
+            return this.currentItem();
+        }
+
+        return undefined;
+    }
+
+    isDone() {
+        return this.cur &lt; this.aggregate.count()? false : true;
+    }
+
+    currentItem() {
+        return this.aggregate.get(this.cur);
+    }
+}
+
+module.exports = ConcreteIterator;
+
+-- concreteAggregate2.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator2 = require(&apos;./concreteIterator2&apos;);
+
+class ConcreteAggregate2 extends Aggregate {
+    constructor() {
+        super();
+    }
+
+    createIterator() {
+        return new ConcreteIterator2(this);
+    }
+}
+
+module.exports = ConcreteAggregate2;
+
+-- concreteIterator2.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator2 extends Iterator {
+    constructor(aggregate = {}) {
+        super();
+
+        this.aggregate = aggregate;
+
+        this.initAggregateIterator();
+
+        // init iterator
+        this.iterator = this.aggregate[Symbol.iterator]();
+    }
+
+    initAggregateIterator() {
+        this.aggregate[Symbol.iterator] = function() {
+            const aggregate = this;
+            const keys = Object.keys(aggregate);
+            let curIndex = 0;
+
+            return {
+                first: function() {
+                    return aggregate[keys[curIndex]];
+                },
+                next: function () {
+                    curIndex++;
+
+                    if(curIndex &lt; keys.length) {
+                        return this.currentItem();
+                    }
+
+                    return undefined;
+                },
+                isDone: function() {
+                    return curIndex &lt; keys.length? false : true;
+                },
+                currentItem: function() {
+                    return aggregate[keys[curIndex]];
+                }
+            }
+        }
+    }
+
+    first() {
+        return this.iterator.first();
+    }
+
+    next() {
+        return this.iterator.next();
+    }
+
+    isDone() {
+        return this.iterator.isDone();
+    }
+
+    currentItem() {
+        return this.iterator.currentItem();
+    }
+}
+
+module.exports = ConcreteIterator2;
+
+-- concreteAggregate3.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator3 = require(&apos;./concreteIterator3&apos;);
+
+class ConcreteAggregate3 extends Aggregate {
+    constructor() {
+        super();
+    }
+
+    createIterator() {
+        return new ConcreteIterator3(this);
+    }
+}
+
+module.exports = ConcreteAggregate3;
+
+-- concreteIterator3.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator3 extends Iterator {
+    constructor(aggregate = {}) {
+        super();
+
+        this.aggregate = aggregate;
+        this.initAggregateIterator();
+
+        // init iterator
+        this.iterator = this.aggregate[Symbol.iterator]();
+    }
+
+    initAggregateIterator() {
+        this.aggregate[Symbol.iterator] = function *() {
+            const aggregateValues = Object.values(this);
+
+            for(let value of aggregateValues) {
+                yield value;
+            }
+        }
+    }
+
+    next() {
+        return this.iterator.next();
+    }
+}
+
+module.exports = ConcreteIterator3;
+
+-- client.js
+const ConcreteAggregate1 = require(&apos;./concreteAggregate1&apos;);
+const ConcreteAggregate2  = require(&apos;./concreteAggregate2&apos;);
+const ConcreteAggregate3 = require(&apos;./concreteAggregate3&apos;);
+
+const concreteAggregate1 = new ConcreteAggregate1();
+concreteAggregate1.add(&apos;a&apos;);
+concreteAggregate1.add(&apos;b&apos;);
+concreteAggregate1.add(&apos;c&apos;);
+
+console.log(&apos;Iterator dp1: &apos;);
+const iterator1 = concreteAggregate1.createIterator();
+
+let iteratorValueDP1 = iterator1.first();
+while(!iterator1.isDone()) {
+    console.log(`${iteratorValueDP1} `);
+
+    iteratorValueDP1 = iterator1.next();
+}
+console.log(&apos;------&apos;);
+
+console.log(&apos;Iterator dp2: &apos;);
+const concreteAggregate2 = new ConcreteAggregate2();
+concreteAggregate2[&apos;0&apos;] = &apos;a&apos;;
+concreteAggregate2[&apos;1&apos;] = &apos;b&apos;;
+concreteAggregate2[&apos;2&apos;] = &apos;c&apos;;
+
+const iterator2 = concreteAggregate2.createIterator();
+
+let iteratorValueDP2 = iterator2.first();
+while(!iterator2.isDone()) {
+    console.log(`${iteratorValueDP2} `);
+
+    iteratorValueDP2 = iterator2.next();
+}
+console.log(&apos;------&apos;);
+
+console.log(&apos;Iterator dp3: &apos;);
+const concreteAggregate3 = new ConcreteAggregate3();
+concreteAggregate3[1] = &apos;a&apos;;
+concreteAggregate3[2] = &apos;b&apos;;
+concreteAggregate3[3] = &apos;c&apos;;
+
+const iterator3 = concreteAggregate3.createIterator();
+
+let iteratorValueDP3 = iterator3.next();
+while(!iteratorValueDP3.done) {
+    console.log(`${iteratorValueDP3.value} `);
+
+    iteratorValueDP3 = iterator3.next();
+}
+console.log(&apos;------&apos;);
+
+-- concreteAggregate4.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator4 = require(&apos;./concreteIterator4&apos;);
+
+class ConcreteAggregate4 extends Aggregate {
+    constructor() {
+        super();
+
+        this.item = new Array();
+
+        // super array simulate indexer
+        this.extend(this.item, this, Reflect.getPrototypeOf(this));
+
+        return this.item;
+    }
+
+    extend(target, ...origins) {
+        for(let origin of origins) {
+            const keys = Reflect.ownKeys(origin);
+
+            for(let key of keys) {
+                target[key] = origin[key];
+            }
+        }
+    }
+
+    createIterator() {
+        return new ConcreteIterator4(this.item);
+    }
+}
+
+module.exports = ConcreteAggregate4;
+
+-- concreteIterator4.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator4 extends Iterator {
+    constructor(aggregate = []) {
+        super();
+
+        this.aggregate = aggregate;
+        this.curIndex = 0;
+    }
+
+    first() {
+        return this.aggregate[this.curIndex];
+    }
+
+    next() {
+        let ret = null;
+        this.curIndex ++;
+
+        if(this.curIndex &lt; this.aggregate.length) {
+            ret = this.currentItem();
+        }
+
+        return ret;
+    }
+
+    isDone() {
+        return this.curIndex &lt; this.aggregate.length?false : true;
+    }
+
+    currentItem() {
+        return this.aggregate[this.curIndex];
+    }
+}
+
+module.exports = ConcreteIterator4;
+
+-- client2.js
+const ConcreteAggregate4 = require(&apos;./concreteAggregate4&apos;);
+
+const concreteAggregate4 = new ConcreteAggregate4();
+concreteAggregate4[0] = &apos;a&apos;;
+concreteAggregate4[1] = &apos;b&apos;;
+concreteAggregate4[2] = &apos;c&apos;;
+
+const iterator = concreteAggregate4.createIterator();
+
+let iteratorValue = iterator.first();
+while(!iterator.isDone()) {
+    console.log(`${iteratorValue} `);
+
+    iteratorValue = iterator.next();
+}
+
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ck2n9bu7000473fwsjpd8j8fp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Heap实现" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/19/Heap实现/" class="article-date">
@@ -146,7 +567,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck2lu0krr0015r4wsh5b0i46l" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck2n9bu4n00083fws4huf9vv1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -289,7 +710,7 @@ root.display(2);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ck2lu0kty004tr4wsnrplilfd" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ck2n9bu6w003x3fwsd1y149k8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -345,7 +766,7 @@ root.display(2);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck2lu0krz001kr4ws3ou5sii3" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck2n9bu5b000q3fwspplwgfjy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -417,88 +838,10 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck2lu0ktc003yr4wsxxv1a9xe" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck2n9bu6j00373fwsfkusoas7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React生命周期" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/02/React生命周期/" class="article-date">
-  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/02/React生命周期/">React生命周期</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>React生命周期 - React16前</p>
-<p><strong> React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） </strong></p>
-<ul>
-<li><p>initialization：初始化props和state。<br>constructor</p>
-</li>
-<li><p>mounting：执行一次。<br>componentWillMount, render, componentDidMount</p>
-</li>
-<li><p>update：setState引起的state更新或者父组件重新render引起的props更新。<br>componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate</p>
-</li>
-<li><p>unmount: 执行一次<br>componentWillUnmount</p>
-</li>
-</ul>
-<p><a href="/assets/React-lifecycle-before.png"><img src="/assets/React-lifecycle-before.png" alt="React生命周期"></a></p>
-</li>
-</ol>
-<ol start="2">
-<li><p>React生命周期</p>
-<ul>
-<li>引入了两个新的生命周期函数<br>getDerivedStateFromProps，getSnapshotBeforeUpdate</li>
-</ul>
-<p><a href="/assets/React-lifecycle.png"><img src="/assets/React-lifecycle.png" alt="React16生命周期"></a></p>
-</li>
-<li><p>为什么会变化</p>
-<p><strong> React16推出Fiber，如果开启async rendering，会导致render函数之前的所有函数，有可能被执行多次。 </strong></p>
-<ul>
-<li>componentWillMount</li>
-<li>componentWillReceiveProps</li>
-<li>componentWillUpdate</li>
-<li>shouldComponentUpdate</li>
-</ul>
-<p>其中shouldComponentUpdate为纯函数，返回Boolean，没有副作用，而其他三个函数，开发者如果在里面执行有副作用的操作，如Ajax等，会产生不可预期的结果。所以其余三个统一被getDerivedStateFromProps替代，并且<strong> 采用静态函数，用禁止来替代以前的建议 </strong>。</p>
-<p>react的component中static属性，里面放函数，官方解释：<br><strong> you can run them before any component instances are created, and the methods do not have access to the props or state of your components. </strong></p>
-<p><strong> 静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state。 </strong></p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck2lu0ks0001nr4wsspr7k5f4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -626,10 +969,88 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck2lu0kt6003mr4wserrwh7ha" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck2n9bu6a002q3fws2z6wf5tj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/02/React生命周期/" class="article-date">
+  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/02/React生命周期/">React生命周期</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>React生命周期 - React16前</p>
+<p><strong> React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） </strong></p>
+<ul>
+<li><p>initialization：初始化props和state。<br>constructor</p>
+</li>
+<li><p>mounting：执行一次。<br>componentWillMount, render, componentDidMount</p>
+</li>
+<li><p>update：setState引起的state更新或者父组件重新render引起的props更新。<br>componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate</p>
+</li>
+<li><p>unmount: 执行一次<br>componentWillUnmount</p>
+</li>
+</ul>
+<p><a href="/assets/React-lifecycle-before.png"><img src="/assets/React-lifecycle-before.png" alt="React生命周期"></a></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>React生命周期</p>
+<ul>
+<li>引入了两个新的生命周期函数<br>getDerivedStateFromProps，getSnapshotBeforeUpdate</li>
+</ul>
+<p><a href="/assets/React-lifecycle.png"><img src="/assets/React-lifecycle.png" alt="React16生命周期"></a></p>
+</li>
+<li><p>为什么会变化</p>
+<p><strong> React16推出Fiber，如果开启async rendering，会导致render函数之前的所有函数，有可能被执行多次。 </strong></p>
+<ul>
+<li>componentWillMount</li>
+<li>componentWillReceiveProps</li>
+<li>componentWillUpdate</li>
+<li>shouldComponentUpdate</li>
+</ul>
+<p>其中shouldComponentUpdate为纯函数，返回Boolean，没有副作用，而其他三个函数，开发者如果在里面执行有副作用的操作，如Ajax等，会产生不可预期的结果。所以其余三个统一被getDerivedStateFromProps替代，并且<strong> 采用静态函数，用禁止来替代以前的建议 </strong>。</p>
+<p>react的component中static属性，里面放函数，官方解释：<br><strong> you can run them before any component instances are created, and the methods do not have access to the props or state of your components. </strong></p>
+<p><strong> 静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state。 </strong></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck2n9bu5d000t3fwsr49hy370" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -734,7 +1155,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck2lu0ku20053r4wscpieemto" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck2n9bu7100483fwsmvaeapb2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -896,7 +1317,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck2lu0ktl004fr4ws8rkp0sd4" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck2n9bu6r003l3fwses4iaxsz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -964,52 +1385,11 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck2lu0krz001lr4wskhdy7rl7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck2n9bu51000n3fwstzhxfufs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-秋" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/05/秋/" class="article-date">
-  <time datetime="2018-10-04T16:00:00.000Z" itemprop="datePublished">2018-10-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/未分类/">未分类</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/05/秋/">秋</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>秋风送爽，炎暑渐消，此时宜甘味以益气，进补应坚持“燥者濡之”，“上燥清气，中燥增液，下燥养血。”同时应早睡早起，早餐宜营养丰富，以预防抑郁症，保持乐观轻松心情。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck2lu0kto004kr4ws8xrlcssm" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   

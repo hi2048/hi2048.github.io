@@ -64,6 +64,162 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-模板方法模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/05/模板方法模式/" class="article-date">
+  <time datetime="2018-05-04T16:00:00.000Z" itemprop="datePublished">2018-05-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/05/模板方法模式/">模板方法模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>模板方法模式（Template Method）<br> <a href="/assets/模板方法模式.png"><img src="/assets/模板方法模式.png" alt="模板方法模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Template-Method" title="模板方法模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- abstractClass.js
+class AbstractClass {
+    constructor() {
+        if(new.target === AbstractClass)
+            throw new Error(`${AbstractClass} cannot be initialized.`);
+
+        console.log(&apos;AbstractClass constructor.&apos;);
+    }
+
+    templateMethod() {
+        this.primitiveOperation1();
+        this.primitiveOperation2();
+        console.log(&apos;Abstract class template method.&apos;);
+    }
+
+    primitiveOperation1() {
+        throw new Error(`${this.primitiveOperation1} should be overwrite.`)
+    }
+
+    primitiveOperation2() {
+        throw new Error(`${this.primitiveOperation2} should be overwrite.`);
+    }
+}
+
+module.exports = AbstractClass;
+
+-- concreteClass1.js
+const AbstractClass = require(&apos;./abstractClass&apos;);
+
+class ConcreteClass1 extends AbstractClass {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteClass1 constructor.&apos;);
+    }
+
+    primitiveOperation1() {
+        console.log(&apos;ConcreteClass1 primitiveOperation1.&apos;);
+    }
+
+    primitiveOperation2() {
+        console.log(&apos;ConcreteClass1 primitiveOperation2.&apos;);
+    }
+}
+
+module.exports = ConcreteClass1;
+
+-- concreteClass2.js
+const AbstractClass = require(&apos;./abstractClass&apos;);
+
+class ConcreteClass2 extends AbstractClass {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteClass2 constructor.&apos;);
+    }
+
+    primitiveOperation1() {
+        console.log(&apos;ConcreteClass2 primitiveOperation1.&apos;);
+    }
+
+    primitiveOperation2() {
+        console.log(&apos;ConcreteClass2 primitiveOperation2.&apos;);
+    }
+}
+
+module.exports = ConcreteClass2;
+
+-- concreteClass3.js
+const AbstractClass = require(&apos;./abstractClass&apos;);
+
+class ConcreteClass3 extends AbstractClass {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteClass3 constructor.&apos;);
+    }
+
+    primitiveOperation2() {
+        console.log(&apos;ConcreteClass3 primitiveOperation2.&apos;);
+    }
+}
+
+module.exports = ConcreteClass3;
+
+-- client.js
+const AbstractClass = require(&apos;./abstractClass&apos;);
+const ConcreteClass1 = require(&apos;./concreteClass1&apos;);
+const ConcreteClass2 = require(&apos;./concreteClass2&apos;);
+const ConcreteClass3 = require(&apos;./concreteClass3&apos;);
+
+// test1
+// const abstractClass = new AbstractClass();
+
+// test concrete class 1
+const concreteClass1 = new ConcreteClass1();
+concreteClass1.templateMethod();
+console.log(&apos;------&apos;);
+
+// test concrete class 2
+const concreteClass2 = new ConcreteClass2();
+concreteClass2.templateMethod();
+console.log(&apos;------&apos;);
+
+// test concrete class 3
+const concreteClass3 = new ConcreteClass3();
+concreteClass3.templateMethod();
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/05/05/模板方法模式/" data-id="ck2n9bu6o003f3fwsikbueihi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-原型模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/04/12/原型模式/" class="article-date">
@@ -196,7 +352,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck2lu0kt1003cr4wsvbj09ztk" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/04/12/原型模式/" data-id="ck2n9bu65002g3fwsmwq30ep8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -320,7 +476,7 @@ concreteProduct.method();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck2lu0kta003sr4wsy52go3m4" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/03/09/工厂方法模式/" data-id="ck2n9bu6d002x3fwsfys6o5xf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -444,7 +600,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck2lu0ksj002gr4wsihplqw4h" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/02/15/代理模式/" data-id="ck2n9bu5q001j3fwscaomavzc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -496,7 +652,61 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck2lu0ks1001pr4wshd2vn1n6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/12/React通信/" data-id="ck2n9bu5d000s3fwstyu62ojr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React之虚拟Dom" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/11/React之虚拟Dom/" class="article-date">
+  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/11/React之虚拟Dom/">React之虚拟Dom</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>为什么引入虚拟Dom<br><strong> JavaScript速度快，Dom操作速度很慢 </strong><br><strong> 虚拟Dom通过diff算法实现Dom操作的优化，本质是通过JavaScript的运算，减少Dom的操作。 </strong></p>
+</li>
+<li><p>虚拟Dom<br><strong> 抽象出虚拟Dom（tagName, props, children） =&gt; 生成Patches（通过diff算法得到虚拟Dom的差异描述） =&gt; Update（通过Patch将差异更新到真实Dom上） </strong></p>
+</li>
+<li><p>Diff算法</p>
+<ul>
+<li>深度遍历，记录差异</li>
+<li>差异类型：涉及最小编辑距离问题</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck2n9bu52000o3fwsyn6r6plk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -549,64 +759,10 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck2lu0ks90022r4wsk0xenafq" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/11/twoSum/" data-id="ck2n9bu5j00143fws7y2ybbc9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React之虚拟Dom" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/11/React之虚拟Dom/" class="article-date">
-  <time datetime="2018-01-10T16:00:00.000Z" itemprop="datePublished">2018-01-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/11/React之虚拟Dom/">React之虚拟Dom</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>为什么引入虚拟Dom<br><strong> JavaScript速度快，Dom操作速度很慢 </strong><br><strong> 虚拟Dom通过diff算法实现Dom操作的优化，本质是通过JavaScript的运算，减少Dom的操作。 </strong></p>
-</li>
-<li><p>虚拟Dom<br><strong> 抽象出虚拟Dom（tagName, props, children） =&gt; 生成Patches（通过diff算法得到虚拟Dom的差异描述） =&gt; Update（通过Patch将差异更新到真实Dom上） </strong></p>
-</li>
-<li><p>Diff算法</p>
-<ul>
-<li>深度遍历，记录差异</li>
-<li>差异类型：涉及最小编辑距离问题</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/11/React之虚拟Dom/" data-id="ck2lu0ks0001mr4wswr0ic3bx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -670,7 +826,7 @@ new Subject();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck2lu0ks6001wr4ws4khpy22t" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/10/arrayTwoSum/" data-id="ck2n9bu5f000y3fwsdgdskjxs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -854,7 +1010,7 @@ decorationABAAB.Operation();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/01/09/装饰模式/" data-id="ck2lu0ku0004xr4wshjdfb1r9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/01/09/装饰模式/" data-id="ck2n9bu6y00413fws49o6gumg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -919,179 +1075,10 @@ decorationABAAB.Operation();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck2lu0kto004lr4wsb5izcy2z" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/12/10/移除链表元素/" data-id="ck2n9bu6t003q3fws5onbo6ji" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-策略模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/08/策略模式/" class="article-date">
-  <time datetime="2017-12-07T16:00:00.000Z" itemprop="datePublished">2017-12-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/08/策略模式/">策略模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>策略模式（Strategy）<br> <a href="/assets/策略模式.png"><img src="/assets/策略模式.png" alt="策略模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Strategy" title="策略模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- cashSuper.js
-class CashSuper {
-    constructor() {
-        if(new.target === CashSuper)
-            throw new Error(`${CashSuper} cannot be initialized.`);
-
-        console.log(&apos;CashSuper constructor.&apos;);
-    }
-
-    acceptCash(money) {
-        console.log(&apos;CashSuper acceptCash.&apos;);
-
-        return;
-    }
-}
-
-module.exports = CashSuper;
-
--- cashNormal.js
-const CashSuper = require(&apos;./cashSuper.js&apos;);
-
-class CashNormal extends CashSuper {
-    constructor() {
-        super();
-
-        console.log(&apos;CashNormal constructor.&apos;);
-    }
-
-    acceptCash(money) {
-        return money;
-    }
-}
-
-module.exports = CashNormal;
-
--- casnRebate.js
-const CashSuper = require(&apos;./cashSuper&apos;);
-
-class CashRebate extends CashSuper {
-    constructor({rebate = 1}) {
-        super();
-
-        console.log(&apos;CashRebate constructor.&apos;);
-        this.rebate = rebate;
-    }
-
-    acceptCash(money) {
-        return money * this.rebate;
-    }
-}
-
-module.exports = CashRebate;
-
--- cashReturn.js
-const CashSuper = require(&apos;./cashSuper&apos;);
-
-class CashReturn extends CashSuper {
-    constructor({condition = 0, moneyReturn = 0}) {
-        super();
-
-        console.log(&apos;CashReturn constructor.&apos;);
-        this.condition = condition;
-        this.moneyReturn = moneyReturn;
-    }
-
-    acceptCash(money) {
-        let result = money;
-
-        if(money &gt;= this.condition) {
-            result -= Math.floor(money / this.condition) * this.moneyReturn;
-        }
-
-        return result;
-    }
-}
-
-module.exports = CashReturn;
-
--- cashContext.js
-const CashNormal = require(&apos;./cashNormal&apos;);
-const CashRebate = require(&apos;./cashRebate&apos;);
-const CashReturn = require(&apos;./cashReturn&apos;);
-
-class CashContext {
-    constructor(type, args) {
-        switch(type.toUpperCase()) {
-            case &apos;NORMAL&apos;:
-                this.cs = new CashNormal();
-                break;
-            case &apos;REBATE&apos;:
-                this.cs = new CashRebate(args);
-                break;
-            case &apos;RETURN&apos;:
-                this.cs = new CashReturn(args);
-                break;
-            default:
-                this.cs = new CashNormal();
-        }
-    }
-
-    getResult(money) {
-        return this.cs.acceptCash(money);
-    }
-}
-
-module.exports = CashContext;
-
--- client.js
-const CashContext = require(&apos;./cashContext&apos;);
-
-//test
-let cs = new CashContext(&apos;Normal&apos;);
-console.log(cs.getResult(100));
-
-cs = new CashContext(&apos;REBATE&apos;, {&apos;rebate&apos;: .8});
-console.log(cs.getResult(100));
-
-cs = new CashContext(&apos;return&apos;, {&apos;condition&apos;: 300, &apos;moneyReturn&apos;: 100});
-console.log(cs.getResult(300));
-console.log(cs.getResult(500));
-console.log(cs.getResult(600));
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/12/08/策略模式/" data-id="ck2lu0ktx004qr4ws1v3x5kag" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>

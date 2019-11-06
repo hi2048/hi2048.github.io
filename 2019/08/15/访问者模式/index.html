@@ -3,19 +3,22 @@
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
-  <title>做人与做事 | 苏小蜂的个人博客</title>
+  <title>访问者模式 | 苏小蜂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="做人与做事是相互联系的整体。先有做人的理念，树立正确的人生观，再做事就有了基础。人做好了，事也相应就做好了。而做人的价值、空间、质量就决定着做事的价值、空间、质量；但人的价值，只有在做事的过程中才能体现；人的潜能，只有在做事中才能得到开发；人的能力，只有在做事中才能得到最大的发挥；人的成就，只有在做事中才能得以实现；人的梦想，只有在做事中才能完成；人的威望，只有在做事的过程中才能树立。没有做事，做">
+  <meta name="description" content="访问者模式（Visitor）   代码实例 github -- element.js class Element {     constructor() {         if(new.target === Element)             throw new Error(`${Element} cannot be initialized.`);     }      accept(v">
+<meta name="keywords" content="JavaScript,设计模式,大话设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="做人与做事">
-<meta property="og:url" content="http://hi2048.github.io/2013/10/03/做人与做事/index.html">
+<meta property="og:title" content="访问者模式">
+<meta property="og:url" content="http://hi2048.github.io/2019/08/15/访问者模式/index.html">
 <meta property="og:site_name" content="苏小蜂的个人博客">
-<meta property="og:description" content="做人与做事是相互联系的整体。先有做人的理念，树立正确的人生观，再做事就有了基础。人做好了，事也相应就做好了。而做人的价值、空间、质量就决定着做事的价值、空间、质量；但人的价值，只有在做事的过程中才能体现；人的潜能，只有在做事中才能得到开发；人的能力，只有在做事中才能得到最大的发挥；人的成就，只有在做事中才能得以实现；人的梦想，只有在做事中才能完成；人的威望，只有在做事的过程中才能树立。没有做事，做">
+<meta property="og:description" content="访问者模式（Visitor）   代码实例 github -- element.js class Element {     constructor() {         if(new.target === Element)             throw new Error(`${Element} cannot be initialized.`);     }      accept(v">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2016-05-31T16:43:38.000Z">
+<meta property="og:image" content="http://hi2048.github.io/assets/访问者模式.png">
+<meta property="og:updated_time" content="2019-11-06T12:26:37.703Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="做人与做事">
-<meta name="twitter:description" content="做人与做事是相互联系的整体。先有做人的理念，树立正确的人生观，再做事就有了基础。人做好了，事也相应就做好了。而做人的价值、空间、质量就决定着做事的价值、空间、质量；但人的价值，只有在做事的过程中才能体现；人的潜能，只有在做事中才能得到开发；人的能力，只有在做事中才能得到最大的发挥；人的成就，只有在做事中才能得以实现；人的梦想，只有在做事中才能完成；人的威望，只有在做事的过程中才能树立。没有做事，做">
+<meta name="twitter:title" content="访问者模式">
+<meta name="twitter:description" content="访问者模式（Visitor）   代码实例 github -- element.js class Element {     constructor() {         if(new.target === Element)             throw new Error(`${Element} cannot be initialized.`);     }      accept(v">
+<meta name="twitter:image" content="http://hi2048.github.io/assets/访问者模式.png">
   
     <link rel="alternate" href="/atom.xml" title="苏小蜂的个人博客" type="application/atom+xml">
   
@@ -66,14 +69,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-做人与做事" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-访问者模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/10/03/做人与做事/" class="article-date">
-  <time datetime="2013-10-03T10:05:32.000Z" itemprop="datePublished">2013-10-03</time>
+    <a href="/2019/08/15/访问者模式/" class="article-date">
+  <time datetime="2019-08-14T16:00:00.000Z" itemprop="datePublished">2019-08-15</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
   </div>
 
   </div>
@@ -84,7 +87,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      做人与做事
+      访问者模式
     </h1>
   
 
@@ -92,33 +95,168 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong>做人与做事是相互联系的整体。先有做人的理念，树立正确的人生观，再做事就有了基础。人做好了，事也相应就做好了。而做人的价值、空间、质量就决定着做事的价值、空间、质量；但人的价值，只有在做事的过程中才能体现；人的潜能，只有在做事中才能得到开发；人的能力，只有在做事中才能得到最大的发挥；人的成就，只有在做事中才能得以实现；人的梦想，只有在做事中才能完成；人的威望，只有在做事的过程中才能树立。没有做事，做人就没有根基，所以二者是相互依存的整体。只有把二者有机的结合起来，才能使人的品德与才华得到升华，在人生的旅途中处处顺心，紧要关头化险为夷，社交中事事如意，商战中左右逢源，公司中受到上司的重视，同事的尊重，下级的拥戴。</strong></p>
+        <ol>
+<li><p>访问者模式（Visitor）<br> <a href="/assets/访问者模式.png"><img src="/assets/访问者模式.png" alt="访问者模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Visitor" title="访问者模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- element.js
+class Element {
+    constructor() {
+        if(new.target === Element)
+            throw new Error(`${Element} cannot be initialized.`);
+    }
+
+    accept(vistor) {
+        throw new Error(`${this.accept} should be overwrite.`);
+    }
+}
+
+module.exports = Element;
+
+-- concreteElementA.js
+const Element = require(&apos;./element&apos;);
+
+class ConcreteElementA extends Element {
+    accept(visitor) {
+        visitor.visitConcreteElementA(this);
+    }
+
+    operatorA() {
+        console.log(&apos;ConcreteElementA operatorA.&apos;);
+    }
+}
+
+module.exports = ConcreteElementA;
+
+-- concreteElementB.js
+const Element = require(&apos;./element&apos;);
+
+class ConcreteElementB extends Element {
+    accept(visitor) {
+        visitor.visitConcreteElementB(this);
+    }
+
+    operatorB() {
+        console.log(`ConcreteElementB operatorB.`);
+    }
+}
+
+module.exports = ConcreteElementB;
+
+-- visitor.js
+class Visitor {
+    constructor() {
+        if(new.target === Visitor)
+            throw new Error(`${Visitor} cannot be initialized.`);
+    }
+
+    visitConcreteElementA(concreteElementA) {
+        throw new Error(`${this.visitConcreteElementA} should be overwrite.`);
+    }
+
+    visitConcreteElementB(concreteELementB) {
+        throw new Error(`${this.visitConcreteElementB} should be overwrite.`);
+    }
+}
+
+module.exports = Visitor;
+
+-- concreteVisitor1.js
+const Visitor = require(&apos;./visitor&apos;);
+
+class ConcreteVisitor1 extends Visitor {
+    visitConcreteElementA(concreteElementA) {
+        console.log(`${this.constructor.name} visitConcreteElementA ${concreteElementA.constructor.name} .`);
+    }
+
+    visitConcreteElementB(concreteElementB) {
+        console.log(`${this.constructor.name} visitConcreteElementB ${concreteElementB.constructor.name} .`);
+    }
+}
+
+module.exports = ConcreteVisitor1;
+
+-- concreteVisitor2.js
+const Visitor = require(&apos;./visitor&apos;);
+
+class ConcreteVisitor2 extends Visitor {
+    visitConcreteElementA(concreteElementA) {
+        console.log(`${this.constructor.name} visitConcreteElementA ${concreteElementA.constructor.name} .`);
+    }
+
+    visitConcreteElementB(concreteElementB) {
+        console.log(`${this.constructor.name} visitConcreteElementB ${concreteElementB.constructor.name} .`);
+    }
+}
+
+module.exports = ConcreteVisitor2;
+
+-- objectStructure.js
+class ObjectStructure {
+    constructor() {
+        this.elements = new Set();
+    }
+
+    add(element) {
+        return element &amp;&amp; this.elements.add(element);
+    }
+
+    remove(element) {
+        return this.elements.delete(element);
+    }
+
+    accept(visitor) {
+        this.elements.forEach(element =&gt; (element.accept(visitor)));
+    }
+}
+
+module.exports = ObjectStructure;
+
+-- client.js
+const ObjectStructure = require(&apos;./objectStructure&apos;);
+const ConcreteElementA = require(&apos;./concreteElementA&apos;);
+const ConcreteElementB = require(&apos;./concreteElementB&apos;);
+const ConcreteVisitor1 = require(&apos;./concreteVisitor1&apos;);
+const ConcreteVisitor2 = require(&apos;./concreteVisitor2&apos;);
+
+const objectStructure = new ObjectStructure();
+const concreteELementA = new ConcreteElementA();
+objectStructure.add(concreteELementA);
+objectStructure.add(new ConcreteElementB());
+
+const concreteVisitor1 = new ConcreteVisitor1();
+objectStructure.accept(concreteVisitor1);
+objectStructure.accept(new ConcreteVisitor2());
+</code></pre></li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/03/做人与做事/" data-id="ck2n9bu5q001k3fwsfhrvw9mb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/15/访问者模式/" data-id="ck2n9bu6z00433fws0l28xn6p" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2013/10/08/原神旺象的几种情况/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/02/状态管理/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          原神旺象的几种情况
+          状态管理
         
       </div>
     </a>
   
   
-    <a href="/2013/10/02/一爻动的学问/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/08/02/Vue生命周期/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">一爻动的学问</div>
+      <div class="article-nav-title">Vue生命周期</div>
     </a>
   
 </nav>

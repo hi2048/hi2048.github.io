@@ -64,6 +64,74 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-compose" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/10/compose/" class="article-date">
+  <time datetime="2019-06-09T16:00:00.000Z" itemprop="datePublished">2019-06-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/06/10/compose/">compose</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> JavaScript函数式编程：compose方法 </strong></p>
+<pre><code>const compose = (arr) =&gt; {
+    return arr.reduce((a, b) =&gt; (...args) =&gt; a(b(...args)))
+}
+
+const composeT = (arr) =&gt; {
+  return arr.reduce((a, b) =&gt; {
+    return (...args) =&gt; {
+      console.log(`${a.name}(${b.name}(${args}))`);
+      return a(b(...args));
+    }
+  }, ()=&gt;{})
+}
+
+
+const a = (a, b) =&gt; {console.log(&quot;a: &quot;, a); return a;}
+const b = (a, b) =&gt; {console.log(&quot;b: &quot;, a); return a;}
+const c = (a, b) =&gt; {console.log(&quot;c: &quot;, a, b); return [a, b];}
+composeT([a,b,c])(&apos;1&apos;,&apos;2&apos;)
+
+(c(1,2))
+c:  1 2
+(b(1,2))
+b:  [ &apos;1&apos;, &apos;2&apos; ]
+(a(1,2))
+a:  [ &apos;1&apos;, &apos;2&apos; ]
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ck2n9bu5i00123fwspeltmdti" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-中介者模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/05/22/中介者模式/" class="article-date">
@@ -220,7 +288,7 @@ concreteColleague1.send(&apos;concreteColleague1 send message 4&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/05/22/中介者模式/" data-id="ck2lu0ksd0027r4ws2trzt0i7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/05/22/中介者模式/" data-id="ck2n9bu5n001d3fwszimxu7hq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -357,7 +425,7 @@ request.forEach(req =&gt; (concreteHandler1.handleRequest(req)));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/05/02/职责链模式/" data-id="ck2lu0ktz004ur4wsc6oywgi9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/05/02/职责链模式/" data-id="ck2n9bu6x003y3fwspzy3bwr9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -496,7 +564,7 @@ invoker.notify();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/04/18/命令模式/" data-id="ck2lu0kt5003ir4wsvyzm6il5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/04/18/命令模式/" data-id="ck2n9bu67002m3fws3f2lacgw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -562,7 +630,7 @@ invoker.notify();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/" data-id="ck2lu0krt0019r4wsyvtraism" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/" data-id="ck2n9bu4w000f3fwsx2k8w70f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -720,7 +788,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/05/桥接模式/" data-id="ck2lu0ktj004ar4ws81djt1c5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/05/桥接模式/" data-id="ck2n9bu6n003e3fwskixlqqwr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -818,72 +886,7 @@ module.exports = Stack;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/01/Stack实现/" data-id="ck2lu0ks3001sr4ws66afelr8" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-数组去重" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/02/18/数组去重/" class="article-date">
-  <time datetime="2019-02-17T16:00:00.000Z" itemprop="datePublished">2019-02-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/18/数组去重/">数组去重</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>使用Array的filter方法</p>
-<pre><code>const distinctFilter = (arr) =&gt; (arr.filter((item, index) =&gt; (arr.indexOf(item) === index)))
-</code></pre></li>
-<li><p>使用ES6的Set</p>
-<pre><code>const distinctSet = (arr) =&gt; (Array.from(new Set(arr)));
-</code></pre></li>
-<li><p>使用Hash方法</p>
-<pre><code>const distinctHash = (arr) =&gt; {
-  const hash = {};
-  let disArr = [];
-
-  for(let i of arr){
-    if(!hash[i]){
-      disArr.push(i);
-      hash[i] = [i];
-    }
-  }
-
-  return disArr;
-}
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck2lu0ktf0043r4wshub9y5un" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/01/Stack实现/" data-id="ck2n9bu5e000v3fwsduoheylq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -960,10 +963,75 @@ console.log(singleton === singleton4);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/单例模式/" data-id="ck2lu0ksz0039r4ws4kwi43fc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/单例模式/" data-id="ck2n9bu63002d3fwsr7mny5ap" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-数组去重" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/18/数组去重/" class="article-date">
+  <time datetime="2019-02-17T16:00:00.000Z" itemprop="datePublished">2019-02-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/18/数组去重/">数组去重</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>使用Array的filter方法</p>
+<pre><code>const distinctFilter = (arr) =&gt; (arr.filter((item, index) =&gt; (arr.indexOf(item) === index)))
+</code></pre></li>
+<li><p>使用ES6的Set</p>
+<pre><code>const distinctSet = (arr) =&gt; (Array.from(new Set(arr)));
+</code></pre></li>
+<li><p>使用Hash方法</p>
+<pre><code>const distinctHash = (arr) =&gt; {
+  const hash = {};
+  let disArr = [];
+
+  for(let i of arr){
+    if(!hash[i]){
+      disArr.push(i);
+      hash[i] = [i];
+    }
+  }
+
+  return disArr;
+}
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ck2n9bu6j00383fwse73zwk9m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -1070,431 +1138,10 @@ LRUCache.prototype.put = function(key, value) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck2lu0kry001jr4wsqvi9g4yz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck2n9bu50000l3fws7p70vdt7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-迭代器模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/02/08/迭代器模式/" class="article-date">
-  <time datetime="2019-02-07T16:00:00.000Z" itemprop="datePublished">2019-02-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/02/08/迭代器模式/">迭代器模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>迭代器模式（Iterator）<br> <a href="/assets/迭代器模式.png"><img src="/assets/迭代器模式.png" alt="迭代器模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Iterator" title="迭代器模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- aggregate.js
-class Aggregate {
-    constructor() {
-        if(new.target === Aggregate)
-            throw new Error(`${Aggregate} cannot be initialized.`);
-    }
-
-    createIterator() {
-        throw new Error(`${this.createIterator} should be overwrite.`);
-    }
-}
-
-module.exports = Aggregate;
-
--- iterator.js
-class Iterator {
-    constructor() {
-        if(new.target === Iterator)
-            throw new Error(`${Iterator} cannot be initialized.`);
-    }
-
-    first() {
-        throw new Error(`${this.first} should be overwrite.`);
-    }
-
-    next() {
-        throw new Error(`${this.next} should be overwrite.`);
-    }
-
-    isDone() {
-        throw new Error(`${this.isDone} should be overwrite.`);
-    }
-
-    currentItem() {
-        throw new Error(`${this.currentItem} should be overwrite.`);
-    }
-}
-
-module.exports = Iterator;
-
--- concreteAggregate1.js
-const Aggregate = require(&apos;./aggregate&apos;);
-const ConcreteIterator = require(&apos;./concreteIterator1&apos;);
-
-class ConcreteAggregate extends Aggregate {
-    constructor() {
-        super();
-
-        this.aggregate = new Array();
-    }
-
-    add(item) {
-        this.aggregate.push(item);
-    }
-
-    get(index) {
-        return this.aggregate[index];
-    }
-
-    count() {
-        return this.aggregate.length;
-    }
-
-    createIterator() {
-        return new ConcreteIterator(this);
-    }
-}
-
-module.exports = ConcreteAggregate;
-
--- concreteIterator1.js
-const Iterator = require(&apos;./iterator&apos;);
-
-class ConcreteIterator extends Iterator {
-    constructor(aggregate = {}) {
-        super();
-
-        this.aggregate = aggregate;
-        this.cur = 0;
-    }
-
-    first() {
-        return this.aggregate.get(0);
-    }
-
-    next() {
-        this.cur++;
-
-        if(this.cur &lt; this.aggregate.count()) {
-            return this.currentItem();
-        }
-
-        return undefined;
-    }
-
-    isDone() {
-        return this.cur &lt; this.aggregate.count()? false : true;
-    }
-
-    currentItem() {
-        return this.aggregate.get(this.cur);
-    }
-}
-
-module.exports = ConcreteIterator;
-
--- concreteAggregate2.js
-const Aggregate = require(&apos;./aggregate&apos;);
-const ConcreteIterator2 = require(&apos;./concreteIterator2&apos;);
-
-class ConcreteAggregate2 extends Aggregate {
-    constructor() {
-        super();
-    }
-
-    createIterator() {
-        return new ConcreteIterator2(this);
-    }
-}
-
-module.exports = ConcreteAggregate2;
-
--- concreteIterator2.js
-const Iterator = require(&apos;./iterator&apos;);
-
-class ConcreteIterator2 extends Iterator {
-    constructor(aggregate = {}) {
-        super();
-
-        this.aggregate = aggregate;
-
-        this.initAggregateIterator();
-
-        // init iterator
-        this.iterator = this.aggregate[Symbol.iterator]();
-    }
-
-    initAggregateIterator() {
-        this.aggregate[Symbol.iterator] = function() {
-            const aggregate = this;
-            const keys = Object.keys(aggregate);
-            let curIndex = 0;
-
-            return {
-                first: function() {
-                    return aggregate[keys[curIndex]];
-                },
-                next: function () {
-                    curIndex++;
-
-                    if(curIndex &lt; keys.length) {
-                        return this.currentItem();
-                    }
-
-                    return undefined;
-                },
-                isDone: function() {
-                    return curIndex &lt; keys.length? false : true;
-                },
-                currentItem: function() {
-                    return aggregate[keys[curIndex]];
-                }
-            }
-        }
-    }
-
-    first() {
-        return this.iterator.first();
-    }
-
-    next() {
-        return this.iterator.next();
-    }
-
-    isDone() {
-        return this.iterator.isDone();
-    }
-
-    currentItem() {
-        return this.iterator.currentItem();
-    }
-}
-
-module.exports = ConcreteIterator2;
-
--- concreteAggregate3.js
-const Aggregate = require(&apos;./aggregate&apos;);
-const ConcreteIterator3 = require(&apos;./concreteIterator3&apos;);
-
-class ConcreteAggregate3 extends Aggregate {
-    constructor() {
-        super();
-    }
-
-    createIterator() {
-        return new ConcreteIterator3(this);
-    }
-}
-
-module.exports = ConcreteAggregate3;
-
--- concreteIterator3.js
-const Iterator = require(&apos;./iterator&apos;);
-
-class ConcreteIterator3 extends Iterator {
-    constructor(aggregate = {}) {
-        super();
-
-        this.aggregate = aggregate;
-        this.initAggregateIterator();
-
-        // init iterator
-        this.iterator = this.aggregate[Symbol.iterator]();
-    }
-
-    initAggregateIterator() {
-        this.aggregate[Symbol.iterator] = function *() {
-            const aggregateValues = Object.values(this);
-
-            for(let value of aggregateValues) {
-                yield value;
-            }
-        }
-    }
-
-    next() {
-        return this.iterator.next();
-    }
-}
-
-module.exports = ConcreteIterator3;
-
--- client.js
-const ConcreteAggregate1 = require(&apos;./concreteAggregate1&apos;);
-const ConcreteAggregate2  = require(&apos;./concreteAggregate2&apos;);
-const ConcreteAggregate3 = require(&apos;./concreteAggregate3&apos;);
-
-const concreteAggregate1 = new ConcreteAggregate1();
-concreteAggregate1.add(&apos;a&apos;);
-concreteAggregate1.add(&apos;b&apos;);
-concreteAggregate1.add(&apos;c&apos;);
-
-console.log(&apos;Iterator dp1: &apos;);
-const iterator1 = concreteAggregate1.createIterator();
-
-let iteratorValueDP1 = iterator1.first();
-while(!iterator1.isDone()) {
-    console.log(`${iteratorValueDP1} `);
-
-    iteratorValueDP1 = iterator1.next();
-}
-console.log(&apos;------&apos;);
-
-console.log(&apos;Iterator dp2: &apos;);
-const concreteAggregate2 = new ConcreteAggregate2();
-concreteAggregate2[&apos;0&apos;] = &apos;a&apos;;
-concreteAggregate2[&apos;1&apos;] = &apos;b&apos;;
-concreteAggregate2[&apos;2&apos;] = &apos;c&apos;;
-
-const iterator2 = concreteAggregate2.createIterator();
-
-let iteratorValueDP2 = iterator2.first();
-while(!iterator2.isDone()) {
-    console.log(`${iteratorValueDP2} `);
-
-    iteratorValueDP2 = iterator2.next();
-}
-console.log(&apos;------&apos;);
-
-console.log(&apos;Iterator dp3: &apos;);
-const concreteAggregate3 = new ConcreteAggregate3();
-concreteAggregate3[1] = &apos;a&apos;;
-concreteAggregate3[2] = &apos;b&apos;;
-concreteAggregate3[3] = &apos;c&apos;;
-
-const iterator3 = concreteAggregate3.createIterator();
-
-let iteratorValueDP3 = iterator3.next();
-while(!iteratorValueDP3.done) {
-    console.log(`${iteratorValueDP3.value} `);
-
-    iteratorValueDP3 = iterator3.next();
-}
-console.log(&apos;------&apos;);
-
--- concreteAggregate4.js
-const Aggregate = require(&apos;./aggregate&apos;);
-const ConcreteIterator4 = require(&apos;./concreteIterator4&apos;);
-
-class ConcreteAggregate4 extends Aggregate {
-    constructor() {
-        super();
-
-        this.item = new Array();
-
-        // super array simulate indexer
-        this.extend(this.item, this, Reflect.getPrototypeOf(this));
-
-        return this.item;
-    }
-
-    extend(target, ...origins) {
-        for(let origin of origins) {
-            const keys = Reflect.ownKeys(origin);
-
-            for(let key of keys) {
-                target[key] = origin[key];
-            }
-        }
-    }
-
-    createIterator() {
-        return new ConcreteIterator4(this.item);
-    }
-}
-
-module.exports = ConcreteAggregate4;
-
--- concreteIterator4.js
-const Iterator = require(&apos;./iterator&apos;);
-
-class ConcreteIterator4 extends Iterator {
-    constructor(aggregate = []) {
-        super();
-
-        this.aggregate = aggregate;
-        this.curIndex = 0;
-    }
-
-    first() {
-        return this.aggregate[this.curIndex];
-    }
-
-    next() {
-        let ret = null;
-        this.curIndex ++;
-
-        if(this.curIndex &lt; this.aggregate.length) {
-            ret = this.currentItem();
-        }
-
-        return ret;
-    }
-
-    isDone() {
-        return this.curIndex &lt; this.aggregate.length?false : true;
-    }
-
-    currentItem() {
-        return this.aggregate[this.curIndex];
-    }
-}
-
-module.exports = ConcreteIterator4;
-
--- client2.js
-const ConcreteAggregate4 = require(&apos;./concreteAggregate4&apos;);
-
-const concreteAggregate4 = new ConcreteAggregate4();
-concreteAggregate4[0] = &apos;a&apos;;
-concreteAggregate4[1] = &apos;b&apos;;
-concreteAggregate4[2] = &apos;c&apos;;
-
-const iterator = concreteAggregate4.createIterator();
-
-let iteratorValue = iterator.first();
-while(!iterator.isDone()) {
-    console.log(`${iteratorValue} `);
-
-    iteratorValue = iterator.next();
-}
-
-console.log(&apos;------&apos;);
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ck2lu0ku20052r4ws69637cb0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
