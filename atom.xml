@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2019-09-29T10:11:35.778Z</updated>
+  <updated>2019-11-12T15:50:35.063Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>IndexedDB实践及封装</title>
+    <link href="http://hi2048.github.io/2019/10/22/IndexedDB%E5%AE%9E%E8%B7%B5%E5%8F%8A%E5%B0%81%E8%A3%85/"/>
+    <id>http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/</id>
+    <published>2019-10-21T16:00:00.000Z</published>
+    <updated>2019-11-12T15:50:35.063Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>IndexedDB<br>utils for IndexedDB, crud operations.</p></li><li><p>代码实例 <a href="https://github.com/hi2048/IndexedDBOperator" title="IndexedDBOperator" target="_blank" rel="noopener">github</a></p><pre><code>-- config.jsexport default {  name: &quot;testDB&quot;,  version: &quot;1.0&quot;}-- connect.jsimport config from &apos;./config&apos;;const connect = (options = config) =&gt; {  const promise = new Promise((resolve, reject) =&gt; {    let dbConnection;    const request = window.indexedDB.open(options.name, options.version);    request.onerror = e =&gt; {      reject(e);    }    request.onsuccess = e =&gt; {      dbConnection = request.result;      resolve(dbConnection);    }    request.onupgradeneeded = e =&gt; {      dbConnection = e.target.result;      resolve(dbConnection);    }  })  return promise;}export default connect;-- index.jsimport connect from &apos;./connect&apos;;class IndexedDBOperator {  constructor() {    if(!IndexedDBOperator.instance) {      this.dbConnection = connect();      IndexedDBOperator.instance = this;    }    return IndexedDBOperator.instance;  }  static getInstance() {    return new IndexedDBOperator();  }  createObjectStore(name, keyPath) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        if(!db.objectStoreNames.contains(name)) {          try {            const objectStore = db.createObjectStore(name, { keyPath: keyPath, autoIncrement: true });            resolve(objectStore);          } catch(err) {            reject(err);          }        }      });    });  }  create(objectStore, data) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).add(data);        request.onsuccess = e =&gt; {          resolve(e);        }        request.onerror = e =&gt; {          reject(e);        }      });    });  }  read(objectStore, searchIndex) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        const request = db.transaction([objectStore]).objectStore(objectStore).get(searchIndex);        request.onerror = e =&gt; {          reject(e);        };        request.onsuccess = e =&gt; {          resolve(request.result);        };      });    });  }  readAll(objectStore) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        const request = db.transaction([objectStore], &apos;readonly&apos;).objectStore(objectStore).openCursor();        const list = new Array();  // objectStore list        request.onsuccess = e =&gt; {          const cursor = event.target.result;          if(cursor) {            const { key, value } = cursor;            list.push({              key,              value            });            cursor.continue();          } else {            resolve(list);          }        };        request.onerror = e =&gt; {          reject(e);        };      });    });  }  update(objectStore, data) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).put(data);        request.onsuccess = e =&gt; {          resolve(e);        };        request.onerror = e =&gt; {          reject(e);        };      });    });  }  delete(objectStore, searchIndex) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).delete(searchIndex);        request.onsuccess = e =&gt; {          resolve(e);        };        request.onerror = e =&gt; {          reject(e);        };      });    });  }}export default IndexedDBOperator;</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;IndexedDB&lt;br&gt;utils for IndexedDB, crud operations.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https://github.com/hi2048/IndexedDBOperator&quot; t
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="工具类" scheme="http://hi2048.github.io/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>UML实践</title>
@@ -73,9 +103,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -103,9 +133,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -136,9 +166,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -164,9 +194,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -354,9 +384,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -542,9 +572,38 @@ class Stack {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
+  </entry>
+  
+  <entry>
+    <title>数组去重</title>
+    <link href="http://hi2048.github.io/2019/02/18/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/"/>
+    <id>http://hi2048.github.io/2019/02/18/数组去重/</id>
+    <published>2019-02-17T16:00:00.000Z</published>
+    <updated>2019-09-18T14:31:10.318Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>使用Array的filter方法</p><pre><code>const distinctFilter = (arr) =&gt; (arr.filter((item, index) =&gt; (arr.indexOf(item) === index)))</code></pre></li><li><p>使用ES6的Set</p><pre><code>const distinctSet = (arr) =&gt; (Array.from(new Set(arr)));</code></pre></li><li><p>使用Hash方法</p><pre><code>const distinctHash = (arr) =&gt; {  const hash = {};  let disArr = [];  for(let i of arr){    if(!hash[i]){      disArr.push(i);      hash[i] = [i];    }  }  return disArr;}</code></pre></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用Array的filter方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const distinctFilter = (arr) =&amp;gt; (arr.filter((item, index) =&amp;gt; (arr.indexOf(item) === index)
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -577,66 +636,6 @@ class Stack {
       <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
       <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数组去重</title>
-    <link href="http://hi2048.github.io/2019/02/18/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/"/>
-    <id>http://hi2048.github.io/2019/02/18/数组去重/</id>
-    <published>2019-02-17T16:00:00.000Z</published>
-    <updated>2019-09-18T14:31:10.318Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>使用Array的filter方法</p><pre><code>const distinctFilter = (arr) =&gt; (arr.filter((item, index) =&gt; (arr.indexOf(item) === index)))</code></pre></li><li><p>使用ES6的Set</p><pre><code>const distinctSet = (arr) =&gt; (Array.from(new Set(arr)));</code></pre></li><li><p>使用Hash方法</p><pre><code>const distinctHash = (arr) =&gt; {  const hash = {};  let disArr = [];  for(let i of arr){    if(!hash[i]){      disArr.push(i);      hash[i] = [i];    }  }  return disArr;}</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;使用Array的filter方法&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const distinctFilter = (arr) =&amp;gt; (arr.filter((item, index) =&amp;gt; (arr.indexOf(item) === index)
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LRU算法</title>
-    <link href="http://hi2048.github.io/2019/02/10/LRU%E7%AE%97%E6%B3%95/"/>
-    <id>http://hi2048.github.io/2019/02/10/LRU算法/</id>
-    <published>2019-02-09T16:00:00.000Z</published>
-    <updated>2019-09-18T13:24:33.512Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong> LRU (least recently used) 缓存机制：实现get, put方法。 </strong></p><pre><code>/** * 元素置顶 */const popItemFromArray = (arr, key) =&gt;{  arr.splice(arr.indexOf(key), 1);  arr.push(key);  return arr;}/** * 实现思路：ES6 Map [+ 有序数组（或者双向链表）] **/var LRUCache = function(capacity) {    this.cache = new Map();    this.lruArr = new Array();    this.curLen = 0;    this.capacity = capacity;};LRUCache.prototype.get = function(key) {    if(this.cache.has(key)){      const value = this.cache.get(key);      popItemFromArray(this.lruArr, key);      return value;    }    return -1;};LRUCache.prototype.lruDel = function(){  const minKey = this.lruArr.shift();  const isucc = this.cache.delete(minKey);  if(isucc){    this.curLen--;  }  return isucc;}// iorder : false descend true ascendLRUCache.prototype.sort = function(iorder) {  return this.lruArr.sort((c1, c2) =&gt; {    return c1 - c2;  });}LRUCache.prototype.put = function(key, value) {    if(this.cache.has(key)){      // pop key from lru array      popItemFromArray(this.lruArr, key);      return this.cache.set(key, value);    }    if(this.curLen === this.capacity){      this.lruDel();    }    this.curLen++;    this.lruArr.push(key);    return this.cache.set(key, value);};</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt; LRU (least recently used) 缓存机制：实现get, put方法。 &lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;/**
- * 元素置顶
- */
-const popItemFromArray = (arr, key) =&amp;gt;{
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
