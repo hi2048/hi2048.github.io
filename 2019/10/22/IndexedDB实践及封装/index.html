@@ -5,18 +5,18 @@
   
   <title>IndexedDB实践及封装 | 苏小蜂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IndexedDButils for IndexedDB, crud operations.  代码实例 github -- config.js export default {   name: &amp;quot;testDB&amp;quot;,   version: &amp;quot;1.0&amp;quot; }  -- connect.js import config from &amp;apos;./config&amp;apo">
+  <meta name="description" content="IndexedDButils for IndexedDB, crud operations.  代码实例 github -- config.js export default {   name: &amp;quot;testDB&amp;quot; }  -- connect.js import config from &amp;apos;./config&amp;apos;;  const connect = ({ name">
 <meta name="keywords" content="JavaScript,工具类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IndexedDB实践及封装">
 <meta property="og:url" content="http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/index.html">
 <meta property="og:site_name" content="苏小蜂的个人博客">
-<meta property="og:description" content="IndexedDButils for IndexedDB, crud operations.  代码实例 github -- config.js export default {   name: &amp;quot;testDB&amp;quot;,   version: &amp;quot;1.0&amp;quot; }  -- connect.js import config from &amp;apos;./config&amp;apo">
+<meta property="og:description" content="IndexedDButils for IndexedDB, crud operations.  代码实例 github -- config.js export default {   name: &amp;quot;testDB&amp;quot; }  -- connect.js import config from &amp;apos;./config&amp;apos;;  const connect = ({ name">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-12T15:50:35.063Z">
+<meta property="og:updated_time" content="2019-11-17T05:43:55.567Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IndexedDB实践及封装">
-<meta name="twitter:description" content="IndexedDButils for IndexedDB, crud operations.  代码实例 github -- config.js export default {   name: &amp;quot;testDB&amp;quot;,   version: &amp;quot;1.0&amp;quot; }  -- connect.js import config from &amp;apos;./config&amp;apo">
+<meta name="twitter:description" content="IndexedDButils for IndexedDB, crud operations.  代码实例 github -- config.js export default {   name: &amp;quot;testDB&amp;quot; }  -- connect.js import config from &amp;apos;./config&amp;apos;;  const connect = ({ name">
   
     <link rel="alternate" href="/atom.xml" title="苏小蜂的个人博客" type="application/atom+xml">
   
@@ -99,17 +99,16 @@
 <li><p>代码实例 <a href="https://github.com/hi2048/IndexedDBOperator" title="IndexedDBOperator" target="_blank" rel="noopener">github</a></p>
 <pre><code>-- config.js
 export default {
-  name: &quot;testDB&quot;,
-  version: &quot;1.0&quot;
+  name: &quot;testDB&quot;
 }
 
 -- connect.js
 import config from &apos;./config&apos;;
 
-const connect = (options = config) =&gt; {
+const connect = ({ name = config.name, version  }) =&gt; {
   const promise = new Promise((resolve, reject) =&gt; {
     let dbConnection;
-    const request = window.indexedDB.open(options.name, options.version);
+    const request = window.indexedDB.open(name, version);
 
     request.onerror = e =&gt; {
       reject(e);
@@ -137,17 +136,35 @@ export default connect;
 import connect from &apos;./connect&apos;;
 
 class IndexedDBOperator {
-  constructor() {
-    if(!IndexedDBOperator.instance) {
-      this.dbConnection = connect();
+  constructor(version) {
+    if(!IndexedDBOperator.instance || version) {
+      this.dbConnection = connect({ version });
       IndexedDBOperator.instance = this;
     }
 
     return IndexedDBOperator.instance;
   }
 
-  static getInstance() {
-    return new IndexedDBOperator();
+  static getInstance(version) {
+    return new IndexedDBOperator(version);
+  }
+
+  getVersion() {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; resolve(db.version)).catch(err =&gt; reject(err));
+    });
+  }
+
+  containsObjectStore(name) {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; {
+        try {
+          resolve(db.objectStoreNames.contains(name));
+        } catch(err) {
+          reject(err);
+        }
+      })
+    });
   }
 
   createObjectStore(name, keyPath) {
@@ -268,7 +285,7 @@ export default IndexedDBOperator;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/" data-id="ck2w1bvsg0008n0wshlnfkoq3" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/" data-id="ck32ks4mn0014s3wsec1cwq36" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类/">工具类</a></li></ul>

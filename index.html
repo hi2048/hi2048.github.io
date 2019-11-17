@@ -96,17 +96,16 @@
 <li><p>代码实例 <a href="https://github.com/hi2048/IndexedDBOperator" title="IndexedDBOperator" target="_blank" rel="noopener">github</a></p>
 <pre><code>-- config.js
 export default {
-  name: &quot;testDB&quot;,
-  version: &quot;1.0&quot;
+  name: &quot;testDB&quot;
 }
 
 -- connect.js
 import config from &apos;./config&apos;;
 
-const connect = (options = config) =&gt; {
+const connect = ({ name = config.name, version  }) =&gt; {
   const promise = new Promise((resolve, reject) =&gt; {
     let dbConnection;
-    const request = window.indexedDB.open(options.name, options.version);
+    const request = window.indexedDB.open(name, version);
 
     request.onerror = e =&gt; {
       reject(e);
@@ -134,17 +133,35 @@ export default connect;
 import connect from &apos;./connect&apos;;
 
 class IndexedDBOperator {
-  constructor() {
-    if(!IndexedDBOperator.instance) {
-      this.dbConnection = connect();
+  constructor(version) {
+    if(!IndexedDBOperator.instance || version) {
+      this.dbConnection = connect({ version });
       IndexedDBOperator.instance = this;
     }
 
     return IndexedDBOperator.instance;
   }
 
-  static getInstance() {
-    return new IndexedDBOperator();
+  static getInstance(version) {
+    return new IndexedDBOperator(version);
+  }
+
+  getVersion() {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; resolve(db.version)).catch(err =&gt; reject(err));
+    });
+  }
+
+  containsObjectStore(name) {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; {
+        try {
+          resolve(db.objectStoreNames.contains(name));
+        } catch(err) {
+          reject(err);
+        }
+      })
+    });
   }
 
   createObjectStore(name, keyPath) {
@@ -265,7 +282,7 @@ export default IndexedDBOperator;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/" data-id="ck2w1bvsg0008n0wshlnfkoq3" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/" data-id="ck32ks4mn0014s3wsec1cwq36" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类/">工具类</a></li></ul>
@@ -576,7 +593,7 @@ const TalkInterface = require(&apos;./talkInterface.js&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/29/UML实践/" data-id="ck2w1bvsw000yn0ws0cegk2jb" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/29/UML实践/" data-id="ck32ks4n0001us3wsfuwizhzf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -741,7 +758,7 @@ module.exports = Tarjan;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/21/有向图的强连通分量算法/" data-id="ck2w1bvu1003en0wsjpbdbu91" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/21/有向图的强连通分量算法/" data-id="ck32ks4p4004as3ws08ifrk6t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -910,7 +927,7 @@ MedianFinder.prototype.findMedian = function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/20/求数据流的中位数/" data-id="ck2w1bvu2003in0wsrf25l3ev" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/20/求数据流的中位数/" data-id="ck32ks4p7004es3ws04qpr4iy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1055,7 +1072,7 @@ console.log(tree[0])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ck2w1bvsn000hn0wsf4as49fz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ck32ks4ms001fs3wsvmhxa0hq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1151,7 +1168,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ck2w1bvu0003cn0wsnp1j11kj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ck32ks4p20047s3wsju2z1mhj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1215,7 +1232,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ck2w1bvu4003mn0ws92ako42o" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ck32ks4pa004is3wsd3kpqqgr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuex/">vuex</a></li></ul>
@@ -1391,7 +1408,7 @@ objectStructure.accept(new ConcreteVisitor2());
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/15/访问者模式/" data-id="ck2w1bvuc0047n0wsntemrtfw" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/15/访问者模式/" data-id="ck32ks4pk0053s3ws5nwmt93d" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1450,7 +1467,7 @@ objectStructure.accept(new ConcreteVisitor2());
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ck2w1bvsx0010n0wspd6nuykh" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ck32ks4n1001ws3wszdqezlh4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -1713,7 +1730,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/07/22/解释器模式/" data-id="ck2w1bvub0044n0wsy3zctmz7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/07/22/解释器模式/" data-id="ck32ks4pj0051s3ws9hlkih53" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
