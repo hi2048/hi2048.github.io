@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2019-11-17T05:43:55.567Z</updated>
+  <updated>2020-02-04T11:46:01.206Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>最大最小值</title>
+    <link href="http://hi2048.github.io/2019/12/25/%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E5%80%BC/"/>
+    <id>http://hi2048.github.io/2019/12/25/最大最小值/</id>
+    <published>2019-12-24T16:00:00.000Z</published>
+    <updated>2020-02-04T11:46:01.206Z</updated>
+    
+    <content type="html"><![CDATA[<p>– min and max value in args(array or numbers). </p><pre><code>const min = (...args) =&gt; {  return args.reduce((a, b) =&gt; {    b = Array.isArray(b)?min(...b) : b;    return a &lt; b?a : b;  }, Infinity);}const max = (...args) =&gt; {  return args.reduce((a, b) =&gt; {    b = Array.isArray(b)?max(...b) : b;    return a &gt; b?a : b;  }, -Infinity);}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;– min and max value in args(array or numbers). &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;const min = (...args) =&amp;gt; {
+  return args.reduce((a, b) =&amp;gt; {
+    b = 
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="utils" scheme="http://hi2048.github.io/tags/utils/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>“气球”的最大数量</title>
+    <link href="http://hi2048.github.io/2019/11/18/%E2%80%9C%E6%B0%94%E7%90%83%E2%80%9D%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E9%87%8F/"/>
+    <id>http://hi2048.github.io/2019/11/18/“气球”的最大数量/</id>
+    <published>2019-11-17T16:00:00.000Z</published>
+    <updated>2020-02-04T10:40:23.883Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong> 给你一个字符串 text，你需要使用 text 中的字母来拼凑尽可能多的单词 “balloon”（气球）。 </strong><br><strong> 字符串 text 中的每个字母最多只能被使用一次。请你返回最多可以拼凑出多少个单词 “balloon”。 </strong></p><pre><code>const min = (...args) =&gt; {  return args.reduce((a, b) =&gt; a &lt; b?a : b);}var maxNumberOfBalloons = function(text) {    const hash = {b: 0, a: 0, l: 0, o: 0, n: 0};    for(let c of text) {        hash[c] = hash[c]?(++hash[c]) : 1;    }    return min(hash[&apos;b&apos;], hash[&apos;a&apos;], Math.floor(hash[&apos;l&apos;] / 2), Math.floor(hash[&apos;o&apos;] / 2), hash[&apos;n&apos;]);};</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt; 给你一个字符串 text，你需要使用 text 中的字母来拼凑尽可能多的单词 “balloon”（气球）。 &lt;/strong&gt;&lt;br&gt;&lt;strong&gt; 字符串 text 中的每个字母最多只能被使用一次。请你返回最多可以拼凑出多少个单词 “balloon”。
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>IndexedDB实践及封装</title>
@@ -565,67 +618,6 @@ const nodeAStruct = function(id, pid, data) {
 class Stack {
     constructor(){
         this.stack = new Ar
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>单例模式</title>
-    <link href="http://hi2048.github.io/2019/02/18/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://hi2048.github.io/2019/02/18/单例模式/</id>
-    <published>2019-02-17T16:00:00.000Z</published>
-    <updated>2019-10-24T11:52:46.047Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>单例模式（Singleton）<br> <a href="/assets/单例模式.png"><img src="/assets/单例模式.png" alt="单例模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Singleton" title="单例模式" target="_blank" rel="noopener">github</a></p><pre><code>-- singleton.jsclass Singleton {    constructor(name = &apos;Singleton&apos;) {        if(!Singleton.instance) {            this.name = name;            Singleton.instance = this;        }        return Singleton.instance    }    static getInstance(name) {        return new Singleton(name);    }}module.exports = Singleton;-- client.jsconst Singleton = require(&apos;./singleton&apos;);const singleton = Singleton.getInstance();const singleton2 = Singleton.getInstance(&apos;singleton2&apos;);const singleton3 = new Singleton(&apos;singleton3&apos;);const singleton4 = new Singleton(&apos;singleton4&apos;);console.log(singleton === singleton2);console.log(singleton === singleton3);console.log(singleton === singleton4);</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;单例模式（Singleton）&lt;br&gt; &lt;a href=&quot;/assets/单例模式.png&quot;&gt;&lt;img src=&quot;/assets/单例模式.png&quot; alt=&quot;单例模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https:
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数组去重</title>
-    <link href="http://hi2048.github.io/2019/02/18/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/"/>
-    <id>http://hi2048.github.io/2019/02/18/数组去重/</id>
-    <published>2019-02-17T16:00:00.000Z</published>
-    <updated>2019-09-18T14:31:10.318Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>使用Array的filter方法</p><pre><code>const distinctFilter = (arr) =&gt; (arr.filter((item, index) =&gt; (arr.indexOf(item) === index)))</code></pre></li><li><p>使用ES6的Set</p><pre><code>const distinctSet = (arr) =&gt; (Array.from(new Set(arr)));</code></pre></li><li><p>使用Hash方法</p><pre><code>const distinctHash = (arr) =&gt; {  const hash = {};  let disArr = [];  for(let i of arr){    if(!hash[i]){      disArr.push(i);      hash[i] = [i];    }  }  return disArr;}</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;使用Array的filter方法&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const distinctFilter = (arr) =&amp;gt; (arr.filter((item, index) =&amp;gt; (arr.indexOf(item) === index)
       
     
     </summary>

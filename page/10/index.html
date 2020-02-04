@@ -64,6 +64,157 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-全排列算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/20/全排列算法/" class="article-date">
+  <time datetime="2013-10-20T11:50:26.000Z" itemprop="datePublished">2013-10-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/20/全排列算法/">全排列算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>全排列中一种简单的算法是采用递归的思想，化繁为简。</p>
+<p>对于字符数组cs，主要过程如下，</p>
+<p>1. 交换cs[0]与递归开始索引sIndex，剩余的n - 1个字符，递归进行</p>
+<p>2. 交换cs[1]与递归开始索引sIndex，剩余的n - 1个字符，递归进行</p>
+<p>…</p>
+<p>直到cs[n]，完成全排列。</p>
+<p>Java具体实现代码如下，</p>
+<pre>import java.util.*;
+
+public class STest {
+    public static void fperm(char[] cs, int sIndex, int eIndex){
+        if(sIndex == eIndex) {
+            for(int i = 0; i &lt; eIndex; i++)
+                System.out.print(cs[i]);
+            System.out.println();
+        }
+
+        for(int i = sIndex; i &lt; eIndex; i++){
+            char temp = cs[sIndex];
+            cs[sIndex] = cs[i];
+            cs[i] = temp;
+
+            fperm(cs, sIndex + 1, eIndex);
+
+            cs[i] = cs[sIndex];
+            cs[sIndex] = temp;
+        }
+    }
+
+    public static void main(String[] args){
+        char[] cs = {'a', 'b', 'c', 'd'};
+        fperm(cs, 0, cs.length);
+    }
+}</pre>
+程序运行结果如下，
+<pre>abcd
+abdc
+acbd
+acdb
+adcb
+adbc
+bacd
+badc
+bcad
+bcda
+bdca
+bdac
+cbad
+cbda
+cabd
+cadb
+cdab
+cdba
+dbca
+dbac
+dcba
+dcab
+dacb
+dabc</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/10/20/全排列算法/" data-id="ck67r2dft002ylzwsxng5s0yc" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/">JAVA</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-乾卦中干支旺衰" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/10/20/乾卦中干支旺衰/" class="article-date">
+  <time datetime="2013-10-20T10:58:53.000Z" itemprop="datePublished">2013-10-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/周易/">周易</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/10/20/乾卦中干支旺衰/">乾卦中干支旺衰</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>乾卦    壬、亥、戌</p>
+<p>‘   壬戌    世</p>
+<p>‘   壬申</p>
+<p>‘   壬午</p>
+<p>‘   甲辰    应</p>
+<p>‘   甲寅</p>
+<p>‘   甲子</p>
+<p>乾卦是八纯卦之一，阳旺至极，位居九、十月之交，戌、亥、年、月、日、时，属金，旺于秋、庚、申、辛、酉、纳音金，金旺需泄（生）、耗（冲)。金盛则生水（壬水、亥），耗则冲出木（甲、寅），壬、亥水在乾、戌、亥旺，甲、寅木在亥水为长生。所以乾卦納干表现为壬、甲，在数字为五、六。</p>
+<p>壬申06、66……         壬寅36、96……                甲申25、85…..           甲寅55、115……</p>
+<p>壬子46、106…..        壬午16、76……               甲子05、65…..           甲午35、95……</p>
+<p>壬辰26、86……         壬戌56、116……              甲辰45、105……       甲戌15、75……</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/10/20/乾卦中干支旺衰/" data-id="ck67r2dfn002llzwsi5ltr641" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-三合中的数字(二）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/10/18/三合中的数字(二）/" class="article-date">
@@ -101,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/18/三合中的数字(二）/" data-id="ck32ks4n60025s3ws8oi8yyql" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/18/三合中的数字(二）/" data-id="ck67r2dfm002jlzwsv9kw52rf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -150,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/16/三合中的数字（一）/" data-id="ck32ks4n9002bs3ws3566lwwn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/16/三合中的数字（一）/" data-id="ck67r2dfo002olzwsxr22jv3x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -198,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/15/晕车不用愁/" data-id="ck32ks4p20046s3ws4s0pvnae" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/15/晕车不用愁/" data-id="ck67r2dgp004mlzws7o9raor1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -248,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/13/八卦里的数字/" data-id="ck32ks4o70030s3ws88q8aqp0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/13/八卦里的数字/" data-id="ck67r2dfz003dlzwsyevco9tw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -311,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/13/模式匹配-BF算法/" data-id="ck32ks4p5004cs3ws9ramc5p4" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/13/模式匹配-BF算法/" data-id="ck67r2dgq004qlzws09tam3lb" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -359,7 +510,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/13/10000阶乘的未尾有几个0？/" data-id="ck32ks4mi000xs3ws39illtdd" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/13/10000阶乘的未尾有几个0？/" data-id="ck67r2dex0014lzwsb3k3wygl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -406,7 +557,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/12/预测中的原神、忌神、仇神/" data-id="ck32ks4pv005gs3wslbks0ll6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/12/预测中的原神、忌神、仇神/" data-id="ck67r2dh7005tlzws9njb07vr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,95 +600,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/09/善待自己的身体/" data-id="ck32ks4om003js3ws4uap5o0f" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-原神旺象的几种情况" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/10/08/原神旺象的几种情况/" class="article-date">
-  <time datetime="2013-10-08T09:19:23.000Z" itemprop="datePublished">2013-10-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/10/08/原神旺象的几种情况/">原神旺象的几种情况</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>1、原神临长生帝旺于日建。</strong></p>
-<p><strong>2、原神动而化进神。</strong></p>
-<p><strong>3、原神临月、日建。</strong></p>
-<p><strong>4、原神临月、日建、又临动爻。</strong></p>
-<p><strong>5、原神动，忌神也动。</strong></p>
-<p><strong>6、原神临月、日建动而临空化空。</strong></p>
-<p><strong>临空化空并非无用，因有动不为空，填空之日不为空，出空之间不为空。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/08/原神旺象的几种情况/" data-id="ck32ks4oj003fs3ws2wf5fyrd" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-做人与做事" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/10/03/做人与做事/" class="article-date">
-  <time datetime="2013-10-03T10:05:32.000Z" itemprop="datePublished">2013-10-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/10/03/做人与做事/">做人与做事</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>做人与做事是相互联系的整体。先有做人的理念，树立正确的人生观，再做事就有了基础。人做好了，事也相应就做好了。而做人的价值、空间、质量就决定着做事的价值、空间、质量；但人的价值，只有在做事的过程中才能体现；人的潜能，只有在做事中才能得到开发；人的能力，只有在做事中才能得到最大的发挥；人的成就，只有在做事中才能得以实现；人的梦想，只有在做事中才能完成；人的威望，只有在做事的过程中才能树立。没有做事，做人就没有根基，所以二者是相互依存的整体。只有把二者有机的结合起来，才能使人的品德与才华得到升华，在人生的旅途中处处顺心，紧要关头化险为夷，社交中事事如意，商战中左右逢源，公司中受到上司的重视，同事的尊重，下级的拥戴。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/10/03/做人与做事/" data-id="ck32ks4nc002hs3wsmdqgpoh7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/10/09/善待自己的身体/" data-id="ck67r2dga003xlzws31asptda" class="article-share-link">Share</a>
       
       
     </footer>
@@ -571,7 +634,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -581,7 +644,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 10px;">leetcode</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18.33px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.33px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/leetcode/" style="font-size: 11.67px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18.33px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.33px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -590,7 +653,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
@@ -603,6 +666,14 @@
       <ul>
         
           <li>
+            <a href="/2019/12/25/最大最小值/">最大最小值</a>
+          </li>
+        
+          <li>
+            <a href="/2019/11/18/“气球”的最大数量/">“气球”的最大数量</a>
+          </li>
+        
+          <li>
             <a href="/2019/10/22/IndexedDB实践及封装/">IndexedDB实践及封装</a>
           </li>
         
@@ -612,14 +683,6 @@
         
           <li>
             <a href="/2019/09/21/有向图的强连通分量算法/">有向图的强连通分量算法</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/20/求数据流的中位数/">求数据流的中位数</a>
-          </li>
-        
-          <li>
-            <a href="/2019/09/16/JavaScript哈希/">JavaScript哈希</a>
           </li>
         
       </ul>
@@ -634,7 +697,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2019 Jsu<br>
+      &copy; 2020 Jsu<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
