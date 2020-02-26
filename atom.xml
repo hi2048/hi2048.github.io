@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2020-02-05T16:06:21.439Z</updated>
+  <updated>2020-02-26T08:19:00.631Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DynamicNumber</title>
+    <link href="http://hi2048.github.io/2020/02/10/DynamicNumber/"/>
+    <id>http://hi2048.github.io/2020/02/10/DynamicNumber/</id>
+    <published>2020-02-09T16:00:00.000Z</published>
+    <updated>2020-02-26T08:19:00.631Z</updated>
+    
+    <content type="html"><![CDATA[<p>– 数字跳动控件 <a href="https://github.com/hi2048/hi2048-design/tree/master/site/src/components/dynamicNumber" title="DynamicNumber" target="_blank" rel="noopener">github</a>  <a href="https://www.npmjs.com/package/hi2048-design" title="hi2048-design" target="_blank" rel="noopener">npm</a>  <a href="http://blog.hi2048.com/hi2048-design/" title="DynamicNumber" target="_blank" rel="noopener">demo</a></p><pre><code>-- index.jsimport React, { useState, useEffect } from &apos;react&apos;;import { NORMAL, getSpeed } from &apos;./config&apos;;import { random } from &apos;hi2048-utils&apos;;import &apos;./style.css&apos;;export const DynamicNumber = props =&gt; {  const { start = 100, end = 0, stepping = 1, isRandom = true, speed = NORMAL } = props;  const [count, setCount] = useState(start);  const dynamic = () =&gt; {    let dynamicStepping = stepping;    let distance = end - start;    const direction = distance &lt; 0?-1 : 1;    const timer = setInterval(() =&gt; {      if(isRandom) {        dynamicStepping = random(stepping);      }      if(Math.abs(distance) &lt; dynamicStepping) {        distance = 0;        setCount(end);        return clearInterval(timer);      }      distance -= dynamicStepping * direction;      setCount(count =&gt; count + dynamicStepping * direction);    }, getSpeed(speed))  }  useEffect(dynamic, []);  return (    &lt;div className=&quot;hi2048 dynamic-number-container&quot;&gt;      &lt;span className=&quot;counter&quot;&gt;{ count }&lt;/span&gt;    &lt;/div&gt;  );};-- config.jsconst SPEED_TYPES = {  FASTER: &apos;faster&apos;,  FAST: &apos;fast&apos;,  NORMAL: &apos;normal&apos;,  SLOW: &apos;slow&apos;,  SLOWER: &apos;slower&apos;};export const { FASTER, FAST, NORMAL, SLOW, SLOWER } = SPEED_TYPES;export const getSpeed = speed =&gt; {  switch(speed.toLowerCase()) {    case FASTER:      return 25;    case FAST:      return 50;    case NORMAL:      return 100;    case SLOW:      return 150;    case SLOWER:      return 200;  }};-- style.css.hi2048.dynamic-number-container {  &amp; .counter {    display: inline-block;    height: 22px;    width: auto;    min-width: 48px;    text-align: center;    color: #555;  }}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;– 数字跳动控件 &lt;a href=&quot;https://github.com/hi2048/hi2048-design/tree/master/site/src/components/dynamicNumber&quot; title=&quot;DynamicNumber&quot; target=&quot;_b
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="React" scheme="http://hi2048.github.io/tags/React/"/>
+    
+      <category term="hi2048" scheme="http://hi2048.github.io/tags/hi2048/"/>
+    
+      <category term="hi2048-design" scheme="http://hi2048.github.io/tags/hi2048-design/"/>
+    
+  </entry>
   
   <entry>
     <title>类型判断</title>
@@ -590,38 +619,6 @@ const nodeAStruct = function(id, pid, data) {
     
     
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>桥接模式</title>
-    <link href="http://hi2048.github.io/2019/03/05/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://hi2048.github.io/2019/03/05/桥接模式/</id>
-    <published>2019-03-04T16:00:00.000Z</published>
-    <updated>2019-10-26T14:00:12.036Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>桥接模式（Bridge）<br> <a href="/assets/桥接模式.png"><img src="/assets/桥接模式.png" alt="桥接模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Bridge" title="桥接模式" target="_blank" rel="noopener">github</a></p><pre><code>-- abstraction.jsclass Abstraction {    constructor(implementor) {        if(new.target === Abstraction)            throw new Error(`${Abstraction} cannot be initialized.`);        this.implementor = implementor;    }    setImplementor(implementor) {        implementor &amp;&amp; (this.implementor = implementor);        return this;    }    operation() {        throw new Error(`${this.operation} should be overwrite.`);    }}module.exports = Abstraction;-- implementor.jsclass Implementor {    constructor() {        if(new.target === Implementor) {            throw new Error(`${Implementor} cannot be initialized.`);        }    }    operation() {        throw new Error(`${this.operation} should be overwrite.`);    }}module.exports = Implementor;-- refinedAbstraction.jsconst Abstraction = require(&apos;./abstraction&apos;);class RefinedAbstraction extends Abstraction {    constructor(implementor = {}) {        super(implementor);    }    operation() {        console.log(&apos;RefinedAbstraction operation.&apos;);        this.implementor.operation &amp;&amp; this.implementor.operation();        return this;    }}module.exports = RefinedAbstraction;-- concreteImplementorA.jsconst Implementor = require(&apos;./implementor&apos;);class ConcreteImplementorA extends Implementor {    constructor() {        super();    }    operation() {        console.log(&apos;ConcreteImplementorA operation.&apos;);    }}module.exports = ConcreteImplementorA;-- concreteImplementorB.jsconst Implementor = require(&apos;./implementor&apos;);class ConcreteImplementorB extends Implementor {    constructor() {        super();    }    operation() {        console.log(&apos;ConcreteImplementorB operation.&apos;);    }}module.exports = ConcreteImplementorB;-- client.jsconst RefinedAbstraction = require(&apos;./refinedAbstraction&apos;);const ConcreteImplementorA = require(&apos;./concreteImplementorA&apos;);const ConcreteImplementorB = require(&apos;./concreteImplementorB&apos;);const refinedAbstraction = new RefinedAbstraction();const concreteImplementorA = new ConcreteImplementorA();const concreteImplementorB = new ConcreteImplementorB();refinedAbstraction.operation();console.log(&apos;------&apos;);refinedAbstraction.setImplementor().operation();console.log(&apos;------&apos;);refinedAbstraction.setImplementor(concreteImplementorA).operation();console.log(&apos;------&apos;);refinedAbstraction.setImplementor().operation();console.log(&apos;------&apos;);refinedAbstraction.setImplementor(concreteImplementorB).operation();console.log(&apos;------&apos;);new RefinedAbstraction(new ConcreteImplementorB()).operation().setImplementor().operation().setImplementor(new ConcreteImplementorA()).operation();console.log(&apos;------&apos;);</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;桥接模式（Bridge）&lt;br&gt; &lt;a href=&quot;/assets/桥接模式.png&quot;&gt;&lt;img src=&quot;/assets/桥接模式.png&quot; alt=&quot;桥接模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https://g
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   
