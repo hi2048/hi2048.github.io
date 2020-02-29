@@ -64,6 +64,156 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-快乐数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/08/快乐数/" class="article-date">
+  <time datetime="2018-12-07T16:00:00.000Z" itemprop="datePublished">2018-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/08/快乐数/">快乐数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>快乐数：<br>正整数，求出每个位置的数字平方和，重复此过程，可以得到数字1，则为快乐数。<br>求取平方和过程中如果重复之前的平方和，则非快乐数。</p>
+<pre><code>var getSquaresSum = function(n){
+    var ss = n.toString().split(&apos;&apos;);
+
+    return ss.reduce(function(count, s){
+        return count + Math.pow(parseInt(s), 2);
+    }, 0)
+}
+
+var isHappy = function(n) {
+    var rets = [n];
+    var count = n;
+
+    while(true){
+        count = getSquaresSum(count);
+        if(count === 1){
+            return true;
+        }
+
+        var index = rets.indexOf(count);
+        if(index !== -1){
+            return false;
+        }
+
+        rets.push(count);
+    }
+};
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck77lzea000344pwsrpou8328" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/02/React生命周期/" class="article-date">
+  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/02/React生命周期/">React生命周期</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>React生命周期 - React16前</p>
+<p><strong> React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） </strong></p>
+<ul>
+<li><p>initialization：初始化props和state。<br>constructor</p>
+</li>
+<li><p>mounting：执行一次。<br>componentWillMount, render, componentDidMount</p>
+</li>
+<li><p>update：setState引起的state更新或者父组件重新render引起的props更新。<br>componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate</p>
+</li>
+<li><p>unmount: 执行一次<br>componentWillUnmount</p>
+</li>
+</ul>
+<p><a href="/assets/React-lifecycle-before.png"><img src="/assets/React-lifecycle-before.png" alt="React生命周期"></a></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>React生命周期</p>
+<ul>
+<li>引入了两个新的生命周期函数<br>getDerivedStateFromProps，getSnapshotBeforeUpdate</li>
+</ul>
+<p><a href="/assets/React-lifecycle.png"><img src="/assets/React-lifecycle.png" alt="React16生命周期"></a></p>
+</li>
+<li><p>为什么会变化</p>
+<p><strong> React16推出Fiber，如果开启async rendering，会导致render函数之前的所有函数，有可能被执行多次。 </strong></p>
+<ul>
+<li>componentWillMount</li>
+<li>componentWillReceiveProps</li>
+<li>componentWillUpdate</li>
+<li>shouldComponentUpdate</li>
+</ul>
+<p>其中shouldComponentUpdate为纯函数，返回Boolean，没有副作用，而其他三个函数，开发者如果在里面执行有副作用的操作，如Ajax等，会产生不可预期的结果。所以其余三个统一被getDerivedStateFromProps替代，并且<strong> 采用静态函数，用禁止来替代以前的建议 </strong>。</p>
+<p>react的component中static属性，里面放函数，官方解释：<br><strong> you can run them before any component instances are created, and the methods do not have access to the props or state of your components. </strong></p>
+<p><strong> 静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state。 </strong></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck77lze8v000s4pwsc02argrt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-备忘录模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/02/备忘录模式/" class="article-date">
@@ -183,88 +333,10 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck731x3d50045kkwsmyk6w3bn" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck77lze9v002t4pwscuqw8h0b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React生命周期" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/02/React生命周期/" class="article-date">
-  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/02/React生命周期/">React生命周期</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>React生命周期 - React16前</p>
-<p><strong> React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） </strong></p>
-<ul>
-<li><p>initialization：初始化props和state。<br>constructor</p>
-</li>
-<li><p>mounting：执行一次。<br>componentWillMount, render, componentDidMount</p>
-</li>
-<li><p>update：setState引起的state更新或者父组件重新render引起的props更新。<br>componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate</p>
-</li>
-<li><p>unmount: 执行一次<br>componentWillUnmount</p>
-</li>
-</ul>
-<p><a href="/assets/React-lifecycle-before.png"><img src="/assets/React-lifecycle-before.png" alt="React生命周期"></a></p>
-</li>
-</ol>
-<ol start="2">
-<li><p>React生命周期</p>
-<ul>
-<li>引入了两个新的生命周期函数<br>getDerivedStateFromProps，getSnapshotBeforeUpdate</li>
-</ul>
-<p><a href="/assets/React-lifecycle.png"><img src="/assets/React-lifecycle.png" alt="React16生命周期"></a></p>
-</li>
-<li><p>为什么会变化</p>
-<p><strong> React16推出Fiber，如果开启async rendering，会导致render函数之前的所有函数，有可能被执行多次。 </strong></p>
-<ul>
-<li>componentWillMount</li>
-<li>componentWillReceiveProps</li>
-<li>componentWillUpdate</li>
-<li>shouldComponentUpdate</li>
-</ul>
-<p>其中shouldComponentUpdate为纯函数，返回Boolean，没有副作用，而其他三个函数，开发者如果在里面执行有副作用的操作，如Ajax等，会产生不可预期的结果。所以其余三个统一被getDerivedStateFromProps替代，并且<strong> 采用静态函数，用禁止来替代以前的建议 </strong>。</p>
-<p>react的component中static属性，里面放函数，官方解释：<br><strong> you can run them before any component instances are created, and the methods do not have access to the props or state of your components. </strong></p>
-<p><strong> 静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state。 </strong></p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck731x3c30025kkwsp1i4i1k6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -369,7 +441,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck731x3e1005pkkwsi34yojmj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck77lzeap004c4pwso1odq2gm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -531,7 +603,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck731x3dn0050kkwsddxpp4hc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck77lzeab003o4pwsyx7er0iz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -599,7 +671,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck731x3c20023kkws9fxastsu" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck77lze8t000o4pwshcz79y4c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -642,7 +714,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck731x3dp0054kkwsbyqyu7tx" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck77lzeac003s4pwsr6zaqect" class="article-share-link">Share</a>
       
       
     </footer>
@@ -701,7 +773,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck731x3c5002bkkws5js4gp6k" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck77lze9100124pwsf26g3hmp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
@@ -985,7 +1057,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/10/抽象工厂模式/" data-id="ck731x3dc004ikkwset0vwb5r" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/09/10/抽象工厂模式/" data-id="ck77lzea300384pwsi7h4adi6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1168,191 +1240,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/08/02/观察者模式/" data-id="ck731x3dy005jkkwsvkxutqay" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-建造者模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/12/建造者模式/" class="article-date">
-  <time datetime="2018-07-11T16:00:00.000Z" itemprop="datePublished">2018-07-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/12/建造者模式/">建造者模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>建造者模式（Builder）<br> <a href="/assets/建造者模式.png"><img src="/assets/建造者模式.png" alt="建造者模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Builder" title="建造者模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- product.js
-class Product {
-    constructor() {
-        this.parts = new Array();
-
-        console.log(&apos;Product constructor.&apos;);
-    }
-
-    add(part) {
-        this.parts.push(part);
-    }
-
-    show() {
-        console.log(...this.parts);
-    }
-}
-
-module.exports = Product;
-
--- builder.js
-class Builder {
-    constructor() {
-        if(new.target === Builder)
-            throw new Error(`${Builder} cannot be initialized.`);
-
-        console.log(&apos;Builder constructor.&apos;);
-    }
-
-    buildPartA() {
-        throw new Error(`${this.buildPartA} should be overwrite.`);
-    }
-
-    buildPartB() {
-        throw new Error(`${this.buildPartB} should be overwrite.`);
-    }
-
-    getResult() {
-        throw new Error(`${this.getResult} should be overwrite.`);
-    }
-}
-
-module.exports = Builder;
-
--- concreteBuilder1.js
-const Builder = require(&apos;./builder&apos;);
-const Product = require(&apos;./product&apos;);
-
-class ConcreteBuilder1 extends Builder {
-    constructor(product) {
-        super();
-
-        this.product = product || new Product();
-
-        console.log(&apos;ConcreteBuilder1 constructor.&apos;);
-    }
-
-    buildPartA() {
-        this.product.add(&apos;partA1&apos;);
-    }
-
-    buildPartB() {
-        this.product.add(&apos;partB1&apos;);
-    }
-
-    getResult() {
-        return this.product;
-    }
-}
-
-module.exports = ConcreteBuilder1;
-
--- concreteBuilder2.js
-const Builder = require(&apos;./builder&apos;);
-const Product = require(&apos;./product&apos;);
-
-class ConcreteBuilder2 extends Builder {
-    constructor(product) {
-        super();
-
-        this.product = product || new Product();
-        console.log(&apos;ConcreteBuilder2 constructor.&apos;);
-    }
-
-    buildPartA() {
-        this.product.add(&apos;partA2&apos;);
-    }
-
-    buildPartB() {
-        this.product.add(&apos;partB2&apos;);
-    }
-
-    getResult() {
-        return this.product;
-    }
-}
-
-module.exports = ConcreteBuilder2;
-
--- director.js
-class Director {
-    constructor() {
-        console.log(&apos;Director constructor.&apos;);
-    }
-
-    construct(builder) {
-        builder.buildPartA();
-        builder.buildPartB();
-
-        console.log(&apos;Director construct.&apos;);
-    }
-}
-
-module.exports = Director;
-
--- client.js
-const Director = require(&apos;./director&apos;);
-const Product = require(&apos;./product&apos;);
-const ConcreteBuilder1 = require(&apos;./concreteBuilder1&apos;);
-const ConcreteBuilder2 = require(&apos;./concreteBuilder2&apos;);
-
-const director = new Director();
-console.log(&apos;------&apos;);
-
-const concreteBuilder1 = new ConcreteBuilder1();
-director.construct(concreteBuilder1);
-concreteBuilder1.getResult().show();
-console.log(&apos;------&apos;);
-
-const productB = new Product();
-const concreteBuilder2 = new ConcreteBuilder2(productB);
-director.construct(concreteBuilder2);
-console.log(&apos;product B: &apos;);
-productB.show();
-console.log(&apos;concreteBuilder2 getResult: &apos;);
-concreteBuilder2.getResult().show();
-console.log(&apos;------&apos;);
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/07/12/建造者模式/" data-id="ck731x3db004fkkws24979r28" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/08/02/观察者模式/" data-id="ck77lzean00474pwsxjaqe9gk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1388,7 +1276,7 @@ console.log(&apos;------&apos;);
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -1398,7 +1286,7 @@ console.log(&apos;------&apos;);
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/hi2048/" style="font-size: 10px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/leetcode/" style="font-size: 11.67px;">leetcode</a> <a href="/tags/utils/" style="font-size: 11.67px;">utils</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18.33px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.33px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14.29px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15.71px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/hi2048/" style="font-size: 12.86px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 11.43px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 11.43px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.43px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18.57px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.14px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.57px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -1420,6 +1308,10 @@ console.log(&apos;------&apos;);
       <ul>
         
           <li>
+            <a href="/2020/02/20/curry-compose-and-pipe/">curry, compose and pipe</a>
+          </li>
+        
+          <li>
             <a href="/2020/02/10/DynamicNumber/">DynamicNumber</a>
           </li>
         
@@ -1433,10 +1325,6 @@ console.log(&apos;------&apos;);
         
           <li>
             <a href="/2019/11/18/“气球”的最大数量/">“气球”的最大数量</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/22/IndexedDB实践及封装/">IndexedDB实践及封装</a>
           </li>
         
       </ul>

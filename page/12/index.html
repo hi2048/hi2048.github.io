@@ -64,6 +64,98 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-二叉树求取后序遍历" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/25/二叉树求取后序遍历/" class="article-date">
+  <time datetime="2013-09-25T08:32:46.000Z" itemprop="datePublished">2013-09-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/25/二叉树求取后序遍历/">二叉树求取后序遍历</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>如何根据二叉树的前序遍历与中序遍历，求出后序遍历？</p>
+<p>二叉树的前序遍历：根 左 右</p>
+<p>二叉树的中序遍历：左 根 右</p>
+<p>可以从前序中得知二叉树的根所在，从中序遍历得知根的左右子树，最后使用递归求得二叉树，从而求出后序遍历的结果。</p>
+<p>例如已知，</p>
+<p>前序遍历为：a b d e c f g h i</p>
+<p>中序遍历为：e d b c a h g i f</p>
+<p>因而可以求得此二叉树如下，</p>
+<p><a href="/assets/cal_postorder.png"><img src="/assets/cal_postorder.png" alt="cal_postorder"></a></p>
+<p>从而后序遍历为：e d c b h i g f a</p>
+<p>程序实现如下，</p>
+<pre>
+#include&lt;stdio.h&gt;
+#include&lt;iostream&gt;
+
+using namespace std;
+
+int findRootIndex(char c, char *in, int in_start, int in_end){
+    for(int i = in_start; i &lt;= in_end; i++)
+        if(c == in[i])
+            return i;
+    return -1;
+}
+
+void calPostorderTraversal(char *p, int p_start, int p_end, char *in, int in_start, int in_end){
+    char c = p[p_start];
+    int n = findRootIndex(p[p_start], in, in_start, in_end);
+
+    if(in_start &gt; in_end) return;
+    if(in_end == in_start) {
+        cout&lt;&lt;c;
+        return;
+    }
+
+    calPostorderTraversal(p, p_start + 1, p_start + n - in_start, in, in_start, n - 1);
+    calPostorderTraversal(p, p_start + n + 1 - in_start, p_end, in, n + 1, in_end);
+
+    cout&lt;&lt;c;
+}
+
+int main(){
+    char preorder[] = &quot;abdecfghi&quot;;
+    char inorder[] = &quot;edbcahgif&quot;;
+    int len = sizeof(preorder);
+
+    calPostorderTraversal(preorder, 0, len - 1, inorder, 0, len - 1);
+
+    return 0;
+}
+</pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/25/二叉树求取后序遍历/" data-id="ck77lze97001f4pwsh5jggflk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-十二地支中所藏干歌诀" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/24/十二地支中所藏干歌诀/" class="article-date">
@@ -106,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/24/十二地支中所藏干歌诀/" data-id="ck731x3cs003lkkws1rynrkto" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/24/十二地支中所藏干歌诀/" data-id="ck77lze9l00294pws8929lzus" class="article-share-link">Share</a>
       
       
     </footer>
@@ -161,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/23/十二地支的关系/" data-id="ck731x3cs003mkkwszoo3jnbf" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/23/十二地支的关系/" data-id="ck77lze9l00284pwszyc5umge" class="article-share-link">Share</a>
       
       
     </footer>
@@ -210,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/22/十天干关系/" data-id="ck731x3ct003okkwsrfa58frs" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/22/十天干关系/" data-id="ck77lze9m002b4pws3xgg9xos" class="article-share-link">Share</a>
       
       
     </footer>
@@ -343,7 +435,7 @@ obj4 name: obj4, obj4 obj_inner name: obj44
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript中浅复制与深复制/" data-id="ck731x3bq001lkkws0hnf321n" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript中浅复制与深复制/" data-id="ck77lze8q000i4pwsxnq25ger" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -429,7 +521,7 @@ alert(obj.func()());</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript闭包/" data-id="ck731x3bz001zkkws35ufwn8o" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/20/JavaScript闭包/" data-id="ck77lze8s000m4pwsgfdgvl8e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -481,7 +573,7 @@ alert(obj.func()());</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/20/五行关系/" data-id="ck731x3ce002ukkwsza7e7lpl" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/20/五行关系/" data-id="ck77lze98001h4pwsqzr7wqxv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -573,7 +665,7 @@ var arr2 = [&#039;1&#039;, &#039;123&#039;, &#039;123&#039;, &#039;231&#039;, &#
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript去掉数组中的重复元素/" data-id="ck731x3bx001tkkwshowq3pcw" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript去掉数组中的重复元素/" data-id="ck77lze8q000j4pwsyjbcyovj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -625,7 +717,7 @@ var arr2 = [&#039;1&#039;, &#039;123&#039;, &#039;123&#039;, &#039;231&#039;, &#
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck731x3cu003pkkwsjnq7w4mw" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/十干在十二宫长生表/" data-id="ck77lze9n002d4pwspu4ybxue" class="article-share-link">Share</a>
       
       
     </footer>
@@ -740,65 +832,11 @@ t11.onclick = function(event){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck731x3bo001ikkwstly8s4fw" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/19/JavaScript中事件冒泡/" data-id="ck77lze8m000c4pwsa7w25szm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-十二宫解释" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/18/十二宫解释/" class="article-date">
-  <time datetime="2013-09-18T09:48:02.000Z" itemprop="datePublished">2013-09-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/18/十二宫解释/">十二宫解释</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>《三命通会》十二宫解释：</strong></p>
-<p><strong>长生象万物发生向荣，如人始生而向长也。</strong></p>
-<p><strong>沐浴（败）象以万物始生，形体柔脆，易为所损，如人生后三日，以沐浴之，不至困绝也。</strong></p>
-<p><strong>冠带象万物渐荣秀，如人具衣冠也。</strong></p>
-<p><strong>临官如人之临官也。</strong></p>
-<p><strong>帝旺象万物成熟，如人之兴旺也。</strong></p>
-<p><strong>衰象万物形衰，如人之气衰也。</strong></p>
-<p><strong>病象万物病，如人之病也。</strong></p>
-<p><strong>死象万物死，如人之死也。</strong></p>
-<p><strong>墓（库）象万物成功之藏库，如人之终而归墓也。</strong></p>
-<p><strong>绝（受气、胞）象万物在地中，未有其象，如母腹空，未有物也。</strong></p>
-<p><strong>胎（受胎）象天地气交，氤氲造物，其物在地中萌芽，始有其气，如人受父母之气也。</strong></p>
-<p><strong>养（形成）象万物在地中形成，如人之在母腹成形也。</strong></p>
-<p>&nbsp;</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/18/十二宫解释/" data-id="ck731x3cs003nkkwsku7nixbo" class="article-share-link">Share</a>
-      
-      
     </footer>
   </div>
   
@@ -830,7 +868,7 @@ t11.onclick = function(event){
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -840,7 +878,7 @@ t11.onclick = function(event){
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/hi2048/" style="font-size: 10px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/leetcode/" style="font-size: 11.67px;">leetcode</a> <a href="/tags/utils/" style="font-size: 11.67px;">utils</a> <a href="/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18.33px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 16.67px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.33px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 14.29px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15.71px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/hi2048/" style="font-size: 12.86px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 11.43px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 11.43px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.43px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18.57px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.14px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.57px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -862,6 +900,10 @@ t11.onclick = function(event){
       <ul>
         
           <li>
+            <a href="/2020/02/20/curry-compose-and-pipe/">curry, compose and pipe</a>
+          </li>
+        
+          <li>
             <a href="/2020/02/10/DynamicNumber/">DynamicNumber</a>
           </li>
         
@@ -875,10 +917,6 @@ t11.onclick = function(event){
         
           <li>
             <a href="/2019/11/18/“气球”的最大数量/">“气球”的最大数量</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/22/IndexedDB实践及封装/">IndexedDB实践及封装</a>
           </li>
         
       </ul>
