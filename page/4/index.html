@@ -64,6 +64,830 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-LRU算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/10/LRU算法/" class="article-date">
+  <time datetime="2019-02-09T16:00:00.000Z" itemprop="datePublished">2019-02-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/10/LRU算法/">LRU算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> LRU (least recently used) 缓存机制：实现get, put方法。 </strong></p>
+<pre><code>/**
+ * 元素置顶
+ */
+const popItemFromArray = (arr, key) =&gt;{
+  arr.splice(arr.indexOf(key), 1);
+  arr.push(key);
+
+  return arr;
+}
+
+/**
+ * 实现思路：ES6 Map [+ 有序数组（或者双向链表）]
+ *
+*/
+var LRUCache = function(capacity) {
+    this.cache = new Map();
+    this.lruArr = new Array();
+    this.curLen = 0;
+    this.capacity = capacity;
+};
+
+LRUCache.prototype.get = function(key) {
+    if(this.cache.has(key)){
+      const value = this.cache.get(key);
+      popItemFromArray(this.lruArr, key);
+
+      return value;
+    }
+
+    return -1;
+};
+
+LRUCache.prototype.lruDel = function(){
+  const minKey = this.lruArr.shift();
+  const isucc = this.cache.delete(minKey);
+
+  if(isucc){
+    this.curLen--;
+  }
+
+  return isucc;
+}
+
+// iorder : false descend true ascend
+LRUCache.prototype.sort = function(iorder) {
+  return this.lruArr.sort((c1, c2) =&gt; {
+    return c1 - c2;
+  });
+}
+
+LRUCache.prototype.put = function(key, value) {
+    if(this.cache.has(key)){
+      // pop key from lru array
+      popItemFromArray(this.lruArr, key);
+
+      return this.cache.set(key, value);
+    }
+
+    if(this.curLen === this.capacity){
+      this.lruDel();
+    }
+
+    this.curLen++;
+    this.lruArr.push(key);
+
+    return this.cache.set(key, value);
+};
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ck7s0t8k6000mecws6s5rky4l" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-迭代器模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/02/08/迭代器模式/" class="article-date">
+  <time datetime="2019-02-07T16:00:00.000Z" itemprop="datePublished">2019-02-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/02/08/迭代器模式/">迭代器模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>迭代器模式（Iterator）<br> <a href="/assets/迭代器模式.png"><img src="/assets/迭代器模式.png" alt="迭代器模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Iterator" title="迭代器模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- aggregate.js
+class Aggregate {
+    constructor() {
+        if(new.target === Aggregate)
+            throw new Error(`${Aggregate} cannot be initialized.`);
+    }
+
+    createIterator() {
+        throw new Error(`${this.createIterator} should be overwrite.`);
+    }
+}
+
+module.exports = Aggregate;
+
+-- iterator.js
+class Iterator {
+    constructor() {
+        if(new.target === Iterator)
+            throw new Error(`${Iterator} cannot be initialized.`);
+    }
+
+    first() {
+        throw new Error(`${this.first} should be overwrite.`);
+    }
+
+    next() {
+        throw new Error(`${this.next} should be overwrite.`);
+    }
+
+    isDone() {
+        throw new Error(`${this.isDone} should be overwrite.`);
+    }
+
+    currentItem() {
+        throw new Error(`${this.currentItem} should be overwrite.`);
+    }
+}
+
+module.exports = Iterator;
+
+-- concreteAggregate1.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator = require(&apos;./concreteIterator1&apos;);
+
+class ConcreteAggregate extends Aggregate {
+    constructor() {
+        super();
+
+        this.aggregate = new Array();
+    }
+
+    add(item) {
+        this.aggregate.push(item);
+    }
+
+    get(index) {
+        return this.aggregate[index];
+    }
+
+    count() {
+        return this.aggregate.length;
+    }
+
+    createIterator() {
+        return new ConcreteIterator(this);
+    }
+}
+
+module.exports = ConcreteAggregate;
+
+-- concreteIterator1.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator extends Iterator {
+    constructor(aggregate = {}) {
+        super();
+
+        this.aggregate = aggregate;
+        this.cur = 0;
+    }
+
+    first() {
+        return this.aggregate.get(0);
+    }
+
+    next() {
+        this.cur++;
+
+        if(this.cur &lt; this.aggregate.count()) {
+            return this.currentItem();
+        }
+
+        return undefined;
+    }
+
+    isDone() {
+        return this.cur &lt; this.aggregate.count()? false : true;
+    }
+
+    currentItem() {
+        return this.aggregate.get(this.cur);
+    }
+}
+
+module.exports = ConcreteIterator;
+
+-- concreteAggregate2.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator2 = require(&apos;./concreteIterator2&apos;);
+
+class ConcreteAggregate2 extends Aggregate {
+    constructor() {
+        super();
+    }
+
+    createIterator() {
+        return new ConcreteIterator2(this);
+    }
+}
+
+module.exports = ConcreteAggregate2;
+
+-- concreteIterator2.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator2 extends Iterator {
+    constructor(aggregate = {}) {
+        super();
+
+        this.aggregate = aggregate;
+
+        this.initAggregateIterator();
+
+        // init iterator
+        this.iterator = this.aggregate[Symbol.iterator]();
+    }
+
+    initAggregateIterator() {
+        this.aggregate[Symbol.iterator] = function() {
+            const aggregate = this;
+            const keys = Object.keys(aggregate);
+            let curIndex = 0;
+
+            return {
+                first: function() {
+                    return aggregate[keys[curIndex]];
+                },
+                next: function () {
+                    curIndex++;
+
+                    if(curIndex &lt; keys.length) {
+                        return this.currentItem();
+                    }
+
+                    return undefined;
+                },
+                isDone: function() {
+                    return curIndex &lt; keys.length? false : true;
+                },
+                currentItem: function() {
+                    return aggregate[keys[curIndex]];
+                }
+            }
+        }
+    }
+
+    first() {
+        return this.iterator.first();
+    }
+
+    next() {
+        return this.iterator.next();
+    }
+
+    isDone() {
+        return this.iterator.isDone();
+    }
+
+    currentItem() {
+        return this.iterator.currentItem();
+    }
+}
+
+module.exports = ConcreteIterator2;
+
+-- concreteAggregate3.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator3 = require(&apos;./concreteIterator3&apos;);
+
+class ConcreteAggregate3 extends Aggregate {
+    constructor() {
+        super();
+    }
+
+    createIterator() {
+        return new ConcreteIterator3(this);
+    }
+}
+
+module.exports = ConcreteAggregate3;
+
+-- concreteIterator3.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator3 extends Iterator {
+    constructor(aggregate = {}) {
+        super();
+
+        this.aggregate = aggregate;
+        this.initAggregateIterator();
+
+        // init iterator
+        this.iterator = this.aggregate[Symbol.iterator]();
+    }
+
+    initAggregateIterator() {
+        this.aggregate[Symbol.iterator] = function *() {
+            const aggregateValues = Object.values(this);
+
+            for(let value of aggregateValues) {
+                yield value;
+            }
+        }
+    }
+
+    next() {
+        return this.iterator.next();
+    }
+}
+
+module.exports = ConcreteIterator3;
+
+-- client.js
+const ConcreteAggregate1 = require(&apos;./concreteAggregate1&apos;);
+const ConcreteAggregate2  = require(&apos;./concreteAggregate2&apos;);
+const ConcreteAggregate3 = require(&apos;./concreteAggregate3&apos;);
+
+const concreteAggregate1 = new ConcreteAggregate1();
+concreteAggregate1.add(&apos;a&apos;);
+concreteAggregate1.add(&apos;b&apos;);
+concreteAggregate1.add(&apos;c&apos;);
+
+console.log(&apos;Iterator dp1: &apos;);
+const iterator1 = concreteAggregate1.createIterator();
+
+let iteratorValueDP1 = iterator1.first();
+while(!iterator1.isDone()) {
+    console.log(`${iteratorValueDP1} `);
+
+    iteratorValueDP1 = iterator1.next();
+}
+console.log(&apos;------&apos;);
+
+console.log(&apos;Iterator dp2: &apos;);
+const concreteAggregate2 = new ConcreteAggregate2();
+concreteAggregate2[&apos;0&apos;] = &apos;a&apos;;
+concreteAggregate2[&apos;1&apos;] = &apos;b&apos;;
+concreteAggregate2[&apos;2&apos;] = &apos;c&apos;;
+
+const iterator2 = concreteAggregate2.createIterator();
+
+let iteratorValueDP2 = iterator2.first();
+while(!iterator2.isDone()) {
+    console.log(`${iteratorValueDP2} `);
+
+    iteratorValueDP2 = iterator2.next();
+}
+console.log(&apos;------&apos;);
+
+console.log(&apos;Iterator dp3: &apos;);
+const concreteAggregate3 = new ConcreteAggregate3();
+concreteAggregate3[1] = &apos;a&apos;;
+concreteAggregate3[2] = &apos;b&apos;;
+concreteAggregate3[3] = &apos;c&apos;;
+
+const iterator3 = concreteAggregate3.createIterator();
+
+let iteratorValueDP3 = iterator3.next();
+while(!iteratorValueDP3.done) {
+    console.log(`${iteratorValueDP3.value} `);
+
+    iteratorValueDP3 = iterator3.next();
+}
+console.log(&apos;------&apos;);
+
+-- concreteAggregate4.js
+const Aggregate = require(&apos;./aggregate&apos;);
+const ConcreteIterator4 = require(&apos;./concreteIterator4&apos;);
+
+class ConcreteAggregate4 extends Aggregate {
+    constructor() {
+        super();
+
+        this.item = new Array();
+
+        // super array simulate indexer
+        this.extend(this.item, this, Reflect.getPrototypeOf(this));
+
+        return this.item;
+    }
+
+    extend(target, ...origins) {
+        for(let origin of origins) {
+            const keys = Reflect.ownKeys(origin);
+
+            for(let key of keys) {
+                target[key] = origin[key];
+            }
+        }
+    }
+
+    createIterator() {
+        return new ConcreteIterator4(this.item);
+    }
+}
+
+module.exports = ConcreteAggregate4;
+
+-- concreteIterator4.js
+const Iterator = require(&apos;./iterator&apos;);
+
+class ConcreteIterator4 extends Iterator {
+    constructor(aggregate = []) {
+        super();
+
+        this.aggregate = aggregate;
+        this.curIndex = 0;
+    }
+
+    first() {
+        return this.aggregate[this.curIndex];
+    }
+
+    next() {
+        let ret = null;
+        this.curIndex ++;
+
+        if(this.curIndex &lt; this.aggregate.length) {
+            ret = this.currentItem();
+        }
+
+        return ret;
+    }
+
+    isDone() {
+        return this.curIndex &lt; this.aggregate.length?false : true;
+    }
+
+    currentItem() {
+        return this.aggregate[this.curIndex];
+    }
+}
+
+module.exports = ConcreteIterator4;
+
+-- client2.js
+const ConcreteAggregate4 = require(&apos;./concreteAggregate4&apos;);
+
+const concreteAggregate4 = new ConcreteAggregate4();
+concreteAggregate4[0] = &apos;a&apos;;
+concreteAggregate4[1] = &apos;b&apos;;
+concreteAggregate4[2] = &apos;c&apos;;
+
+const iterator = concreteAggregate4.createIterator();
+
+let iteratorValue = iterator.first();
+while(!iterator.isDone()) {
+    console.log(`${iteratorValue} `);
+
+    iteratorValue = iterator.next();
+}
+
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ck7s0t8oi006iecws7kfwk4vv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Heap实现" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/19/Heap实现/" class="article-date">
+  <time datetime="2019-01-18T16:00:00.000Z" itemprop="datePublished">2019-01-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/19/Heap实现/">Heap实现</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 小根堆实现，大根堆类似 </strong></p>
+<pre><code>// 通过 up down方法实现 堆的有效性
+class Heap {
+  constructor(){
+    this.heap = new Array();
+  }
+
+  swap(id1, id2) {
+    let temp = this.heap[id1];
+    this.heap[id1] = this.heap[id2];
+    this.heap[id2] = temp;
+  }
+
+  up(id) {
+    let pid = Math.floor((id - 1) / 2);
+
+    if(id !== 0 &amp;&amp; this.heap[pid] &gt; this.heap[id]){
+      this.swap(pid, id);
+      this.up(pid);
+    }
+  }
+
+  down(id) {
+    let leftChildId = id * 2 + 1;
+    let rightChildId = id * 2 + 2;
+    let len = this.heap.length;
+
+    if(leftChildId &lt; len &amp;&amp; this.heap[leftChildId] &lt; this.heap[id]){
+      this.swap(leftChildId, id);
+      this.down(leftChildId);
+    }
+
+    if(rightChildId &lt; len &amp;&amp; this.heap[rightChildId] &lt; this.heap[id]){
+      this.swap(rightChildId, id);
+      this.down(rightChildId);
+    }
+  }
+
+  insert(x) {
+    this.heap.push(x);
+    this.up(this.heap.length - 1);
+  }
+
+  remove(){
+    this.swap(0, this.heap.length - 1);
+    const ret = this.heap.pop();
+
+    this.down(0);
+
+    return ret;
+  }
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ck7s0t8jv0009ecwsqfp2643s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-组合模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/05/组合模式/" class="article-date">
+  <time datetime="2019-01-04T16:00:00.000Z" itemprop="datePublished">2019-01-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/05/组合模式/">组合模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>组合模式（Composite）<br> <a href="/assets/组合模式.png"><img src="/assets/组合模式.png" alt="组合模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Composite" title="组合模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- component.js
+class Component {
+    constructor(name = &apos;Component&apos;) {
+        if(new.target === Component)
+            throw new Error(`${Component} cannot be initialized.`);
+
+        this.name = name;
+    }
+
+    add(c) {
+        throw new Error(`${this.add} should be overwrite.`);
+    }
+
+    remove(c) {
+        throw new Error(`${this.remove} should be overwrite.`);
+    }
+
+    display() {
+        throw new Error(`${this.display} should be overwrite.`);
+    }
+}
+
+module.exports = Component;
+
+-- composite.js
+const Component = require(&apos;./component&apos;);
+
+class Composite extends Component {
+    constructor(name) {
+        super(name);
+
+        this.components = new Set();
+    }
+
+    add(c) {
+        this.components.add(c);
+    }
+
+    remove(c) {
+        this.components.delete(c);
+    }
+
+    display(depth = 1) {
+        console.log(`${&apos;-&apos;.repeat(depth)} ${this.name}`);
+
+        this.components.forEach((component) =&gt; (component.display(depth + 2)));
+    }
+}
+
+module.exports = Composite;
+
+-- leaf.js
+const Component = require(&apos;./component&apos;);
+
+class Leaf extends Component {
+    constructor(name) {
+        super(name);
+    }
+
+    display(depth = 1) {
+        console.log(`${&apos;-&apos;.repeat(depth)} ${this.name}`);
+    }
+}
+
+module.exports = Leaf;
+
+-- client.js
+const Composite = require(&apos;./composite&apos;);
+const Leaf = require(&apos;./leaf&apos;);
+
+const root = new Composite(&apos;Root&apos;);
+
+root.add(new Leaf(&apos;Leaf11&apos;));
+root.add(new Leaf(&apos;Leaf12&apos;));
+
+const composite1 = new Composite(&apos;Composite11&apos;);
+root.add(composite1);
+
+const leaf21 = new Leaf(&apos;Leaf21&apos;);
+composite1.add(leaf21);
+
+const composite2 = new Composite(&apos;Composite21&apos;);
+composite1.add(composite2);
+
+composite1.add(new Leaf(&apos;Leaf22&apos;));
+
+composite2.add(new Leaf(&apos;Leaf31&apos;));
+
+root.add(new Leaf(&apos;Leaf13&apos;));
+
+const leaf14 = new Leaf(&apos;Leaf14&apos;);
+root.add(leaf14);
+composite1.remove(leaf21);
+
+root.display(2);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ck7s0t8o7005qecwsernyhgk1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React16为什么更新" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/11/React16为什么更新/" class="article-date">
+  <time datetime="2018-12-10T16:00:00.000Z" itemprop="datePublished">2018-12-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/11/React16为什么更新/">React16为什么更新</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> React16更新的根本原因是提升用户体验，解决同步更新带来的界面卡顿问题。 </strong></p>
+<ol>
+<li><p>React16之前的版本中，更新过程是同步的，为什么会导致界面卡顿？<br><strong> 大量的同步计算任务阻塞了浏览器的UI渲染 </strong></p>
+<ul>
+<li>JavaScript是单线程的。</li>
+<li>JavaScript运算、页面布局和页面绘制都是运行在浏览器的主线程当中，他们之间是互斥的关系。</li>
+<li>React加载或者更新时，会调用生命周期函数，计算和对比Virtual DOM，更新UI，整个过程是同步的，如果需要更新的组件数量过大或者计算过于复杂，就会出现用户卡顿的体验。</li>
+</ul>
+</li>
+<li><p>React是如何解决上述问题的？</p>
+<p><strong> 引入了异步渲染(Async Rendering)机制 </strong></p>
+<p>采用分片的思路，提出了Fiber的解决方案。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ck7s0t8k7000oecwsruaii0ak" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-快乐数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/12/08/快乐数/" class="article-date">
@@ -124,88 +948,10 @@ var isHappy = function(n) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck77lzea000344pwsrpou8328" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ck7s0t8ne0040ecwsw00jzlyi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React生命周期" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/02/React生命周期/" class="article-date">
-  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/02/React生命周期/">React生命周期</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>React生命周期 - React16前</p>
-<p><strong> React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） </strong></p>
-<ul>
-<li><p>initialization：初始化props和state。<br>constructor</p>
-</li>
-<li><p>mounting：执行一次。<br>componentWillMount, render, componentDidMount</p>
-</li>
-<li><p>update：setState引起的state更新或者父组件重新render引起的props更新。<br>componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate</p>
-</li>
-<li><p>unmount: 执行一次<br>componentWillUnmount</p>
-</li>
-</ul>
-<p><a href="/assets/React-lifecycle-before.png"><img src="/assets/React-lifecycle-before.png" alt="React生命周期"></a></p>
-</li>
-</ol>
-<ol start="2">
-<li><p>React生命周期</p>
-<ul>
-<li>引入了两个新的生命周期函数<br>getDerivedStateFromProps，getSnapshotBeforeUpdate</li>
-</ul>
-<p><a href="/assets/React-lifecycle.png"><img src="/assets/React-lifecycle.png" alt="React16生命周期"></a></p>
-</li>
-<li><p>为什么会变化</p>
-<p><strong> React16推出Fiber，如果开启async rendering，会导致render函数之前的所有函数，有可能被执行多次。 </strong></p>
-<ul>
-<li>componentWillMount</li>
-<li>componentWillReceiveProps</li>
-<li>componentWillUpdate</li>
-<li>shouldComponentUpdate</li>
-</ul>
-<p>其中shouldComponentUpdate为纯函数，返回Boolean，没有副作用，而其他三个函数，开发者如果在里面执行有副作用的操作，如Ajax等，会产生不可预期的结果。所以其余三个统一被getDerivedStateFromProps替代，并且<strong> 采用静态函数，用禁止来替代以前的建议 </strong>。</p>
-<p>react的component中static属性，里面放函数，官方解释：<br><strong> you can run them before any component instances are created, and the methods do not have access to the props or state of your components. </strong></p>
-<p><strong> 静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state。 </strong></p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck77lze8v000s4pwsc02argrt" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -333,10 +1079,88 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck77lze9v002t4pwscuqw8h0b" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ck7s0t8mx003cecwsv7ysuevv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React生命周期" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/02/React生命周期/" class="article-date">
+  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/02/React生命周期/">React生命周期</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>React生命周期 - React16前</p>
+<p><strong> React生命周期总体上分为4个阶段：初始化阶段（initialization），挂载阶段（Mounting），更新阶段（update），卸载阶段（Unmount） </strong></p>
+<ul>
+<li><p>initialization：初始化props和state。<br>constructor</p>
+</li>
+<li><p>mounting：执行一次。<br>componentWillMount, render, componentDidMount</p>
+</li>
+<li><p>update：setState引起的state更新或者父组件重新render引起的props更新。<br>componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, render, componentDidUpdate</p>
+</li>
+<li><p>unmount: 执行一次<br>componentWillUnmount</p>
+</li>
+</ul>
+<p><a href="/assets/React-lifecycle-before.png"><img src="/assets/React-lifecycle-before.png" alt="React生命周期"></a></p>
+</li>
+</ol>
+<ol start="2">
+<li><p>React生命周期</p>
+<ul>
+<li>引入了两个新的生命周期函数<br>getDerivedStateFromProps，getSnapshotBeforeUpdate</li>
+</ul>
+<p><a href="/assets/React-lifecycle.png"><img src="/assets/React-lifecycle.png" alt="React16生命周期"></a></p>
+</li>
+<li><p>为什么会变化</p>
+<p><strong> React16推出Fiber，如果开启async rendering，会导致render函数之前的所有函数，有可能被执行多次。 </strong></p>
+<ul>
+<li>componentWillMount</li>
+<li>componentWillReceiveProps</li>
+<li>componentWillUpdate</li>
+<li>shouldComponentUpdate</li>
+</ul>
+<p>其中shouldComponentUpdate为纯函数，返回Boolean，没有副作用，而其他三个函数，开发者如果在里面执行有副作用的操作，如Ajax等，会产生不可预期的结果。所以其余三个统一被getDerivedStateFromProps替代，并且<strong> 采用静态函数，用禁止来替代以前的建议 </strong>。</p>
+<p>react的component中static属性，里面放函数，官方解释：<br><strong> you can run them before any component instances are created, and the methods do not have access to the props or state of your components. </strong></p>
+<p><strong> 静态函数getDerivedStateFromProps来取代被deprecate的几个生命周期函数，就是强制开发者在render之前只做无副作用的操作，而且能做的操作局限在根据props和state决定新的state。 </strong></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/12/02/React生命周期/" data-id="ck7s0t8kb000tecwsgtskbw8w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -441,7 +1265,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck77lzeap004c4pwso1odq2gm" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ck7s0t8og006eecwsaaixb0dd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -603,644 +1427,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck77lzeab003o4pwsyx7er0iz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-React之setState" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/11/React之setState/" class="article-date">
-  <time datetime="2018-10-10T16:00:00.000Z" itemprop="datePublished">2018-10-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/11/React之setState/">React之setState</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>setState是异步还是同步</p>
-<ul>
-<li>合成事件（react自定义的事件，如在组件中的onClick等）和生命周期函数中是“异步”的。这里的异步并非是真正的异步实现，其本身还是属于同步操作，只是采用了批处理机制。</li>
-<li><p>原生事件（DOM中的原生事件，如通过addEventListener添加的等）和 setTimeout 中都是同步的</p>
-<p>   setState(updater[, callback])</p>
-<p>   updater可以是一个函数或者一个对象。<br>   如果是对象，则执行对象跟state的浅合并。<br>   如果传入一个函数，则会把函数的返回对象跟state进行浅合并。这个函数会传入两个参数state和props，返回一个对象<br>   (state, props) =&gt; stateChange</p>
-<p>   第二个参数，state更新完毕之后调用的回调函数。如果有需要在state更新之后的操作，可以放在这里。不过官方更建议在componentDidUpdate里面处理更新之后的操作。</p>
-</li>
-</ul>
-</li>
-<li><p>使用注意事项</p>
-<ul>
-<li>不要直接修改state</li>
-<li>setState不能保证是同步的</li>
-<li>setState造成不必要的渲染</li>
-</ul>
-</li>
-<li><p>setState的优化</p>
-<ul>
-<li>声名变量能用const就不要用let</li>
-<li>减少setState的调用次数，如可以一次set多个值，不要一个一个set。</li>
-<li>多利用shouldComponentUpdate</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ck77lze8t000o4pwshcz79y4c" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-秋" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/05/秋/" class="article-date">
-  <time datetime="2018-10-04T16:00:00.000Z" itemprop="datePublished">2018-10-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/未分类/">未分类</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/05/秋/">秋</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>秋风送爽，炎暑渐消，此时宜甘味以益气，进补应坚持“燥者濡之”，“上燥清气，中燥增液，下燥养血。”同时应早睡早起，早餐宜营养丰富，以预防抑郁症，保持乐观轻松心情。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ck77lzeac003s4pwsr6zaqect" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Swagger" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/12/Swagger/" class="article-date">
-  <time datetime="2018-09-11T16:00:00.000Z" itemprop="datePublished">2018-09-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/12/Swagger/">Swagger</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>Swagger解决了什么问题？<br><strong> 接口文档的一致性与可维护性 </strong></p>
-</li>
-<li><p>Swagger是什么？</p>
-<ul>
-<li>通过自己定义的描述文件（yml或json格式），更新接口文档，以及生成各端代码.</li>
-</ul>
-</li>
-<li><p>Swagger可以做什么？</p>
-<ul>
-<li>可以做到生成各种格式的接口文档，生成多种语言的客户端和服务端的代码，以及在线接口调试页面等等。</li>
-</ul>
-</li>
-<li><p>Springfox-swagger</p>
-<ul>
-<li>通过扫描代码去生成这个描述文件</li>
-</ul>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ck77lze9100124pwsf26g3hmp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-抽象工厂模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/09/10/抽象工厂模式/" class="article-date">
-  <time datetime="2018-09-09T16:00:00.000Z" itemprop="datePublished">2018-09-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/10/抽象工厂模式/">抽象工厂模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>抽象工厂模式（Abstract Factory）<br> <a href="/assets/抽象工厂模式.png"><img src="/assets/抽象工厂模式.png" alt="抽象工厂模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Abstract-Factory" title="抽象工厂模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- abstractProductA.js
-class AbstractProductA {
-    constructor() {
-        if(new.target === AbstractProductA)
-            throw new Error(`${AbstractProductA} cannot be initialized.`);
-
-        console.log(&apos;AbstractProductA constructor.&apos;);
-    }
-
-    method() {
-        throw new Error(`${this.method} should be overwrite.`);
-    }
-}
-
-module.exports = AbstractProductA;
-
--- productA1.js
-const AbstractProductA = require(&apos;./abstractProductA&apos;);
-
-class ProductA1 extends AbstractProductA {
-    constructor() {
-        super();
-
-        console.log(&apos;ProductA1 constructor.&apos;);
-    }
-
-    method() {
-        console.log(&apos;ProductA1 method.&apos;);
-    }
-}
-
-module.exports = ProductA1;
-
--- productA2.js
-const AbstractProductA = require(&apos;./abstractProductA&apos;);
-
-class ProductA2 extends AbstractProductA {
-    constructor() {
-        super();
-
-        console.log(&apos;ProductA2 constructor.&apos;);
-    }
-
-    method() {
-        console.log(&apos;ProductA2 method.&apos;);
-    }
-}
-
-module.exports = ProductA2;
-
--- abstractProductB.js
-class AbstractProductB {
-    constructor() {
-        if(new.target === AbstractProductB)
-            throw new Error(`${AbstractProductB} cannot be initialized.`);
-
-        console.log(&apos;AbstractProductB constructor.&apos;);
-    }
-
-    method() {
-        throw new Error(`${this.method} should be overwrite.`);
-    }
-}
-
-module.exports = AbstractProductB;
-
--- productB1.js
-const AbstractProductB = require(&apos;./abstractProductB&apos;);
-
-class ProductB1 extends AbstractProductB {
-    constructor() {
-        super();
-
-        console.log(&apos;ProductB1 constructor.&apos;);
-    }
-
-    method() {
-        console.log(&apos;ProductB1 method.&apos;);
-    }
-}
-
-module.exports = ProductB1;
-
--- productB2.js
-const AbstractProductB = require(&apos;./abstractProductB&apos;);
-
-class ProductB2 extends AbstractProductB {
-    constructor() {
-        super();
-
-        console.log(&apos;ProductB2 constructor.&apos;);
-    }
-
-    method() {
-        console.log(&apos;ProductB2 method.&apos;);
-    }
-}
-
-module.exports = ProductB2;
-
--- abstractFactory.js
-class AbstractFactory {
-    constructor() {
-        if(new.target === AbstractFactory)
-            throw new Error(`${AbstractFactory} cannot be initialized.`);
-
-        console.log(&apos;AbstractFactory constructor.&apos;);
-    };
-
-    createProductA() {
-        throw new Error(`${this.createProductA} should be overwrite.`);
-    };
-
-    createProductB() {
-        throw new Error(`${this.createProductB} should be overwrite.`);
-    };
-}
-
-module.exports = AbstractFactory;
-
--- concreteFactory1.js
-const AbstractFactory = require(&apos;./abstractFactory&apos;);
-const ProductA1 = require(&apos;./productA1&apos;);
-const ProductB1 = require(&apos;./productB1&apos;);
-
-class ConcreteFactory1 extends AbstractFactory {
-    constructor() {
-        super();
-
-        console.log(&apos;ConcreteFactory1 constructor.&apos;);
-    }
-
-    createProductA() {
-        return new ProductA1();
-    }
-
-    createProductB() {
-        return new ProductB1();
-    }
-}
-
-module.exports = ConcreteFactory1;
-
--- concreteFactory2.js
-const AbstractFactory = require(&apos;./abstractFactory&apos;);
-const ProductA2 = require(&apos;./productA2&apos;);
-const ProductB2 = require(&apos;./productB2&apos;);
-
-class ConcreteFactory2 extends AbstractFactory {
-    constructor() {
-        super();
-
-        console.log(&apos;ConcreteFactory2 constructor.&apos;);
-    }
-
-    createProductA() {
-        return new ProductA2();
-    }
-
-    createProductB() {
-        return new ProductB2();
-    }
-}
-
-module.exports = ConcreteFactory2;
-
--- client.js
-const ConcreteFactory1 = require(&apos;./concreteFactory1&apos;);
-const ConcreteFactory2 = require(&apos;./concreteFactory2&apos;);
-
-const concreteFactory1 = new ConcreteFactory1();
-const concreteFactory2 = new ConcreteFactory2();
-console.log(&apos;------&apos;);
-
-concreteFactory1.createProductA().method();
-console.log(&apos;------&apos;);
-
-concreteFactory1.createProductB().method();
-console.log(&apos;------&apos;);
-
-concreteFactory2.createProductA().method();
-concreteFactory2.createProductB().method();
-console.log(&apos;------&apos;);
-
--- productClasses.js
-const ProductA1 = require(&apos;./productA1&apos;);
-const ProductA2 = require(&apos;./productA2&apos;);
-const ProductB1 = require(&apos;./productB1&apos;);
-const ProductB2 = require(&apos;./productB2&apos;);
-
-const productClasses = {
-    ProductA1,
-    ProductA2,
-    ProductB1,
-    ProductB2
-};
-
-module.exports = productClasses;
-
--- productAccess.js
-const productClasses = require(&apos;./productClasses&apos;);
-
-class ProductAccess {
-    constructor() {
-        console.log(&apos;ProductAccess constructor.&apos;);
-    }
-
-    create(product = &apos;ProductA1&apos;) {
-        return new productClasses[product]();
-    }
-}
-
-module.exports = ProductAccess;
-
--- client2.js
-const ProductAccess = require(&apos;./productAccess&apos;);
-const productClasses = require(&apos;./productClasses&apos;);
-
-console.dir(productClasses);
-console.log(&apos;------&apos;);
-
-const productAccess = new ProductAccess();
-console.log(&apos;------&apos;);
-
-productAccess.create().method();
-console.log(&apos;------&apos;);
-
-productAccess.create(&apos;ProductB1&apos;).method();
-console.log(&apos;------&apos;);
-
-productAccess.create(&apos;ProductA1&apos;).method();
-console.log(&apos;------&apos;);
-
-productAccess.create(&apos;ProductA2&apos;).method();
-productAccess.create(&apos;ProductB2&apos;).method();
-console.log(&apos;------&apos;);
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/10/抽象工厂模式/" data-id="ck77lzea300384pwsi7h4adi6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/02/观察者模式/" class="article-date">
-  <time datetime="2018-08-01T16:00:00.000Z" itemprop="datePublished">2018-08-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/02/观察者模式/">观察者模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>观察者模式（Observer）<br> <a href="/assets/观察者模式.png"><img src="/assets/观察者模式.png" alt="观察者模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Observer" title="观察者模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- subject.js
-class Subject {
-    constructor() {
-        if(new.target === Subject)
-            throw new Error(`${Subject} cannot be initialized.`);
-
-        this.observers = new Set();
-
-        console.log(&quot;Subject constructor.&quot;);
-    }
-
-    attach(observer) {
-        this.observers.add(observer);
-    }
-
-    detach(observer) {
-        this.observers.delete(observer);
-    }
-
-    notify() {
-        console.log(&apos;notify&apos;);
-        this.observers.forEach((observer) =&gt; (observer.update()));
-    }
-}
-
-module.exports = Subject;
-
--- concreteSubject.js
-const Subject = require(&apos;./subject&apos;);
-
-class ConcreteSubject extends Subject {
-    constructor(subjectState = &quot;ConcreteSubject&quot;) {
-        super();
-
-        this.subjectState = subjectState;
-
-        console.log(&apos;ConcreteSubject constructor.&apos;);
-    }
-
-    setSubjectState(subjectState) {
-        this.subjectState = subjectState;
-        this.notify();
-    }
-}
-
-module.exports = ConcreteSubject;
-
--- observer.js
-class Observer {
-    constructor() {
-        if(new.target === Observer)
-            throw new Error(`${Observer} cannot be initialized.`);
-
-        console.log(&apos;Observer constructor.&apos;);
-    }
-
-    update() {
-        throw new Error(`${this.update} should be overwrite.`);
-    }
-}
-
-module.exports = Observer;
-
--- concreteObserver.js
-const Observer = require(&apos;./observer&apos;);
-
-class ConcreteObserver extends Observer {
-    constructor(name = &quot;concreteObserver&quot;, subject = {}) {
-        super();
-
-        this.name = name;
-        this.subject = subject;
-        this.observerState = subject.subjectState;
-
-        console.log(&apos;ConcreteObserver constructor.&apos;);
-    }
-
-    update() {
-        this.observerState = this.subject.subjectState;
-        console.log(`${this.observerState} notify ${this.name}.`);
-    }
-}
-
-module.exports = ConcreteObserver;
-
--- client.js
-const ConcreteSubject = require(&apos;./concreteSubject&apos;);
-const ConcreteObserver = require(&apos;./concreteObserver&apos;);
-
-const concreteSubject = new ConcreteSubject();
-const concreteObserverX = new ConcreteObserver(&apos;X&apos;, concreteSubject);
-const concreteObserverXX = new ConcreteObserver(&apos;X&apos;, concreteSubject);
-const concreteObserverY = new ConcreteObserver(&apos;Y&apos;, concreteSubject);
-const concreteObserverZ = new ConcreteObserver(&apos;Z&apos;, concreteSubject);
-console.log(&apos;------&apos;);
-
-concreteSubject.setSubjectState(&apos;Changed ConcreteSubject SubjectState.&apos;);
-console.log(&apos;------&apos;);
-
-concreteSubject.attach(concreteObserverX);
-concreteSubject.setSubjectState(&apos;subjectState 1&apos;);
-console.log(&apos;------&apos;);
-
-concreteSubject.detach(concreteObserverX);
-concreteSubject.setSubjectState(&apos;subjectState 2&apos;);
-console.log(&apos;------&apos;);
-
-concreteSubject.attach(concreteObserverX);
-concreteSubject.attach(concreteObserverY);
-concreteSubject.attach(concreteObserverX);
-concreteSubject.setSubjectState(&apos;subjectState 3&apos;);
-console.log(&apos;------&apos;);
-
-concreteSubject.attach(concreteObserverZ);
-concreteSubject.setSubjectState(&apos;subjectState 4&apos;);
-console.log(&apos;------&apos;);
-
-concreteSubject.detach(concreteObserverX);
-concreteSubject.setSubjectState(&apos;subjectState 5&apos;);
-console.log(&apos;------&apos;);
-
-concreteSubject.detach(concreteObserverX);
-concreteSubject.setSubjectState(&apos;subjectState 6&apos;);
-console.log(&apos;------&apos;);
-
-concreteSubject.detach(concreteObserverY);
-concreteSubject.detach(concreteObserverZ);
-concreteSubject.setSubjectState(&apos;subjectState 7&apos;);
-console.log(&apos;------&apos;);
-
-concreteSubject.attach(concreteObserverY);
-concreteSubject.attach(concreteObserverX);
-concreteSubject.attach(concreteObserverXX);
-concreteSubject.setSubjectState(&apos;subjectState 8&apos;);
-console.log(&apos;------&apos;);
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/08/02/观察者模式/" data-id="ck77lzean00474pwsxjaqe9gk" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ck7s0t8nv004zecwsmuklhoz8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1255,7 +1442,7 @@ console.log(&apos;------&apos;);
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -1286,7 +1473,7 @@ console.log(&apos;------&apos;);
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 14.29px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 15.71px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/hi2048/" style="font-size: 12.86px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 11.43px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 11.43px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.43px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18.57px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.14px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.57px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/C/" style="font-size: 12.5px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16.25px;">React</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/hi2048/" style="font-size: 15px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 13.75px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 11.25px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.25px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/大话设计模式/" style="font-size: 18.75px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.5px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.75px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -1295,7 +1482,7 @@ console.log(&apos;------&apos;);
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
@@ -1308,23 +1495,23 @@ console.log(&apos;------&apos;);
       <ul>
         
           <li>
-            <a href="/2020/02/20/curry-compose-and-pipe/">curry, compose and pipe</a>
+            <a href="/2020/03/12/logger/">logger</a>
           </li>
         
           <li>
-            <a href="/2020/02/10/DynamicNumber/">DynamicNumber</a>
+            <a href="/2020/03/10/creater/">creater</a>
           </li>
         
           <li>
-            <a href="/2020/01/08/类型判断/">类型判断</a>
+            <a href="/2020/03/08/unicode/">unicode</a>
           </li>
         
           <li>
-            <a href="/2019/12/25/最大最小值/">最大最小值</a>
+            <a href="/2020/03/06/简单对象/">简单对象</a>
           </li>
         
           <li>
-            <a href="/2019/11/18/“气球”的最大数量/">“气球”的最大数量</a>
+            <a href="/2020/02/25/array基本操作/">array基本操作</a>
           </li>
         
       </ul>
