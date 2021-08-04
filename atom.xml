@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2020-03-14T19:43:09.987Z</updated>
+  <updated>2021-08-04T04:41:48.617Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -17,11 +17,72 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>SMART原则</title>
+    <link href="http://hi2048.github.io/2020/06/08/SMART%E5%8E%9F%E5%88%99/"/>
+    <id>http://hi2048.github.io/2020/06/08/SMART原则/</id>
+    <published>2020-06-07T16:00:00.000Z</published>
+    <updated>2021-08-04T04:41:48.617Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong> SMART原则（S=Specific、M=Measurable、A=Attainable、R=Relevant、T=Time-bound）</strong></p><ol><li>绩效指标必须是具体的（Specific）</li><li>绩效指标必须是可以衡量的（Measurable）</li><li>绩效指标必须是可以达到的（Attainable）</li><li>绩效指标是要与其他目标具有一定的相关性(Relevant)</li><li>绩效指标必须具有明确的截止期限（Time-bound）</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt; SMART原则（S=Specific、M=Measurable、A=Attainable、R=Relevant、T=Time-bound）&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;绩效指标必须是具体的（Specific）&lt;/li&gt;
+&lt;li&gt;绩效指标必须
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Agile" scheme="http://hi2048.github.io/tags/Agile/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GCP</title>
+    <link href="http://hi2048.github.io/2020/05/25/GCP/"/>
+    <id>http://hi2048.github.io/2020/05/25/GCP/</id>
+    <published>2020-05-24T16:00:00.000Z</published>
+    <updated>2021-08-04T04:36:32.442Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>Computer Engine, App Engine</p></li><li><p>HTTPS load balance</p></li><li><p>Stackdriver</p></li><li><p>Datastore</p></li><li><p>BigQuery</p></li><li><p>Cloud Pub/Sub</p></li><li><p>Cloud storage</p></li><li><p>Cloud Dataflow</p></li><li><p>Cloud Endpoints</p></li><li><p>Cloud SQL</p></li><li><p>Hadoop/Spark</p></li><li><p>Cloud dataproc</p></li><li><p>Jenkins</p></li><li><p>Cloud BigTable</p></li><li><p>Cloud Memorystore</p></li><li><p>Cloud Datastore</p></li><li><p>k8s(Kubernetes)/Containers</p></li><li><p>Cloud Marketplace</p></li><li><p>CDN</p></li><li><p>Local SSD, SSD persistent disks</p></li><li><p>Cloud VPN</p></li><li><p>Cloud Functions</p></li><li><p>CSEK</p></li><li><p>Firewall rules</p></li><li><p>ETL</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Computer Engine, App Engine&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;HTTPS load balance&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Stackdriver&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Datastore&lt;/p&gt;
+&lt;/li
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="GCP" scheme="http://hi2048.github.io/tags/GCP/"/>
+    
+  </entry>
+  
+  <entry>
     <title>logger</title>
-    <link href="http://hi2048.github.io/2020/03/12/logger/"/>
-    <id>http://hi2048.github.io/2020/03/12/logger/</id>
-    <published>2020-03-11T16:00:00.000Z</published>
-    <updated>2020-03-14T19:43:09.987Z</updated>
+    <link href="http://hi2048.github.io/2020/04/12/logger/"/>
+    <id>http://hi2048.github.io/2020/04/12/logger/</id>
+    <published>2020-04-11T16:00:00.000Z</published>
+    <updated>2021-08-04T04:36:35.137Z</updated>
     
     <content type="html"><![CDATA[<p>– logger <a href="https://github.com/hi2048/hi2048-utils/tree/master/site/src/utils/log" title="logger" target="_blank" rel="noopener">github</a>  <a href="https://www.npmjs.com/package/hi2048-utils" title="hi2048-utils" target="_blank" rel="noopener">npm</a>  <a href="http://blog.hi2048.com/hi2048-utils/" title="logger" target="_blank" rel="noopener">demo</a></p><pre><code>-- index.jsimport { isFunction, isString } from &apos;../type&apos;;const log = type =&gt; (target, name, descriptor) =&gt; {  if(isFunction(target[name])) {    const originFunction = descriptor.value;    descriptor.value = function(...args) {      console.log(`${target.constructor.name}: `);      console.log(`${type} start: ${name} (${args}).`);      try {        const ret = originFunction.call(this, ...args);        console.log(`${type} succeed: ${name} (${args} =&gt; ${ret}).`);      } catch(err) {        console.log(`${type} failed: ${name} (${args} =&gt; ${err}).`);      }    }  }  return descriptor;}export const logger = (...args) =&gt; {  if(!isString(args[0])) {    return log(&apos;&apos;)(...args);  }  return log(...args);}</code></pre>]]></content>
     
@@ -45,10 +106,10 @@
   
   <entry>
     <title>creater</title>
-    <link href="http://hi2048.github.io/2020/03/10/creater/"/>
-    <id>http://hi2048.github.io/2020/03/10/creater/</id>
-    <published>2020-03-09T16:00:00.000Z</published>
-    <updated>2020-03-14T19:09:24.196Z</updated>
+    <link href="http://hi2048.github.io/2020/03/20/creater/"/>
+    <id>http://hi2048.github.io/2020/03/20/creater/</id>
+    <published>2020-03-19T16:00:00.000Z</published>
+    <updated>2021-08-04T04:36:40.407Z</updated>
     
     <content type="html"><![CDATA[<p>– creater <a href="https://github.com/hi2048/hi2048-utils/tree/master/site/src/utils/creater" title="creater" target="_blank" rel="noopener">github</a>  <a href="https://www.npmjs.com/package/hi2048-utils" title="hi2048-utils" target="_blank" rel="noopener">npm</a>  <a href="http://blog.hi2048.com/hi2048-utils/" title="creater" target="_blank" rel="noopener">demo</a></p><pre><code>-- index.jsimport { isFunction } from &apos;../type&apos;;export const creater = Target =&gt; config =&gt; class {  constructor(...args) {    if(isFunction(config)) {      return new Target(config, ...args);    }    return new Target(Object.assign(config, ...args));  }};const builder = creater =&gt; array =&gt; array.map(item =&gt; creater(item));export const factory = Target =&gt; builder(creater(Target));</code></pre>]]></content>
     
@@ -525,66 +586,6 @@ const nodeAStruct = function(id, pid, data) {
 &lt;li&gt;&lt;p&gt;访问者模式（Visitor）&lt;br&gt; &lt;a href=&quot;/assets/访问者模式.png&quot;&gt;&lt;img src=&quot;/assets/访问者模式.png&quot; alt=&quot;访问者模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;http
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue生命周期</title>
-    <link href="http://hi2048.github.io/2019/08/02/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/"/>
-    <id>http://hi2048.github.io/2019/08/02/Vue生命周期/</id>
-    <published>2019-08-01T16:00:00.000Z</published>
-    <updated>2019-09-05T14:58:52.372Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>Vue实例有一个完整的生命周期，也就是说从开始创建、初始化数据、编译模板、挂在DOM、渲染-更新-渲染、卸载等一系列过程，我们成为Vue 实例的生命周期，钩子就是在某个阶段给你一个做某些处理的机会。</p></li><li><p>Vue生命周期钩子</p><ul><li>beforeCreate</li><li>created</li><li>beforeMount</li><li>mounted</li><li>beforeUpdate</li><li>updated</li><li>beforeDestroy</li><li>destroyed</li></ul></li></ol><p><a href="/assets/lifecycle-vue.png"><img src="/assets/lifecycle-vue.png" alt="vue-生命周期"></a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Vue实例有一个完整的生命周期，也就是说从开始创建、初始化数据、编译模板、挂在DOM、渲染-更新-渲染、卸载等一系列过程，我们成为Vue 实例的生命周期，钩子就是在某个阶段给你一个做某些处理的机会。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Vue生命周期钩子&lt;/
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="vue" scheme="http://hi2048.github.io/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解释器模式</title>
-    <link href="http://hi2048.github.io/2019/07/22/%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://hi2048.github.io/2019/07/22/解释器模式/</id>
-    <published>2019-07-21T16:00:00.000Z</published>
-    <updated>2019-11-05T12:13:26.633Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>解释器模式（Interpreter）<br> <a href="/assets/解释器模式.png"><img src="/assets/解释器模式.png" alt="解释器模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Interpreter" title="解释器模式" target="_blank" rel="noopener">github</a></p><pre><code>-- abstractExpression.jsclass AbstractExpression {    constructor() {        if(new.target === AbstractExpression) {            throw new Error(`${AbstractExpression} cannot be initialized.`);        }    }    interpret() {        throw new Error(`${this.interpret} should be overwrite.`);    }}module.exports = AbstractExpression;-- context.jsclass Context {    constructor(content) {        this.content = content;    }    setContent(content) {        return content &amp;&amp; (this.content = content);    }    getContent() {        return this.content;    }}module.exports = Context;-- terminalExpression.jsconst AbstractExpression = require(&apos;./abstractExpression&apos;);class TerminalExpression extends AbstractExpression {    interpret(context) {        console.log(`TerminalExpression interpret ${context}.`);    }}module.exports = TerminalExpression;-- nonterminalExpression.jsconst AbstractExpression = require(&apos;./abstractExpression&apos;);class NonterminalExpression extends AbstractExpression {    interpret(context) {        console.log(`NonterminalExpression interpret ${context}.`);    }}module.exports = NonterminalExpression;-- reTools.jsmodule.exports = {    numbers: /[0-9]/,    operators: /[+*/-]/,    verificationRule: /[0-9+*/-]/};-- abstractExpressionOperation.jsconst reTools = require(&apos;./reTools&apos;);class AbstractExpressionOperation {    constructor(operator) {        if(new.target === AbstractExpressionOperation)            throw new Error(`${AbstractExpressionOperation} cannot be initialized.`);        this.operator = operator;    }    interpret(operator = this.operator, prevExpresstion = this.prevExpresstion, nextExpression = this.nextExpression) {        if(new RegExp(reTools.verificationRule).test(operator)) {            return this.execute(operator, prevExpresstion, nextExpression);        }    }    execute(c, exp1, exp2) {        throw new Error(`${this.execute} should be overwrite.`);    }}module.exports = AbstractExpressionOperation;-- terminalExpressionNumber.jsconst AbstractExpressionOperation = require(&apos;./abstractExpressionOperation&apos;);class TerminalExpressionNumber extends AbstractExpressionOperation {    execute(number = this.operator) {        return number;    }}module.exports = TerminalExpressionNumber;-- nonterminalExpressionPlus.jsconst AbstractExpressionOperation = require(&apos;./abstractExpressionOperation&apos;);class NonterminalExpressionPlus extends AbstractExpressionOperation {    constructor(operator, prevExpression, nextExpression) {        super(operator);        this.prevExpression = prevExpression;        this.nextExpression = nextExpression;    }    setPrevExpression(prevExpression) {        return prevExpression &amp;&amp; (this.prevExpression = prevExpression);    }    setNextExpression(nextExpression) {        return nextExpression &amp;&amp; (this.nextExpression = nextExpression);    }    execute(operator = this.operator, expression1 = this.prevExpression, expression2 = this.nextExpression) {        console.log(`NonterminalExpressionPlus execute: ${expression1.interpret()} + ${expression2.interpret()} = ${+expression1.interpret() + +expression2.interpret()} .`);        return +expression1.interpret() + +expression2.interpret();    }}module.exports = NonterminalExpressionPlus;-- nonterminalExpressionMinus.jsconst AbstractExpressionOperation = require(&apos;./abstractExpressionOperation&apos;);class NonterminalExpressionMinus extends AbstractExpressionOperation {    constructor(operator, prevExpression, nextExpression) {        super(operator);        this.prevExpression = prevExpression;        this.nextExpression = nextExpression;    }    setPrevExpression(prevExpression) {        return prevExpression &amp;&amp; (this.prevExpression = prevExpression);    }    setNextExpression(nextExpression) {        return nextExpression &amp;&amp; (this.nextExpression = nextExpression);    }    execute(operator = this.operator, expression1 = this.prevExpression, expression2 = this.nextExpression) {        console.log(`NonterminalExpressionMinus execute: ${expression1.interpret()} - ${expression2.interpret()} = ${expression1.interpret() - expression2.interpret()} .`);        return expression1.interpret() - expression2.interpret();    }}module.exports = NonterminalExpressionMinus;-- client.jsconst Context = require(&apos;./context&apos;);const TerminalExpression = require(&apos;./terminalExpression&apos;);const NonterminalExpression = require(&apos;./nonterminalExpression&apos;);const reTools = require(&apos;./reTools&apos;);const TerminalExpressionNumber = require(&apos;./terminalExpressionNumber&apos;);const NonterminalExpressionPlus = require(&apos;./nonterminalExpressionPlus&apos;);const NonterminalExpressionMinus = require(&apos;./nonterminalExpressionMinus&apos;);const context = new Context(&apos;Interpreter DP&apos;);const terminalExpression = new TerminalExpression();const nonterminalExpression = new NonterminalExpression();const interpreter1 = new Set();interpreter1.add(terminalExpression);interpreter1.add(new TerminalExpression());interpreter1.add(nonterminalExpression);interpreter1.forEach(interpreter =&gt; (interpreter.interpret(context.getContent())));console.log(&apos;------&apos;);const context2 = new Context(&apos;1 + 2&apos;);const content = context2.getContent();let experssions = [];for(let c of content) {    if(new RegExp(reTools.numbers).test(c)) {        experssions.push(new TerminalExpressionNumber(c))    } else if(c === &apos;+&apos;) {        experssions.push(new NonterminalExpressionPlus(c));    } else if(c === &apos;-&apos;) {        experssions.push(new NonterminalExpressionMinus(c));    }}experssions.forEach((expression, index, expressions) =&gt; {    if(!(expression instanceof TerminalExpressionNumber)) {        expression.setPrevExpression(expressions[index - 1]);        expression.setNextExpression(expressions[index + 1]);        expression.interpret()    }});console.log(&apos;------&apos;);const context3 = new Context(&apos;2 - 3&apos;);const expressions3 = [];for(let c of context3.getContent()) {    if(new RegExp(reTools.numbers).test(c)) {        expressions3.push(new TerminalExpressionNumber(c));    } else if(c === &apos;+&apos;) {        expressions3.push(new NonterminalExpressionPlus(c));    } else if(c === &apos;-&apos;) {        expressions3.push(new NonterminalExpressionMinus(c));    }}expressions3.forEach((expression, index, expressions) =&gt; {    if(!(expression instanceof TerminalExpressionNumber)) {        expression.interpret(undefined, expressions[index - 1], expressions[index + 1]);    }});console.log(&apos;------&apos;);</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;解释器模式（Interpreter）&lt;br&gt; &lt;a href=&quot;/assets/解释器模式.png&quot;&gt;&lt;img src=&quot;/assets/解释器模式.png&quot; alt=&quot;解释器模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;
       
     
     </summary>
