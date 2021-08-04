@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2021-08-04T04:41:48.617Z</updated>
+  <updated>2021-08-04T07:29:41.226Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>浅谈生活</title>
+    <link href="http://hi2048.github.io/2021/08/01/%E6%B5%85%E8%B0%88%E7%94%9F%E6%B4%BB/"/>
+    <id>http://hi2048.github.io/2021/08/01/浅谈生活/</id>
+    <published>2021-07-31T16:00:00.000Z</published>
+    <updated>2021-08-04T07:29:41.226Z</updated>
+    
+    <content type="html"><![CDATA[<p>生活就像一面镜子，你投入什么，它就会回应相同的东西。 所以当我在对着生活发怒，抱怨的时候，是不是应该想想，我投入了什么。</p><p>日子过得太快，每天都是机械的，重复的，唯一不同的是，孩子在慢慢长大，每当看着他那无忧无虑的笑声，我都会想为什么我不能也这样呢。如果仔细想想，却也是不大可能，因为我们有太多的东西要承担，这就注定了不能像孩子那样。但是幸运的是，在这里，我有记录，3年，5年，还有更早的自己，心境，以及生活。每每看到这些，我都会笑得像个孩子。这将让我可以更加坚定的站立在当下。</p><p>所以请放慢脚步，张开双臂，闭上眼睛，感受生活的伟大。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;生活就像一面镜子，你投入什么，它就会回应相同的东西。 所以当我在对着生活发怒，抱怨的时候，是不是应该想想，我投入了什么。&lt;/p&gt;
+&lt;p&gt;日子过得太快，每天都是机械的，重复的，唯一不同的是，孩子在慢慢长大，每当看着他那无忧无虑的笑声，我都会想为什么我不能也这样呢。如果仔细想想
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>SMART原则</title>
@@ -435,9 +459,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -465,9 +489,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -498,9 +522,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -526,9 +550,9 @@ const nodeAStruct = function(id, pid, data) {
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
@@ -566,38 +590,6 @@ const nodeAStruct = function(id, pid, data) {
       <category term="vue" scheme="http://hi2048.github.io/tags/vue/"/>
     
       <category term="vuex" scheme="http://hi2048.github.io/tags/vuex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>访问者模式</title>
-    <link href="http://hi2048.github.io/2019/08/15/%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F/"/>
-    <id>http://hi2048.github.io/2019/08/15/访问者模式/</id>
-    <published>2019-08-14T16:00:00.000Z</published>
-    <updated>2019-11-06T12:26:37.703Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>访问者模式（Visitor）<br> <a href="/assets/访问者模式.png"><img src="/assets/访问者模式.png" alt="访问者模式"></a></p></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Visitor" title="访问者模式" target="_blank" rel="noopener">github</a></p><pre><code>-- element.jsclass Element {    constructor() {        if(new.target === Element)            throw new Error(`${Element} cannot be initialized.`);    }    accept(vistor) {        throw new Error(`${this.accept} should be overwrite.`);    }}module.exports = Element;-- concreteElementA.jsconst Element = require(&apos;./element&apos;);class ConcreteElementA extends Element {    accept(visitor) {        visitor.visitConcreteElementA(this);    }    operatorA() {        console.log(&apos;ConcreteElementA operatorA.&apos;);    }}module.exports = ConcreteElementA;-- concreteElementB.jsconst Element = require(&apos;./element&apos;);class ConcreteElementB extends Element {    accept(visitor) {        visitor.visitConcreteElementB(this);    }    operatorB() {        console.log(`ConcreteElementB operatorB.`);    }}module.exports = ConcreteElementB;-- visitor.jsclass Visitor {    constructor() {        if(new.target === Visitor)            throw new Error(`${Visitor} cannot be initialized.`);    }    visitConcreteElementA(concreteElementA) {        throw new Error(`${this.visitConcreteElementA} should be overwrite.`);    }    visitConcreteElementB(concreteELementB) {        throw new Error(`${this.visitConcreteElementB} should be overwrite.`);    }}module.exports = Visitor;-- concreteVisitor1.jsconst Visitor = require(&apos;./visitor&apos;);class ConcreteVisitor1 extends Visitor {    visitConcreteElementA(concreteElementA) {        console.log(`${this.constructor.name} visitConcreteElementA ${concreteElementA.constructor.name} .`);    }    visitConcreteElementB(concreteElementB) {        console.log(`${this.constructor.name} visitConcreteElementB ${concreteElementB.constructor.name} .`);    }}module.exports = ConcreteVisitor1;-- concreteVisitor2.jsconst Visitor = require(&apos;./visitor&apos;);class ConcreteVisitor2 extends Visitor {    visitConcreteElementA(concreteElementA) {        console.log(`${this.constructor.name} visitConcreteElementA ${concreteElementA.constructor.name} .`);    }    visitConcreteElementB(concreteElementB) {        console.log(`${this.constructor.name} visitConcreteElementB ${concreteElementB.constructor.name} .`);    }}module.exports = ConcreteVisitor2;-- objectStructure.jsclass ObjectStructure {    constructor() {        this.elements = new Set();    }    add(element) {        return element &amp;&amp; this.elements.add(element);    }    remove(element) {        return this.elements.delete(element);    }    accept(visitor) {        this.elements.forEach(element =&gt; (element.accept(visitor)));    }}module.exports = ObjectStructure;-- client.jsconst ObjectStructure = require(&apos;./objectStructure&apos;);const ConcreteElementA = require(&apos;./concreteElementA&apos;);const ConcreteElementB = require(&apos;./concreteElementB&apos;);const ConcreteVisitor1 = require(&apos;./concreteVisitor1&apos;);const ConcreteVisitor2 = require(&apos;./concreteVisitor2&apos;);const objectStructure = new ObjectStructure();const concreteELementA = new ConcreteElementA();objectStructure.add(concreteELementA);objectStructure.add(new ConcreteElementB());const concreteVisitor1 = new ConcreteVisitor1();objectStructure.accept(concreteVisitor1);objectStructure.accept(new ConcreteVisitor2());</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;访问者模式（Visitor）&lt;br&gt; &lt;a href=&quot;/assets/访问者模式.png&quot;&gt;&lt;img src=&quot;/assets/访问者模式.png&quot; alt=&quot;访问者模式&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;http
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
     
   </entry>
   

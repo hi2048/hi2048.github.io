@@ -64,6 +64,182 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-访问者模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/15/访问者模式/" class="article-date">
+  <time datetime="2019-08-14T16:00:00.000Z" itemprop="datePublished">2019-08-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/15/访问者模式/">访问者模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>访问者模式（Visitor）<br> <a href="/assets/访问者模式.png"><img src="/assets/访问者模式.png" alt="访问者模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Visitor" title="访问者模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- element.js
+class Element {
+    constructor() {
+        if(new.target === Element)
+            throw new Error(`${Element} cannot be initialized.`);
+    }
+
+    accept(vistor) {
+        throw new Error(`${this.accept} should be overwrite.`);
+    }
+}
+
+module.exports = Element;
+
+-- concreteElementA.js
+const Element = require(&apos;./element&apos;);
+
+class ConcreteElementA extends Element {
+    accept(visitor) {
+        visitor.visitConcreteElementA(this);
+    }
+
+    operatorA() {
+        console.log(&apos;ConcreteElementA operatorA.&apos;);
+    }
+}
+
+module.exports = ConcreteElementA;
+
+-- concreteElementB.js
+const Element = require(&apos;./element&apos;);
+
+class ConcreteElementB extends Element {
+    accept(visitor) {
+        visitor.visitConcreteElementB(this);
+    }
+
+    operatorB() {
+        console.log(`ConcreteElementB operatorB.`);
+    }
+}
+
+module.exports = ConcreteElementB;
+
+-- visitor.js
+class Visitor {
+    constructor() {
+        if(new.target === Visitor)
+            throw new Error(`${Visitor} cannot be initialized.`);
+    }
+
+    visitConcreteElementA(concreteElementA) {
+        throw new Error(`${this.visitConcreteElementA} should be overwrite.`);
+    }
+
+    visitConcreteElementB(concreteELementB) {
+        throw new Error(`${this.visitConcreteElementB} should be overwrite.`);
+    }
+}
+
+module.exports = Visitor;
+
+-- concreteVisitor1.js
+const Visitor = require(&apos;./visitor&apos;);
+
+class ConcreteVisitor1 extends Visitor {
+    visitConcreteElementA(concreteElementA) {
+        console.log(`${this.constructor.name} visitConcreteElementA ${concreteElementA.constructor.name} .`);
+    }
+
+    visitConcreteElementB(concreteElementB) {
+        console.log(`${this.constructor.name} visitConcreteElementB ${concreteElementB.constructor.name} .`);
+    }
+}
+
+module.exports = ConcreteVisitor1;
+
+-- concreteVisitor2.js
+const Visitor = require(&apos;./visitor&apos;);
+
+class ConcreteVisitor2 extends Visitor {
+    visitConcreteElementA(concreteElementA) {
+        console.log(`${this.constructor.name} visitConcreteElementA ${concreteElementA.constructor.name} .`);
+    }
+
+    visitConcreteElementB(concreteElementB) {
+        console.log(`${this.constructor.name} visitConcreteElementB ${concreteElementB.constructor.name} .`);
+    }
+}
+
+module.exports = ConcreteVisitor2;
+
+-- objectStructure.js
+class ObjectStructure {
+    constructor() {
+        this.elements = new Set();
+    }
+
+    add(element) {
+        return element &amp;&amp; this.elements.add(element);
+    }
+
+    remove(element) {
+        return this.elements.delete(element);
+    }
+
+    accept(visitor) {
+        this.elements.forEach(element =&gt; (element.accept(visitor)));
+    }
+}
+
+module.exports = ObjectStructure;
+
+-- client.js
+const ObjectStructure = require(&apos;./objectStructure&apos;);
+const ConcreteElementA = require(&apos;./concreteElementA&apos;);
+const ConcreteElementB = require(&apos;./concreteElementB&apos;);
+const ConcreteVisitor1 = require(&apos;./concreteVisitor1&apos;);
+const ConcreteVisitor2 = require(&apos;./concreteVisitor2&apos;);
+
+const objectStructure = new ObjectStructure();
+const concreteELementA = new ConcreteElementA();
+objectStructure.add(concreteELementA);
+objectStructure.add(new ConcreteElementB());
+
+const concreteVisitor1 = new ConcreteVisitor1();
+objectStructure.accept(concreteVisitor1);
+objectStructure.accept(new ConcreteVisitor2());
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/08/15/访问者模式/" data-id="ckrx66xzi005hriwshlhpzc8r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Vue生命周期" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/08/02/Vue生命周期/" class="article-date">
@@ -111,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ckrx0753s001yg2wsr026ekan" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ckrx66xxr0020riwshy76iu0l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -374,7 +550,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/07/22/解释器模式/" data-id="ckrx0755g005fg2ws60g11yan" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/07/22/解释器模式/" data-id="ckrx66xzh005eriws263gwrf3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -507,7 +683,7 @@ unsharedConcreteFlyweight.operation(--extrinsicState);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/15/享元模式/" data-id="ckrx07543002og2wszbl9iod5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/06/15/享元模式/" data-id="ckrx66xy4002qriwsjksoosae" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -575,7 +751,7 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ckrx0753u0022g2ws7ygiz20j" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ckrx66xxs0022riwsznqamobc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -743,7 +919,7 @@ concreteColleague1.send(&apos;concreteColleague1 send message 4&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/05/22/中介者模式/" data-id="ckrx07541002kg2wsspli6u2n" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/05/22/中介者模式/" data-id="ckrx66xy0002iriwslek0x71k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -880,7 +1056,7 @@ request.forEach(req =&gt; (concreteHandler1.handleRequest(req)));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/05/02/职责链模式/" data-id="ckrx0755e0058g2ws1s5a2cwe" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/05/02/职责链模式/" data-id="ckrx66xzf0059riws91wuuusl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1019,7 +1195,7 @@ invoker.notify();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/04/18/命令模式/" data-id="ckrx0754o003sg2ws3zoh75g8" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/04/18/命令模式/" data-id="ckrx66xyn003triws4p1xfllp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1085,7 +1261,7 @@ invoker.notify();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/" data-id="ckrx0753j001cg2ws81iudolk" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/" data-id="ckrx66xxg001driwsj7wo4fh8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -1243,108 +1419,10 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/05/桥接模式/" data-id="ckrx07556004lg2ws8blt35t5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/05/桥接模式/" data-id="ckrx66xz6004mriws79f4fsj0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Stack实现" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/01/Stack实现/" class="article-date">
-  <time datetime="2019-02-28T16:00:00.000Z" itemprop="datePublished">2019-03-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/01/Stack实现/">Stack实现</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 栈FILO：先进后出 </strong></p>
-<pre><code>// 先进后出 FILO: first in last out
-class Stack {
-    constructor(){
-        this.stack = new Array();
-    }
-
-    pop() {
-        return this.stack.pop();
-    }
-
-    push(x) {
-        this.stack.push(x);
-
-        return this;
-    }
-
-    empty() {
-        return this.size() === 0;
-    }
-
-    size() {
-        return this.stack.length;
-    }
-
-    top() {
-        return this.stack[this.stack.length - 1];
-    }
-
-    has(x) {
-        return this.stack.indexOf(x) !== -1;
-    }
-
-    getArray() {
-        return this.stack;
-    }
-
-    getRoot() {
-        return this.stack[0];
-    }
-
-    print() {
-        for(let s of [...this.stack]){
-        if(s.print){
-            console.log(`${s}：`);
-            s.print();
-        } else{
-            console.log(s);
-        }
-        }
-
-        return this;
-    }
-}
-
-module.exports = Stack;
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/01/Stack实现/" data-id="ckrx0753s001xg2ws8c7vvtol" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -1396,7 +1474,7 @@ module.exports = Stack;
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
@@ -1407,6 +1485,10 @@ module.exports = Stack;
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/08/01/浅谈生活/">浅谈生活</a>
+          </li>
         
           <li>
             <a href="/2020/06/08/SMART原则/">SMART原则</a>
@@ -1422,10 +1504,6 @@ module.exports = Stack;
         
           <li>
             <a href="/2020/03/20/creater/">creater</a>
-          </li>
-        
-          <li>
-            <a href="/2020/03/08/unicode/">unicode</a>
           </li>
         
       </ul>
