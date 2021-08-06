@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2021-08-04T07:29:41.226Z</updated>
+  <updated>2021-08-06T08:30:11.229Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>浅谈生活</title>
-    <link href="http://hi2048.github.io/2021/08/01/%E6%B5%85%E8%B0%88%E7%94%9F%E6%B4%BB/"/>
-    <id>http://hi2048.github.io/2021/08/01/浅谈生活/</id>
-    <published>2021-07-31T16:00:00.000Z</published>
-    <updated>2021-08-04T07:29:41.226Z</updated>
+    <link href="http://hi2048.github.io/2021/05/05/%E6%B5%85%E8%B0%88%E7%94%9F%E6%B4%BB/"/>
+    <id>http://hi2048.github.io/2021/05/05/浅谈生活/</id>
+    <published>2021-05-04T16:00:00.000Z</published>
+    <updated>2021-08-06T08:30:11.229Z</updated>
     
     <content type="html"><![CDATA[<p>生活就像一面镜子，你投入什么，它就会回应相同的东西。 所以当我在对着生活发怒，抱怨的时候，是不是应该想想，我投入了什么。</p><p>日子过得太快，每天都是机械的，重复的，唯一不同的是，孩子在慢慢长大，每当看着他那无忧无虑的笑声，我都会想为什么我不能也这样呢。如果仔细想想，却也是不大可能，因为我们有太多的东西要承担，这就注定了不能像孩子那样。但是幸运的是，在这里，我有记录，3年，5年，还有更早的自己，心境，以及生活。每每看到这些，我都会笑得像个孩子。这将让我可以更加坚定的站立在当下。</p><p>所以请放慢脚步，张开双臂，闭上眼睛，感受生活的伟大。</p>]]></content>
     
@@ -31,6 +31,30 @@
       
         &lt;p&gt;生活就像一面镜子，你投入什么，它就会回应相同的东西。 所以当我在对着生活发怒，抱怨的时候，是不是应该想想，我投入了什么。&lt;/p&gt;
 &lt;p&gt;日子过得太快，每天都是机械的，重复的，唯一不同的是，孩子在慢慢长大，每当看着他那无忧无虑的笑声，我都会想为什么我不能也这样呢。如果仔细想想
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>剑雨有感</title>
+    <link href="http://hi2048.github.io/2020/08/06/%E5%89%91%E9%9B%A8%E6%9C%89%E6%84%9F/"/>
+    <id>http://hi2048.github.io/2020/08/06/剑雨有感/</id>
+    <published>2020-08-05T16:00:00.000Z</published>
+    <updated>2021-08-06T11:09:15.321Z</updated>
+    
+    <content type="html"><![CDATA[<p>佛陀阿难出家前，在道上见一美貌少女，从此爱慕难舍。佛祖问他：你有多喜欢那少女？ 阿难回答： 愿化身为青石桥，受五百年风吹，五百年日晒，五百年雨打， 只求那少女从桥上走过。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;佛陀阿难出家前，在道上见一美貌少女，从此爱慕难舍。佛祖问他：你有多喜欢那少女？ 阿难回答： 愿化身为青石桥，受五百年风吹，五百年日晒，五百年雨打， 只求那少女从桥上走过。&lt;/p&gt;
+
       
     
     </summary>
@@ -549,34 +573,6 @@ class Tarja
 const nodeAStruct = function(id, pid, data) {
   this.id = id;
   
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最大气球</title>
-    <link href="http://hi2048.github.io/2019/09/15/%E6%9C%80%E5%A4%A7%E6%B0%94%E7%90%83/"/>
-    <id>http://hi2048.github.io/2019/09/15/最大气球/</id>
-    <published>2019-09-14T16:00:00.000Z</published>
-    <updated>2019-09-16T03:29:09.212Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><p>LeetCode - “气球” 的最大数量<br><strong> 给你一个字符串 text，你需要使用 text 中的字母来拼凑尽可能多的单词 “balloon”（气球）。 </strong><br><strong> 字符串 text 中的每个字母最多只能被使用一次。请你返回最多可以拼凑出多少个单词 “balloon”。 </strong></p><pre><code>/** * @param {string} text * @return {number} 输入：text = &quot;nlaebolko&quot; 输出：1 输入：text = &quot;loonbalxballpoon&quot; 输出：2 输入：text = &quot;leetcode&quot; 输出：0 提示：  - 1 &lt;= text.length &lt;= 10^4  - text 全部由小写英文字母组成 */var getAlphaFromText = (text, alpha) =&gt; {  const reg = new RegExp(`${alpha}`, &apos;g&apos;);  if(reg.test(text)){    return text.match(reg).length;  }  return 0;}//balloonvar maxNumberOfBalloons = function(text) {    if(!text || (text &amp;&amp; text.length === 0)) return 0;    const balloonByteChars = [&apos;b&apos;, &apos;a&apos;, &apos;l&apos;, &apos;o&apos;, &apos;n&apos;];    const ret = balloonByteChars.reduce((count, b) =&gt; {      let len = getAlphaFromText(text, b);      if(b === &apos;l&apos; || b === &apos;o&apos;){        len = Math.floor(len / 2);      }      if(count &gt; len){        count = len;      }      return count;    }, text.length);    return ret;};</code></pre></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;LeetCode - “气球” 的最大数量&lt;br&gt;&lt;strong&gt; 给你一个字符串 text，你需要使用 text 中的字母来拼凑尽可能多的单词 “balloon”（气球）。 &lt;/strong&gt;&lt;br&gt;&lt;strong&gt; 字符串 text 中的每个字母最多只
       
     
     </summary>
