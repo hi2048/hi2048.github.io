@@ -41,6 +41,40 @@
   </entry>
   
   <entry>
+    <title>腐烂的橘子一</title>
+    <link href="http://hi2048.github.io/2020/09/09/%E8%85%90%E7%83%82%E7%9A%84%E6%A9%98%E5%AD%90/"/>
+    <id>http://hi2048.github.io/2020/09/09/腐烂的橘子/</id>
+    <published>2020-09-08T16:00:00.000Z</published>
+    <updated>2021-08-09T14:47:31.828Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>腐烂的橘子</p><pre><code>在给定的网格中，每个单元格可以有以下三个值之一：0 空单元格, 1 新鲜橘子, 2 腐烂的橘子。每分钟，任何与腐烂的橘子（在 4 个正方向上）相邻的新鲜橘子都会腐烂。返回网格中没有新鲜橘子必须经过的最小分钟数。如果不可能，返回 -1。const isAllRotting = grid =&gt; {  for(let row of grid) {      for(let col of row) {          if(col === 1)              return false;      }  }  return true;}const isInGrid = (i, j, grid) =&gt; {  if(i &gt;= 0 &amp;&amp; j &gt;= 0 &amp;&amp; i &lt; grid.length &amp;&amp; j &lt; grid[i].length) {      return true;  }  return false;}const rotting = grid =&gt; {  const nextGrid = copyGrid(grid);  for(let i = 0; i &lt; grid.length; i++) {      for(let j = 0; j &lt; grid[i].length; j++) {          if(grid[i][j] === 2) {              if(isInGrid(i - 1, j, grid) &amp;&amp; nextGrid[i - 1][j] === 1) {                  nextGrid[i - 1][j] = 2;              }              if(isInGrid(i + 1, j, grid) &amp;&amp; nextGrid[i + 1][j] === 1) {                  nextGrid[i + 1][j] = 2;              }              if(isInGrid(i, j - 1, grid) &amp;&amp; nextGrid[i][j - 1] === 1) {                  nextGrid[i][j - 1] = 2;              }              if(isInGrid(i, j + 1, grid) &amp;&amp; nextGrid[i][j + 1] === 1) {                  nextGrid[i][j + 1] = 2;              }          }      }  }  return nextGrid;}const sameGrid = (grid, nextGrid) =&gt; {  for(let i = 0; i &lt; grid.length; i++) {      for(let j = 0; j &lt; grid[i].length; j++) {          if(grid[i][j] !== nextGrid[i][j]) {              return false;          }      }  }  return true;}const copyGrid = grid =&gt; {  let nextGrid = [];  for(let row of grid){      nextGrid.push(row.slice());  }  return nextGrid;}const orangesRotting = grid =&gt; {  let count = 0;  let nextGrid = grid;  while(!isAllRotting(nextGrid)){    if(count &gt; 0 &amp;&amp; sameGrid(grid, nextGrid)) {      return -1;    }    count++;    grid = nextGrid;    nextGrid = rotting(grid);  }  return count;};</code></pre></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;腐烂的橘子&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;在给定的网格中，每个单元格可以有以下三个值之一：
+0 空单元格, 1 新鲜橘子, 2 腐烂的橘子。
+每分钟，任何与腐烂的橘子（在 4 个正方向上）相邻的新鲜橘子都会腐烂。
+返回网格中没有新鲜橘子必须经过的最小分钟数
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>剑雨有感</title>
     <link href="http://hi2048.github.io/2020/08/06/%E5%89%91%E9%9B%A8%E6%9C%89%E6%84%9F/"/>
     <id>http://hi2048.github.io/2020/08/06/剑雨有感/</id>
@@ -92,9 +126,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -517,9 +551,9 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -547,42 +581,11 @@ class Tarja
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JavaScript哈希</title>
-    <link href="http://hi2048.github.io/2019/09/16/JavaScript%E5%93%88%E5%B8%8C/"/>
-    <id>http://hi2048.github.io/2019/09/16/JavaScript哈希/</id>
-    <published>2019-09-15T16:00:00.000Z</published>
-    <updated>2019-09-16T04:33:10.127Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong> 表结构与JS对象结构转换，将数据结构A转换为数据结构B。 </strong></p><pre><code>// 定义数据结构const nodeAStruct = function(id, pid, data) {  this.id = id;  this.pid = pid;  this.data = data;}const nodeBStruct = function(id, children, data) {  this.id = id;  this.children = children;  this.data = data;}// 打印：深度遍历const print = (tree) =&gt; {  console.log(tree.data);  if(tree.children &amp;&amp; tree.children.length &gt; 0){    const children = tree.children;    children.forEach(child =&gt; {      print(child);    });  }}// 方法一：递归遍历const convert2Tree = (nodes = [], pid) =&gt; {  const result = [];  let temp = [];  nodes.forEach((node) =&gt; {    if(node.pid === pid){      const nodeB = new nodeBStruct(node.id, [], node.data);      temp = convert2Tree(nodes, node.id);      if(temp.length &gt; 0){        nodeB.children = temp;      }      result.push(nodeB);    }  });  return result;}// 方法二：hash处理const convertNodes2Hash = (nodes = []) =&gt; {  const hash = {};  nodes.forEach((node) =&gt; {    const nodeB = new nodeBStruct(node.id, [], node.data);    if(hash[node.pid]){      hash[node.pid].push(nodeB);    } else{      hash[node.pid] = [nodeB];    }  });  return hash;}const convertR = (hash, pid) =&gt; {  hash[pid].forEach(hp =&gt; {    const hc = hash[hp.id];    hp.children = hc?hc : [];    if(hc){      convertR(hash, hp.id);    }  });  return hash;}const convert2TreeByHash = (nodes = []) =&gt; {  const hash = convertNodes2Hash(nodes);  convertR(hash, -1);  return hash[-1];}const nodes = [];nodes.push(new nodeAStruct(0, -1, &apos;data0&apos;))nodes.push(new nodeAStruct(1, 0, &apos;data1&apos;))nodes.push(new nodeAStruct(2, 0, &apos;data2&apos;))nodes.push(new nodeAStruct(3, 1, &apos;data3&apos;))nodes.push(new nodeAStruct(4, 1, &apos;data4&apos;))nodes.push(new nodeAStruct(5, 2, &apos;data5&apos;))nodes.push(new nodeAStruct(6, 2, &apos;data6&apos;))let tree = convert2TreeByHash(nodes);print(tree[0]);console.log(tree[0])console.log(&apos;-----------------------&apos;);tree = convert2Tree(nodes, -1);print(tree[0]);console.log(tree[0])</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt; 表结构与JS对象结构转换，将数据结构A转换为数据结构B。 &lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;// 定义数据结构
-const nodeAStruct = function(id, pid, data) {
-  this.id = id;
-  
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   
