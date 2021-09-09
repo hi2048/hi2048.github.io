@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2021-08-06T08:30:11.229Z</updated>
+  <updated>2021-09-05T02:58:19.188Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>系统性思维</title>
+    <link href="http://hi2048.github.io/2021/09/01/%E7%B3%BB%E7%BB%9F%E6%80%A7%E6%80%9D%E7%BB%B4/"/>
+    <id>http://hi2048.github.io/2021/09/01/系统性思维/</id>
+    <published>2021-08-31T16:00:00.000Z</published>
+    <updated>2021-09-05T02:58:19.188Z</updated>
+    
+    <content type="html"><![CDATA[<p>系统性思维与局部性思维</p><p>  <strong> 系统性思维做出决策，然后在局部中做出选择 </strong>。<strong> 先有方向再有选择 </strong>，而不是随便做出了选择，然后再从选择中确定方向。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;系统性思维与局部性思维&lt;/p&gt;
+&lt;p&gt;  &lt;strong&gt; 系统性思维做出决策，然后在局部中做出选择 &lt;/strong&gt;。&lt;strong&gt; 先有方向再有选择 &lt;/strong&gt;，而不是随便做出了选择，然后再从选择中确定方向。&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>浅谈生活</title>
@@ -41,11 +64,73 @@
   </entry>
   
   <entry>
-    <title>团队的思考</title>
-    <link href="http://hi2048.github.io/2021/01/09/%E5%9B%A2%E9%98%9F%E7%9A%84%E6%80%9D%E8%80%83/"/>
-    <id>http://hi2048.github.io/2021/01/09/团队的思考/</id>
+    <title>Scrum笔记</title>
+    <link href="http://hi2048.github.io/2021/05/02/Scrum%E7%AC%94%E8%AE%B0/"/>
+    <id>http://hi2048.github.io/2021/05/02/Scrum笔记/</id>
+    <published>2021-05-02T06:21:41.000Z</published>
+    <updated>2021-09-05T02:24:18.442Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>Scrum 采用<strong>迭代、增量</strong>的方法来优化可预见性并控制风险。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;Scrum 采用&lt;strong&gt;迭代、增量&lt;/strong&gt;的方法来优化可预见性并控制风险。&lt;/li&gt;
+&lt;/ol&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>谈谈拖延症</title>
+    <link href="http://hi2048.github.io/2021/01/09/%E8%B0%88%E8%B0%88%E6%8B%96%E5%BB%B6%E7%97%87/"/>
+    <id>http://hi2048.github.io/2021/01/09/谈谈拖延症/</id>
     <published>2021-01-08T16:00:00.000Z</published>
-    <updated>2021-09-01T12:02:40.172Z</updated>
+    <updated>2021-09-09T08:22:29.604Z</updated>
+    
+    <content type="html"><![CDATA[<pre>1月1日新开这本日记，也为了督促自己后面多下些苦功。1. 先要读完手边的<the moon and sixpence>2. 考取GCP3. 加强自己的英语听力和口语4. 学习管理方面的知识5. 开始理财并制定计划6. 加强锻炼并保持健康1月2日打牌1月3日打牌1月4日打牌1月5日刷微博，水贴1月6日刷微博，水贴1月7日打牌1月8日刷微博，水贴</the></pre><p><strong>我本可以</strong>， 不要让自己在将来后悔，需要正视并做出改变。</p><ol><li>把自己的目标大声讲出来<ul><li>周围人的压力会让你开始执行计划</li></ul></li><li>利用帕金森定律，设定一个Deadline</li><li>把大的目标<strong>分解</strong>成细小的目标</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;
+1月1日
+新开这本日记，也为了督促自己后面多下些苦功。
+1. 先要读完手边的&lt;the moon and sixpence&gt;
+2. 考取GCP
+3. 加强自己的英语听力和口语
+4. 学习管理方面的知识
+5. 开始理财并制定计划
+6. 加强锻炼并保持健康
+
+1月2日
+打
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="团队" scheme="http://hi2048.github.io/tags/%E5%9B%A2%E9%98%9F/"/>
+    
+      <category term="Scrum Master" scheme="http://hi2048.github.io/tags/Scrum-Master/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>团队的思考</title>
+    <link href="http://hi2048.github.io/2020/10/19/%E5%9B%A2%E9%98%9F%E7%9A%84%E6%80%9D%E8%80%83/"/>
+    <id>http://hi2048.github.io/2020/10/19/团队的思考/</id>
+    <published>2020-10-18T16:00:00.000Z</published>
+    <updated>2021-09-09T08:10:14.242Z</updated>
     
     <content type="html"><![CDATA[<ol><li><p>交付与成长<br><pre>交付是团队存在的基础，成长是团队持续的核心。 团队成员的成长 ==〉高质量的交付</pre></p><ul><li>团队成员的成长</li><li>高质量的交付</li></ul></li><li><p>技术与方法<br>技术是IT行业的根本。技术可以贯穿整个IT团队，也是IT团队的灵魂，凝聚力的关键。方法则为技术铺平道路。</p><ul><li>技术：技术型团队，对技术保持初心，炙热</li><li>方法：敏捷开发，实践</li></ul></li></ol>]]></content>
     
@@ -495,99 +580,6 @@
     
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>IndexedDB实践及封装</title>
-    <link href="http://hi2048.github.io/2019/10/22/IndexedDB%E5%AE%9E%E8%B7%B5%E5%8F%8A%E5%B0%81%E8%A3%85/"/>
-    <id>http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/</id>
-    <published>2019-10-21T16:00:00.000Z</published>
-    <updated>2019-11-17T05:43:55.567Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>IndexedDB<br>utils for IndexedDB, crud operations.</p></li><li><p>代码实例 <a href="https://github.com/hi2048/IndexedDBOperator" title="IndexedDBOperator" target="_blank" rel="noopener">github</a></p><pre><code>-- config.jsexport default {  name: &quot;testDB&quot;}-- connect.jsimport config from &apos;./config&apos;;const connect = ({ name = config.name, version  }) =&gt; {  const promise = new Promise((resolve, reject) =&gt; {    let dbConnection;    const request = window.indexedDB.open(name, version);    request.onerror = e =&gt; {      reject(e);    }    request.onsuccess = e =&gt; {      dbConnection = request.result;      resolve(dbConnection);    }    request.onupgradeneeded = e =&gt; {      dbConnection = e.target.result;      resolve(dbConnection);    }  })  return promise;}export default connect;-- index.jsimport connect from &apos;./connect&apos;;class IndexedDBOperator {  constructor(version) {    if(!IndexedDBOperator.instance || version) {      this.dbConnection = connect({ version });      IndexedDBOperator.instance = this;    }    return IndexedDBOperator.instance;  }  static getInstance(version) {    return new IndexedDBOperator(version);  }  getVersion() {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; resolve(db.version)).catch(err =&gt; reject(err));    });  }  containsObjectStore(name) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        try {          resolve(db.objectStoreNames.contains(name));        } catch(err) {          reject(err);        }      })    });  }  createObjectStore(name, keyPath) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        if(!db.objectStoreNames.contains(name)) {          try {            const objectStore = db.createObjectStore(name, { keyPath: keyPath, autoIncrement: true });            resolve(objectStore);          } catch(err) {            reject(err);          }        }      });    });  }  create(objectStore, data) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).add(data);        request.onsuccess = e =&gt; {          resolve(e);        }        request.onerror = e =&gt; {          reject(e);        }      });    });  }  read(objectStore, searchIndex) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        const request = db.transaction([objectStore]).objectStore(objectStore).get(searchIndex);        request.onerror = e =&gt; {          reject(e);        };        request.onsuccess = e =&gt; {          resolve(request.result);        };      });    });  }  readAll(objectStore) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        const request = db.transaction([objectStore], &apos;readonly&apos;).objectStore(objectStore).openCursor();        const list = new Array();  // objectStore list        request.onsuccess = e =&gt; {          const cursor = event.target.result;          if(cursor) {            const { key, value } = cursor;            list.push({              key,              value            });            cursor.continue();          } else {            resolve(list);          }        };        request.onerror = e =&gt; {          reject(e);        };      });    });  }  update(objectStore, data) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).put(data);        request.onsuccess = e =&gt; {          resolve(e);        };        request.onerror = e =&gt; {          reject(e);        };      });    });  }  delete(objectStore, searchIndex) {    return new Promise((resolve, reject) =&gt; {      this.dbConnection.then(db =&gt; {        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).delete(searchIndex);        request.onsuccess = e =&gt; {          resolve(e);        };        request.onerror = e =&gt; {          reject(e);        };      });    });  }}export default IndexedDBOperator;</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;IndexedDB&lt;br&gt;utils for IndexedDB, crud operations.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https://github.com/hi2048/IndexedDBOperator&quot; t
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="工具类" scheme="http://hi2048.github.io/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UML实践</title>
-    <link href="http://hi2048.github.io/2019/09/29/UML%E5%AE%9E%E8%B7%B5/"/>
-    <id>http://hi2048.github.io/2019/09/29/UML实践/</id>
-    <published>2019-09-28T16:00:00.000Z</published>
-    <updated>2019-09-29T10:11:35.778Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>UML<br> <a href="/assets/UML类图.png"><img src="/assets/UML类图.png" alt="UML类图"></a></li><li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/UML" title="UML实践" target="_blank" rel="noopener">github</a></p><pre><code>-- water.jsclass Water {    constructor(){        console.log(&apos;Water constructor.&apos;);    }}module.exports = Water;-- o2.jsclass O2 {    constructor(){        console.log(&apos;O2 constructor.&apos;);    }}module.exports = O2;-- animal.js/*** 依赖关系：O2，Water----&gt;*/const O2 = require(&apos;./o2.js&apos;);const Water = require(&apos;./water.js&apos;);class Animal {    constructor(){        if(new.target === Animal)            throw new Error(`${Animal} cannot be initialized.`);        console.log(&apos;Animal constructor.&apos;);        this.life = true;    }    metaboly(o2 = new O2(), water = new Water()){        return;    }    breed(){}}module.exports = Animal;-- bird.js/*** 继承animal* 实线空心三角*/const Animal = require(&apos;./animal.js&apos;);const Wing = require(&apos;./wing.js&apos;);class Bird extends Animal {    constructor(feather) {        super();        console.log(&apos;Bird constructor.&apos;);        this.feather = feather;        this.wings = new Wing();    }    deposit() {}}module.exports = Bird;-- wing.js/*** 与鸟是组合关系* 鸟 实心菱形* 翅膀 实心箭头* 左右数字： 1   2， 1对2*/class Wing {    constructor(){        console.log(&apos;Wing constructor.&apos;)    }}module.exports = Wing;-- wildGoose.js/*** 继承鸟* 实线空心三角*/const Bird = require(&apos;./bird.js&apos;);class WildGoose extends Bird {    constructor() {        super();        console.log(&apos;WildGoose Construdtor.&apos;);    }    deposit() {        console.log(&apos;WildGoose Deposit.&apos;);    }    fly() {        console.log(&apos;WildGoose Fly.&apos;);    }}module.exports = WildGoose;-- gooseGroup.js/*** 与大雁： 聚合关系* 雁群： 空心菱形* 大雁： 实线箭头*/const WildGoose = require(&apos;./wildGoose.js&apos;);class GooseGroup {    constructor(){        this.wildGooses = new WildGoose();        console.log(&apos;GooseGroup Constructor.&apos;);    }}module.exports = GooseGroup;-- flyInterface.js/*** 接口*/class FlyInterface {    constructor() {        if(new.target === FlyInterface){            throw(&apos;Fly Interface cannot be initialized.&apos;);        }    }    fly() {        console.log(&apos;fly interface fly.&apos;);    }}module.exports = FlyInterface;-- duck.js/*** 继承自鸟* 实线空心三角*/class Duck extends Bird {    constructor() {        super();        console.log(&apos;Duck constructor.&apos;);    }}module.exports = Duck;-- donaldDuck.js/*** 实现接口： talkInterface* 虚线空心三角 或者 实线空心小圆*/const TalkInterface = require(&apos;./talkInterface.js&apos;);class DonaldDuck extends TalkInterface {    constructor(){        super();        console.log(&apos;Donald Duck Constructor.&apos;);    }    talk() {        super.talk();        console.log(&apos;Donald Duck talk.&apos;);    }}module.exports = DonaldDuck;-- talkInterface.jsclass TalkInterface {    constructor(){        if(new.target === TalkInterface){            throw new Error(&apos;Talk Interface cannot be initialized.&apos;);        }        console.log(&apos;Talk Interface Constructor.&apos;);    }    talk() {        console.log(&apos;talk interface talk.&apos;);    }}module.exports = TalkInterface;-- penguin.js/*** 继承自鸟* 实线空心三角*/const Bird = require(&apos;./bird.js&apos;);const Climate = require(&apos;./climate.js&apos;);class Penguin extends Bird {    constructor() {        super();        console.log(&apos;Penguin Constructor.&apos;);        this.climate = new Climate();    }}module.exports = Penguin;-- climate.js/*** 企鹅 关联关系-〉气候* 实线箭头*/class Climate {    constructor(){        console.log(&apos;Climate Constructor.&apos;);    }}module.exports = Climate;-- test.jsconst Animal = require(&apos;./animal.js&apos;);// const animal = new Animal();// animal.metaboly();const Bird = require(&apos;./bird.js&apos;);const bird = new Bird();bird.metaboly();const WildGoose = require(&apos;./wildGoose.js&apos;);// const wildGoose = new WildGoose();const GooseGroup = require(&apos;./gooseGroup.js&apos;);// const gooseGroup = new GooseGroup();const Penguin = require(&apos;./penguin.js&apos;);// const penguin = new Penguin();const DonaldDuck = require(&apos;./donaldDuck.js&apos;);// const donaldDuck = new DonaldDuck();// donaldDuck.talk();const TalkInterface = require(&apos;./talkInterface.js&apos;);// const talkInterface = new TalkInterface();</code></pre></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;UML&lt;br&gt; &lt;a href=&quot;/assets/UML类图.png&quot;&gt;&lt;img src=&quot;/assets/UML类图.png&quot; alt=&quot;UML类图&quot;&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;代码实例 &lt;a href=&quot;https://github.com/hi20
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="设计模式" scheme="http://hi2048.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-      <category term="大话设计模式" scheme="http://hi2048.github.io/tags/%E5%A4%A7%E8%AF%9D%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>有向图的强连通分量算法</title>
-    <link href="http://hi2048.github.io/2019/09/21/%E6%9C%89%E5%90%91%E5%9B%BE%E7%9A%84%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E7%AE%97%E6%B3%95/"/>
-    <id>http://hi2048.github.io/2019/09/21/有向图的强连通分量算法/</id>
-    <published>2019-09-20T16:00:00.000Z</published>
-    <updated>2019-09-22T12:23:50.800Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong> 有向图的强连通分量： Tarjan算法 </strong></p><pre><code>const Stack = require(&apos;./Stack.js&apos;);// 有向图的强连通分量算法// dfs搜索class Tarjan {    constructor(n, connections, iDirected = true){        // 时间戳dfn: dfn[i] dfs搜索编号        this.dfn = [];        // 追溯值low: low[i] 初始值为 dfn[i]，后续可能会产生更新， low[i] = Math.min(low[i], [low|dfn][c]) i为父节点        this.low = [];        this.n = n;        this.connections = connections;        // dfs编号： 时间戳        this.index = 0;        this.stack = new Stack();        // 有向图的强连通分量        this.sccs = new Stack();        // 桥        this.bridges = [];        // true有向图， false单边无向图        this.iDirected = iDirected;    }    t(x, lastEdge) {        this.dfn[x] = this.low[x] = ++this.index;        this.stack.push(x);        for(let c of this.connections) {            // c = [x, y]            // 无向图重边处理            if(!this.iDirected &amp;&amp; c === lastEdge) continue;            // 默认为有向图            let directedX = c[0];            let directedY = c[1];            // 无向图            if(!this.iDirected){                if(x === c[1]){                    directedX = c[1];                    directedY = c[0];                }            }            if(directedX === x){                const y = directedY;                if(!this.dfn[y]){                    this.t(y, c);                    // 若𝑦没被访问过，则说明(𝑥,𝑦)是树枝边，递归访问𝑦,从𝑦回溯后，令𝑙𝑜𝑤[𝑥]=𝑚𝑖𝑛(𝑙𝑜𝑤[𝑥],𝑙𝑜𝑤[𝑦])                    this.low[x] = Math.min(this.low[x], this.low[y]);                    // 关键连接 - 桥                    if(this.low[y] &gt; this.dfn[x]){                        this.bridges.push(c);                    }                } else if(this.stack.has(y)){                    // 若𝑦被访问过且𝑦在栈中，令𝑙𝑜𝑤[𝑥]=𝑚𝑖𝑛(𝑙𝑜𝑤[𝑥],𝑑𝑓𝑛[𝑦])                    this.low[x] = Math.min(this.low[x], this.dfn[y]);                }            }        }        // 𝑙𝑜𝑤[𝑥]=𝑑𝑓𝑛[𝑥]成立，则栈中从𝑥到栈顶的所有节点构成一个强连通分量        if(this.dfn[x] === this.low[x]){            const scc = new Stack();            let y;            do{                y = this.stack.pop();                scc.push(y);            } while(x !== y);            this.sccs.push(scc);        }    }    execute() {        for(let i = 0; i &lt; this.n; i++) {            if(!this.dfn[i])                this.t(i);        }        return this.sccs;    }    getSccs() {        return this.sccs;    }    getBridges() {        return this.bridges;    }    contains(connection) {        const x = connection[0];        const y = connection[1];        for(let scc of this.sccs.getArray()){            if(scc.has(x) &amp;&amp; scc.has(y)){                return true;            }        }        return false;    }    print() {        this.sccs.print();    }}module.exports = Tarjan;</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;strong&gt; 有向图的强连通分量： Tarjan算法 &lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const Stack = require(&amp;apos;./Stack.js&amp;apos;);
-
-// 有向图的强连通分量算法
-// dfs搜索
-class Tarja
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

@@ -64,6 +64,712 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-IndexedDB实践及封装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/22/IndexedDB实践及封装/" class="article-date">
+  <time datetime="2019-10-21T16:00:00.000Z" itemprop="datePublished">2019-10-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/22/IndexedDB实践及封装/">IndexedDB实践及封装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>IndexedDB<br>utils for IndexedDB, crud operations.</p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/IndexedDBOperator" title="IndexedDBOperator" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- config.js
+export default {
+  name: &quot;testDB&quot;
+}
+
+-- connect.js
+import config from &apos;./config&apos;;
+
+const connect = ({ name = config.name, version  }) =&gt; {
+  const promise = new Promise((resolve, reject) =&gt; {
+    let dbConnection;
+    const request = window.indexedDB.open(name, version);
+
+    request.onerror = e =&gt; {
+      reject(e);
+    }
+
+    request.onsuccess = e =&gt; {
+      dbConnection = request.result;
+
+      resolve(dbConnection);
+    }
+
+    request.onupgradeneeded = e =&gt; {
+      dbConnection = e.target.result;
+
+      resolve(dbConnection);
+    }
+  })
+
+  return promise;
+}
+
+export default connect;
+
+-- index.js
+import connect from &apos;./connect&apos;;
+
+class IndexedDBOperator {
+  constructor(version) {
+    if(!IndexedDBOperator.instance || version) {
+      this.dbConnection = connect({ version });
+      IndexedDBOperator.instance = this;
+    }
+
+    return IndexedDBOperator.instance;
+  }
+
+  static getInstance(version) {
+    return new IndexedDBOperator(version);
+  }
+
+  getVersion() {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; resolve(db.version)).catch(err =&gt; reject(err));
+    });
+  }
+
+  containsObjectStore(name) {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; {
+        try {
+          resolve(db.objectStoreNames.contains(name));
+        } catch(err) {
+          reject(err);
+        }
+      })
+    });
+  }
+
+  createObjectStore(name, keyPath) {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; {
+        if(!db.objectStoreNames.contains(name)) {
+          try {
+            const objectStore = db.createObjectStore(name, { keyPath: keyPath, autoIncrement: true });
+
+            resolve(objectStore);
+          } catch(err) {
+            reject(err);
+          }
+        }
+      });
+    });
+  }
+
+  create(objectStore, data) {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; {
+        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).add(data);
+
+        request.onsuccess = e =&gt; {
+          resolve(e);
+        }
+
+        request.onerror = e =&gt; {
+          reject(e);
+        }
+      });
+    });
+  }
+
+  read(objectStore, searchIndex) {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; {
+        const request = db.transaction([objectStore]).objectStore(objectStore).get(searchIndex);
+
+        request.onerror = e =&gt; {
+          reject(e);
+        };
+
+        request.onsuccess = e =&gt; {
+          resolve(request.result);
+        };
+      });
+    });
+  }
+
+  readAll(objectStore) {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; {
+        const request = db.transaction([objectStore], &apos;readonly&apos;).objectStore(objectStore).openCursor();
+        const list = new Array();  // objectStore list
+
+        request.onsuccess = e =&gt; {
+          const cursor = event.target.result;
+
+          if(cursor) {
+            const { key, value } = cursor;
+
+            list.push({
+              key,
+              value
+            });
+
+            cursor.continue();
+          } else {
+            resolve(list);
+          }
+        };
+
+        request.onerror = e =&gt; {
+          reject(e);
+        };
+      });
+    });
+  }
+
+  update(objectStore, data) {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; {
+        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).put(data);
+
+        request.onsuccess = e =&gt; {
+          resolve(e);
+        };
+
+        request.onerror = e =&gt; {
+          reject(e);
+        };
+      });
+    });
+  }
+
+  delete(objectStore, searchIndex) {
+    return new Promise((resolve, reject) =&gt; {
+      this.dbConnection.then(db =&gt; {
+        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).delete(searchIndex);
+
+        request.onsuccess = e =&gt; {
+          resolve(e);
+        };
+
+        request.onerror = e =&gt; {
+          reject(e);
+        };
+      });
+    });
+  }
+}
+
+export default IndexedDBOperator;
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/" data-id="cktcnxu1h000aknwsbum9zyv8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类/">工具类</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-UML实践" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/29/UML实践/" class="article-date">
+  <time datetime="2019-09-28T16:00:00.000Z" itemprop="datePublished">2019-09-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/29/UML实践/">UML实践</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>UML<br> <a href="/assets/UML类图.png"><img src="/assets/UML类图.png" alt="UML类图"></a></li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/UML" title="UML实践" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- water.js
+class Water {
+    constructor(){
+        console.log(&apos;Water constructor.&apos;);
+    }
+}
+
+module.exports = Water;
+
+-- o2.js
+class O2 {
+    constructor(){
+        console.log(&apos;O2 constructor.&apos;);
+    }
+}
+
+module.exports = O2;
+
+-- animal.js
+/**
+* 依赖关系：O2，Water----&gt;
+*/
+
+const O2 = require(&apos;./o2.js&apos;);
+const Water = require(&apos;./water.js&apos;);
+
+class Animal {
+    constructor(){
+        if(new.target === Animal)
+            throw new Error(`${Animal} cannot be initialized.`);
+
+        console.log(&apos;Animal constructor.&apos;);
+        this.life = true;
+    }
+
+    metaboly(o2 = new O2(), water = new Water()){
+        return;
+    }
+
+    breed(){}
+}
+
+module.exports = Animal;
+
+-- bird.js
+/**
+* 继承animal
+* 实线空心三角
+*/
+
+const Animal = require(&apos;./animal.js&apos;);
+const Wing = require(&apos;./wing.js&apos;);
+
+class Bird extends Animal {
+    constructor(feather) {
+        super();
+
+        console.log(&apos;Bird constructor.&apos;);
+        this.feather = feather;
+        this.wings = new Wing();
+    }
+
+    deposit() {}
+}
+
+module.exports = Bird;
+
+-- wing.js
+/**
+* 与鸟是组合关系
+* 鸟 实心菱形
+* 翅膀 实心箭头
+* 左右数字： 1   2， 1对2
+*/
+
+class Wing {
+    constructor(){
+        console.log(&apos;Wing constructor.&apos;)
+    }
+}
+
+module.exports = Wing;
+
+-- wildGoose.js
+/**
+* 继承鸟
+* 实线空心三角
+*/
+const Bird = require(&apos;./bird.js&apos;);
+
+class WildGoose extends Bird {
+    constructor() {
+        super();
+
+        console.log(&apos;WildGoose Construdtor.&apos;);
+    }
+
+    deposit() {
+        console.log(&apos;WildGoose Deposit.&apos;);
+    }
+
+    fly() {
+        console.log(&apos;WildGoose Fly.&apos;);
+    }
+}
+
+module.exports = WildGoose;
+
+-- gooseGroup.js
+/**
+* 与大雁： 聚合关系
+* 雁群： 空心菱形
+* 大雁： 实线箭头
+*/
+const WildGoose = require(&apos;./wildGoose.js&apos;);
+
+class GooseGroup {
+    constructor(){
+        this.wildGooses = new WildGoose();
+        console.log(&apos;GooseGroup Constructor.&apos;);
+    }
+}
+
+module.exports = GooseGroup;
+
+-- flyInterface.js
+/**
+* 接口
+*/
+
+class FlyInterface {
+    constructor() {
+        if(new.target === FlyInterface){
+            throw(&apos;Fly Interface cannot be initialized.&apos;);
+        }
+    }
+
+    fly() {
+        console.log(&apos;fly interface fly.&apos;);
+    }
+}
+
+module.exports = FlyInterface;
+
+-- duck.js
+/**
+* 继承自鸟
+* 实线空心三角
+*/
+
+class Duck extends Bird {
+    constructor() {
+        super();
+
+        console.log(&apos;Duck constructor.&apos;);
+    }
+}
+
+module.exports = Duck;
+
+-- donaldDuck.js
+/**
+* 实现接口： talkInterface
+* 虚线空心三角 或者 实线空心小圆
+*/
+const TalkInterface = require(&apos;./talkInterface.js&apos;);
+
+class DonaldDuck extends TalkInterface {
+    constructor(){
+        super();
+
+        console.log(&apos;Donald Duck Constructor.&apos;);
+    }
+
+    talk() {
+        super.talk();
+
+        console.log(&apos;Donald Duck talk.&apos;);
+    }
+}
+
+module.exports = DonaldDuck;
+
+-- talkInterface.js
+class TalkInterface {
+    constructor(){
+        if(new.target === TalkInterface){
+            throw new Error(&apos;Talk Interface cannot be initialized.&apos;);
+        }
+
+        console.log(&apos;Talk Interface Constructor.&apos;);
+    }
+
+    talk() {
+        console.log(&apos;talk interface talk.&apos;);
+    }
+}
+
+module.exports = TalkInterface;
+
+-- penguin.js
+/**
+* 继承自鸟
+* 实线空心三角
+*/
+const Bird = require(&apos;./bird.js&apos;);
+const Climate = require(&apos;./climate.js&apos;);
+
+class Penguin extends Bird {
+    constructor() {
+        super();
+
+        console.log(&apos;Penguin Constructor.&apos;);
+        this.climate = new Climate();
+    }
+}
+
+module.exports = Penguin;
+
+-- climate.js
+/**
+* 企鹅 关联关系-〉气候
+* 实线箭头
+*/
+
+class Climate {
+    constructor(){
+        console.log(&apos;Climate Constructor.&apos;);
+    }
+}
+
+module.exports = Climate;
+
+-- test.js
+const Animal = require(&apos;./animal.js&apos;);
+
+// const animal = new Animal();
+// animal.metaboly();
+
+const Bird = require(&apos;./bird.js&apos;);
+
+const bird = new Bird();
+bird.metaboly();
+
+const WildGoose = require(&apos;./wildGoose.js&apos;);
+
+// const wildGoose = new WildGoose();
+
+const GooseGroup = require(&apos;./gooseGroup.js&apos;);
+
+// const gooseGroup = new GooseGroup();
+
+const Penguin = require(&apos;./penguin.js&apos;);
+
+// const penguin = new Penguin();
+
+const DonaldDuck = require(&apos;./donaldDuck.js&apos;);
+
+// const donaldDuck = new DonaldDuck();
+// donaldDuck.talk();
+
+const TalkInterface = require(&apos;./talkInterface.js&apos;);
+
+// const talkInterface = new TalkInterface();
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/09/29/UML实践/" data-id="cktcnxu1w000zknws6zw3yiji" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-有向图的强连通分量算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/09/21/有向图的强连通分量算法/" class="article-date">
+  <time datetime="2019-09-20T16:00:00.000Z" itemprop="datePublished">2019-09-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/21/有向图的强连通分量算法/">有向图的强连通分量算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> 有向图的强连通分量： Tarjan算法 </strong></p>
+<pre><code>const Stack = require(&apos;./Stack.js&apos;);
+
+// 有向图的强连通分量算法
+// dfs搜索
+class Tarjan {
+    constructor(n, connections, iDirected = true){
+        // 时间戳dfn: dfn[i] dfs搜索编号
+        this.dfn = [];
+
+        // 追溯值low: low[i] 初始值为 dfn[i]，后续可能会产生更新， low[i] = Math.min(low[i], [low|dfn][c]) i为父节点
+        this.low = [];
+
+        this.n = n;
+        this.connections = connections;
+
+        // dfs编号： 时间戳
+        this.index = 0;
+
+        this.stack = new Stack();
+
+        // 有向图的强连通分量
+        this.sccs = new Stack();
+
+        // 桥
+        this.bridges = [];
+
+        // true有向图， false单边无向图
+        this.iDirected = iDirected;
+    }
+
+    t(x, lastEdge) {
+        this.dfn[x] = this.low[x] = ++this.index;
+        this.stack.push(x);
+
+        for(let c of this.connections) {
+            // c = [x, y]
+            // 无向图重边处理
+            if(!this.iDirected &amp;&amp; c === lastEdge) continue;
+
+            // 默认为有向图
+            let directedX = c[0];
+            let directedY = c[1];
+
+            // 无向图
+            if(!this.iDirected){
+                if(x === c[1]){
+                    directedX = c[1];
+                    directedY = c[0];
+                }
+            }
+
+            if(directedX === x){
+                const y = directedY;
+
+                if(!this.dfn[y]){
+                    this.t(y, c);
+
+                    // 若𝑦没被访问过，则说明(𝑥,𝑦)是树枝边，递归访问𝑦,从𝑦回溯后，令𝑙𝑜𝑤[𝑥]=𝑚𝑖𝑛(𝑙𝑜𝑤[𝑥],𝑙𝑜𝑤[𝑦])
+                    this.low[x] = Math.min(this.low[x], this.low[y]);
+
+                    // 关键连接 - 桥
+                    if(this.low[y] &gt; this.dfn[x]){
+                        this.bridges.push(c);
+                    }
+                } else if(this.stack.has(y)){
+                    // 若𝑦被访问过且𝑦在栈中，令𝑙𝑜𝑤[𝑥]=𝑚𝑖𝑛(𝑙𝑜𝑤[𝑥],𝑑𝑓𝑛[𝑦])
+                    this.low[x] = Math.min(this.low[x], this.dfn[y]);
+                }
+            }
+        }
+
+        // 𝑙𝑜𝑤[𝑥]=𝑑𝑓𝑛[𝑥]成立，则栈中从𝑥到栈顶的所有节点构成一个强连通分量
+        if(this.dfn[x] === this.low[x]){
+            const scc = new Stack();
+
+            let y;
+
+            do{
+                y = this.stack.pop();
+                scc.push(y);
+            } while(x !== y);
+
+            this.sccs.push(scc);
+        }
+    }
+
+    execute() {
+        for(let i = 0; i &lt; this.n; i++) {
+            if(!this.dfn[i])
+                this.t(i);
+        }
+
+        return this.sccs;
+    }
+
+    getSccs() {
+        return this.sccs;
+    }
+
+    getBridges() {
+        return this.bridges;
+    }
+
+    contains(connection) {
+        const x = connection[0];
+        const y = connection[1];
+
+        for(let scc of this.sccs.getArray()){
+            if(scc.has(x) &amp;&amp; scc.has(y)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    print() {
+        this.sccs.print();
+    }
+}
+
+module.exports = Tarjan;
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/09/21/有向图的强连通分量算法/" data-id="cktcnxu39003rknwsmnnmljek" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-求数据流的中位数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/09/20/求数据流的中位数/" class="article-date">
@@ -221,7 +927,7 @@ MedianFinder.prototype.findMedian = function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/20/求数据流的中位数/" data-id="ckt1g9tex004538ws9y8esqre" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/20/求数据流的中位数/" data-id="cktcnxu3a003vknwssqj0a09z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -366,7 +1072,7 @@ console.log(tree[0])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ckt1g9td9000n38wspwe37nrm" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="cktcnxu1o000lknwsqbhpbiz9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -462,7 +1168,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ckt1g9teq003q38wsad4tslp6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="cktcnxu38003pknwsctbvfikt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -526,7 +1232,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ckt1g9tev004038wsm59cik5z" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="cktcnxu3c0040knws482chy1s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuex/">vuex</a></li></ul>
@@ -702,7 +1408,7 @@ objectStructure.accept(new ConcreteVisitor2());
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/15/访问者模式/" data-id="ckt1g9tf6004o38wsoveaj378" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/15/访问者模式/" data-id="cktcnxu3n004pknwsvmnmai4s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -761,7 +1467,7 @@ objectStructure.accept(new ConcreteVisitor2());
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ckt1g9tdh001238ws7ffm028r" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="cktcnxu1y0012knwsr339ofzc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -1024,376 +1730,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/07/22/解释器模式/" data-id="ckt1g9tf6004m38wsjcg4bd0t" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-享元模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/15/享元模式/" class="article-date">
-  <time datetime="2019-06-14T16:00:00.000Z" itemprop="datePublished">2019-06-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/15/享元模式/">享元模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>享元模式（Flyweight）<br> <a href="/assets/享元模式.png"><img src="/assets/享元模式.png" alt="享元模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Flyweight" title="享元模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- flyweight.js
-class Flyweight {
-    constructor() {
-        if(new.target === Flyweight)
-            throw new Error(`${Flyweight} cannot be initialized.`);
-    }
-
-    operation(extrinsicState) {
-        throw new Error(`${this.operation} should be overwrite.`);
-    }
-}
-
-module.exports = Flyweight;
-
--- concreteFlyweight.js
-const Flyweight = require(&apos;./flyweight&apos;);
-
-class ConcreteFlyweight extends Flyweight {
-    constructor() {
-        super();
-    }
-
-    operation(extrinsicState) {
-        console.log(`ConcreteFlyweight operation: shared ${extrinsicState}`);
-    }
-}
-
-module.exports = ConcreteFlyweight;
-
--- unsharedConcreteFlyweight.js
-const Flyweight = require(&apos;./flyweight&apos;);
-
-class UnsharedConcreteFlyweight extends Flyweight {
-    constructor() {
-        super();
-    }
-
-    operation(extrinsicState) {
-        console.log(`UnsharedConcreteFlyweight operation: unshared ${extrinsicState}`);
-    }
-}
-
-module.exports = UnsharedConcreteFlyweight;
-
--- flyweightFactory.js
-class FlyweightFactory {
-    constructor() {
-        this.flyweights = new Map();
-    }
-
-    getFlyweight(key) {
-        return this.flyweights.get(key);
-    }
-
-    setFlyweight(key, value) {
-        this.flyweights.set(key, value);
-    }
-
-    getFlyweightCount() {
-        return this.flyweights.size;
-    }
-}
-
-module.exports = FlyweightFactory;
-
--- client.js
-const ConcreteFlyweight = require(&apos;./concreteFlyweight&apos;);
-const UnsharedConcreteFlyweight = require(&apos;./unsharedConcreteFlyweight&apos;);
-const FlyweightFactory = require(&apos;./flyweightFactory&apos;);
-
-const concreteFlyweight = new ConcreteFlyweight();
-const unsharedConcreteFlyweight = new UnsharedConcreteFlyweight();
-const flyweightFactory = new FlyweightFactory();
-
-flyweightFactory.setFlyweight(&apos;x&apos;, concreteFlyweight);
-flyweightFactory.setFlyweight(&apos;y&apos;, new ConcreteFlyweight());
-flyweightFactory.setFlyweight(&apos;z&apos;, new ConcreteFlyweight());
-
-console.log(flyweightFactory.getFlyweightCount());
-
-let extrinsicState = 20;
-flyweightFactory.getFlyweight(&apos;x&apos;).operation(--extrinsicState);
-flyweightFactory.getFlyweight(&apos;y&apos;).operation(--extrinsicState);
-flyweightFactory.getFlyweight(&apos;z&apos;).operation(--extrinsicState);
-unsharedConcreteFlyweight.operation(--extrinsicState);
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/15/享元模式/" data-id="ckt1g9tdu001u38wsh6piuhq3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-compose" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/10/compose/" class="article-date">
-  <time datetime="2019-06-09T16:00:00.000Z" itemprop="datePublished">2019-06-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/06/10/compose/">compose</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> JavaScript函数式编程：compose方法 </strong></p>
-<pre><code>const compose = (arr) =&gt; {
-    return arr.reduce((a, b) =&gt; (...args) =&gt; a(b(...args)))
-}
-
-const composeT = (arr) =&gt; {
-  return arr.reduce((a, b) =&gt; {
-    return (...args) =&gt; {
-      console.log(`${a.name}(${b.name}(${args}))`);
-      return a(b(...args));
-    }
-  }, ()=&gt;{})
-}
-
-
-const a = (a, b) =&gt; {console.log(&quot;a: &quot;, a); return a;}
-const b = (a, b) =&gt; {console.log(&quot;b: &quot;, a); return a;}
-const c = (a, b) =&gt; {console.log(&quot;c: &quot;, a, b); return [a, b];}
-composeT([a,b,c])(&apos;1&apos;,&apos;2&apos;)
-
-(c(1,2))
-c:  1 2
-(b(1,2))
-b:  [ &apos;1&apos;, &apos;2&apos; ]
-(a(1,2))
-a:  [ &apos;1&apos;, &apos;2&apos; ]
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ckt1g9tdk001838ws9dmlanty" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-中介者模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/05/22/中介者模式/" class="article-date">
-  <time datetime="2019-05-21T16:00:00.000Z" itemprop="datePublished">2019-05-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/05/22/中介者模式/">中介者模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>中介者模式（Mediator）<br> <a href="/assets/中介者模式.png"><img src="/assets/中介者模式.png" alt="中介者模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Mediator" title="中介者模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- mediator.js
-class Mediator {
-    constructor() {
-        if(new.target === Mediator)
-            throw new Error(`${Mediator} cannot be initialized.`);
-
-        this.colleagues = new Set();
-    }
-
-    addColleague(colleague) {
-        colleague &amp;&amp; this.colleagues.add(colleague);
-
-        return this;
-    }
-
-    removeColleague(colleague) {
-        this.colleagues.delete(colleague);
-
-        return this;
-    }
-
-    send(message, colleague) {
-        throw new Error(`${this.send} should be overwrite.`);
-    }
-}
-
-module.exports = Mediator;
-
--- concreteMediator.js
-const Mediator = require(&apos;./mediator&apos;);
-
-class ConcreteMediator extends Mediator {
-    constructor() {
-        super();
-    }
-
-    send(message, colleague) {
-        this.colleagues.forEach(coll =&gt; {
-            if(coll !== colleague) {
-                coll.notify(message);
-            }
-        });
-    }
-}
-
-module.exports = ConcreteMediator;
-
--- colleague.js
-class Colleague {
-    constructor(mediator) {
-        if(new.target === Colleague) {
-            throw new Error(`${Colleague} cannot be initialized.`);
-        }
-
-        this.mediator = mediator;
-    }
-
-    setMediator(mediator) {
-        mediator &amp;&amp; (this.mediator = mediator);
-
-        return this;
-    }
-
-    send(message) {
-        this.mediator.send(message, this);
-    }
-
-    notify(message) {
-        throw new Error(`${this.notify} should be overwrite.`);
-    }
-}
-
-module.exports = Colleague;
-
--- concreteColleague1.js
-const Colleague = require(&apos;./colleague&apos;);
-
-class ConcreteColleague1 extends Colleague {
-    constructor(mediator) {
-        super(mediator);
-    }
-
-    notify(message) {
-        console.log(`ConcreteColleague1 notify ${message}.`);
-    }
-}
-
-module.exports = ConcreteColleague1;
-
--- concreteColleague2.js
-const Colleague = require(&apos;./colleague&apos;);
-
-class ConcreteColleague2 extends Colleague {
-    constructor(mediator) {
-        super(mediator);
-    }
-
-    notify(message) {
-        console.log(`ConcreteColleague2 notify ${message}.`);
-    }
-}
-
-module.exports = ConcreteColleague2;
-
--- client.js
-const ConcreteMediator = require(&apos;./concreteMediator&apos;);
-const ConcreteColleague1 = require(&apos;./concreteColleague1&apos;);
-const ConcreteColleague2 = require(&apos;./concreteColleague2&apos;);
-
-const concreteMediator = new ConcreteMediator();
-const concreteColleague1 = new ConcreteColleague1(concreteMediator);
-const concreteColleague2 = new ConcreteColleague2(concreteMediator);
-
-concreteMediator.addColleague(concreteColleague1);
-concreteMediator.addColleague(concreteColleague2);
-
-concreteColleague1.send(&apos;concreteColleague1 send message 1&apos;);
-concreteColleague2.send(&apos;concreteColleague2 send message 2&apos;);
-concreteColleague2.send(&apos;concreteColleague2 send message 3&apos;);
-concreteColleague1.send(&apos;concreteColleague1 send message 4&apos;);
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/05/22/中介者模式/" data-id="ckt1g9tdq001m38ws6vx3xezv" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/07/22/解释器模式/" data-id="cktcnxu3m004nknwsfqq3blvc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1439,7 +1776,7 @@ concreteColleague1.send(&apos;concreteColleague1 send message 4&apos;);
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Agile/" style="font-size: 10px;">Agile</a> <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 10px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/hi2048/" style="font-size: 15.56px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14.44px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12.22px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 10px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 18.89px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.78px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.89px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/Agile/" style="font-size: 10px;">Agile</a> <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11.11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/hi2048/" style="font-size: 15.56px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14.44px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12.22px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11.11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 18.89px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/算法/" style="font-size: 17.78px;">算法</a> <a href="/tags/设计模式/" style="font-size: 18.89px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -1448,7 +1785,7 @@ concreteColleague1.send(&apos;concreteColleague1 send message 4&apos;);
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
@@ -1461,23 +1798,23 @@ concreteColleague1.send(&apos;concreteColleague1 send message 4&apos;);
       <ul>
         
           <li>
+            <a href="/2021/09/01/系统性思维/">系统性思维</a>
+          </li>
+        
+          <li>
             <a href="/2021/05/05/浅谈生活/">浅谈生活</a>
           </li>
         
           <li>
-            <a href="/2021/01/09/团队的思考/">团队的思考</a>
+            <a href="/2021/05/02/Scrum笔记/">Scrum笔记</a>
           </li>
         
           <li>
-            <a href="/2020/09/09/腐烂的橘子/">腐烂的橘子一</a>
+            <a href="/2021/01/09/谈谈拖延症/">谈谈拖延症</a>
           </li>
         
           <li>
-            <a href="/2020/08/06/剑雨有感/">剑雨有感</a>
-          </li>
-        
-          <li>
-            <a href="/2020/07/12/数组中有效三角形的数量/">数组中有效三角形的数量</a>
+            <a href="/2020/10/19/团队的思考/">团队的思考</a>
           </li>
         
       </ul>
