@@ -64,6 +64,33 @@
   </entry>
   
   <entry>
+    <title>理财笔记</title>
+    <link href="http://hi2048.github.io/2021/02/01/%E7%90%86%E8%B4%A2%E7%AC%94%E8%AE%B0/"/>
+    <id>http://hi2048.github.io/2021/02/01/理财笔记/</id>
+    <published>2021-01-31T16:00:00.000Z</published>
+    <updated>2021-09-12T16:05:41.164Z</updated>
+    
+    <content type="html"><![CDATA[<p>市场概率：1. 胜率 2. 赔率： 即盈亏比 3. 破产率：仓位控制或者资金管理 </p><p>赔率才是交易员要考虑的根本问题。<br>你正确或错误并不是最重要的，最重要的是你正确的时候能赚多少钱，错误的时候会亏多少钱。 – 索罗斯</p><p><strong>赚大赔小，生存第一。</strong></p><p>第一保住本金，第二保住本金，第三认真考虑第一第二条。 – 巴菲特</p><p>一律：纪律，用纪律去统领一切概率的可能性。 1. 胜败：<strong>趋势掌控能力</strong>，行情是否按照计划的大概率事件进行 2. 对错：<strong>计划执行能力</strong>，整体策略的执行力结果 3. 盈亏</p><p>信念： 大道至简，坚信自己可以成功，信念的坚定其实是中庸之道。</p><p>左倾冒进主义： 盲目自信，扛单，频繁交易，重仓交易，赌气交易。<br>右倾投降主义： 做单太谨小慎微，明明是很好的机会，不敢下单，<strong>错失机会</strong>。</p><p>知识与智慧： 知识是可以通过学习获得，智慧只能通过体悟和实践获得。</p><p>熟知与真知： 通过学习知道与通过实践知道的区别。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;市场概率：1. 胜率 2. 赔率： 即盈亏比 3. 破产率：仓位控制或者资金管理 &lt;/p&gt;
+&lt;p&gt;赔率才是交易员要考虑的根本问题。&lt;br&gt;你正确或错误并不是最重要的，最重要的是你正确的时候能赚多少钱，错误的时候会亏多少钱。 – 索罗斯&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;赚大赔小
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="理财" scheme="http://hi2048.github.io/tags/%E7%90%86%E8%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>谈谈拖延症</title>
     <link href="http://hi2048.github.io/2021/01/09/%E8%B0%88%E8%B0%88%E6%8B%96%E5%BB%B6%E7%97%87/"/>
     <id>http://hi2048.github.io/2021/01/09/谈谈拖延症/</id>
@@ -553,34 +580,6 @@
       <category term="hi2048" scheme="http://hi2048.github.io/tags/hi2048/"/>
     
       <category term="hi2048-utils" scheme="http://hi2048.github.io/tags/hi2048-utils/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最大最小值</title>
-    <link href="http://hi2048.github.io/2019/12/25/%E6%9C%80%E5%A4%A7%E6%9C%80%E5%B0%8F%E5%80%BC/"/>
-    <id>http://hi2048.github.io/2019/12/25/最大最小值/</id>
-    <published>2019-12-24T16:00:00.000Z</published>
-    <updated>2020-02-29T12:55:29.878Z</updated>
-    
-    <content type="html"><![CDATA[<p>– min and max value in args(array or numbers). </p><pre><code>const min = (...args) =&gt; {  return args.reduce((a, b) =&gt; {    b = Array.isArray(b)?min(...b) : b;    return a &lt; b?a : b;  }, Infinity);}const max = (...args) =&gt; {  return args.reduce((a, b) =&gt; {    b = Array.isArray(b)?max(...b) : b;    return a &gt; b?a : b;  }, -Infinity);}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;– min and max value in args(array or numbers). &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;const min = (...args) =&amp;gt; {
-  return args.reduce((a, b) =&amp;gt; {
-    b = 
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="utils" scheme="http://hi2048.github.io/tags/utils/"/>
     
   </entry>
   
