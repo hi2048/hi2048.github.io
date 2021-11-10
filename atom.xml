@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2021-09-05T02:58:19.188Z</updated>
+  <updated>2021-11-10T04:42:03.212Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>study notes</title>
+    <link href="http://hi2048.github.io/2021/11/01/study-notes-english/"/>
+    <id>http://hi2048.github.io/2021/11/01/study-notes-english/</id>
+    <published>2021-10-31T16:00:00.000Z</published>
+    <updated>2021-11-10T04:42:03.212Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>和则两利，斗则俱伤<br>A peachful and harmonious bilateral relationship between these two countries will make both winners. While a confrontational one wil make both losers.</p></li><li><p>行百里者半九十<br>Half of the people who have embarked on a one-hundred-mile journey may fail by the wayside.</p></li><li><p>华山再高，顶有过路<br>No matter how hign the mountain is, one can always ascend to it’s top.</p></li><li><p>我深深爱着我的国家，没有一片土地让我这样深情和激动，没有一条河流让我这样沉思和祈福，余心之所善兮，虽九死而其尤未悔。<br>I have deep love for this country. I love erery inch of its land. I love every river that flows on this piece of earth with deep passion and deep affection. For the ideal that I hold dear to my heart. I will not regret a thousand depth to die.</p></li><li><p>人或加讪，心无疵兮<br>As a Chinese proverb goes, my conscience stays untained in spite of rumors and slanders from the outside.</p></li><li><p>兄弟虽有小忿，不废懿亲<br>Differences between brothers cannot server their blood ties.</p></li><li><p>不畏浮云遮望眼，只缘身在最高层。<br>As a Chinese poem reads, we have no fear of the clouds that may block our sight, as we are already at the top of the height.</p></li><li><p>入则恳恳以尽忠，出则谦谦以自诲<br>When one is in office he should discharge his duty conscientiously. When leaving office he should conduct himself with humanity and exercise self-reflection.</p></li><li><p>苟利国家生死以，岂因祸福避趋之<br>I shall dedicate myself to the interests of the country in life and death inrrespective of personal weal and woe.</p></li><li><p>知我罪我，其惟春秋<br>There are people who will appreciate what I have done but there are also people who will criticize me. Ultimately, history will have the final say.</p></li><li><p>守职而不废，处义而不回<br>In my last year in office, I will not waver and carrying out my duties, and will remain true to my conviction. I will always be with the people.</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;和则两利，斗则俱伤&lt;br&gt;A peachful and harmonious bilateral relationship between these two countries will make both winners. While a confro
+      
+    
+    </summary>
+    
+    
+      <category term="英文" scheme="http://hi2048.github.io/tags/%E8%8B%B1%E6%96%87/"/>
+    
+  </entry>
   
   <entry>
     <title>系统性思维</title>
@@ -553,33 +577,6 @@
       <category term="hi2048" scheme="http://hi2048.github.io/tags/hi2048/"/>
     
       <category term="hi2048-design" scheme="http://hi2048.github.io/tags/hi2048-design/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>类型判断</title>
-    <link href="http://hi2048.github.io/2020/01/08/%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD/"/>
-    <id>http://hi2048.github.io/2020/01/08/类型判断/</id>
-    <published>2020-01-07T16:00:00.000Z</published>
-    <updated>2020-02-29T12:44:07.258Z</updated>
-    
-    <content type="html"><![CDATA[<p>– 基本数据类型判断 <a href="https://github.com/hi2048/utils/tree/master/type" title="类型判断" target="_blank" rel="noopener">github</a>  <a href="https://www.npmjs.com/package/hi2048-utils" title="hi2048-utils" target="_blank" rel="noopener">npm</a></p><pre><code>-- type.jsconst types = {  &apos;Number&apos;: &apos;Number&apos;,  &apos;String&apos;: &apos;String&apos;,  &apos;Boolean&apos;: &apos;Boolean&apos;,  &apos;Object&apos;: &apos;Object&apos;,  &apos;Array&apos;: &apos;Array&apos;,  &apos;Function&apos;: &apos;Function&apos;,  &apos;Date&apos;: &apos;Date&apos;,  &apos;RegExp&apos;: &apos;RegExp&apos;,  &apos;Symbol&apos;: &apos;Symbol&apos;,  &apos;null&apos;: &apos;Null&apos;,  &apos;NaN&apos;: &apos;NaN&apos;,  &apos;undefined&apos;: &apos;Undefined&apos;};const isType = type =&gt; obj =&gt; Object.prototype.toString.call(obj) === `[object ${type}]`;const isTypeFactory = types =&gt; {  const isTypes = {};  for(let key of Object.keys(types)) {    if(types[key] === &apos;NaN&apos;) {      isTypes[&apos;isNaN&apos;] = isNaN;    } else if(types[key] === &apos;Number&apos;) {      isTypes[&apos;isNumber&apos;] = obj =&gt; {        if(isNaN(obj)) {          return false;        }        return isType(types[key])(obj);      };    } else {      isTypes[`is${types[key]}`] = isType(types[key]);    }  }  return isTypes;};module.exports = { isNumber, isString, isBoolean, isObject, isArray, isFunction, isDate, isRegExp, isSymbol, isNull, isNaN, isUndefined } = isTypeFactory(types);-- type.test.jsconst assert = require(&apos;assert&apos;);const { isNumber, isString, isBoolean, isObject, isArray, isFunction, isDate, isRegExp, isSymbol, isNull, isNaN, isUndefined } = require(&apos;.&apos;);assert.equal(isNumber(1), true);assert.equal(isNumber(&apos;a&apos;), false);assert.equal(isNumber(NaN), false);assert.equal(isString(&apos;a&apos;), true);assert.equal(isString({&apos;a&apos;: 1}), false);assert.equal(isBoolean(true), true);assert.equal(isBoolean(&apos;true&apos;), false);assert.equal(isObject({&apos;a&apos;: 1}), true);assert.equal(isObject([1,2]), false);assert.equal(isArray([1,2]), true);assert.equal(isArray({&apos;a&apos;: 1}), false);assert.equal(isFunction(console.log), true);assert.equal(isFunction(&apos;a&apos;), false);assert.equal(isDate(new Date()), true);assert.equal(isDate(&apos;a&apos;), false);assert.equal(isRegExp(/.*/g), true);assert.equal(isRegExp(&apos;a&apos;), false);assert.equal(isSymbol(Symbol()), true);assert.equal(isSymbol(&apos;a&apos;),false);assert.equal(isNull(null), true);assert.equal(isNull(&apos;null&apos;), false);assert.equal(isNaN(NaN), true);assert.equal(isNaN(&apos;NaN&apos;), true);assert.equal(isNaN(1), false);assert.equal(isUndefined(undefined), true);assert.equal(isUndefined(&apos;undefined&apos;), false);</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;– 基本数据类型判断 &lt;a href=&quot;https://github.com/hi2048/utils/tree/master/type&quot; title=&quot;类型判断&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;github&lt;/a&gt;  &lt;a href=&quot;ht
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="hi2048" scheme="http://hi2048.github.io/tags/hi2048/"/>
-    
-      <category term="hi2048-utils" scheme="http://hi2048.github.io/tags/hi2048-utils/"/>
     
   </entry>
   
