@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<title>CSS3图片播放--遮罩效果 | 苏小蜂的个人博客</title>
+<meta name="description" content="CSS3图片播放--遮罩效果" />
+<meta name="keywords" content="图片播放, CSS3, 遮罩效果, demo" />
+<meta name="author" content="Jsu" />
+<meta charset="utf-8" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.demo-content img').click(function(){
+		$('.shade img').attr('src', $(this).attr('src'));
+		$('.shade').toggle();
+	});
+
+	$('.shade').click(function(){
+		$(this).toggle();
+	});
+});
+</script>
+<style type="text/css">
+	/* reset */
+	* {margin: 0; padding: 0;}
+	img{border: none;}
+
+	/* common */
+	html, body{width: 100%; height: 100%;}
+	body{font-family: "Arial", "Tahoma", "宋体", "Microsoft YaHei", sans-serif;}
+	#demo{width: 778px; margin: 0 auto; border: none;}
+	.demo-title h1{text-align: center; font-size: 1.5em; height: 89px; line-height: 89px; color: #2980b9;}
+	.demo-content{width: 778px; height: 420px; background: #ddd; overflow: hidden;}
+	.demo-back p{text-align: center; height: 47px; line-height: 47px;}
+	.demo-back p span{font-size: 22px;}
+	.demo-back p a{font-size: 15px; color: #2980b9; text-decoration: none;}
+	.demo-back p a:hover{text-decoration: underline;}
+
+	/* CSS3图片播放--遮罩效果 代码如下 */
+	.shade{width: 100%; height: 100%; position: absolute; top: 0; left: 0; background: #ddd; text-align: center; display: none;}
+	.demo-content img{max-width: 100%;}
+	.shade img{max-height: 99%;}
+
+</style>
+</head>
+<body>
+<div class="shade">
+	<img src="../wp-content/uploads/图片播放-遮罩.jpg"  title="CSS3播放图片-遮罩效果" />
+</div>
+<div id="demo">
+	<div class="demo-title">
+		<h1>CSS3图片播放--遮罩效果</h1>
+	</div>
+
+	<div class="demo-content">
+		<img src="/assets/图片播放-遮罩.jpg"  title="CSS3播放图片-遮罩效果" />
+	</div>
+
+	<div class="demo-back">
+		<p><a href="http://hi2048.github.io/"><span>← </span>回到苏小蜂的个人博客</a></p>
+	</div>
+</div>
+</body>
+</html>

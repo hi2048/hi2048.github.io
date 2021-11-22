@@ -1,0 +1,385 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset = "utf-8" />
+
+<!-- 主要css文件 -->
+<link rel="stylesheet" media="all" href="css/style.css"/>
+<!-- jquery-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<!-- iview-->
+<link rel="stylesheet" href="css/iview.css" />
+<script type="text/javascript" src="js/raphael-min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.js"></script>
+<script src="js/iview.pack.js" type="text/javascript"></script>
+
+</head>
+<body>
+	<div id = "header">
+		<a href="http://jsublog.duapp.com" id="logo"><img  src="img/logo.png" alt="DIC" /></a>
+		
+		<ul id = "nav">
+			<li class="current-menu-item"><a href="#" class = "navActive">首页</a></li>
+			<li><a href="#">前端</a></li>
+			<li><a href="#">图片</a></li>
+			<li><a href="#">音乐</a></li>
+			<li><a href="#">随笔</a></li>
+			<li><a href="#">作品</a></li>
+			<li><a href="#">联系我们</a></li>
+		</ul>
+	</div>
+	
+	<div id = "banner" class = "container">
+		<!-- Slide 1 -->
+		<div data-iview:thumbnail="img/banner.jpg" data-iview:image="img/banner.jpg">
+			<!-- Caption -->
+			<div class="iview-caption" data-x="70" data-y="70" data-transition="expandLeft">内容介绍</div>
+		</div>
+		<!-- Slide 2 -->
+		<div data-iview:thumbnail="img/banner2.jpg" data-iview:image="img/banner2.jpg">
+			<!-- Caption -->
+			<div class="iview-caption" data-x="70" data-y="70" data-transition="expandLeft">内容介绍</div>
+		</div>
+		<!-- Slide 3 -->
+		<div data-iview:thumbnail="img/banner.jpg" data-iview:image="img/banner.jpg">
+			<!-- Caption -->
+			<div class="iview-caption" data-x="70" data-y="70" data-transition="expandLeft">内容介绍</div>
+		</div>
+		<!-- Slide 4 -->
+		<div data-iview:thumbnail="img/banner2.jpg" data-iview:image="img/banner2.jpg">
+			<!-- Caption -->
+			<div class="iview-caption" data-x="70" data-y="70" data-transition="expandLeft">内容介绍</div>
+		</div>
+	</div>
+	
+	<div id = "content">
+		<div id = "left-content">
+			<div id = "topic">
+				<div class = "caption">推荐阅读 | <span>Recommend Reading</span></div>
+				<div class = "topic-content">
+					<div class = "topic-one-column">
+						<a href = "#" class = "portfolio-image"><img src = "img/test.jpg" /><div class = "portfolio-image-info"><h1>这是一个标题</h1><p>内容介绍</p></div></a>
+						<div class = "topic-one-column-content">
+							<h2><a href = "#">keep me in your heart</a></h2>
+							<p>
+								-亲爱的朋友我昨晚梦见你了</p>
+								<p>
+								-亲爱的朋友最近我的心情总是起起落落</p>
+								<p>
+								-是因为太久没有见到你了吗</p>
+								<p>
+								-我总想再听听你的声音</p>
+							<a href = "#" class = "more-link">阅读更多>></a>
+						</div>
+					</div>
+					<div class = "topic-one-column">
+						<a href = "#" class = "portfolio-image"><img src = "img/test.jpg" /><div class = "portfolio-image-info"><h1>这是一个标题</h1><p>内容介绍</p></div></a>
+						<div class = "topic-one-column-content">
+							<h2><a href = "#">keep me in your heart</a></h2>
+							<p>
+								-亲爱的朋友我昨晚梦见你了</p>
+								<p>
+								-亲爱的朋友最近我的心情总是起起落落</p>
+								<p>
+								-是因为太久没有见到你了吗</p>
+								<p>
+								-我总想再听听你的声音</p>
+							<a href = "#" class = "more-link">阅读更多>></a>
+						</div>
+					</div>
+					<div class = "topic-one-column">
+						<a href = "#" class = "portfolio-image"><img src = "img/test.jpg" /><div class = "portfolio-image-info"><h1>这是一个标题</h1><p>内容介绍</p></div></a>
+						<div class = "topic-one-column-content">
+							<h2><a href = "#">keep me in your heart</a></h2>
+							<p>
+								-亲爱的朋友我昨晚梦见你了</p>
+								<p>
+								-亲爱的朋友最近我的心情总是起起落落</p>
+								<p>
+								-是因为太久没有见到你了吗</p>
+								<p>
+								-我总想再听听你的声音</p>
+							<a href = "#" class = "more-link">阅读更多>></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id = "my-work">
+				<div class = "caption">我的作品 | <span>My Works</span></div>
+				<div class = "my-work-content">
+					<div class = "my-work-content-one-column">
+						<a href = "#"><img src = "img/test.jpg" /><span>this is a note!</span></a>
+						<h2><a href = "#">This is my work!</a></h2>
+					</div>
+					<div class = "my-work-content-one-column">
+						<a href = "#"><img src = "img/test.jpg" /><span>this is a note!</span></a>
+						<h2><a href = "#">This is my work!</a></h2>
+					</div>
+					<div class = "my-work-content-one-column">
+						<a href = "#"><img src = "img/test.jpg" /><span>this is a note!</span></a>
+						<h2><a href = "#">This is my work!</a></h2>
+					</div>
+					<div class = "my-work-content-one-column">
+						<a href = "#"><img src = "img/test.jpg" /><span>this is a note!</span></a>
+						<h2><a href = "#">This is my work!</a></h2>
+					</div>
+					<div class = "my-work-content-one-column">
+						<a href = "#"><img src = "img/test.jpg" /><span>this is a note!</span></a>
+						<h2><a href = "#">This is my work!</a></h2>
+					</div>
+					<div class = "my-work-content-one-column">
+						<a href = "#"><img src = "img/test.jpg" /><span>this is a note!</span></a>
+						<h2><a href = "#">This is my work!</a></h2>
+					</div>
+					<div class = "my-work-content-one-column">
+						<a href = "#"><img src = "img/test.jpg" /><span>this is a note!</span></a>
+						<h2><a href = "#">This is my work!</a></h2>
+					</div>
+					<div class = "my-work-content-one-column">
+						<a href = "#"><img src = "img/test.jpg" /><span>this is a note!</span></a>
+						<h2><a href = "#">This is my work!</a></h2>
+					</div>
+					<div class = "my-work-content-one-column">
+						<a href = "#"><img src = "img/test.jpg" /><span>this is a note!</span></a>
+						<h2><a href = "#">This is my work!</a></h2>
+					</div>
+				</div>
+			</div>
+			<div id = "recent-update"></div>
+		</div>
+		<div id = "right-info">
+			<div id = "info">
+				<div class = "author">
+					<a href = "#"><img src = "img/head.png" /></a>
+					<p>Love web, Love design, Love life, our happiness, our holdding on!</p>
+					<span>dic_su</span>
+				</div>
+				<div class = "favorite">
+					<p>为梦想投资，cheers!</p>
+					<p>再一次扬帆起航，让我们永不放弃！</p>
+				</div>
+			</div>
+			<div id = "latest">
+				<h2 class = "title">最新更新 Latest</h2>
+				<ul class = "aside-content-1">
+					<li><a href = "#">这是一篇文章</a></li>
+					<li><a href = "#">这是一篇文章</a></li>
+					<li><a href = "#">这是一篇文章</a></li>
+					<li><a href = "#">这是一篇文章</a></li>
+					<li><a href = "#">这是一篇文章</a></li>
+				</ul>
+			</div>
+			<div id = "share">
+				<h2 class = "title">我的分享 My Shares</h2>
+				<ul>
+					<li><a href = "#"><img src = "img/shares.png" /><span>this is a note!</span></a></li>
+					<li><a href = "#"><img src = "img/shares.png" /><span>this is a note!</span></a></li>
+					<li><a href = "#"><img src = "img/shares.png" /><span>this is a note!</span></a></li>
+					<li><a href = "#"><img src = "img/shares.png" /><span>this is a note!</span></a></li>
+				</ul>
+			</div>
+			<div id = "web-info">
+				<ul class = "aside-title">
+					<li class = "active">xhtml+css</li>
+					<li>js/jquery</li>
+					<li>html5/css3</li>
+				</ul>
+				<div class = "aside-content">
+					<ul>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+					</ul>
+					<ul>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+					</ul>
+					<ul>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id = "software-info">
+				<ul class = "aside-title">
+					<li class = "active">软件测试</li>
+					<li>php</li>
+					<li>rails</li>
+				</ul>
+				<div class = "aside-content">
+					<ul>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+					</ul>
+					<ul>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+					</ul>
+					<ul>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+					</ul>
+				</div>
+			</div>
+			<div id = "essay-info">
+				<ul class = "aside-title">
+					<li class = "active">随笔</li>
+					<li>思索</li>
+					<li>小说</li>
+				</ul>
+				<div class = "aside-content">
+					<ul>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+					</ul>
+					<ul>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+					</ul>
+					<ul>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+						<li><a href = "#">这是一篇文章</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id = "footer">
+		<p>
+		<a href="#">关于Dic</a> | <a 
+		href="#">广告服务</a> | <a href="#">提交问题</a> | <a 
+		href="#">联系我们</a> | <a href="#">版权声明</a> | <a 
+		href="#">关于隐私</a> | <a href="#">合作伙伴</a>
+		</p>
+		<p>
+		  <a href="#"></a>
+		</p>
+	</div>
+	<script>
+		$(document).ready(function(){
+			function removeTitlesActive(obj){
+				var titles = $(obj).siblings("li");
+				for(i = 0; i < titles.length; i++){
+					titles[i].className = "";
+				}
+			}
+			
+			var web_info = $("#web-info .aside-title li");
+			var web_info_length = (web_info.length > 3?3:web_info.length);
+	
+			for(i = 0; i < web_info_length; i++){
+				web_info[i].index = i;
+				$(web_info[i]).mouseenter(function(){	
+					removeTitlesActive(this);
+					$(this)[0].className = "active";
+					animate_dis = -280;
+					
+					$("#web-info .aside-content ul").animate({top: animate_dis * this.index + "px"}, "fast");
+				});
+			}
+			
+			var software_info = $("#software-info .aside-title li");
+			var software_info_length = (software_info.length > 3?3:software_info.length);
+	
+			for(i = 0; i < software_info_length; i++){
+				software_info[i].index = i;
+				software_info[i].onmouseover = function(){	
+					removeTitlesActive(this);
+					$(this)[0].className = "active";
+					animate_dis = -200;
+					
+					$("#software-info .aside-content ul").animate({top: animate_dis * this.index + "px"}, "fast");
+				}
+			}
+			
+			var essay_info = $("#essay-info .aside-title li");
+			var essay_info_length = (essay_info.length > 3?3:essay_info.length);
+	
+			for(i = 0; i < essay_info_length; i++){
+				essay_info[i].index = i;
+				essay_info[i].onmouseover = function(){	
+					removeTitlesActive(this);
+					$(this)[0].className = "active";
+					animate_dis = -200;
+					
+					$("#essay-info .aside-content ul").animate({top: animate_dis * this.index + "px"}, "fast");
+				}
+			}
+			
+			var pic_topic = $(".topic-one-column a");
+			
+			pic_topic.mouseenter(function(){
+				$(this).children(".portfolio-image-info").fadeIn("fast");
+			}).mouseleave(function(){
+				$(this).children(".portfolio-image-info").fadeOut("fast");
+			});
+			
+			var pic_work = $(".my-work-content-one-column a");
+			
+			pic_work.mouseenter(function(){
+				$(this).children("span").fadeIn("fast");
+			}).mouseleave(function(){
+				$(this).children("span").fadeOut("fast");
+			});
+			
+			
+			 $('#banner').iView({
+				pauseTime: 5000,
+				pauseOnHover: true,
+				directionNav: false,
+				controlNav: true,
+				controlNavNextPrev: false,
+				controlNavThumbs: true,
+				timerColor: "#0F0"
+			});
+			
+			$("#info .author a").mouseenter(function(){
+				$("#info .favorite").slideDown("normal");
+			}).mouseleave(function(){
+				$("#info .favorite").slideUp("fast");
+			});
+			
+			var share = $("#share a");
+			
+			share.mouseenter(function(){
+				$(this).children("span").animate({bottom: "0px"}, "normal");
+			}).mouseleave(function(){
+				$(this).children("span").animate({bottom: "-30px"}, "fast");
+			});
+			
+		});
+	</script>
+</body>
+</html>

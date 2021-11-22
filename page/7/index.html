@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>苏小蜂的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="苏小蜂的个人博客">
+<meta property="og:url" content="http://hi2048.github.io/page/7/index.html">
+<meta property="og:site_name" content="苏小蜂的个人博客">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="苏小蜂的个人博客">
+  
+    <link rel="alternate" href="/atom.xml" title="苏小蜂的个人博客" type="application/atom+xml">
+  
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">苏小蜂的个人博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">放慢脚步，享受生活！</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://hi2048.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-React之setState" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/11/React之setState/" class="article-date">
+  <time datetime="2018-10-10T16:00:00.000Z" itemprop="datePublished">2018-10-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/11/React之setState/">React之setState</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>setState是异步还是同步</p>
+<ul>
+<li>合成事件（react自定义的事件，如在组件中的onClick等）和生命周期函数中是“异步”的。这里的异步并非是真正的异步实现，其本身还是属于同步操作，只是采用了批处理机制。</li>
+<li><p>原生事件（DOM中的原生事件，如通过addEventListener添加的等）和 setTimeout 中都是同步的</p>
+<p>   setState(updater[, callback])</p>
+<p>   updater可以是一个函数或者一个对象。<br>   如果是对象，则执行对象跟state的浅合并。<br>   如果传入一个函数，则会把函数的返回对象跟state进行浅合并。这个函数会传入两个参数state和props，返回一个对象<br>   (state, props) =&gt; stateChange</p>
+<p>   第二个参数，state更新完毕之后调用的回调函数。如果有需要在state更新之后的操作，可以放在这里。不过官方更建议在componentDidUpdate里面处理更新之后的操作。</p>
+</li>
+</ul>
+</li>
+<li><p>使用注意事项</p>
+<ul>
+<li>不要直接修改state</li>
+<li>setState不能保证是同步的</li>
+<li>setState造成不必要的渲染</li>
+</ul>
+</li>
+<li><p>setState的优化</p>
+<ul>
+<li>声名变量能用const就不要用let</li>
+<li>减少setState的调用次数，如可以一次set多个值，不要一个一个set。</li>
+<li>多利用shouldComponentUpdate</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ckwatxmxs0024r0ws3r8bxsti" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-秋" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/05/秋/" class="article-date">
+  <time datetime="2018-10-04T16:00:00.000Z" itemprop="datePublished">2018-10-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/未分类/">未分类</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/05/秋/">秋</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>秋风送爽，炎暑渐消，此时宜甘味以益气，进补应坚持“燥者濡之”，“上燥清气，中燥增液，下燥养血。”同时应早睡早起，早餐宜营养丰富，以预防抑郁症，保持乐观轻松心情。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ckwatxmzr005qr0wshq22l3hg" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Swagger" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/12/Swagger/" class="article-date">
+  <time datetime="2018-09-11T16:00:00.000Z" itemprop="datePublished">2018-09-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/12/Swagger/">Swagger</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>Swagger解决了什么问题？<br><strong> 接口文档的一致性与可维护性 </strong></p>
+</li>
+<li><p>Swagger是什么？</p>
+<ul>
+<li>通过自己定义的描述文件（yml或json格式），更新接口文档，以及生成各端代码.</li>
+</ul>
+</li>
+<li><p>Swagger可以做什么？</p>
+<ul>
+<li>可以做到生成各种格式的接口文档，生成多种语言的客户端和服务端的代码，以及在线接口调试页面等等。</li>
+</ul>
+</li>
+<li><p>Springfox-swagger</p>
+<ul>
+<li>通过扫描代码去生成这个描述文件</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ckwatxmxx002er0wsn6u7n7g4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-抽象工厂模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/10/抽象工厂模式/" class="article-date">
+  <time datetime="2018-09-09T16:00:00.000Z" itemprop="datePublished">2018-09-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/10/抽象工厂模式/">抽象工厂模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>抽象工厂模式（Abstract Factory）<br> <a href="/assets/抽象工厂模式.png"><img src="/assets/抽象工厂模式.png" alt="抽象工厂模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Abstract-Factory" title="抽象工厂模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- abstractProductA.js
+class AbstractProductA {
+    constructor() {
+        if(new.target === AbstractProductA)
+            throw new Error(`${AbstractProductA} cannot be initialized.`);
+
+        console.log(&apos;AbstractProductA constructor.&apos;);
+    }
+
+    method() {
+        throw new Error(`${this.method} should be overwrite.`);
+    }
+}
+
+module.exports = AbstractProductA;
+
+-- productA1.js
+const AbstractProductA = require(&apos;./abstractProductA&apos;);
+
+class ProductA1 extends AbstractProductA {
+    constructor() {
+        super();
+
+        console.log(&apos;ProductA1 constructor.&apos;);
+    }
+
+    method() {
+        console.log(&apos;ProductA1 method.&apos;);
+    }
+}
+
+module.exports = ProductA1;
+
+-- productA2.js
+const AbstractProductA = require(&apos;./abstractProductA&apos;);
+
+class ProductA2 extends AbstractProductA {
+    constructor() {
+        super();
+
+        console.log(&apos;ProductA2 constructor.&apos;);
+    }
+
+    method() {
+        console.log(&apos;ProductA2 method.&apos;);
+    }
+}
+
+module.exports = ProductA2;
+
+-- abstractProductB.js
+class AbstractProductB {
+    constructor() {
+        if(new.target === AbstractProductB)
+            throw new Error(`${AbstractProductB} cannot be initialized.`);
+
+        console.log(&apos;AbstractProductB constructor.&apos;);
+    }
+
+    method() {
+        throw new Error(`${this.method} should be overwrite.`);
+    }
+}
+
+module.exports = AbstractProductB;
+
+-- productB1.js
+const AbstractProductB = require(&apos;./abstractProductB&apos;);
+
+class ProductB1 extends AbstractProductB {
+    constructor() {
+        super();
+
+        console.log(&apos;ProductB1 constructor.&apos;);
+    }
+
+    method() {
+        console.log(&apos;ProductB1 method.&apos;);
+    }
+}
+
+module.exports = ProductB1;
+
+-- productB2.js
+const AbstractProductB = require(&apos;./abstractProductB&apos;);
+
+class ProductB2 extends AbstractProductB {
+    constructor() {
+        super();
+
+        console.log(&apos;ProductB2 constructor.&apos;);
+    }
+
+    method() {
+        console.log(&apos;ProductB2 method.&apos;);
+    }
+}
+
+module.exports = ProductB2;
+
+-- abstractFactory.js
+class AbstractFactory {
+    constructor() {
+        if(new.target === AbstractFactory)
+            throw new Error(`${AbstractFactory} cannot be initialized.`);
+
+        console.log(&apos;AbstractFactory constructor.&apos;);
+    };
+
+    createProductA() {
+        throw new Error(`${this.createProductA} should be overwrite.`);
+    };
+
+    createProductB() {
+        throw new Error(`${this.createProductB} should be overwrite.`);
+    };
+}
+
+module.exports = AbstractFactory;
+
+-- concreteFactory1.js
+const AbstractFactory = require(&apos;./abstractFactory&apos;);
+const ProductA1 = require(&apos;./productA1&apos;);
+const ProductB1 = require(&apos;./productB1&apos;);
+
+class ConcreteFactory1 extends AbstractFactory {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteFactory1 constructor.&apos;);
+    }
+
+    createProductA() {
+        return new ProductA1();
+    }
+
+    createProductB() {
+        return new ProductB1();
+    }
+}
+
+module.exports = ConcreteFactory1;
+
+-- concreteFactory2.js
+const AbstractFactory = require(&apos;./abstractFactory&apos;);
+const ProductA2 = require(&apos;./productA2&apos;);
+const ProductB2 = require(&apos;./productB2&apos;);
+
+class ConcreteFactory2 extends AbstractFactory {
+    constructor() {
+        super();
+
+        console.log(&apos;ConcreteFactory2 constructor.&apos;);
+    }
+
+    createProductA() {
+        return new ProductA2();
+    }
+
+    createProductB() {
+        return new ProductB2();
+    }
+}
+
+module.exports = ConcreteFactory2;
+
+-- client.js
+const ConcreteFactory1 = require(&apos;./concreteFactory1&apos;);
+const ConcreteFactory2 = require(&apos;./concreteFactory2&apos;);
+
+const concreteFactory1 = new ConcreteFactory1();
+const concreteFactory2 = new ConcreteFactory2();
+console.log(&apos;------&apos;);
+
+concreteFactory1.createProductA().method();
+console.log(&apos;------&apos;);
+
+concreteFactory1.createProductB().method();
+console.log(&apos;------&apos;);
+
+concreteFactory2.createProductA().method();
+concreteFactory2.createProductB().method();
+console.log(&apos;------&apos;);
+
+-- productClasses.js
+const ProductA1 = require(&apos;./productA1&apos;);
+const ProductA2 = require(&apos;./productA2&apos;);
+const ProductB1 = require(&apos;./productB1&apos;);
+const ProductB2 = require(&apos;./productB2&apos;);
+
+const productClasses = {
+    ProductA1,
+    ProductA2,
+    ProductB1,
+    ProductB2
+};
+
+module.exports = productClasses;
+
+-- productAccess.js
+const productClasses = require(&apos;./productClasses&apos;);
+
+class ProductAccess {
+    constructor() {
+        console.log(&apos;ProductAccess constructor.&apos;);
+    }
+
+    create(product = &apos;ProductA1&apos;) {
+        return new productClasses[product]();
+    }
+}
+
+module.exports = ProductAccess;
+
+-- client2.js
+const ProductAccess = require(&apos;./productAccess&apos;);
+const productClasses = require(&apos;./productClasses&apos;);
+
+console.dir(productClasses);
+console.log(&apos;------&apos;);
+
+const productAccess = new ProductAccess();
+console.log(&apos;------&apos;);
+
+productAccess.create().method();
+console.log(&apos;------&apos;);
+
+productAccess.create(&apos;ProductB1&apos;).method();
+console.log(&apos;------&apos;);
+
+productAccess.create(&apos;ProductA1&apos;).method();
+console.log(&apos;------&apos;);
+
+productAccess.create(&apos;ProductA2&apos;).method();
+productAccess.create(&apos;ProductB2&apos;).method();
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/09/10/抽象工厂模式/" data-id="ckwatxmz9004yr0wss6gsqwnl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-观察者模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/02/观察者模式/" class="article-date">
+  <time datetime="2018-08-01T16:00:00.000Z" itemprop="datePublished">2018-08-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/02/观察者模式/">观察者模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>观察者模式（Observer）<br> <a href="/assets/观察者模式.png"><img src="/assets/观察者模式.png" alt="观察者模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Observer" title="观察者模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- subject.js
+class Subject {
+    constructor() {
+        if(new.target === Subject)
+            throw new Error(`${Subject} cannot be initialized.`);
+
+        this.observers = new Set();
+
+        console.log(&quot;Subject constructor.&quot;);
+    }
+
+    attach(observer) {
+        this.observers.add(observer);
+    }
+
+    detach(observer) {
+        this.observers.delete(observer);
+    }
+
+    notify() {
+        console.log(&apos;notify&apos;);
+        this.observers.forEach((observer) =&gt; (observer.update()));
+    }
+}
+
+module.exports = Subject;
+
+-- concreteSubject.js
+const Subject = require(&apos;./subject&apos;);
+
+class ConcreteSubject extends Subject {
+    constructor(subjectState = &quot;ConcreteSubject&quot;) {
+        super();
+
+        this.subjectState = subjectState;
+
+        console.log(&apos;ConcreteSubject constructor.&apos;);
+    }
+
+    setSubjectState(subjectState) {
+        this.subjectState = subjectState;
+        this.notify();
+    }
+}
+
+module.exports = ConcreteSubject;
+
+-- observer.js
+class Observer {
+    constructor() {
+        if(new.target === Observer)
+            throw new Error(`${Observer} cannot be initialized.`);
+
+        console.log(&apos;Observer constructor.&apos;);
+    }
+
+    update() {
+        throw new Error(`${this.update} should be overwrite.`);
+    }
+}
+
+module.exports = Observer;
+
+-- concreteObserver.js
+const Observer = require(&apos;./observer&apos;);
+
+class ConcreteObserver extends Observer {
+    constructor(name = &quot;concreteObserver&quot;, subject = {}) {
+        super();
+
+        this.name = name;
+        this.subject = subject;
+        this.observerState = subject.subjectState;
+
+        console.log(&apos;ConcreteObserver constructor.&apos;);
+    }
+
+    update() {
+        this.observerState = this.subject.subjectState;
+        console.log(`${this.observerState} notify ${this.name}.`);
+    }
+}
+
+module.exports = ConcreteObserver;
+
+-- client.js
+const ConcreteSubject = require(&apos;./concreteSubject&apos;);
+const ConcreteObserver = require(&apos;./concreteObserver&apos;);
+
+const concreteSubject = new ConcreteSubject();
+const concreteObserverX = new ConcreteObserver(&apos;X&apos;, concreteSubject);
+const concreteObserverXX = new ConcreteObserver(&apos;X&apos;, concreteSubject);
+const concreteObserverY = new ConcreteObserver(&apos;Y&apos;, concreteSubject);
+const concreteObserverZ = new ConcreteObserver(&apos;Z&apos;, concreteSubject);
+console.log(&apos;------&apos;);
+
+concreteSubject.setSubjectState(&apos;Changed ConcreteSubject SubjectState.&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.attach(concreteObserverX);
+concreteSubject.setSubjectState(&apos;subjectState 1&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.detach(concreteObserverX);
+concreteSubject.setSubjectState(&apos;subjectState 2&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.attach(concreteObserverX);
+concreteSubject.attach(concreteObserverY);
+concreteSubject.attach(concreteObserverX);
+concreteSubject.setSubjectState(&apos;subjectState 3&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.attach(concreteObserverZ);
+concreteSubject.setSubjectState(&apos;subjectState 4&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.detach(concreteObserverX);
+concreteSubject.setSubjectState(&apos;subjectState 5&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.detach(concreteObserverX);
+concreteSubject.setSubjectState(&apos;subjectState 6&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.detach(concreteObserverY);
+concreteSubject.detach(concreteObserverZ);
+concreteSubject.setSubjectState(&apos;subjectState 7&apos;);
+console.log(&apos;------&apos;);
+
+concreteSubject.attach(concreteObserverY);
+concreteSubject.attach(concreteObserverX);
+concreteSubject.attach(concreteObserverXX);
+concreteSubject.setSubjectState(&apos;subjectState 8&apos;);
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/08/02/观察者模式/" data-id="ckwatxmzx0068r0wsx4ay3i9z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-建造者模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/12/建造者模式/" class="article-date">
+  <time datetime="2018-07-11T16:00:00.000Z" itemprop="datePublished">2018-07-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/12/建造者模式/">建造者模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>建造者模式（Builder）<br> <a href="/assets/建造者模式.png"><img src="/assets/建造者模式.png" alt="建造者模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Builder" title="建造者模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- product.js
+class Product {
+    constructor() {
+        this.parts = new Array();
+
+        console.log(&apos;Product constructor.&apos;);
+    }
+
+    add(part) {
+        this.parts.push(part);
+    }
+
+    show() {
+        console.log(...this.parts);
+    }
+}
+
+module.exports = Product;
+
+-- builder.js
+class Builder {
+    constructor() {
+        if(new.target === Builder)
+            throw new Error(`${Builder} cannot be initialized.`);
+
+        console.log(&apos;Builder constructor.&apos;);
+    }
+
+    buildPartA() {
+        throw new Error(`${this.buildPartA} should be overwrite.`);
+    }
+
+    buildPartB() {
+        throw new Error(`${this.buildPartB} should be overwrite.`);
+    }
+
+    getResult() {
+        throw new Error(`${this.getResult} should be overwrite.`);
+    }
+}
+
+module.exports = Builder;
+
+-- concreteBuilder1.js
+const Builder = require(&apos;./builder&apos;);
+const Product = require(&apos;./product&apos;);
+
+class ConcreteBuilder1 extends Builder {
+    constructor(product) {
+        super();
+
+        this.product = product || new Product();
+
+        console.log(&apos;ConcreteBuilder1 constructor.&apos;);
+    }
+
+    buildPartA() {
+        this.product.add(&apos;partA1&apos;);
+    }
+
+    buildPartB() {
+        this.product.add(&apos;partB1&apos;);
+    }
+
+    getResult() {
+        return this.product;
+    }
+}
+
+module.exports = ConcreteBuilder1;
+
+-- concreteBuilder2.js
+const Builder = require(&apos;./builder&apos;);
+const Product = require(&apos;./product&apos;);
+
+class ConcreteBuilder2 extends Builder {
+    constructor(product) {
+        super();
+
+        this.product = product || new Product();
+        console.log(&apos;ConcreteBuilder2 constructor.&apos;);
+    }
+
+    buildPartA() {
+        this.product.add(&apos;partA2&apos;);
+    }
+
+    buildPartB() {
+        this.product.add(&apos;partB2&apos;);
+    }
+
+    getResult() {
+        return this.product;
+    }
+}
+
+module.exports = ConcreteBuilder2;
+
+-- director.js
+class Director {
+    constructor() {
+        console.log(&apos;Director constructor.&apos;);
+    }
+
+    construct(builder) {
+        builder.buildPartA();
+        builder.buildPartB();
+
+        console.log(&apos;Director construct.&apos;);
+    }
+}
+
+module.exports = Director;
+
+-- client.js
+const Director = require(&apos;./director&apos;);
+const Product = require(&apos;./product&apos;);
+const ConcreteBuilder1 = require(&apos;./concreteBuilder1&apos;);
+const ConcreteBuilder2 = require(&apos;./concreteBuilder2&apos;);
+
+const director = new Director();
+console.log(&apos;------&apos;);
+
+const concreteBuilder1 = new ConcreteBuilder1();
+director.construct(concreteBuilder1);
+concreteBuilder1.getResult().show();
+console.log(&apos;------&apos;);
+
+const productB = new Product();
+const concreteBuilder2 = new ConcreteBuilder2(productB);
+director.construct(concreteBuilder2);
+console.log(&apos;product B: &apos;);
+productB.show();
+console.log(&apos;concreteBuilder2 getResult: &apos;);
+concreteBuilder2.getResult().show();
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/07/12/建造者模式/" data-id="ckwatxmz7004vr0ws84e68s2e" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-外观模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/15/外观模式/" class="article-date">
+  <time datetime="2018-06-14T16:00:00.000Z" itemprop="datePublished">2018-06-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/15/外观模式/">外观模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>外观模式（Facade）<br> <a href="/assets/外观模式.png"><img src="/assets/外观模式.png" alt="外观模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Facade" title="外观模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- subSystemOne.js
+class SubSystemOne {
+    constructor() {
+        console.log(&apos;SubSystemOne constructor.&apos;);
+    }
+
+    methodOne() {
+        console.log(&apos;SubSystemOne methodOne.&apos;);
+    }
+}
+
+module.exports = SubSystemOne;
+
+-- subSystemTwo.js
+class SubSystemTwo {
+    constructor() {
+        console.log(&apos;SubSystemTwo constructor.&apos;);
+    }
+
+    methodTwo() {
+        console.log(&apos;SubSystemTwo methodTwo.&apos;);
+    }
+}
+
+module.exports = SubSystemTwo;
+
+-- subSystemThree.js
+class SubSystemThree {
+    constructor() {
+        console.log(&apos;SubSystemThree constructor.&apos;);
+    }
+
+    methodThree() {
+        console.log(&apos;SubSystemThree methodThree.&apos;);
+    }
+}
+
+module.exports = SubSystemThree;
+
+-- subSystemFour.js
+class SubSystemFour {
+    constructor() {
+        console.log(&apos;SubSystemFour constructor.&apos;);
+    }
+
+    methodFour() {
+        console.log(&apos;SubSystemFour methodFour.&apos;);
+    }
+}
+
+module.exports = SubSystemFour;
+
+-- facade.js
+const SubSystemOne = require(&apos;./subSystemOne&apos;);
+const SubSystemTwo = require(&apos;./subSystemTwo&apos;);
+const SubSystemThree = require(&apos;./subSystemThree&apos;);
+const SubSystemFour = require(&apos;./subSystemFour&apos;);
+
+class Facade {
+    constructor() {
+        this.subSystemOne = new SubSystemOne();
+        this.subSystemTwo = new SubSystemTwo();
+        this.subSystemThree = new SubSystemThree();
+        this.subSystemFour = new SubSystemFour();
+
+        console.log(&apos;Facade constructor.&apos;);
+    }
+
+    methodA() {
+        console.log(&apos;Facade methodA.&apos;);
+        this.subSystemOne.methodOne();
+        this.subSystemTwo.methodTwo();
+        this.subSystemFour.methodFour();
+    }
+
+    methodB() {
+        console.log(&apos;Facade methodB.&apos;);
+        this.subSystemThree.methodThree();
+        this.subSystemFour.methodFour();
+    }
+}
+
+module.exports = Facade;
+
+-- client.js
+const Facade = require(&apos;./facade&apos;);
+
+const facade = new Facade();
+console.log(&apos;------&apos;);
+
+facade.methodA();
+console.log(&apos;------&apos;);
+
+facade.methodB();
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/06/15/外观模式/" data-id="ckwatxmz1004kr0wsbued1gf7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Fiber" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/11/Fiber/" class="article-date">
+  <time datetime="2018-06-10T16:00:00.000Z" itemprop="datePublished">2018-06-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/11/Fiber/">Fiber</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>什么是Fiber<br><strong> React Fibler 采用分片的思路实现UI的异步渲染。 </strong><br>React Fiber把更新过程碎片化，分成很多小片，当分配给小片的时间用尽时，则将控制权交出，如果有优先级更高的任务，就开始做新的任务，没有就断续原来的更新。</p>
+</li>
+<li><p>Fiber运行原理<br><strong> React Fiber一个更新过程被分为两个阶段(Phase)：第一个阶段Reconciliation Phase和第二阶段Commit Phase。 </strong></p>
+<ul>
+<li><p>Reconciliation Phase， 可以被打断，计算与对比虚拟DOM，找出需要更新的DOM<br>componentWillMount<br>componentWillReceiveProps<br>shouldComponentUpdate<br>componentWillUpdate</p>
+</li>
+<li><p>Commit Phase， 无法打断，更新DOM<br>componentDidMount<br>componentDidUpdate<br>componentWillUnmount</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol start="3">
+<li><p>React16前的生命周期函数componentWillUpdate等，为什么会多次执行？</p>
+<ul>
+<li>requestIdleCallback</li>
+<li>cancelIdleCallback</li>
+</ul>
+<p><strong> 异步渲染的时候，会调用requestIdleCallback API，在回调函数中可以获得当前callback参数（也就是fiber的分片任务），包括执行时间，如果时间不够，分片任务会被打断（使用cancelIdleCallback API），再次执行则会在空闲时重新执行。 </strong></p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ckwatxmxe001dr0wsfwikcupf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React高阶组件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/10/React高阶组件/" class="article-date">
+  <time datetime="2018-06-09T16:00:00.000Z" itemprop="datePublished">2018-06-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/10/React高阶组件/">React高阶组件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>高阶组件：higher order Component，装饰器模式</p>
+<p> 基本形式：const EnhancedComponent = higherOrderComponent(WrappedComponent);</p>
+</li>
+<li><p>高阶组件两种常见用法：</p>
+<ul>
+<li><p>属性代理 Props Proxy: 通过WrappedComponent的Props来进行操作</p>
+<pre><code>function hocPropsProxy(WrappedComponent) {
+  return class hocComponent extends React.Component {
+    constructor(){
+      super(props);
+
+      this.state = {
+        name: &apos;&apos;
+      }
+    }
+
+    render() {
+      const props = {
+        name: this.state.name
+      }
+
+      return (
+          &lt;div className=&quot;layout&quot;&gt;
+            &lt;WrappedComponent {...this.props} {...props} /&gt;
+          &lt;/div&gt;
+        )
+    }
+  }
+}
+</code></pre></li>
+<li><p>继承反转 Inheritance Inversion：继承自WrappedComponent</p>
+<pre><code>function hocInheritanceInversion(WrappedComponent){
+  return class hocComponent extends WrappedComponent {
+    render() {
+      // 可以实现渲染劫持，实现Loading等功能
+      return super.render();
+    }
+  }
+}
+</code></pre></li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/06/10/React高阶组件/" data-id="ckwatxmxu0029r0wsjwvlhamt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-React组件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/15/React组件/" class="article-date">
+  <time datetime="2018-05-14T16:00:00.000Z" itemprop="datePublished">2018-05-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/15/React组件/">React组件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>无状态组件：采用函数式定义<br><strong> 不含状态管理 </strong><ul>
+<li>不包含任何状态，但可以包含属性，同样的props会得到同样的渲染结果，不会有副作用；</li>
+<li>无状态组件生成时不会实例化，整体渲染性能得到提升；</li>
+<li>无状态组件没有this，ref和生命周期；<pre><code>function Welcome(props){
+  return (&lt;h1&gt;Hello, {props.name}&lt;/h1&gt;);
+}
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+<li><p>有状态组件：采用ES6 Component形式定义<br><strong> 实例化的，并且可以访问组件的生命周期方法 </strong></p>
+<pre><code>class Welcome extends React.Component{
+  constructor(props){
+    super(props);
+
+    this.state = {
+      iShow: true
+    }
+  }
+
+  render(){
+    return (
+        this.state.iShow?(&lt;h1&gt; Hello, {this.props.name} &lt;/h1&gt;) : null
+      )
+  }
+}
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/05/15/React组件/" data-id="ckwatxmxt0027r0wss334vygm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/20/">20</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/周易/">周易</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/我的作品/">我的作品</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/未分类/">未分类</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杀手日记/">杀手日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂谈/">杂谈</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计与代码/">设计与代码</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agile/">Agile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GCP/">GCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrum-Master/">Scrum Master</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/团队/">团队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英文/">英文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Agile/" style="font-size: 10px;">Agile</a> <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 14.44px;">Leetcode</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11.11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/hi2048/" style="font-size: 15.56px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14.44px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12.22px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11.11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 17.78px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 11.11px;">理财</a> <a href="/tags/算法/" style="font-size: 18.89px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 17.78px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/11/22/学生出勤记录3/">学生出勤记录3</a>
+          </li>
+        
+          <li>
+            <a href="/2021/11/01/study-notes-english/">study notes</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/25/学生出勤记录2/">学生出勤记录2</a>
+          </li>
+        
+          <li>
+            <a href="/2021/10/10/排列硬币/">排列硬币</a>
+          </li>
+        
+          <li>
+            <a href="/2021/09/01/系统性思维/">系统性思维</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Jsu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
