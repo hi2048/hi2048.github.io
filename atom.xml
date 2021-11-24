@@ -41,9 +41,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -98,9 +98,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -131,9 +131,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -187,9 +187,43 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
+      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>连续子数组的最大和</title>
+    <link href="http://hi2048.github.io/2021/07/17/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/"/>
+    <id>http://hi2048.github.io/2021/07/17/连续子数组的最大和/</id>
+    <published>2021-07-16T16:00:00.000Z</published>
+    <updated>2021-11-24T12:02:06.386Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>/*** 剑指 Offer: 连续子数组的最大和* 输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。* 要求时间复杂度为O(n)。* dp(i)以i结尾的连续最大子数组* dp(i - 1) &lt;= 0, dp(i) = n[i]* dp(i - 1 ) &gt; 0, dp(i) = dp(i - 1) + n[i]* * @param {number[]} nums* @return {number}*/var maxSubArray = function(nums) {  const dp = new Array(nums.length).fill(nums[0]);  let max = nums[0];  for(let i = 1; i &lt; nums.length; i++) {    if(dp[i - 1] &lt;= 0) {      dp[i] = nums[i];    } else {      dp[i] = dp[i - 1] + nums[i];    }    max = Math.max(max, dp[i]);  }  return max;};var maxSubArray = function(nums) {  let dp = nums[0], max = nums[0];  for(let i = 1; i &lt; nums.length; i++) {    if(dp &lt;= 0) {      dp = nums[i];    } else {      dp += nums[i];    }    max = Math.max(max, dp);  }  return max;};var maxSubArray = function(nums) {  let dp = nums[0], max = nums[0];  for(let i = 1; i &lt; nums.length; i++) {    dp = Math.max(dp + nums[i], nums[i]);    max = Math.max(max, dp);  }  return max;};</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;/**
+* 剑指 Offer: 连续子数组的最大和
+* 输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
+* 要求时间复杂度为O(n)。
+* dp(i)以i结尾的连续最大子数组
+* dp(i - 1) &amp;lt;= 0, 
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -243,9 +277,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -275,9 +309,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -311,9 +345,9 @@ v
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -494,9 +528,9 @@ v
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -554,9 +588,9 @@ v
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -585,39 +619,6 @@ v
     
     
       <category term="Agile" scheme="http://hi2048.github.io/tags/Agile/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GCP</title>
-    <link href="http://hi2048.github.io/2020/05/25/GCP/"/>
-    <id>http://hi2048.github.io/2020/05/25/GCP/</id>
-    <published>2020-05-24T16:00:00.000Z</published>
-    <updated>2021-08-04T04:36:32.442Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>Computer Engine, App Engine</p></li><li><p>HTTPS load balance</p></li><li><p>Stackdriver</p></li><li><p>Datastore</p></li><li><p>BigQuery</p></li><li><p>Cloud Pub/Sub</p></li><li><p>Cloud storage</p></li><li><p>Cloud Dataflow</p></li><li><p>Cloud Endpoints</p></li><li><p>Cloud SQL</p></li><li><p>Hadoop/Spark</p></li><li><p>Cloud dataproc</p></li><li><p>Jenkins</p></li><li><p>Cloud BigTable</p></li><li><p>Cloud Memorystore</p></li><li><p>Cloud Datastore</p></li><li><p>k8s(Kubernetes)/Containers</p></li><li><p>Cloud Marketplace</p></li><li><p>CDN</p></li><li><p>Local SSD, SSD persistent disks</p></li><li><p>Cloud VPN</p></li><li><p>Cloud Functions</p></li><li><p>CSEK</p></li><li><p>Firewall rules</p></li><li><p>ETL</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Computer Engine, App Engine&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;HTTPS load balance&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Stackdriver&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Datastore&lt;/p&gt;
-&lt;/li
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="GCP" scheme="http://hi2048.github.io/tags/GCP/"/>
     
   </entry>
   
