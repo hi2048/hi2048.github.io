@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2021-11-22T15:19:48.852Z</updated>
+  <updated>2021-11-26T03:56:34.565Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,20 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>只有两个键的键盘</title>
+    <link href="http://hi2048.github.io/2021/11/26/%E5%8F%AA%E6%9C%89%E4%B8%A4%E4%B8%AA%E9%94%AE%E7%9A%84%E9%94%AE%E7%9B%98/"/>
+    <id>http://hi2048.github.io/2021/11/26/只有两个键的键盘/</id>
+    <published>2021-11-26T03:56:34.000Z</published>
+    <updated>2021-11-26T03:56:34.565Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>学生出勤记录3</title>
@@ -41,9 +55,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -98,9 +112,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -131,9 +145,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -187,9 +201,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -221,9 +235,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -255,9 +269,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -311,9 +325,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -343,9 +357,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -379,9 +393,9 @@ v
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -562,9 +576,9 @@ v
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="leetcode" scheme="http://hi2048.github.io/tags/leetcode/"/>
     
@@ -591,40 +605,6 @@ v
     
       <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>数组中有效三角形的数量</title>
-    <link href="http://hi2048.github.io/2020/07/12/%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9C%89%E6%95%88%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E6%95%B0%E9%87%8F/"/>
-    <id>http://hi2048.github.io/2020/07/12/数组中有效三角形的数量/</id>
-    <published>2020-07-11T16:00:00.000Z</published>
-    <updated>2021-08-04T10:04:22.637Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li><p>数组nums中有效三角形的数量</p><pre><code>  var triangleNumber = function(nums) {    let count = 0;    nums.sort((a, b) =&gt; a - b);    for(let i = nums.length - 1; i &gt;= 2; i--) {        let j = i - 1, k = 0;        while(k &lt; j) {            if(nums[k] + nums[j] &gt; nums[i]) {                count += j - k;                j--;            } else {                k++;            }        }    }    return count;};</code></pre></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;数组nums中有效三角形的数量&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;  var triangleNumber = function(nums) {
-    let count = 0;
-
-    nums.sort((a, b) =&amp;gt; a - b);
-
- 
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
   </entry>
   

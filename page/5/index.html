@@ -64,6 +64,182 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-访问者模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/08/15/访问者模式/" class="article-date">
+  <time datetime="2019-08-14T16:00:00.000Z" itemprop="datePublished">2019-08-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/08/15/访问者模式/">访问者模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>访问者模式（Visitor）<br> <a href="/assets/访问者模式.png"><img src="/assets/访问者模式.png" alt="访问者模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Visitor" title="访问者模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- element.js
+class Element {
+    constructor() {
+        if(new.target === Element)
+            throw new Error(`${Element} cannot be initialized.`);
+    }
+
+    accept(vistor) {
+        throw new Error(`${this.accept} should be overwrite.`);
+    }
+}
+
+module.exports = Element;
+
+-- concreteElementA.js
+const Element = require(&apos;./element&apos;);
+
+class ConcreteElementA extends Element {
+    accept(visitor) {
+        visitor.visitConcreteElementA(this);
+    }
+
+    operatorA() {
+        console.log(&apos;ConcreteElementA operatorA.&apos;);
+    }
+}
+
+module.exports = ConcreteElementA;
+
+-- concreteElementB.js
+const Element = require(&apos;./element&apos;);
+
+class ConcreteElementB extends Element {
+    accept(visitor) {
+        visitor.visitConcreteElementB(this);
+    }
+
+    operatorB() {
+        console.log(`ConcreteElementB operatorB.`);
+    }
+}
+
+module.exports = ConcreteElementB;
+
+-- visitor.js
+class Visitor {
+    constructor() {
+        if(new.target === Visitor)
+            throw new Error(`${Visitor} cannot be initialized.`);
+    }
+
+    visitConcreteElementA(concreteElementA) {
+        throw new Error(`${this.visitConcreteElementA} should be overwrite.`);
+    }
+
+    visitConcreteElementB(concreteELementB) {
+        throw new Error(`${this.visitConcreteElementB} should be overwrite.`);
+    }
+}
+
+module.exports = Visitor;
+
+-- concreteVisitor1.js
+const Visitor = require(&apos;./visitor&apos;);
+
+class ConcreteVisitor1 extends Visitor {
+    visitConcreteElementA(concreteElementA) {
+        console.log(`${this.constructor.name} visitConcreteElementA ${concreteElementA.constructor.name} .`);
+    }
+
+    visitConcreteElementB(concreteElementB) {
+        console.log(`${this.constructor.name} visitConcreteElementB ${concreteElementB.constructor.name} .`);
+    }
+}
+
+module.exports = ConcreteVisitor1;
+
+-- concreteVisitor2.js
+const Visitor = require(&apos;./visitor&apos;);
+
+class ConcreteVisitor2 extends Visitor {
+    visitConcreteElementA(concreteElementA) {
+        console.log(`${this.constructor.name} visitConcreteElementA ${concreteElementA.constructor.name} .`);
+    }
+
+    visitConcreteElementB(concreteElementB) {
+        console.log(`${this.constructor.name} visitConcreteElementB ${concreteElementB.constructor.name} .`);
+    }
+}
+
+module.exports = ConcreteVisitor2;
+
+-- objectStructure.js
+class ObjectStructure {
+    constructor() {
+        this.elements = new Set();
+    }
+
+    add(element) {
+        return element &amp;&amp; this.elements.add(element);
+    }
+
+    remove(element) {
+        return this.elements.delete(element);
+    }
+
+    accept(visitor) {
+        this.elements.forEach(element =&gt; (element.accept(visitor)));
+    }
+}
+
+module.exports = ObjectStructure;
+
+-- client.js
+const ObjectStructure = require(&apos;./objectStructure&apos;);
+const ConcreteElementA = require(&apos;./concreteElementA&apos;);
+const ConcreteElementB = require(&apos;./concreteElementB&apos;);
+const ConcreteVisitor1 = require(&apos;./concreteVisitor1&apos;);
+const ConcreteVisitor2 = require(&apos;./concreteVisitor2&apos;);
+
+const objectStructure = new ObjectStructure();
+const concreteELementA = new ConcreteElementA();
+objectStructure.add(concreteELementA);
+objectStructure.add(new ConcreteElementB());
+
+const concreteVisitor1 = new ConcreteVisitor1();
+objectStructure.accept(concreteVisitor1);
+objectStructure.accept(new ConcreteVisitor2());
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/08/15/访问者模式/" data-id="ckwfurxib005ef5wsw0dyvuw2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Vue生命周期" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/08/02/Vue生命周期/" class="article-date">
@@ -111,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ckwehds9h001373wsptzlc23s" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/08/02/Vue生命周期/" data-id="ckwfurxg0001ff5wsa2t3h0vl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
@@ -374,7 +550,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/07/22/解释器模式/" data-id="ckwehdsdr007b73ws7e4wq68b" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/07/22/解释器模式/" data-id="ckwfurxia005bf5wshtj2q5bu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -507,7 +683,7 @@ unsharedConcreteFlyweight.operation(--extrinsicState);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/15/享元模式/" data-id="ckwehds9t001t73wsnjxl7g8p" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/06/15/享元模式/" data-id="ckwfurxgd0027f5wsxefrka5g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -575,7 +751,7 @@ a:  [ &apos;1&apos;, &apos;2&apos; ]
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ckwehds9j001873wsqu4g9lh4" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/06/10/compose/" data-id="ckwfurxg1001hf5wsx7e4859t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -743,7 +919,7 @@ concreteColleague1.send(&apos;concreteColleague1 send message 4&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/05/22/中介者模式/" data-id="ckwehds9q001n73ws8pzrh62a" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/05/22/中介者模式/" data-id="ckwfurxg8001yf5ws7mrsv329" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -880,7 +1056,7 @@ request.forEach(req =&gt; (concreteHandler1.handleRequest(req)));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/05/02/职责链模式/" data-id="ckwehdsdk006x73wsnzclmyh7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/05/02/职责链模式/" data-id="ckwfurxi80055f5wshm4gfzim" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1019,7 +1195,7 @@ invoker.notify();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/04/18/命令模式/" data-id="ckwehdsc4003g73wsm56kj7oy" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/04/18/命令模式/" data-id="ckwfurxh0003df5ws49zvkicu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1085,7 +1261,7 @@ invoker.notify();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/" data-id="ckwehds93000f73wsnj4lze81" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/" data-id="ckwfurxfn000rf5wsdpvjvv1b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -1243,108 +1419,10 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/05/桥接模式/" data-id="ckwehdscy005h73ws97q2p5rx" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/05/桥接模式/" data-id="ckwfurxhr004ef5wslls16hfu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Stack实现" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/03/01/Stack实现/" class="article-date">
-  <time datetime="2019-02-28T16:00:00.000Z" itemprop="datePublished">2019-03-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/03/01/Stack实现/">Stack实现</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 栈FILO：先进后出 </strong></p>
-<pre><code>// 先进后出 FILO: first in last out
-class Stack {
-    constructor(){
-        this.stack = new Array();
-    }
-
-    pop() {
-        return this.stack.pop();
-    }
-
-    push(x) {
-        this.stack.push(x);
-
-        return this;
-    }
-
-    empty() {
-        return this.size() === 0;
-    }
-
-    size() {
-        return this.stack.length;
-    }
-
-    top() {
-        return this.stack[this.stack.length - 1];
-    }
-
-    has(x) {
-        return this.stack.indexOf(x) !== -1;
-    }
-
-    getArray() {
-        return this.stack;
-    }
-
-    getRoot() {
-        return this.stack[0];
-    }
-
-    print() {
-        for(let s of [...this.stack]){
-        if(s.print){
-            console.log(`${s}：`);
-            s.print();
-        } else{
-            console.log(s);
-        }
-        }
-
-        return this;
-    }
-}
-
-module.exports = Stack;
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/01/Stack实现/" data-id="ckwehds9f001073ws8708twgg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -1409,6 +1487,10 @@ module.exports = Stack;
       <ul>
         
           <li>
+            <a href="/2021/11/26/只有两个键的键盘/">只有两个键的键盘</a>
+          </li>
+        
+          <li>
             <a href="/2021/11/22/学生出勤记录3/">学生出勤记录3</a>
           </li>
         
@@ -1422,10 +1504,6 @@ module.exports = Stack;
         
           <li>
             <a href="/2021/10/10/排列硬币/">排列硬币</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/01/系统性思维/">系统性思维</a>
           </li>
         
       </ul>

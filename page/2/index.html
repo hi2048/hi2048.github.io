@@ -64,6 +64,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-商品折扣后的最终价格" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/06/商品折扣后的最终价格/" class="article-date">
+  <time datetime="2021-04-05T16:00:00.000Z" itemprop="datePublished">2021-04-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/06/商品折扣后的最终价格/">商品折扣后的最终价格</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>/**
+* 给你一个数组 prices ，其中 prices[i] 是商店里第 i 件商品的价格。
+* 商店里正在进行促销活动，如果你要买第 i 件商品，那么你可以得到与 prices[j] 相等的折扣，
+* 其中 j 是满足 j &gt; i 且 prices[j] &lt;= prices[i]的 最小下标 ，如果没有满足条件的 j ，你将没有任何折扣。
+* 请你返回一个数组，数组中第 i 个元素是折扣后你购买商品 i 最终需要支付的价格。
+* 
+* Notice: ** Array.sort ** will change the original array, ** Array.map ** will not change the original array, and both will return new created array
+* 
+* @param {number[]} prices
+* @return {number[]}
+*/
+const getDiscount = (prices, index) =&gt; {
+  for(let i = index + 1; i &lt; prices.length; i++) {
+    if(prices[i] &lt;= prices[index]) {
+      return prices[i]
+    }
+  }
+
+  return 0;
+}
+var finalPrices = function(prices) {
+  return prices.map((price, index, prices) =&gt; price - getDiscount(prices, index));
+};
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2021/04/06/商品折扣后的最终价格/" data-id="ckwfurxh1003ef5wskbh9uv2g" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-俄罗斯套娃信封问题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/03/15/俄罗斯套娃信封问题/" class="article-date">
@@ -126,7 +191,7 @@ var maxEnvelopes = function(envelopes) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2021/03/15/俄罗斯套娃信封问题/" data-id="ckwehds9u001w73ws6mmzrv5r" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2021/03/15/俄罗斯套娃信封问题/" data-id="ckwfurxge0029f5wsha1cgy1j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -188,7 +253,7 @@ var lengthOfLIS = function(nums) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2021/02/05/最长递增子序列/" data-id="ckwehdscx005d73wsz0h5ufao" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2021/02/05/最长递增子序列/" data-id="ckwfurxhq004cf5ws2ylz2tum" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -239,7 +304,7 @@ var lengthOfLIS = function(nums) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2021/02/01/理财笔记/" data-id="ckwehdsd6006173wsab0bx0gy" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2021/02/01/理财笔记/" data-id="ckwfurxhy004mf5wsz2eauosd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/理财/">理财</a></li></ul>
@@ -322,7 +387,7 @@ var lengthOfLIS = function(nums) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2021/01/09/谈谈拖延症/" data-id="ckwehdsdv007j73wshitbt5v0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2021/01/09/谈谈拖延症/" data-id="ckwfurxic005ff5ws1wjhdowk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Scrum-Master/">Scrum Master</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/团队/">团队</a></li></ul>
@@ -374,7 +439,7 @@ var lengthOfLIS = function(nums) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/12/25/理财杂谈/" data-id="ckwehdsd5006073wswme0341d" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/12/25/理财杂谈/" data-id="ckwfurxi2004sf5wsjj2eqkv9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/理财/">理财</a></li></ul>
@@ -419,7 +484,7 @@ var lengthOfLIS = function(nums) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/11/05/浅谈生活/" data-id="ckwehdsd2005p73ws6rvj8m9z" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/11/05/浅谈生活/" data-id="ckwfurxhw004if5wsb2p378am" class="article-share-link">Share</a>
       
       
     </footer>
@@ -473,7 +538,7 @@ var lengthOfLIS = function(nums) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/10/19/团队的思考/" data-id="ckwehdsc9003q73ws1wd7qw1m" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/10/19/团队的思考/" data-id="ckwfurxh2003gf5wski6xm1mz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Scrum-Master/">Scrum Master</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/团队/">团队</a></li></ul>
@@ -609,7 +674,7 @@ const orangesRotting = grid =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/09/09/腐烂的橘子/" data-id="ckwehdsdl007073wskfifxd9o" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/09/09/腐烂的橘子/" data-id="ckwfurxi90056f5wsrc02gdd8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -652,75 +717,9 @@ const orangesRotting = grid =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/08/06/剑雨有感/" data-id="ckwehdsa5002i73wsgyict6vq" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/08/06/剑雨有感/" data-id="ckwfurxgo002vf5ws3nh4iyqf" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-数组中有效三角形的数量" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/12/数组中有效三角形的数量/" class="article-date">
-  <time datetime="2020-07-11T16:00:00.000Z" itemprop="datePublished">2020-07-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/12/数组中有效三角形的数量/">数组中有效三角形的数量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>数组nums中有效三角形的数量</p>
-<pre><code>  var triangleNumber = function(nums) {
-    let count = 0;
-
-    nums.sort((a, b) =&gt; a - b);
-
-    for(let i = nums.length - 1; i &gt;= 2; i--) {
-        let j = i - 1, k = 0;
-
-        while(k &lt; j) {
-            if(nums[k] + nums[j] &gt; nums[i]) {
-                count += j - k;
-                j--;
-            } else {
-                k++;
-            }
-        }
-    }
-
-    return count;
-};
-</code></pre></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/07/12/数组中有效三角形的数量/" data-id="ckwehdscs005073ws9upnov08" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-
     </footer>
   </div>
   
@@ -784,6 +783,10 @@ const orangesRotting = grid =&gt; {
       <ul>
         
           <li>
+            <a href="/2021/11/26/只有两个键的键盘/">只有两个键的键盘</a>
+          </li>
+        
+          <li>
             <a href="/2021/11/22/学生出勤记录3/">学生出勤记录3</a>
           </li>
         
@@ -797,10 +800,6 @@ const orangesRotting = grid =&gt; {
         
           <li>
             <a href="/2021/10/10/排列硬币/">排列硬币</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/01/系统性思维/">系统性思维</a>
           </li>
         
       </ul>

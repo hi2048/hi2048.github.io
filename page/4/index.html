@@ -64,6 +64,132 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-类型判断" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/08/类型判断/" class="article-date">
+  <time datetime="2020-01-07T16:00:00.000Z" itemprop="datePublished">2020-01-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/08/类型判断/">类型判断</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>– 基本数据类型判断 <a href="https://github.com/hi2048/utils/tree/master/type" title="类型判断" target="_blank" rel="noopener">github</a>  <a href="https://www.npmjs.com/package/hi2048-utils" title="hi2048-utils" target="_blank" rel="noopener">npm</a></p>
+<pre><code>-- type.js
+const types = {
+  &apos;Number&apos;: &apos;Number&apos;,
+  &apos;String&apos;: &apos;String&apos;,
+  &apos;Boolean&apos;: &apos;Boolean&apos;,
+  &apos;Object&apos;: &apos;Object&apos;,
+  &apos;Array&apos;: &apos;Array&apos;,
+  &apos;Function&apos;: &apos;Function&apos;,
+  &apos;Date&apos;: &apos;Date&apos;,
+  &apos;RegExp&apos;: &apos;RegExp&apos;,
+  &apos;Symbol&apos;: &apos;Symbol&apos;,
+  &apos;null&apos;: &apos;Null&apos;,
+  &apos;NaN&apos;: &apos;NaN&apos;,
+  &apos;undefined&apos;: &apos;Undefined&apos;
+};
+
+const isType = type =&gt; obj =&gt; Object.prototype.toString.call(obj) === `[object ${type}]`;
+
+const isTypeFactory = types =&gt; {
+  const isTypes = {};
+
+  for(let key of Object.keys(types)) {
+    if(types[key] === &apos;NaN&apos;) {
+      isTypes[&apos;isNaN&apos;] = isNaN;
+    } else if(types[key] === &apos;Number&apos;) {
+      isTypes[&apos;isNumber&apos;] = obj =&gt; {
+        if(isNaN(obj)) {
+          return false;
+        }
+
+        return isType(types[key])(obj);
+      };
+    } else {
+      isTypes[`is${types[key]}`] = isType(types[key]);
+    }
+  }
+
+  return isTypes;
+};
+
+module.exports = { isNumber, isString, isBoolean, isObject, isArray, isFunction, isDate, isRegExp, isSymbol, isNull, isNaN, isUndefined } = isTypeFactory(types);
+
+-- type.test.js
+const assert = require(&apos;assert&apos;);
+const { isNumber, isString, isBoolean, isObject, isArray, isFunction, isDate, isRegExp, isSymbol, isNull, isNaN, isUndefined } = require(&apos;.&apos;);
+
+assert.equal(isNumber(1), true);
+assert.equal(isNumber(&apos;a&apos;), false);
+assert.equal(isNumber(NaN), false);
+
+assert.equal(isString(&apos;a&apos;), true);
+assert.equal(isString({&apos;a&apos;: 1}), false);
+
+assert.equal(isBoolean(true), true);
+assert.equal(isBoolean(&apos;true&apos;), false);
+
+assert.equal(isObject({&apos;a&apos;: 1}), true);
+assert.equal(isObject([1,2]), false);
+
+assert.equal(isArray([1,2]), true);
+assert.equal(isArray({&apos;a&apos;: 1}), false);
+
+assert.equal(isFunction(console.log), true);
+assert.equal(isFunction(&apos;a&apos;), false);
+
+assert.equal(isDate(new Date()), true);
+assert.equal(isDate(&apos;a&apos;), false);
+
+assert.equal(isRegExp(/.*/g), true);
+assert.equal(isRegExp(&apos;a&apos;), false);
+
+assert.equal(isSymbol(Symbol()), true);
+assert.equal(isSymbol(&apos;a&apos;),false);
+
+assert.equal(isNull(null), true);
+assert.equal(isNull(&apos;null&apos;), false);
+
+assert.equal(isNaN(NaN), true);
+assert.equal(isNaN(&apos;NaN&apos;), true);
+assert.equal(isNaN(1), false);
+
+assert.equal(isUndefined(undefined), true);
+assert.equal(isUndefined(&apos;undefined&apos;), false);
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2020/01/08/类型判断/" data-id="ckwfurxi70052f5wsrrqn9if8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-最大最小值" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/12/25/最大最小值/" class="article-date">
@@ -110,7 +236,7 @@ const max = (...args) =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/12/25/最大最小值/" data-id="ckwehdscv005873wsp9zx9x2z" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/12/25/最大最小值/" data-id="ckwfurxhp0049f5wsgeji1qkc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/utils/">utils</a></li></ul>
@@ -166,7 +292,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/11/18/“气球”的最大数量/" data-id="ckwehds9o001i73wstheemo6z" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/11/18/“气球”的最大数量/" data-id="ckwfurxg6001sf5wsaxs6lca3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
@@ -396,7 +522,7 @@ export default IndexedDBOperator;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/" data-id="ckwehds8z000b73wsxcqzg6wz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/" data-id="ckwfurxfi000jf5wsc05r50d8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类/">工具类</a></li></ul>
@@ -707,7 +833,7 @@ const TalkInterface = require(&apos;./talkInterface.js&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/29/UML实践/" data-id="ckwehds9g001273wsl1vvvwlg" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/29/UML实践/" data-id="ckwfurxfz001ef5wslmhi061g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -872,7 +998,7 @@ module.exports = Tarjan;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/21/有向图的强连通分量算法/" data-id="ckwehdscy005g73wswh2oly9e" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/21/有向图的强连通分量算法/" data-id="ckwfurxhr004df5wsgtcheqte" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1041,7 +1167,7 @@ MedianFinder.prototype.findMedian = function() {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/20/求数据流的中位数/" data-id="ckwehdsd1005o73wssis6uans" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/20/求数据流的中位数/" data-id="ckwfurxhv004hf5wsh35ii8og" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1186,7 +1312,7 @@ console.log(tree[0])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ckwehds97000k73ws7xeouih0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/16/JavaScript哈希/" data-id="ckwfurxfr000xf5wslonvthhr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1282,7 +1408,7 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ckwehdscv005973wsjlptho5r" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/15/最大气球/" data-id="ckwfurxhp004af5ws4lq1waty" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1346,186 +1472,10 @@ var maxNumberOfBalloons = function(text) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ckwehdsd4005x73wsrkzb1i7t" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/09/02/状态管理/" data-id="ckwfurxhy004nf5wsr1sfr869" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vuex/">vuex</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-访问者模式" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/08/15/访问者模式/" class="article-date">
-  <time datetime="2019-08-14T16:00:00.000Z" itemprop="datePublished">2019-08-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/15/访问者模式/">访问者模式</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>访问者模式（Visitor）<br> <a href="/assets/访问者模式.png"><img src="/assets/访问者模式.png" alt="访问者模式"></a></p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Visitor" title="访问者模式" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- element.js
-class Element {
-    constructor() {
-        if(new.target === Element)
-            throw new Error(`${Element} cannot be initialized.`);
-    }
-
-    accept(vistor) {
-        throw new Error(`${this.accept} should be overwrite.`);
-    }
-}
-
-module.exports = Element;
-
--- concreteElementA.js
-const Element = require(&apos;./element&apos;);
-
-class ConcreteElementA extends Element {
-    accept(visitor) {
-        visitor.visitConcreteElementA(this);
-    }
-
-    operatorA() {
-        console.log(&apos;ConcreteElementA operatorA.&apos;);
-    }
-}
-
-module.exports = ConcreteElementA;
-
--- concreteElementB.js
-const Element = require(&apos;./element&apos;);
-
-class ConcreteElementB extends Element {
-    accept(visitor) {
-        visitor.visitConcreteElementB(this);
-    }
-
-    operatorB() {
-        console.log(`ConcreteElementB operatorB.`);
-    }
-}
-
-module.exports = ConcreteElementB;
-
--- visitor.js
-class Visitor {
-    constructor() {
-        if(new.target === Visitor)
-            throw new Error(`${Visitor} cannot be initialized.`);
-    }
-
-    visitConcreteElementA(concreteElementA) {
-        throw new Error(`${this.visitConcreteElementA} should be overwrite.`);
-    }
-
-    visitConcreteElementB(concreteELementB) {
-        throw new Error(`${this.visitConcreteElementB} should be overwrite.`);
-    }
-}
-
-module.exports = Visitor;
-
--- concreteVisitor1.js
-const Visitor = require(&apos;./visitor&apos;);
-
-class ConcreteVisitor1 extends Visitor {
-    visitConcreteElementA(concreteElementA) {
-        console.log(`${this.constructor.name} visitConcreteElementA ${concreteElementA.constructor.name} .`);
-    }
-
-    visitConcreteElementB(concreteElementB) {
-        console.log(`${this.constructor.name} visitConcreteElementB ${concreteElementB.constructor.name} .`);
-    }
-}
-
-module.exports = ConcreteVisitor1;
-
--- concreteVisitor2.js
-const Visitor = require(&apos;./visitor&apos;);
-
-class ConcreteVisitor2 extends Visitor {
-    visitConcreteElementA(concreteElementA) {
-        console.log(`${this.constructor.name} visitConcreteElementA ${concreteElementA.constructor.name} .`);
-    }
-
-    visitConcreteElementB(concreteElementB) {
-        console.log(`${this.constructor.name} visitConcreteElementB ${concreteElementB.constructor.name} .`);
-    }
-}
-
-module.exports = ConcreteVisitor2;
-
--- objectStructure.js
-class ObjectStructure {
-    constructor() {
-        this.elements = new Set();
-    }
-
-    add(element) {
-        return element &amp;&amp; this.elements.add(element);
-    }
-
-    remove(element) {
-        return this.elements.delete(element);
-    }
-
-    accept(visitor) {
-        this.elements.forEach(element =&gt; (element.accept(visitor)));
-    }
-}
-
-module.exports = ObjectStructure;
-
--- client.js
-const ObjectStructure = require(&apos;./objectStructure&apos;);
-const ConcreteElementA = require(&apos;./concreteElementA&apos;);
-const ConcreteElementB = require(&apos;./concreteElementB&apos;);
-const ConcreteVisitor1 = require(&apos;./concreteVisitor1&apos;);
-const ConcreteVisitor2 = require(&apos;./concreteVisitor2&apos;);
-
-const objectStructure = new ObjectStructure();
-const concreteELementA = new ConcreteElementA();
-objectStructure.add(concreteELementA);
-objectStructure.add(new ConcreteElementB());
-
-const concreteVisitor1 = new ConcreteVisitor1();
-objectStructure.accept(concreteVisitor1);
-objectStructure.accept(new ConcreteVisitor2());
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/08/15/访问者模式/" data-id="ckwehdsdu007h73wswbea2u0t" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
     </footer>
   </div>
@@ -1590,6 +1540,10 @@ objectStructure.accept(new ConcreteVisitor2());
       <ul>
         
           <li>
+            <a href="/2021/11/26/只有两个键的键盘/">只有两个键的键盘</a>
+          </li>
+        
+          <li>
             <a href="/2021/11/22/学生出勤记录3/">学生出勤记录3</a>
           </li>
         
@@ -1603,10 +1557,6 @@ objectStructure.accept(new ConcreteVisitor2());
         
           <li>
             <a href="/2021/10/10/排列硬币/">排列硬币</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/01/系统性思维/">系统性思维</a>
           </li>
         
       </ul>

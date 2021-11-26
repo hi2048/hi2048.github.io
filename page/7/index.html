@@ -64,6 +64,137 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-备忘录模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/02/备忘录模式/" class="article-date">
+  <time datetime="2018-12-01T16:00:00.000Z" itemprop="datePublished">2018-12-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/12/02/备忘录模式/">备忘录模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>备忘录模式（Memento）<br> <a href="/assets/备忘录模式.png"><img src="/assets/备忘录模式.png" alt="备忘录模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Memento" title="备忘录模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- originator.js
+const Memento = require(&apos;./memento&apos;);
+
+class Originator {
+    constructor(state = &apos;initial state&apos;) {
+        this.state = state;
+
+        console.log(&apos;Originator constructor.&apos;);
+    }
+
+    setState(state) {
+        this.state = state;
+
+        console.log(this.state);
+    }
+
+    setMemento(memento) {
+        this.state = memento.getState();
+
+        console.log(`Originator setMemento state: ${this.state}.`);
+    }
+
+    createMemento() {
+        console.log(`Originator createMemento state: ${this.state}.`);
+
+        return new Memento(this.state);
+    }
+}
+
+module.exports = Originator;
+
+-- memento.js
+class Memento {
+    constructor(state) {
+        this.state = state;
+
+        console.log(&apos;Memento constructor.&apos;);
+    }
+
+    getState() {
+        return this.state;
+    }
+}
+
+module.exports = Memento;
+
+-- caretaker.js
+const Memento = require(&apos;./memento&apos;);
+
+class Caretaker {
+    constructor() {
+        console.log(&apos;Caretaker constructor.&apos;);
+    }
+
+    setMemento(memento) {
+        this.memento = memento;
+    }
+
+    getMemento() {
+        return this.memento;
+    }
+}
+
+module.exports = Caretaker;
+
+-- client.js
+const Originator = require(&apos;./originator&apos;);
+const Caretaker = require(&apos;./caretaker&apos;);
+
+const originator = new Originator();
+const caretaker = new Caretaker();
+
+const memento1 = originator.createMemento();
+caretaker.setMemento(memento1);
+originator.setState(&apos;state1&apos;);
+originator.setMemento(caretaker.getMemento());
+console.log(&apos;------&apos;);
+
+originator.setState(&apos;state2&apos;);
+caretaker.setMemento(originator.createMemento());
+originator.setState(&apos;state3&apos;);
+originator.setMemento(caretaker.getMemento());
+console.log(&apos;------&apos;);
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2018/12/02/备忘录模式/" data-id="ckwfurxh7003jf5ws9we2kb9p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-适配器模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/11/06/适配器模式/" class="article-date">
@@ -160,7 +291,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ckwehdsdx007p73ws9bmefzdh" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/11/06/适配器模式/" data-id="ckwfurxic005hf5ws3vzqoaol" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -322,7 +453,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ckwehdsd4005w73wsm9mbeyn2" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/21/状态模式/" data-id="ckwfurxhx004lf5wsyfuils0x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -390,7 +521,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ckwehds9a000p73ws03gl0xcs" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/11/React之setState/" data-id="ckwfurxfu0013f5wsnelz5ir5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
@@ -433,7 +564,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ckwehdsd9006973wsd5lx8gta" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/10/05/秋/" data-id="ckwfurxi0004qf5ws0yvso3tl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -492,7 +623,7 @@ context.request();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ckwehds9g001173ws5366w68n" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/09/12/Swagger/" data-id="ckwfurxfy001cf5wstk8hbd2l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
@@ -776,7 +907,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/09/10/抽象工厂模式/" data-id="ckwehdsco004p73wsx2nl8cat" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/09/10/抽象工厂模式/" data-id="ckwfurxhj003yf5ws664931q9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -959,7 +1090,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/08/02/观察者模式/" data-id="ckwehdsdq007873ws1my2ijtw" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/08/02/观察者模式/" data-id="ckwfurxia005af5ws6ospxgks" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1143,7 +1274,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/07/12/建造者模式/" data-id="ckwehdscl004h73wse70bu2dc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/07/12/建造者模式/" data-id="ckwfurxhh003wf5ws8dyixmvy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1285,73 +1416,10 @@ facade.methodB();
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/15/外观模式/" data-id="ckwehdsca003t73wsdb74kqzf" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/06/15/外观模式/" data-id="ckwfurxh8003kf5wshqqb5ggp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Fiber" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/11/Fiber/" class="article-date">
-  <time datetime="2018-06-10T16:00:00.000Z" itemprop="datePublished">2018-06-11</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/11/Fiber/">Fiber</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>什么是Fiber<br><strong> React Fibler 采用分片的思路实现UI的异步渲染。 </strong><br>React Fiber把更新过程碎片化，分成很多小片，当分配给小片的时间用尽时，则将控制权交出，如果有优先级更高的任务，就开始做新的任务，没有就断续原来的更新。</p>
-</li>
-<li><p>Fiber运行原理<br><strong> React Fiber一个更新过程被分为两个阶段(Phase)：第一个阶段Reconciliation Phase和第二阶段Commit Phase。 </strong></p>
-<ul>
-<li><p>Reconciliation Phase， 可以被打断，计算与对比虚拟DOM，找出需要更新的DOM<br>componentWillMount<br>componentWillReceiveProps<br>shouldComponentUpdate<br>componentWillUpdate</p>
-</li>
-<li><p>Commit Phase， 无法打断，更新DOM<br>componentDidMount<br>componentDidUpdate<br>componentWillUnmount</p>
-</li>
-</ul>
-</li>
-</ol>
-<ol start="3">
-<li><p>React16前的生命周期函数componentWillUpdate等，为什么会多次执行？</p>
-<ul>
-<li>requestIdleCallback</li>
-<li>cancelIdleCallback</li>
-</ul>
-<p><strong> 异步渲染的时候，会调用requestIdleCallback API，在回调函数中可以获得当前callback参数（也就是fiber的分片任务），包括执行时间，如果时间不够，分片任务会被打断（使用cancelIdleCallback API），再次执行则会在空闲时重新执行。 </strong></p>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/06/11/Fiber/" data-id="ckwehds8v000773ws5lxpfqt1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
 
     </footer>
   </div>
@@ -1416,6 +1484,10 @@ facade.methodB();
       <ul>
         
           <li>
+            <a href="/2021/11/26/只有两个键的键盘/">只有两个键的键盘</a>
+          </li>
+        
+          <li>
             <a href="/2021/11/22/学生出勤记录3/">学生出勤记录3</a>
           </li>
         
@@ -1429,10 +1501,6 @@ facade.methodB();
         
           <li>
             <a href="/2021/10/10/排列硬币/">排列硬币</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/01/系统性思维/">系统性思维</a>
           </li>
         
       </ul>

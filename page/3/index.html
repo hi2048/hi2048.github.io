@@ -64,6 +64,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数组中有效三角形的数量" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/12/数组中有效三角形的数量/" class="article-date">
+  <time datetime="2020-07-11T16:00:00.000Z" itemprop="datePublished">2020-07-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/12/数组中有效三角形的数量/">数组中有效三角形的数量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>数组nums中有效三角形的数量</p>
+<pre><code>  var triangleNumber = function(nums) {
+    let count = 0;
+
+    nums.sort((a, b) =&gt; a - b);
+
+    for(let i = nums.length - 1; i &gt;= 2; i--) {
+        let j = i - 1, k = 0;
+
+        while(k &lt; j) {
+            if(nums[k] + nums[j] &gt; nums[i]) {
+                count += j - k;
+                j--;
+            } else {
+                k++;
+            }
+        }
+    }
+
+    return count;
+};
+</code></pre></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2020/07/12/数组中有效三角形的数量/" data-id="ckwfurxhm0044f5wsu6jd6nj7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-SMART原则" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/06/08/SMART原则/" class="article-date">
@@ -102,7 +168,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/06/08/SMART原则/" data-id="ckwehds9e000x73ws1p8hdbgp" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/06/08/SMART原则/" data-id="ckwfurxgd0028f5ws672wcea0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Agile/">Agile</a></li></ul>
@@ -196,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/05/25/GCP/" data-id="ckwehds8w000873wsybn9o4i6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/05/25/GCP/" data-id="ckwfurxfg000ff5wsjqq1q5t7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCP/">GCP</a></li></ul>
@@ -269,7 +335,7 @@ export const logger = (...args) =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/04/12/logger/" data-id="ckwehds9k001a73wsj28q6fxh" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/04/12/logger/" data-id="ckwfurxg3001nf5ws4ndq62m7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -328,7 +394,7 @@ export const factory = Target =&gt; builder(creater(Target));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/03/20/creater/" data-id="ckwehds9i001673wsk2ga1r63" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/03/20/creater/" data-id="ckwfurxg2001jf5wsi0uojj23" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -425,7 +491,7 @@ test(&apos;create&apos;, () =&gt; expect(createRandomName()).toBeDefined());
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/03/08/unicode/" data-id="ckwehds9n001g73ws1iuy0irx" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/03/08/unicode/" data-id="ckwfurxg6001tf5wsb9gviaes" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -485,7 +551,7 @@ test(&quot;isPlainObject&quot;, () =&gt; expect(isPlainObject(new class Test{}))
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/03/06/简单对象/" data-id="ckwehdsdd006l73ws9rgli5t7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/03/06/简单对象/" data-id="ckwfurxi4004zf5wsucsrom71" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -533,7 +599,7 @@ export const array = { add, remove };
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/02/25/array基本操作/" data-id="ckwehds9i001573ws2dhxmi5x" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/02/25/array基本操作/" data-id="ckwfurxg1001if5wsdvmt8lcv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -608,7 +674,7 @@ assert.equal(curry((a, b, c) =&gt; a + b - c)(10)(9)(11), 8);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/02/20/curry-compose-and-pipe/" data-id="ckwehds9j001773wsiiv7urbl" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/02/20/curry-compose-and-pipe/" data-id="ckwfurxg2001kf5ws9xh7bjyq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -726,136 +792,10 @@ export const getSpeed = speed =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/02/10/DynamicNumber/" data-id="ckwehds8v000673ws0fka4ift" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/02/10/DynamicNumber/" data-id="ckwfurxf70007f5wsiq6ffgcr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-类型判断" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/08/类型判断/" class="article-date">
-  <time datetime="2020-01-07T16:00:00.000Z" itemprop="datePublished">2020-01-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/类型判断/">类型判断</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>– 基本数据类型判断 <a href="https://github.com/hi2048/utils/tree/master/type" title="类型判断" target="_blank" rel="noopener">github</a>  <a href="https://www.npmjs.com/package/hi2048-utils" title="hi2048-utils" target="_blank" rel="noopener">npm</a></p>
-<pre><code>-- type.js
-const types = {
-  &apos;Number&apos;: &apos;Number&apos;,
-  &apos;String&apos;: &apos;String&apos;,
-  &apos;Boolean&apos;: &apos;Boolean&apos;,
-  &apos;Object&apos;: &apos;Object&apos;,
-  &apos;Array&apos;: &apos;Array&apos;,
-  &apos;Function&apos;: &apos;Function&apos;,
-  &apos;Date&apos;: &apos;Date&apos;,
-  &apos;RegExp&apos;: &apos;RegExp&apos;,
-  &apos;Symbol&apos;: &apos;Symbol&apos;,
-  &apos;null&apos;: &apos;Null&apos;,
-  &apos;NaN&apos;: &apos;NaN&apos;,
-  &apos;undefined&apos;: &apos;Undefined&apos;
-};
-
-const isType = type =&gt; obj =&gt; Object.prototype.toString.call(obj) === `[object ${type}]`;
-
-const isTypeFactory = types =&gt; {
-  const isTypes = {};
-
-  for(let key of Object.keys(types)) {
-    if(types[key] === &apos;NaN&apos;) {
-      isTypes[&apos;isNaN&apos;] = isNaN;
-    } else if(types[key] === &apos;Number&apos;) {
-      isTypes[&apos;isNumber&apos;] = obj =&gt; {
-        if(isNaN(obj)) {
-          return false;
-        }
-
-        return isType(types[key])(obj);
-      };
-    } else {
-      isTypes[`is${types[key]}`] = isType(types[key]);
-    }
-  }
-
-  return isTypes;
-};
-
-module.exports = { isNumber, isString, isBoolean, isObject, isArray, isFunction, isDate, isRegExp, isSymbol, isNull, isNaN, isUndefined } = isTypeFactory(types);
-
--- type.test.js
-const assert = require(&apos;assert&apos;);
-const { isNumber, isString, isBoolean, isObject, isArray, isFunction, isDate, isRegExp, isSymbol, isNull, isNaN, isUndefined } = require(&apos;.&apos;);
-
-assert.equal(isNumber(1), true);
-assert.equal(isNumber(&apos;a&apos;), false);
-assert.equal(isNumber(NaN), false);
-
-assert.equal(isString(&apos;a&apos;), true);
-assert.equal(isString({&apos;a&apos;: 1}), false);
-
-assert.equal(isBoolean(true), true);
-assert.equal(isBoolean(&apos;true&apos;), false);
-
-assert.equal(isObject({&apos;a&apos;: 1}), true);
-assert.equal(isObject([1,2]), false);
-
-assert.equal(isArray([1,2]), true);
-assert.equal(isArray({&apos;a&apos;: 1}), false);
-
-assert.equal(isFunction(console.log), true);
-assert.equal(isFunction(&apos;a&apos;), false);
-
-assert.equal(isDate(new Date()), true);
-assert.equal(isDate(&apos;a&apos;), false);
-
-assert.equal(isRegExp(/.*/g), true);
-assert.equal(isRegExp(&apos;a&apos;), false);
-
-assert.equal(isSymbol(Symbol()), true);
-assert.equal(isSymbol(&apos;a&apos;),false);
-
-assert.equal(isNull(null), true);
-assert.equal(isNull(&apos;null&apos;), false);
-
-assert.equal(isNaN(NaN), true);
-assert.equal(isNaN(&apos;NaN&apos;), true);
-assert.equal(isNaN(1), false);
-
-assert.equal(isUndefined(undefined), true);
-assert.equal(isUndefined(&apos;undefined&apos;), false);
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/01/08/类型判断/" data-id="ckwehdsdf006p73wsub8h3ger" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
 
     </footer>
   </div>
@@ -920,6 +860,10 @@ assert.equal(isUndefined(&apos;undefined&apos;), false);
       <ul>
         
           <li>
+            <a href="/2021/11/26/只有两个键的键盘/">只有两个键的键盘</a>
+          </li>
+        
+          <li>
             <a href="/2021/11/22/学生出勤记录3/">学生出勤记录3</a>
           </li>
         
@@ -933,10 +877,6 @@ assert.equal(isUndefined(&apos;undefined&apos;), false);
         
           <li>
             <a href="/2021/10/10/排列硬币/">排列硬币</a>
-          </li>
-        
-          <li>
-            <a href="/2021/09/01/系统性思维/">系统性思维</a>
           </li>
         
       </ul>
