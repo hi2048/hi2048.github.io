@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="苏小蜂的个人博客">
 <meta property="og:description" content="origin data type: number, string, boolean, null, undefined, void, symbol, bigint  non-origin data type: object, array, tuple, enum const arr: string[] = [&amp;apos;1&amp;apos;, &amp;apos;2&amp;apos;, &amp;apos;3&amp;apos;]">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-11-27T06:55:47.909Z">
+<meta property="og:updated_time" content="2021-11-27T07:03:34.058Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TypeScript notes">
 <meta name="twitter:description" content="origin data type: number, string, boolean, null, undefined, void, symbol, bigint  non-origin data type: object, array, tuple, enum const arr: string[] = [&amp;apos;1&amp;apos;, &amp;apos;2&amp;apos;, &amp;apos;3&amp;apos;]">
@@ -263,13 +263,18 @@ function getTutureTutorialsInfo&lt;T, U extends Profile&lt;string&gt;&gt;(info: 
 }
 </code></pre></li>
 </ol>
-<p>类：<br>        class Profile<t>{<br>          username: string;<br>          age: T;<br>        }<br>接口:<br>        interface Profile<t> {<br>          username: string;<br>          age: T;<br>        }<br>类型别名：<br>        type Profile<t> = {<br>          username: string;<br>          age: T;<br>        }<br>duck typing<br>当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。<br>TS 类型是鸭子类型, 是基于代码的实际样子来进行类型注解的<br>构造函数的注解<br>        interface ConstructorFunction<c> {<br>          new (): C;<br>        }<br>类在声明的时候会声明两个东西：1）用于注解此类实例的类型 2）以及此类的构造函数。<br>const profileConstructor: ConstructorFunction&lt;Profile<string>&gt; = Profile;<br>注解构造函数<br>        class Profile<t> {<br>          username: string;<br>          age: T;<br>        }<br>        class TutureProfile extends Profile<string> {<br>          github: string;<br>          remote: string[];<br>        }<br>        interface ConstructorFunction<c> {<br>          new (): C;<br>        }<br>        function createInstance&lt;A extends Profile<string>&gt;(B: ConstructorFunction<a>) {<br>          return new B();<br>        }<br>        const myTutureProfile = createInstance(TutureProfile);</a></string></c></string></t></string></c></t></t></t></p>
+<p>类：<br>        class Profile<t>{<br>          username: string;<br>          age: T;<br>        }</t></p>
+<p>接口:<br>        interface Profile<t> {<br>          username: string;<br>          age: T;<br>        }</t></p>
+<p>类型别名：<br>        type Profile<t> = {<br>          username: string;<br>          age: T;<br>        }</t></p>
+<p>duck typing<br>当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。<br>TS 类型是鸭子类型, 是基于代码的实际样子来进行类型注解的<br>构造函数的注解<br>        interface ConstructorFunction<c> {<br>          new (): C;<br>        }</c></p>
+<p>类在声明的时候会声明两个东西：1）用于注解此类实例的类型 2）以及此类的构造函数。<br>        const profileConstructor: ConstructorFunction&lt;Profile<string>&gt; = Profile;</string></p>
+<p>注解构造函数<br>        class Profile<t> {<br>          username: string;<br>          age: T;<br>        }<br>        class TutureProfile extends Profile<string> {<br>          github: string;<br>          remote: string[];<br>        }<br>        interface ConstructorFunction<c> {<br>          new (): C;<br>        }<br>        function createInstance&lt;A extends Profile<string>&gt;(B: ConstructorFunction<a>) {<br>          return new B();<br>        }<br>        const myTutureProfile = createInstance(TutureProfile);</a></string></c></string></t></p>
 <p>参考：<br><a href="https://zhuanlan.zhihu.com/p/144004258" target="_blank" rel="noopener">一只图雀 类型即正义</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2021/01/09/TypeScript-notes/" data-id="ckwhglxxq00200kwsg81q610n" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2021/01/09/TypeScript-notes/" data-id="ckwhgwejs00201jws075qd2yg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
