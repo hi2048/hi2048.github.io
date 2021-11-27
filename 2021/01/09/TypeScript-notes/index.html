@@ -5,18 +5,18 @@
   
   <title>TypeScript notes | 苏小蜂的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="origin data type: number, string, boolean, null, undefined, void, symbol, bigint    non-origin data type: object, array, tuple, enum   const arr: string[] = [‘1’, ‘2’, ‘3’] const tuple: [string, num">
+  <meta name="description" content="origin data type: number, string, boolean, null, undefined, void, symbol, bigint  non-origin data type: object, array, tuple, enum const arr: string[] = [&amp;apos;1&amp;apos;, &amp;apos;2&amp;apos;, &amp;apos;3&amp;apos;]">
 <meta name="keywords" content="JavaScript,TypeScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="TypeScript notes">
 <meta property="og:url" content="http://hi2048.github.io/2021/01/09/TypeScript-notes/index.html">
 <meta property="og:site_name" content="苏小蜂的个人博客">
-<meta property="og:description" content="origin data type: number, string, boolean, null, undefined, void, symbol, bigint    non-origin data type: object, array, tuple, enum   const arr: string[] = [‘1’, ‘2’, ‘3’] const tuple: [string, num">
+<meta property="og:description" content="origin data type: number, string, boolean, null, undefined, void, symbol, bigint  non-origin data type: object, array, tuple, enum const arr: string[] = [&amp;apos;1&amp;apos;, &amp;apos;2&amp;apos;, &amp;apos;3&amp;apos;]">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2021-11-27T06:36:53.979Z">
+<meta property="og:updated_time" content="2021-11-27T06:55:47.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TypeScript notes">
-<meta name="twitter:description" content="origin data type: number, string, boolean, null, undefined, void, symbol, bigint    non-origin data type: object, array, tuple, enum   const arr: string[] = [‘1’, ‘2’, ‘3’] const tuple: [string, num">
+<meta name="twitter:description" content="origin data type: number, string, boolean, null, undefined, void, symbol, bigint  non-origin data type: object, array, tuple, enum const arr: string[] = [&amp;apos;1&amp;apos;, &amp;apos;2&amp;apos;, &amp;apos;3&amp;apos;]">
   
     <link rel="alternate" href="/atom.xml" title="苏小蜂的个人博客" type="application/atom+xml">
   
@@ -93,304 +93,183 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><ol>
-<li>origin data type: number, string, boolean, null, undefined, void, symbol, bigint</li>
-</ol>
+        <ol>
+<li><p>origin data type: number, string, boolean, null, undefined, void, symbol, bigint</p>
 </li>
-<li><ol start="2">
-<li>non-origin data type: object, array, tuple, enum</li>
-</ol>
+<li><p>non-origin data type: object, array, tuple, enum</p>
+<pre><code>const arr: string[] = [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]
+const tuple: [string, number, string] = [&apos;1&apos;, 2, &apos;3&apos;]
+</code></pre></li>
+<li><p>any, unknown, never<br>any 类型的变量是可以进行任意进行赋值、实例化、函数执行等操作，但是 unknown 只允许赋值，不允许实例化、函数执行等操作<br>never 的字面意思是 “永不”，在 TS 中代表不存在的值类型，一般用于给函数进行类型声明，函数绝不会有返回值的时候使用，比如函数内抛出错误</p>
 </li>
-<li>const arr: string[] = [‘1’, ‘2’, ‘3’]</li>
-<li>const tuple: [string, number, string] = [‘1’, 2, ‘3’]</li>
-<li><ol start="3">
-<li>any, unknown, never</li>
+<li><p>interface</p>
+<pre><code>interface Todo {
+  content: string;
+  readonly user: string;
+  time?: string;
+  isComplete: boolean;
+  [propName: string]: any;
+}
+</code></pre></li>
+<li><p>enum</p>
+<pre><code>enum UserId {
+  tuture = &apos;666&apos;,
+  mRcfps = 6,
+}
+</code></pre></li>
+<li><p>函数类型</p>
+<pre><code>const add: (x: number, y: number, z?: number): number = function(x, y) {
+  // ...
+  return x + y;
+}
+</code></pre></li>
 </ol>
+<p>7.1 交叉类型 &amp;<br>        interface ErrorHandling {<br>          success: boolean;<br>          error?: { message: string };<br>        }<br>        interface ArtistsData {<br>          artists: { name: string }[];<br>        }<br>        const handleArtistsResponse = (response: ArtistsData &amp; ErrorHandling) =&gt; {<br>          if(response.error) {<br>            console.error(response.error.message);<br>            return;<br>          }<br>          console.log(response.artists);<br>        }</p>
+<p>7.2 联合类型 |<br>        const padLeft = (value: string, padding: string | number) =&gt; void</p>
+<ol start="8">
+<li><p>字面量类型<br>字面量可是说是 TS 类型系统里面最小的类型。<br>数字字面量<br>let tuture: 520<br>字符串字面量<br>let tuture: ‘520’</p>
 </li>
-<li>any 类型的变量是可以进行任意进行赋值、实例化、函数执行等操作，但是 unknown 只允许赋值，不允许实例化、函数执行等操作</li>
-<li>never 的字面意思是 “永不”，在 TS 中代表不存在的值类型，一般用于给函数进行类型声明，函数绝不会有返回值的时候使用，比如函数内抛出错误</li>
-<li><ol start="4">
-<li>interface</li>
+<li><p>类型守卫<br>联合类型+字面量类型<br>主要用于在进行 ”联合“ 的多个类型之间，存在相同的字段，也存在不同的字段，然后需要区分具体什么时候是使用哪个类型</p>
+</li>
+<li><p>类型别名</p>
+<pre><code>type NameParams = &apos;string&apos; | () =&gt; &apos;string&apos;;
+function getName(n: NameParams): string {}
+</code></pre></li>
+<li><p>类型别名与接口</p>
+<pre><code>type name = &apos;string&apos;
+type tuture ={
+  tutureCommunity: string;
+  editure: string;
+  tutureDocs: string;
+}
+interface Tuture {
+  tutureCommunity: string;
+  editure: string;
+  tutureDocs: string;
+}
+</code></pre></li>
+<li><p>类<br>ES6<br>构造函数<br>属性<br>实例属性<br>静态属性<br>方法<br>实例方法<br>静态方法<br>TS<br>注解构造函数<br>注解属性<br>访问限定符: public/protected/private<br>修饰符: readonly<br>注解方法<br>访问限定符: public/protected/private</p>
+<pre><code>class Animal {
+  name: string;
+
+  static isAnimal(a: Animal): boolean {
+    return a instanceof Animal;
+  }
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  move(distance: number) {
+    console.log(`${this.name} moved ${distance}m.`);
+  }
+}
+</code></pre><p>Public<br>public 代表公共的，表示被此访问限定符修饰的属性，方法可以任何地方访问到：1）类中 2）类的实例对象 3）类的子类中 4）子类的实例对象 等，默认所有类的和方法都是 public 修饰的<br>Protected<br>在类和子类中访问，不能被类的实例对象访问也不能被子类的实例对象访问<br>Private<br>在类的内部访问<br>只读修饰符<br>readonly<br>抽象类<br>抽象类与抽象方法</p>
+<pre><code>abstract class Animal {
+  abstract makeSound(): void;
+  move(): void {
+    console.log(&quot;Roaming the earth...&quot;);
+  }
+}
+</code></pre><p>抽象类的继承</p>
+<pre><code>class Bird extends Animal {
+  makeSound(): void {
+    console.log(&apos;Tuture tuture tuture.&apos;);
+  }
+}
+</code></pre><p>构造函数<br>声明的 Animal 类型不包括构造函数 constructor 以及类中的静态方法和静态属性，就像实例对象中是不包含类的构造函数、静态方法和静态属性一样<br>类与接口<br>类实现接口</p>
+<pre><code>interface Alarm {
+  alert(): void;
+}
+interface Light {
+  lightOn(): void;
+  lightOff(): void;
+}
+class Car implements Alarm, Light {
+  alert() {
+    console.log(&apos;Car alarm&apos;);
+  }
+  lightOn() {
+    console.log(&apos;Car light on&apos;);
+  }
+  lightOff() {
+    console.log(&apos;Car light off&apos;);
+  }
+}
+class Door implements Alarm {
+  alert() {
+    console.log(&apos;Door alarm&apos;);
+  }
+}
+</code></pre><p>接口继承类</p>
+<pre><code>class Point {
+  x: number;
+  y: number; 
+}
+interface Point3D extends Point {
+  z: number;
+}
+</code></pre><p>接口继承的是声明 Point 类时同时声明的用于注解类实例的那个类型, 而这个类型只包含类的实例属性和方法，所以接口继承类也是继承此类的实例属性和方法的类型<br>类作为接口使用<br>1）多个类实现同一个接口来复用接口的属性或者方法 2）一个类实现多个接口 3）接口也可以继承类，只不过是继承类声明时同时声明的同名类型 4）类作为接口，通过进一步应用类声明的两个内容来简化 React 组件代码，提高代码的逻辑性和可复用性</p>
+</li>
+<li><p>泛型<br>配置TypeScript npx tsc –init</p>
+<pre><code>tsconfig.json
+{
+  &quot;compilerOptions&quot;: {
+    &quot;outDir&quot;: &quot;./dist&quot; // 设置编译输出的文件夹
+  },
+  &quot;include&quot;: [
+    // 需要编译的ts文件一个*表示文件匹配**表示忽略文件的深度问题
+    &quot;./src/**/*.ts&quot;
+  ],
+  &quot;exclude&quot;: [&quot;node_modules&quot;, &quot;dist&quot;, &quot;**/*.test.ts&quot;] // 排除不需要编译的文件夹
+}
+
+&quot;build:w&quot;: &quot;tsc -w&quot; // watch 模式
+</code></pre><p>类型的函数</p>
+<pre><code>function getTutureTutorialsInfo&lt;T, U&gt;(info: T[], profile: U): T[] {
+  console.log(info.length);
+  console.log(profile);
+  return info;
+}
+getTutureTutorialsInfo&lt;string, object&gt;([&apos;hello tuture&apos;, &apos;hello world&apos;], { username: &apos;tuture&apos; });
+</code></pre><p>泛型是在调用时再限定类型<br>我们在定义泛型的时候，是一系列类型变量，如 T 、 U 等，这些变量实际的类型我们在定义的时候是不知道的，只有在进行泛型调用的时候，由用户给定实际的类型以这里有一种延迟声明类型的作用。<br>匿名函数泛型</p>
+<pre><code>const getTUtureTutorialsInfo: &lt;T&gt;(info: T[]) =&gt; T[] = (info) =&gt; {
+  console.log(info.length);
+  return info;
+}
+</code></pre><p>泛型默认类型参数<br>&lt;T, U = number&gt;<br>泛型数组 Array<t><br>类泛型<br>class TodoInput extends React.Component&lt;TodoInputProps, TodoInputState&gt;<br>接口泛型</t></p>
+<pre><code>interface Profile&lt;T&gt; {
+  username: string;
+  nickName: string;
+  avatar: string;
+  age: T;
+}
+type ProfileWithAge = Profile&lt;string&gt;
+</code></pre><p>类型别名泛型</p>
+<pre><code>type Profile&lt;T&gt; = {
+  username: string;
+  age: T;
+}
+type ProfileWithAge = Profile&lt;string&gt;;
+</code></pre><p>泛型约束</p>
+<pre><code>type Profile&lt;T&gt; = {
+  username: string;
+  age: T;
+}
+function getTutureTutorialsInfo&lt;T, U extends Profile&lt;string&gt;&gt;(info: T[], profile: U): T[] {
+  console.log(info.length);
+  console.log(profile);
+  return info;
+}
+</code></pre></li>
 </ol>
-</li>
-<li>interface Todo {</li>
-<li>content: string;</li>
-<li>readonly user: string;</li>
-<li>time?: string;</li>
-<li>isComplete: boolean;</li>
-<li>[propName: string]: any;</li>
-<li>}</li>
-<li><ol start="5">
-<li>enum</li>
-</ol>
-</li>
-<li>enum UserId {</li>
-<li>tuture = ‘666’,</li>
-<li>mRcfps = 6,</li>
-<li>}</li>
-<li><ol start="6">
-<li>函数类型</li>
-</ol>
-</li>
-<li>const add: (x: number, y: number, z?: number): number = function(x, y) {</li>
-<li>// …</li>
-<li>return x + y;</li>
-<li>}</li>
-<li>7.1 交叉类型 &amp;</li>
-<li>interface ErrorHandling {</li>
-<li>success: boolean;</li>
-<li>error?: { message: string };</li>
-<li>}</li>
-<li>interface ArtistsData {</li>
-<li>artists: { name: string }[];</li>
-<li>}</li>
-<li>const handleArtistsResponse = (response: ArtistsData &amp; ErrorHandling) =&gt; {</li>
-<li>if(response.error) {</li>
-<li>console.error(response.error.message);</li>
-<li>return;</li>
-<li>}</li>
-<li>console.log(response.artists);</li>
-<li>}</li>
-<li>7.2 联合类型 |</li>
-<li>const padLeft = (value: string, padding: string | number) =&gt; void</li>
-<li><ol start="8">
-<li>字面量类型</li>
-</ol>
-</li>
-<li>字面量可是说是 TS 类型系统里面最小的类型。 </li>
-<li>数字字面量</li>
-<li>let tuture: 520</li>
-<li>字符串字面量</li>
-<li>let tuture: ‘520’</li>
-<li><ol start="9">
-<li>类型守卫</li>
-</ol>
-</li>
-<li>联合类型+字面量类型</li>
-<li>主要用于在进行 ”联合“ 的多个类型之间，存在相同的字段，也存在不同的字段，然后需要区分具体什么时候是使用哪个类型</li>
-<li><ol start="10">
-<li>类型别名</li>
-</ol>
-</li>
-<li>type NameParams = ‘string’ | () =&gt; ‘string’;</li>
-<li>function getName(n: NameParams): string {}</li>
-<li><ol start="11">
-<li>类型别名与接口</li>
-</ol>
-</li>
-<li>type name = ‘string’</li>
-<li>type tuture ={</li>
-<li>tutureCommunity: string;</li>
-<li>editure: string;</li>
-<li>tutureDocs: string;</li>
-<li>}</li>
-<li>interface Tuture {</li>
-<li>tutureCommunity: string;</li>
-<li>editure: string;</li>
-<li>tutureDocs: string;</li>
-<li>}</li>
-<li><ol start="12">
-<li>类</li>
-</ol>
-</li>
-<li>ES6</li>
-<li>构造函数</li>
-<li>属性</li>
-<li>实例属性</li>
-<li>静态属性</li>
-<li>方法</li>
-<li>实例方法</li>
-<li>静态方法</li>
-<li>TS</li>
-<li>注解构造函数</li>
-<li>注解属性</li>
-<li>访问限定符: public/protected/private</li>
-<li>修饰符: readonly</li>
-<li>注解方法</li>
-<li>访问限定符: public/protected/private</li>
-<li>class Animal {</li>
-<li>name: string;</li>
-<li></li>
-<li>static isAnimal(a: Animal): boolean {</li>
-<li>return a instanceof Animal;</li>
-<li>}</li>
-<li></li>
-<li>constructor(name: string) {</li>
-<li>this.name = name;</li>
-<li>}</li>
-<li></li>
-<li>move(distance: number) {</li>
-<li>console.log(<code>${this.name} moved ${distance}m.</code>);</li>
-<li>}</li>
-<li>}</li>
-<li>Public</li>
-<li>public 代表公共的，表示被此访问限定符修饰的属性，方法可以任何地方访问到：1）类中 2）类的实例对象 3）类的子类中 4）子类的实例对象 等，默认所有类的属性和方法都是 public 修饰的</li>
-<li>Protected</li>
-<li>在类和子类中访问，不能被类的实例对象访问也不能被子类的实例对象访问</li>
-<li>Private</li>
-<li>在类的内部访问</li>
-<li>只读修饰符</li>
-<li>readonly</li>
-<li>抽象类</li>
-<li>抽象类与抽象方法</li>
-<li>abstract class Animal {</li>
-<li>abstract makeSound(): void;</li>
-<li>move(): void {</li>
-<li>console.log(“Roaming the earth…”);</li>
-<li>}</li>
-<li>}</li>
-<li>抽象类的继承</li>
-<li>class Bird extends Animal {</li>
-<li>makeSound(): void {</li>
-<li>console.log(‘Tuture tuture tuture.’);</li>
-<li>}</li>
-<li>}</li>
-<li>构造函数</li>
-<li>声明的 Animal 类型不包括构造函数 constructor 以及类中的静态方法和静态属性，就像实例对象中是不包含类的构造函数、静态方法和静态属性一样</li>
-<li>类与接口</li>
-<li>类实现接口</li>
-<li>interface Alarm {</li>
-<li>alert(): void;</li>
-<li>}</li>
-<li>interface Light {</li>
-<li>lightOn(): void;</li>
-<li>lightOff(): void;</li>
-<li>}</li>
-<li>class Car implements Alarm, Light {</li>
-<li>alert() {</li>
-<li>console.log(‘Car alarm’);</li>
-<li>}</li>
-<li>lightOn() {</li>
-<li>console.log(‘Car light on’);</li>
-<li>}</li>
-<li>lightOff() {</li>
-<li>console.log(‘Car light off’);</li>
-<li>}</li>
-<li>}</li>
-<li>class Door implements Alarm {</li>
-<li>alert() {</li>
-<li>console.log(‘Door alarm’);</li>
-<li>}</li>
-<li>}</li>
-<li>接口继承类</li>
-<li>class Point {</li>
-<li>x: number;</li>
-<li>y: number; </li>
-<li>}</li>
-<li>interface Point3D extends Point {</li>
-<li>z: number;</li>
-<li>}</li>
-<li>接口继承的是声明 Point 类时同时声明的用于注解类实例的那个类型, 而这个类型只包含类的实例属性和方法，所以接口继承类也是继承此类的实例属性和方法的类型</li>
-<li>类作为接口使用</li>
-<li>1）多个类实现同一个接口来复用接口的属性或者方法 2）一个类实现多个接口 3）接口也可以继承类，只不过是继承类声明时同时声明的同名类型 4）类作为接口使用，通过进一步应用类声明的两个内容来简化 React 组件代码，提高代码的逻辑性和可复用性</li>
-<li><ol start="13">
-<li>泛型</li>
-</ol>
-</li>
-<li>配置TypeScript npx tsc –init</li>
-<li>tsconfig.json</li>
-<li>{<pre><code>&quot;compilerOptions&quot;: {
-  &quot;outDir&quot;: &quot;./dist&quot; // 设置编译输出的文件夹
-},
-&quot;include&quot;: [
-  // 需要编译的ts文件一个*表示文件匹配**表示忽略文件的深度问题
-  &quot;./src/*.ts&quot; 
-],
-&quot;exclude&quot;: [&quot;node_modules&quot;, &quot;dist&quot;, &quot;*.test.ts&quot;] // 排除不需要编译的文件夹
-</code></pre>  }</li>
-<li></li>
-<li>“build:w”: “tsc -w” // watch 模式</li>
-<li>类型的函数</li>
-<li>function getTutureTutorialsInfo&lt;T, U&gt;(info: T[], profile: U): T[] {</li>
-<li>console.log(info.length);</li>
-<li>console.log(profile);</li>
-<li>return info;</li>
-<li>}</li>
-<li>getTutureTutorialsInfo&lt;string, object&gt;([‘hello tuture’, ‘hello world’], { username: ‘tuture’ });</li>
-<li>泛型是在调用时再限定类型</li>
-<li>我们在定义泛型的时候，是一系列类型变量，如 T 、 U 等，这些变量实际的类型我们在定义的时候是不知道的，只有在进行泛型调用的时候，由用户给定实际的类型，所以这里有一种延迟声明类型的作用。</li>
-<li>匿名函数泛型</li>
-<li>const getTUtureTutorialsInfo: <t>(info: T[]) =&gt; T[] = (info) =&gt; {</t></li>
-<li>console.log(info.length);</li>
-<li>return info;</li>
-<li>}</li>
-<li>泛型默认类型参数</li>
-<li>&lt;T, U = number&gt;</li>
-<li>泛型数组 Array<t></t></li>
-<li>类泛型</li>
-<li>class TodoInput extends React.Component&lt;TodoInputProps, TodoInputState&gt;</li>
-<li>接口泛型</li>
-<li>interface Profile<t> {</t></li>
-<li>username: string;</li>
-<li>nickName: string;</li>
-<li>avatar: string;</li>
-<li>age: T;</li>
-<li>}</li>
-<li>type ProfileWithAge = Profile<string></string></li>
-<li>类型别名泛型</li>
-<li>type Profile<t> = {</t></li>
-<li>username: string;</li>
-<li>age: T;</li>
-<li>}</li>
-<li>type ProfileWithAge = Profile<string>;</string></li>
-<li>泛型约束</li>
-<li>type Profile<t> = {</t></li>
-<li>username: string;</li>
-<li>age: T;</li>
-<li>}</li>
-<li>function getTutureTutorialsInfo&lt;T, U extends Profile<string>&gt;(info: T[], profile: U): T[] {</string></li>
-<li>console.log(info.length);</li>
-<li>console.log(profile);</li>
-<li>return info;</li>
-<li>}</li>
-<li></li>
-<li>类：</li>
-<li>class Profile<t>{</t></li>
-<li>username: string;</li>
-<li>age: T;</li>
-<li>}</li>
-<li>接口:</li>
-<li>interface Profile<t> {</t></li>
-<li>username: string;</li>
-<li>age: T;</li>
-<li>}</li>
-<li>类型别名：</li>
-<li>type Profile<t> = {</t></li>
-<li>username: string;</li>
-<li>age: T;</li>
-<li>}</li>
-<li>duck typing</li>
-<li>当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。</li>
-<li>TS 类型是鸭子类型, 是基于代码的实际样子来进行类型注解的</li>
-<li>构造函数的注解</li>
-<li>interface ConstructorFunction<c> {</c></li>
-<li>new (): C;</li>
-<li>}</li>
-<li>类在声明的时候会声明两个东西：1）用于注解此类实例的类型 2）以及此类的构造函数。</li>
-<li>const profileConstructor: ConstructorFunction&lt;Profile<string>&gt; = Profile;</string></li>
-<li>注解构造函数</li>
-<li>class Profile<t> {</t></li>
-<li>username: string;</li>
-<li>age: T;</li>
-<li>}</li>
-<li>class TutureProfile extends Profile<string> {</string></li>
-<li>github: string;</li>
-<li>remote: string[];</li>
-<li>}</li>
-<li>interface ConstructorFunction<c> {</c></li>
-<li>new (): C;</li>
-<li>}</li>
-<li>function createInstance&lt;A extends Profile<string>&gt;(B: ConstructorFunction<a>) {</a></string></li>
-<li>return new B();</li>
-<li>}</li>
-<li>const myTutureProfile = createInstance(TutureProfile);</li>
-</ul>
+<p>类：<br>        class Profile<t>{<br>          username: string;<br>          age: T;<br>        }<br>接口:<br>        interface Profile<t> {<br>          username: string;<br>          age: T;<br>        }<br>类型别名：<br>        type Profile<t> = {<br>          username: string;<br>          age: T;<br>        }<br>duck typing<br>当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。<br>TS 类型是鸭子类型, 是基于代码的实际样子来进行类型注解的<br>构造函数的注解<br>        interface ConstructorFunction<c> {<br>          new (): C;<br>        }<br>类在声明的时候会声明两个东西：1）用于注解此类实例的类型 2）以及此类的构造函数。<br>const profileConstructor: ConstructorFunction&lt;Profile<string>&gt; = Profile;<br>注解构造函数<br>        class Profile<t> {<br>          username: string;<br>          age: T;<br>        }<br>        class TutureProfile extends Profile<string> {<br>          github: string;<br>          remote: string[];<br>        }<br>        interface ConstructorFunction<c> {<br>          new (): C;<br>        }<br>        function createInstance&lt;A extends Profile<string>&gt;(B: ConstructorFunction<a>) {<br>          return new B();<br>        }<br>        const myTutureProfile = createInstance(TutureProfile);</a></string></c></string></t></string></c></t></t></t></p>
+<p>参考：<br><a href="https://zhuanlan.zhihu.com/p/144004258" target="_blank" rel="noopener">一只图雀 类型即正义</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2021/01/09/TypeScript-notes/" data-id="ckwhfy1wf0020xzws8fd83vm2" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2021/01/09/TypeScript-notes/" data-id="ckwhglxxq00200kwsg81q610n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
