@@ -64,6 +64,72 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript中的内存管理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/23/JavaScript中的内存管理/" class="article-date">
+  <time datetime="2019-03-22T16:00:00.000Z" itemprop="datePublished">2019-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/23/JavaScript中的内存管理/">JavaScript中的内存管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>内存管理的生命周期<br> <strong> Allocate Memory =&gt; Use Memory =&gt; Release Memory </strong></p>
+</li>
+<li><p>JavaScript中的GC机制</p>
+<ul>
+<li><p>引用机制：主要通过引用计数进行垃圾收集，将“对象是否不再需要”简化定义为“对象是否有引用存在”.<br><strong> 引用机制无法处理对象的循环引用 </strong></p>
+</li>
+<li><p>标记清除（Mark and Sweep）：算法假定设置一个根Root，定期从根开始递归寻找引用，从而获取所有可以获得的对象和不能获得的对象，因此也解决了循环引用的问题。<br><strong> 将“对象是否不再需要”简化定义为“对象是否可以获得”。 </strong></p>
+</li>
+</ul>
+</li>
+<li><p>内存泄露<br> <strong> 不再需要的内存, 无法被释放。 </strong></p>
+</li>
+<li><p>常见内存泄露案例</p>
+<ul>
+<li>全局变量</li>
+<li>定时器和回调函数</li>
+<li>闭包</li>
+<li>Dom引用</li>
+<li>Dom事件</li>
+<li>console.log</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2019/03/23/JavaScript中的内存管理/" data-id="ckwnk3dup001bp0wsab9b915a" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-桥接模式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/05/桥接模式/" class="article-date">
@@ -210,7 +276,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/05/桥接模式/" data-id="ckwhgwel800501jwsigtyur8d" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/05/桥接模式/" data-id="ckwnk3dwm0051p0wswnitl8fe" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -308,7 +374,7 @@ module.exports = Stack;
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/03/01/Stack实现/" data-id="ckwhgwejr001y1jwsuk57265q" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/03/01/Stack实现/" data-id="ckwnk3dv2001zp0wsoq4sl5ub" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -385,7 +451,7 @@ console.log(singleton === singleton4);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/单例模式/" data-id="ckwhgwekk003p1jwsehgvy1uv" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/单例模式/" data-id="ckwnk3dvx003pp0wskeqg7vfx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -450,7 +516,7 @@ console.log(singleton === singleton4);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ckwhgwel4004s1jws64wpzcsc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/18/数组去重/" data-id="ckwnk3dwi004tp0wsem8j4aix" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -560,7 +626,7 @@ LRUCache.prototype.put = function(key, value) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ckwhgwejm001n1jwsv0bckbg6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/10/LRU算法/" data-id="ckwnk3duv001mp0wsegz5ui5r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -981,7 +1047,7 @@ console.log(&apos;------&apos;);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ckwhgwelq00631jwsbyy3wop7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/02/08/迭代器模式/" data-id="ckwnk3dx40065p0wsxe4u5l1b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1075,7 +1141,7 @@ class Heap {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ckwhgwejg00181jwsfkyz0p7z" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/19/Heap实现/" data-id="ckwnk3dun0017p0ws8n72ai11" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1218,7 +1284,7 @@ root.display(2);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ckwhgwell005q1jws9sntjo8v" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2019/01/05/组合模式/" data-id="ckwnk3dwz005rp0wskhrxxdn4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -1274,82 +1340,10 @@ root.display(2);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ckwhgwejm001o1jwsatoegohi" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2018/12/11/React16为什么更新/" data-id="ckwnk3dux001pp0wsbzhmb23k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-快乐数" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/12/08/快乐数/" class="article-date">
-  <time datetime="2018-12-07T16:00:00.000Z" itemprop="datePublished">2018-12-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/08/快乐数/">快乐数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>快乐数：<br>正整数，求出每个位置的数字平方和，重复此过程，可以得到数字1，则为快乐数。<br>求取平方和过程中如果重复之前的平方和，则非快乐数。</p>
-<pre><code>var getSquaresSum = function(n){
-    var ss = n.toString().split(&apos;&apos;);
-
-    return ss.reduce(function(count, s){
-        return count + Math.pow(parseInt(s), 2);
-    }, 0)
-}
-
-var isHappy = function(n) {
-    var rets = [n];
-    var count = n;
-
-    while(true){
-        count = getSquaresSum(count);
-        if(count === 1){
-            return true;
-        }
-
-        var index = rets.indexOf(count);
-        if(index !== -1){
-            return false;
-        }
-
-        rets.push(count);
-    }
-};
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2018/12/08/快乐数/" data-id="ckwhgweky004k1jwsxfhbdai6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -1392,7 +1386,7 @@ var isHappy = function(n) {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Agile/" style="font-size: 10px;">Agile</a> <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 16.67px;">Leetcode</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11.11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/hi2048/" style="font-size: 15.56px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14.44px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12.22px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11.11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 17.78px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 11.11px;">理财</a> <a href="/tags/算法/" style="font-size: 18.89px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 17.78px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/Agile/" style="font-size: 10px;">Agile</a> <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 16.67px;">Leetcode</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11.11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TypeScript/" style="font-size: 11.11px;">TypeScript</a> <a href="/tags/hi2048/" style="font-size: 15.56px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14.44px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12.22px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11.11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 17.78px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 11.11px;">理财</a> <a href="/tags/算法/" style="font-size: 18.89px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 17.78px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 

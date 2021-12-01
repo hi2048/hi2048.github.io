@@ -64,6 +64,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-JavaScript中变量的作用域" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/10/JavaScript中变量的作用域/" class="article-date">
+  <time datetime="2013-09-10T08:04:50.000Z" itemprop="datePublished">2013-09-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/10/JavaScript中变量的作用域/">JavaScript中变量的作用域</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript中变量的作用域主要是指变量的适用范围。</p>
+<p>根据作用域可以将变量划分为全局变量与局部变量。其中全局变量定义在函数体外，可以在程序的任何地方使用；局部变量则一般定义在函数体内，只能在该函数内部使用。</p>
+<p>1. 全局变量的3种声名方式</p>
+<p><pre>方法1：var global = ‘value’; //在函数外定义<br>方法2：global = ‘value’;<br>方法3：window.global = ‘value’;</pre><br>2. 局部变量的声名方式</p>
+<p><pre>var local = ‘value’; //在函数内定义</pre><br>&nbsp;</p>
+<p>JavaScript变量的作用域练习，</p>
+<p>1. 以下程序的输出值是什么？</p>
+<p><pre>function f1(){<br>    var x = 1;<br>    function f2(){<br>        alert(x);<br>        var x = 100;<br>        alert(x);<br>    }<br>    f2();<br>    alert(x);<br>}<br>f1();</pre><br>程序的输出值为：undefined、100、1。</p>
+<p>2. 以下程序的输出值是什么？</p>
+<p><pre><br>function f1(){<br>    var x = 1;<br>    function f2(){<br>        alert(x);<br>        x = 100;<br>        alert(x);<br>    }<br>    f2();<br>    alert(x);<br>}<br>f1();<br></pre><br>程序的输出值为：1、100、100。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="ckwnk3duq001cp0wsgs3gx7e1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-预测起卦的形式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/10/预测起卦的形式/" class="article-date">
@@ -95,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="ckwhgwelu006f1jwsqlorpc8p" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="ckwnk3dx8006hp0ws9wxc1iax" class="article-share-link">Share</a>
       
       
     </footer>
@@ -146,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="ckwhgwejj001f1jws4zbpyb12" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="ckwnk3duq001ep0wskaa35pk1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -194,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="ckwhgwejl001k1jws35ncs9t7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="ckwnk3duu001kp0ws878qk8ah" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -243,7 +295,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/日干推时干歌诀/" data-id="ckwhgwel5004u1jws95r2lo6w" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/09/日干推时干歌诀/" data-id="ckwnk3dwj004up0wspqh8u9qh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -290,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/08/年推月干口诀/" data-id="ckwhgwekw004g1jws3ja048jj" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/08/年推月干口诀/" data-id="ckwnk3dwb004gp0wstq7an9a2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -338,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/07/二十四节气口诀/" data-id="ckwhgwek2002m1jwskocdqvrs" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/07/二十四节气口诀/" data-id="ckwnk3dvf002op0ws7pv740kf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -397,7 +449,7 @@ e. 浏览器解析HTML，并开始显示
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/07/HTTP协议请求过程/" data-id="ckwhgwejf00171jwskhlxuovd" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/07/HTTP协议请求过程/" data-id="ckwnk3duo0019p0wss4ibb00m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -451,7 +503,7 @@ e. 浏览器解析HTML，并开始显示
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/06/周易预测月份的划定/" data-id="ckwhgwekn003x1jwskrgb346c" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/06/周易预测月份的划定/" data-id="ckwnk3dw1003yp0wsuoe6u3ou" class="article-share-link">Share</a>
       
       
     </footer>
@@ -524,66 +576,9 @@ e. 浏览器解析HTML，并开始显示
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/05/六十甲子及纳音/" data-id="ckwhgwekf003c1jwskkxrbc7w" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/05/六十甲子及纳音/" data-id="ckwnk3dvt003dp0wsg5qsr2vc" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-C++宏的使用" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/04/C++宏的使用/" class="article-date">
-  <time datetime="2013-09-04T13:49:48.000Z" itemprop="datePublished">2013-09-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/04/C++宏的使用/">C++宏的使用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>宏在使用中，需要注意以下3点，</p>
-<p>1. 尽量不要定义变量，防止出现重复定义的错误，redefinition。</p>
-<p>2. 尽量使用括号，防止运算的优先级出现问题。</p>
-<p>3. 宏定义的结尾不要使用分号，原因是宏定义一般是作为一个表达式出现，而不是一行语句。</p>
-<p>&nbsp;</p>
-<p>宏定义练习，</p>
-<p>1. 定义一个宏实现两个数交换。</p>
-<pre>C++ source code:
-#define swap(x, y) (x) = (x) + (y); (y) = (x) - (y); (x) = (x) - (y)</pre>
-2\. 定义一个宏实现返回两个数的较大者。
-<pre>C++ source code:
-#define max(x, y) (x) &gt; (y) ? (x) : (y)</pre>
-3\. 定义一个宏实现返回两个数的和。
-<pre>C++ source code:
-#define add(x, y) ((x) + (y))</pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/04/C++宏的使用/" data-id="ckwhgweja000z1jwsa8s21op9" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-
     </footer>
   </div>
   
@@ -625,7 +620,7 @@ e. 浏览器解析HTML，并开始显示
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Agile/" style="font-size: 10px;">Agile</a> <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 16.67px;">Leetcode</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11.11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/hi2048/" style="font-size: 15.56px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14.44px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12.22px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11.11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 17.78px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 11.11px;">理财</a> <a href="/tags/算法/" style="font-size: 18.89px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 17.78px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/Agile/" style="font-size: 10px;">Agile</a> <a href="/tags/C/" style="font-size: 13.33px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 16.67px;">Leetcode</a> <a href="/tags/React/" style="font-size: 16.67px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11.11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TypeScript/" style="font-size: 11.11px;">TypeScript</a> <a href="/tags/hi2048/" style="font-size: 15.56px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14.44px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12.22px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11.11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11.11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 17.78px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 11.11px;">理财</a> <a href="/tags/算法/" style="font-size: 18.89px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 17.78px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
