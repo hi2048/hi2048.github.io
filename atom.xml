@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2021-11-22T15:19:48.852Z</updated>
+  <updated>2021-12-29T10:49:42.324Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Speed Car Retrospective</title>
+    <link href="http://hi2048.github.io/2021/12/01/Speed-Car-Retrospective/"/>
+    <id>http://hi2048.github.io/2021/12/01/Speed-Car-Retrospective/</id>
+    <published>2021-11-30T16:00:00.000Z</published>
+    <updated>2021-12-29T10:49:42.324Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Speed-Car-Retrospective"><a href="#Speed-Car-Retrospective" class="headerlink" title="Speed Car Retrospective"></a>Speed Car Retrospective</h1><ul><li>Parachute: What has been slowing us down?</li><li>Engine: What has been pushing us forward? Making us move faster?</li><li>Abyss: representative of the future obstachles that we can see today</li><li>Bridge: representative of ways we might overcome these obstachles tomorrow</li></ul><h1 id="Looking-Back"><a href="#Looking-Back" class="headerlink" title="Looking Back"></a>Looking Back</h1><ul><li>Engine and Parachute</li></ul><h1 id="Looking-Ahead"><a href="#Looking-Ahead" class="headerlink" title="Looking Ahead"></a>Looking Ahead</h1><ul><li>Abyss and Bridge</li></ul><h1 id="Dot-Voting"><a href="#Dot-Voting" class="headerlink" title="Dot Voting"></a>Dot Voting</h1><h1 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h1><ol><li>Retrospective: Parachute Engine</li><li>Futurespective: Abyss Bridge</li></ol><h1 id="Action-Plan"><a href="#Action-Plan" class="headerlink" title="Action Plan"></a>Action Plan</h1><ol><li>collect action items</li><li>transform to actionable items and plan in next/future sprint.</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Speed-Car-Retrospective&quot;&gt;&lt;a href=&quot;#Speed-Car-Retrospective&quot; class=&quot;headerlink&quot; title=&quot;Speed Car Retrospective&quot;&gt;&lt;/a&gt;Speed Car Retrosp
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Agile" scheme="http://hi2048.github.io/tags/Agile/"/>
+    
+  </entry>
   
   <entry>
     <title>学生出勤记录3</title>
@@ -590,40 +615,6 @@ v
     
       <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>团队的思考</title>
-    <link href="http://hi2048.github.io/2020/10/19/%E5%9B%A2%E9%98%9F%E7%9A%84%E6%80%9D%E8%80%83/"/>
-    <id>http://hi2048.github.io/2020/10/19/团队的思考/</id>
-    <published>2020-10-18T16:00:00.000Z</published>
-    <updated>2021-09-09T08:10:14.242Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>交付与成长<br><pre>交付是团队存在的基础，成长是团队持续的核心。 团队成员的成长 ==〉高质量的交付</pre></p><ul><li>团队成员的成长</li><li>高质量的交付</li></ul></li><li><p>技术与方法<br>技术是IT行业的根本。技术可以贯穿整个IT团队，也是IT团队的灵魂，凝聚力的关键。方法则为技术铺平道路。</p><ul><li>技术：技术型团队，对技术保持初心，炙热</li><li>方法：敏捷开发，实践</li></ul></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;交付与成长&lt;br&gt;&lt;pre&gt;交付是团队存在的基础，成长是团队持续的核心。 团队成员的成长 ==〉高质量的交付&lt;/pre&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;团队成员的成长&lt;/li&gt;
-&lt;li&gt;高质量的交付&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;技术与方法&lt;
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="团队" scheme="http://hi2048.github.io/tags/%E5%9B%A2%E9%98%9F/"/>
-    
-      <category term="Scrum Master" scheme="http://hi2048.github.io/tags/Scrum-Master/"/>
     
   </entry>
   
