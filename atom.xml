@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2021-12-29T10:49:42.324Z</updated>
+  <updated>2021-12-29T10:57:24.433Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -21,15 +21,20 @@
     <link href="http://hi2048.github.io/2021/12/01/Speed-Car-Retrospective/"/>
     <id>http://hi2048.github.io/2021/12/01/Speed-Car-Retrospective/</id>
     <published>2021-11-30T16:00:00.000Z</published>
-    <updated>2021-12-29T10:49:42.324Z</updated>
+    <updated>2021-12-29T10:57:24.433Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Speed-Car-Retrospective"><a href="#Speed-Car-Retrospective" class="headerlink" title="Speed Car Retrospective"></a>Speed Car Retrospective</h1><ul><li>Parachute: What has been slowing us down?</li><li>Engine: What has been pushing us forward? Making us move faster?</li><li>Abyss: representative of the future obstachles that we can see today</li><li>Bridge: representative of ways we might overcome these obstachles tomorrow</li></ul><h1 id="Looking-Back"><a href="#Looking-Back" class="headerlink" title="Looking Back"></a>Looking Back</h1><ul><li>Engine and Parachute</li></ul><h1 id="Looking-Ahead"><a href="#Looking-Ahead" class="headerlink" title="Looking Ahead"></a>Looking Ahead</h1><ul><li>Abyss and Bridge</li></ul><h1 id="Dot-Voting"><a href="#Dot-Voting" class="headerlink" title="Dot Voting"></a>Dot Voting</h1><h1 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h1><ol><li>Retrospective: Parachute Engine</li><li>Futurespective: Abyss Bridge</li></ol><h1 id="Action-Plan"><a href="#Action-Plan" class="headerlink" title="Action Plan"></a>Action Plan</h1><ol><li>collect action items</li><li>transform to actionable items and plan in next/future sprint.</li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li>Speed Car Retrospective</li></ol><ul><li>Parachute: What has been slowing us down?</li><li>Engine: What has been pushing us forward? Making us move faster?</li><li>Abyss: representative of the future obstachles that we can see today</li><li>Bridge: representative of ways we might overcome these obstachles tomorrow</li></ul><ol start="2"><li>Looking Back</li></ol><ul><li>Engine and Parachute</li></ul><ol start="3"><li>Looking Ahead</li></ol><ul><li>Abyss and Bridge</li></ul><ol start="4"><li><p>Dot Voting</p></li><li><p>Discussion</p></li></ol><ul><li>Retrospective: Parachute Engine</li><li>Futurespective: Abyss Bridge</li></ul><p>6 Action Plan</p><ul><li>collect action items</li><li>transform to actionable items and plan in next/future sprint.</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Speed-Car-Retrospective&quot;&gt;&lt;a href=&quot;#Speed-Car-Retrospective&quot; class=&quot;headerlink&quot; title=&quot;Speed Car Retrospective&quot;&gt;&lt;/a&gt;Speed Car Retrosp
+        &lt;ol&gt;
+&lt;li&gt;Speed Car Retrospective&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Parachute: What has been slowing us down?&lt;/li&gt;
+&lt;li&gt;Engine: What has been pushing us for
       
     
     </summary>
@@ -66,9 +71,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -123,9 +128,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -156,9 +161,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -189,9 +194,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -245,9 +250,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -279,9 +284,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -313,9 +318,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -369,9 +374,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -401,9 +406,9 @@
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -437,9 +442,9 @@ v
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
