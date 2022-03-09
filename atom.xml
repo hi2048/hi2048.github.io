@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2022-03-09T05:50:47.870Z</updated>
+  <updated>2022-03-09T05:54:06.575Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://hi2048.github.io/2022/02/15/Happiness/"/>
     <id>http://hi2048.github.io/2022/02/15/Happiness/</id>
     <published>2022-02-14T16:00:00.000Z</published>
-    <updated>2022-03-09T05:50:47.870Z</updated>
+    <updated>2022-03-09T05:54:06.575Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Pursing-Happiness"><a href="#Pursing-Happiness" class="headerlink" title="Pursing Happiness"></a>Pursing Happiness</h1><p><strong>The data showed that chasing happiness can make people unhappy.</strong></p><hr><h1 id="Pursing-Happiness-1"><a href="#Pursing-Happiness-1" class="headerlink" title="Pursing Happiness"></a>Pursing Happiness</h1><p><strong>According to the research, what predicts this despair is not a lack of happiness. It’s a lack of something else, a lack of having meaning in life.</strong></p><hr><h1 id="What-is-the-difference-between-being-happy-and-having-meaning-in-life"><a href="#What-is-the-difference-between-being-happy-and-having-meaning-in-life" class="headerlink" title="What is the difference between being happy and having meaning in life?"></a>What is the difference between being happy and having meaning in life?</h1><p><strong>Many psychologists define happiness as a state of comfort and ease, feeling good in the moment. Meaning, though, is deeper.</strong></p><p><strong>The renowned psychologist Martin Seligman says meaning comes from belonging to and serving something beyond yourself and from developing the best within you.</strong></p><hr><h1 id="How-can-we-each-live-more-meaningfully"><a href="#How-can-we-each-live-more-meaningfully" class="headerlink" title="How can we each live more meaningfully?"></a>How can we each live more meaningfully?</h1><p><strong>Four pillars of a meaning ful life: belonging, purpose, transcendence, storytelling.</strong></p><hr><h1 id="Belonging"><a href="#Belonging" class="headerlink" title="Belonging"></a>Belonging</h1><p><strong>True belonging springs from love.</strong><br><strong>When you lead with love, you create a bond that lifts each of you up. For many people, belonging is the moset essential source of meaning, those bonds to family and friends.</strong></p><hr><h1 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h1><p><strong>Purpose is less about what you want than about what you give.</strong><br><strong>The key to purpose is using your strengths to serve others.</strong></p><hr><h1 id="Transcendence"><a href="#Transcendence" class="headerlink" title="Transcendence"></a>Transcendence</h1><p><strong>Transcendent states are those rare moments when you’re lifted above the hustle and bustle of daily life, your sense of self fades away, and you feel connected to a higher reality.</strong></p><hr><h1 id="Transcendence-1"><a href="#Transcendence-1" class="headerlink" title="Transcendence"></a>Transcendence</h1><p><strong>One study had students look up at 200-feet-tall eucalyptus trees for one minute. But after wards they felt less self-centered, and they even behaved more generously when given the chance to help someone.</strong></p><hr><h1 id="Storytelling"><a href="#Storytelling" class="headerlink" title="Storytelling"></a>Storytelling</h1><p><strong>The story you tell yourself about yourself.</strong></p><p><strong>We’re the authors of our stories and can change the way we’re telling them. Your life isn’t just a list of events. You can edit, interpret and retell your story, even as you’re constrained by the facts.</strong></p><hr><h1 id="Redemptive-story"><a href="#Redemptive-story" class="headerlink" title="Redemptive story"></a>Redemptive story</h1><p><strong>The psychologist Dan McAdams calls this a “redemptive story,” where the bad is redeemed by the good. People leading meaningful lives, he’s found, tend to tell stories about their lives defined by redemption, growth and love.</strong></p><hr><h1 id="Meaning"><a href="#Meaning" class="headerlink" title="Meaning"></a>Meaning</h1><p><strong>The studies show that people who have meaning in life, they’re more resilient, they do better in school and at work, and they even live logner.</strong></p><hr><p><strong>Happiness comes and goes. But when life is really good and when things are really bad, having meaning gives you something to hold on to.</strong></p><hr>]]></content>
     
@@ -36,6 +36,8 @@
     
       <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
     
+    
+      <category term="TED" scheme="http://hi2048.github.io/tags/TED/"/>
     
   </entry>
   
@@ -156,9 +158,9 @@ function construct2DArray(origin
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -213,9 +215,9 @@ function construct2DArray(origin
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -246,9 +248,9 @@ function construct2DArray(origin
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -279,9 +281,9 @@ function construct2DArray(origin
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -335,9 +337,9 @@ function construct2DArray(origin
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -369,9 +371,9 @@ function construct2DArray(origin
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -403,9 +405,9 @@ function construct2DArray(origin
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -459,9 +461,9 @@ function construct2DArray(origin
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -491,9 +493,9 @@ function construct2DArray(origin
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
@@ -527,9 +529,9 @@ v
       <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
     
     
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
