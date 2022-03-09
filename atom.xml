@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2022-01-12T04:34:07.758Z</updated>
+  <updated>2022-03-09T05:50:47.870Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Happiness</title>
+    <link href="http://hi2048.github.io/2022/02/15/Happiness/"/>
+    <id>http://hi2048.github.io/2022/02/15/Happiness/</id>
+    <published>2022-02-14T16:00:00.000Z</published>
+    <updated>2022-03-09T05:50:47.870Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Pursing-Happiness"><a href="#Pursing-Happiness" class="headerlink" title="Pursing Happiness"></a>Pursing Happiness</h1><p><strong>The data showed that chasing happiness can make people unhappy.</strong></p><hr><h1 id="Pursing-Happiness-1"><a href="#Pursing-Happiness-1" class="headerlink" title="Pursing Happiness"></a>Pursing Happiness</h1><p><strong>According to the research, what predicts this despair is not a lack of happiness. It’s a lack of something else, a lack of having meaning in life.</strong></p><hr><h1 id="What-is-the-difference-between-being-happy-and-having-meaning-in-life"><a href="#What-is-the-difference-between-being-happy-and-having-meaning-in-life" class="headerlink" title="What is the difference between being happy and having meaning in life?"></a>What is the difference between being happy and having meaning in life?</h1><p><strong>Many psychologists define happiness as a state of comfort and ease, feeling good in the moment. Meaning, though, is deeper.</strong></p><p><strong>The renowned psychologist Martin Seligman says meaning comes from belonging to and serving something beyond yourself and from developing the best within you.</strong></p><hr><h1 id="How-can-we-each-live-more-meaningfully"><a href="#How-can-we-each-live-more-meaningfully" class="headerlink" title="How can we each live more meaningfully?"></a>How can we each live more meaningfully?</h1><p><strong>Four pillars of a meaning ful life: belonging, purpose, transcendence, storytelling.</strong></p><hr><h1 id="Belonging"><a href="#Belonging" class="headerlink" title="Belonging"></a>Belonging</h1><p><strong>True belonging springs from love.</strong><br><strong>When you lead with love, you create a bond that lifts each of you up. For many people, belonging is the moset essential source of meaning, those bonds to family and friends.</strong></p><hr><h1 id="Purpose"><a href="#Purpose" class="headerlink" title="Purpose"></a>Purpose</h1><p><strong>Purpose is less about what you want than about what you give.</strong><br><strong>The key to purpose is using your strengths to serve others.</strong></p><hr><h1 id="Transcendence"><a href="#Transcendence" class="headerlink" title="Transcendence"></a>Transcendence</h1><p><strong>Transcendent states are those rare moments when you’re lifted above the hustle and bustle of daily life, your sense of self fades away, and you feel connected to a higher reality.</strong></p><hr><h1 id="Transcendence-1"><a href="#Transcendence-1" class="headerlink" title="Transcendence"></a>Transcendence</h1><p><strong>One study had students look up at 200-feet-tall eucalyptus trees for one minute. But after wards they felt less self-centered, and they even behaved more generously when given the chance to help someone.</strong></p><hr><h1 id="Storytelling"><a href="#Storytelling" class="headerlink" title="Storytelling"></a>Storytelling</h1><p><strong>The story you tell yourself about yourself.</strong></p><p><strong>We’re the authors of our stories and can change the way we’re telling them. Your life isn’t just a list of events. You can edit, interpret and retell your story, even as you’re constrained by the facts.</strong></p><hr><h1 id="Redemptive-story"><a href="#Redemptive-story" class="headerlink" title="Redemptive story"></a>Redemptive story</h1><p><strong>The psychologist Dan McAdams calls this a “redemptive story,” where the bad is redeemed by the good. People leading meaningful lives, he’s found, tend to tell stories about their lives defined by redemption, growth and love.</strong></p><hr><h1 id="Meaning"><a href="#Meaning" class="headerlink" title="Meaning"></a>Meaning</h1><p><strong>The studies show that people who have meaning in life, they’re more resilient, they do better in school and at work, and they even live logner.</strong></p><hr><p><strong>Happiness comes and goes. But when life is really good and when things are really bad, having meaning gives you something to hold on to.</strong></p><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Pursing-Happiness&quot;&gt;&lt;a href=&quot;#Pursing-Happiness&quot; class=&quot;headerlink&quot; title=&quot;Pursing Happiness&quot;&gt;&lt;/a&gt;Pursing Happiness&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;Th
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>typescript todo</title>
+    <link href="http://hi2048.github.io/2022/01/18/typescript-todo/"/>
+    <id>http://hi2048.github.io/2022/01/18/typescript-todo/</id>
+    <published>2022-01-17T16:00:00.000Z</published>
+    <updated>2022-03-09T05:50:09.653Z</updated>
+    
+    <content type="html"><![CDATA[<p>– todo <a href="https://github.com/hi2048/typescript-todo" title="todo" target="_blank" rel="noopener">github</a></p><pre><code>-- App.tsximport React, { useState } from &apos;react&apos;;import &apos;antd/dist/antd.css&apos;;import &apos;./App.css&apos;;import TodoInput from &apos;./todoInput&apos;;import { TodoList } from &apos;./todoList&apos;;import { todoListDate } from &apos;./model/todo&apos;;import { Actions } from &apos;./model/actions&apos;;function App() {  const [ todos, setTodos ] = useState(todoListDate);  const todoSubmit = (value: any) =&gt; {    setTodos([...todos, { ...value, isComplete: false, date: new Date().toLocaleString() }])  }  const onActions = (actions: Actions) =&gt; (id: string) =&gt; {    switch(actions) {      case Actions.COMPLETE:        setTodos(todos.map(todo =&gt; {          if(todo.id === id) {            return { ...todo, isComplete: !todo.isComplete}          }          return todo;        }));        break;      case Actions.DELETE:        setTodos(todos.filter(todo =&gt; todo.id !== id));        break;    }  }  return (    &lt;div className=&quot;App&quot;&gt;      &lt;header className=&quot;container header&quot;&gt;        &lt;TodoInput value=&quot;todo input&quot; onSubmit={todoSubmit} /&gt;      &lt;/header&gt;      &lt;div className=&quot;container content&quot;&gt;        &lt;TodoList values={ todos } onActions={onActions} /&gt;      &lt;/div&gt;    &lt;/div&gt;  );}export default App;-- todoInput.tsximport React, { useRef } from &apos;react&apos;;import { Form, Input, Button } from &apos;antd&apos;;import { Todo, guid } from &apos;./model/todo&apos;;interface TodoInputProps {  value?: string;  onSubmit?: (value: Todo) =&gt; void;}function TodoInput(props: TodoInputProps) {  const { value, onSubmit } = props;  const ref = useRef&lt;Input&gt;(null);  const todoSubmit = () =&gt; {    onSubmit &amp;&amp; onSubmit({ id: guid(), content: ref.current?.state.value });  }  return (    &lt;Form layout=&quot;inline&quot; className=&quot;form&quot; onFinish={todoSubmit}&gt;      &lt;Form.Item name=&quot;todo&quot;&gt;        &lt;Input placeholder=&quot;please input your todo&quot; value={ value } ref={ref} /&gt;      &lt;/Form.Item&gt;      &lt;Form.Item&gt;        &lt;Button type=&quot;primary&quot; htmlType=&quot;submit&quot;&gt;Submit&lt;/Button&gt;      &lt;/Form.Item&gt;    &lt;/Form&gt;  );}export default TodoInput;-- todoList.tsximport React from &apos;react&apos;;import { Todo } from &apos;./model/todo&apos;;import { Actions } from &apos;./model/actions&apos;;import { List } from &apos;antd&apos;;interface TodoListProps {  values?: Todo[],  onActions: (action: Actions) =&gt; (id: string) =&gt; void;}export const TodoList = (props: TodoListProps) =&gt; {  const { values, onActions } = props;  const onComplete = (e: any) =&gt; {    onActions(Actions.COMPLETE)(e.target.id);  }  const onDelete = (e: any) =&gt; {    onActions(Actions.DELETE)(e.target.id);  }  return (    &lt;List itemLayout=&quot;horizontal&quot; dataSource={values} renderItem={item =&gt; (      &lt;List.Item actions={[&lt;a id={item.id} key=&quot;list-loadmore-complete&quot; onClick={onComplete}&gt;Complete&lt;/a&gt;, &lt;a id={item.id} key=&quot;list-loadmore-delete&quot; onClick={onDelete}&gt;Delete&lt;/a&gt;]}&gt;        &lt;div style={{ textDecoration: item.isComplete?"line-through" : "none" }}&gt;{item.content}&lt;/div&gt;      &lt;/List.Item&gt;    )} /&gt;  )}-- todo.tsexport interface Todo {  id: string;  content: string;  date?: string;  isComplete?: boolean;}export const todoListDate: Todo[] = [];-- actions.tsexport enum Actions {  COMPLETE,  DELETE};</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;– todo &lt;a href=&quot;https://github.com/hi2048/typescript-todo&quot; title=&quot;todo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-- App.t
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="TypeScript" scheme="http://hi2048.github.io/tags/TypeScript/"/>
+    
+  </entry>
   
   <entry>
     <title>一维数组转换二维数组</title>
@@ -512,34 +563,6 @@ v
   </entry>
   
   <entry>
-    <title>typescript todo</title>
-    <link href="http://hi2048.github.io/2021/01/18/typescript-todo/"/>
-    <id>http://hi2048.github.io/2021/01/18/typescript-todo/</id>
-    <published>2021-01-17T16:00:00.000Z</published>
-    <updated>2021-12-01T13:19:42.221Z</updated>
-    
-    <content type="html"><![CDATA[<p>– todo <a href="https://github.com/hi2048/typescript-todo" title="todo" target="_blank" rel="noopener">github</a></p><pre><code>-- App.tsximport React, { useState } from &apos;react&apos;;import &apos;antd/dist/antd.css&apos;;import &apos;./App.css&apos;;import TodoInput from &apos;./todoInput&apos;;import { TodoList } from &apos;./todoList&apos;;import { todoListDate } from &apos;./model/todo&apos;;import { Actions } from &apos;./model/actions&apos;;function App() {  const [ todos, setTodos ] = useState(todoListDate);  const todoSubmit = (value: any) =&gt; {    setTodos([...todos, { ...value, isComplete: false, date: new Date().toLocaleString() }])  }  const onActions = (actions: Actions) =&gt; (id: string) =&gt; {    switch(actions) {      case Actions.COMPLETE:        setTodos(todos.map(todo =&gt; {          if(todo.id === id) {            return { ...todo, isComplete: !todo.isComplete}          }          return todo;        }));        break;      case Actions.DELETE:        setTodos(todos.filter(todo =&gt; todo.id !== id));        break;    }  }  return (    &lt;div className=&quot;App&quot;&gt;      &lt;header className=&quot;container header&quot;&gt;        &lt;TodoInput value=&quot;todo input&quot; onSubmit={todoSubmit} /&gt;      &lt;/header&gt;      &lt;div className=&quot;container content&quot;&gt;        &lt;TodoList values={ todos } onActions={onActions} /&gt;      &lt;/div&gt;    &lt;/div&gt;  );}export default App;-- todoInput.tsximport React, { useRef } from &apos;react&apos;;import { Form, Input, Button } from &apos;antd&apos;;import { Todo, guid } from &apos;./model/todo&apos;;interface TodoInputProps {  value?: string;  onSubmit?: (value: Todo) =&gt; void;}function TodoInput(props: TodoInputProps) {  const { value, onSubmit } = props;  const ref = useRef&lt;Input&gt;(null);  const todoSubmit = () =&gt; {    onSubmit &amp;&amp; onSubmit({ id: guid(), content: ref.current?.state.value });  }  return (    &lt;Form layout=&quot;inline&quot; className=&quot;form&quot; onFinish={todoSubmit}&gt;      &lt;Form.Item name=&quot;todo&quot;&gt;        &lt;Input placeholder=&quot;please input your todo&quot; value={ value } ref={ref} /&gt;      &lt;/Form.Item&gt;      &lt;Form.Item&gt;        &lt;Button type=&quot;primary&quot; htmlType=&quot;submit&quot;&gt;Submit&lt;/Button&gt;      &lt;/Form.Item&gt;    &lt;/Form&gt;  );}export default TodoInput;-- todoList.tsximport React from &apos;react&apos;;import { Todo } from &apos;./model/todo&apos;;import { Actions } from &apos;./model/actions&apos;;import { List } from &apos;antd&apos;;interface TodoListProps {  values?: Todo[],  onActions: (action: Actions) =&gt; (id: string) =&gt; void;}export const TodoList = (props: TodoListProps) =&gt; {  const { values, onActions } = props;  const onComplete = (e: any) =&gt; {    onActions(Actions.COMPLETE)(e.target.id);  }  const onDelete = (e: any) =&gt; {    onActions(Actions.DELETE)(e.target.id);  }  return (    &lt;List itemLayout=&quot;horizontal&quot; dataSource={values} renderItem={item =&gt; (      &lt;List.Item actions={[&lt;a id={item.id} key=&quot;list-loadmore-complete&quot; onClick={onComplete}&gt;Complete&lt;/a&gt;, &lt;a id={item.id} key=&quot;list-loadmore-delete&quot; onClick={onDelete}&gt;Delete&lt;/a&gt;]}&gt;        &lt;div style={{ textDecoration: item.isComplete?"line-through" : "none" }}&gt;{item.content}&lt;/div&gt;      &lt;/List.Item&gt;    )} /&gt;  )}-- todo.tsexport interface Todo {  id: string;  content: string;  date?: string;  isComplete?: boolean;}export const todoListDate: Todo[] = [];-- actions.tsexport enum Actions {  COMPLETE,  DELETE};</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;– todo &lt;a href=&quot;https://github.com/hi2048/typescript-todo&quot; title=&quot;todo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;github&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;-- App.t
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="TypeScript" scheme="http://hi2048.github.io/tags/TypeScript/"/>
-    
-  </entry>
-  
-  <entry>
     <title>TypeScript notes</title>
     <link href="http://hi2048.github.io/2021/01/09/TypeScript-notes/"/>
     <id>http://hi2048.github.io/2021/01/09/TypeScript-notes/</id>
@@ -604,32 +627,6 @@ v
       <category term="团队" scheme="http://hi2048.github.io/tags/%E5%9B%A2%E9%98%9F/"/>
     
       <category term="Scrum Master" scheme="http://hi2048.github.io/tags/Scrum-Master/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>理财杂谈</title>
-    <link href="http://hi2048.github.io/2020/12/25/%E7%90%86%E8%B4%A2%E6%9D%82%E8%B0%88/"/>
-    <id>http://hi2048.github.io/2020/12/25/理财杂谈/</id>
-    <published>2020-12-24T16:00:00.000Z</published>
-    <updated>2021-09-10T10:27:07.368Z</updated>
-    
-    <content type="html"><![CDATA[<p>  市场上通常没有好，更多的时候是<strong>更好</strong>，同样的，也很少有坏，更多的时候是<strong>更坏</strong>，所以更多的时候，我们是需要在更好与更坏中做出选择。</p><p>  市场本身并没有太过复杂，我们都可以总结出自己的好的<strong>交易系统</strong>，只是各种<strong>干扰太多并且太强</strong>，会让你迷失，所以第一个要做的就是<strong>坚守本心</strong>。</p><p>  交易系统需要<strong>简单且有效</strong>。总结起来就是<strong>资金，趋势，择时</strong>。</p><ol><li>可持续的热点</li><li>向上的趋势</li><li>龙头</li><li>在回调中入场，在趋势变坏时果断离场</li><li>果断的止损</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;  市场上通常没有好，更多的时候是&lt;strong&gt;更好&lt;/strong&gt;，同样的，也很少有坏，更多的时候是&lt;strong&gt;更坏&lt;/strong&gt;，所以更多的时候，我们是需要在更好与更坏中做出选择。&lt;/p&gt;
-&lt;p&gt;  市场本身并没有太过复杂，我们都可以总结出自己的好的&lt;str
-      
-    
-    </summary>
-    
-      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="理财" scheme="http://hi2048.github.io/tags/%E7%90%86%E8%B4%A2/"/>
     
   </entry>
   
