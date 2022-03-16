@@ -64,6 +64,175 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-策略模式" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/08/策略模式/" class="article-date">
+  <time datetime="2017-12-07T16:00:00.000Z" itemprop="datePublished">2017-12-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/08/策略模式/">策略模式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>策略模式（Strategy）<br> <a href="/assets/策略模式.png"><img src="/assets/策略模式.png" alt="策略模式"></a></p>
+</li>
+<li><p>代码实例 <a href="https://github.com/hi2048/Design-And-Code/tree/master/Design-Patterns/Strategy" title="策略模式" target="_blank" rel="noopener">github</a></p>
+<pre><code>-- cashSuper.js
+class CashSuper {
+    constructor() {
+        if(new.target === CashSuper)
+            throw new Error(`${CashSuper} cannot be initialized.`);
+
+        console.log(&apos;CashSuper constructor.&apos;);
+    }
+
+    acceptCash(money) {
+        console.log(&apos;CashSuper acceptCash.&apos;);
+
+        return;
+    }
+}
+
+module.exports = CashSuper;
+
+-- cashNormal.js
+const CashSuper = require(&apos;./cashSuper.js&apos;);
+
+class CashNormal extends CashSuper {
+    constructor() {
+        super();
+
+        console.log(&apos;CashNormal constructor.&apos;);
+    }
+
+    acceptCash(money) {
+        return money;
+    }
+}
+
+module.exports = CashNormal;
+
+-- casnRebate.js
+const CashSuper = require(&apos;./cashSuper&apos;);
+
+class CashRebate extends CashSuper {
+    constructor({rebate = 1}) {
+        super();
+
+        console.log(&apos;CashRebate constructor.&apos;);
+        this.rebate = rebate;
+    }
+
+    acceptCash(money) {
+        return money * this.rebate;
+    }
+}
+
+module.exports = CashRebate;
+
+-- cashReturn.js
+const CashSuper = require(&apos;./cashSuper&apos;);
+
+class CashReturn extends CashSuper {
+    constructor({condition = 0, moneyReturn = 0}) {
+        super();
+
+        console.log(&apos;CashReturn constructor.&apos;);
+        this.condition = condition;
+        this.moneyReturn = moneyReturn;
+    }
+
+    acceptCash(money) {
+        let result = money;
+
+        if(money &gt;= this.condition) {
+            result -= Math.floor(money / this.condition) * this.moneyReturn;
+        }
+
+        return result;
+    }
+}
+
+module.exports = CashReturn;
+
+-- cashContext.js
+const CashNormal = require(&apos;./cashNormal&apos;);
+const CashRebate = require(&apos;./cashRebate&apos;);
+const CashReturn = require(&apos;./cashReturn&apos;);
+
+class CashContext {
+    constructor(type, args) {
+        switch(type.toUpperCase()) {
+            case &apos;NORMAL&apos;:
+                this.cs = new CashNormal();
+                break;
+            case &apos;REBATE&apos;:
+                this.cs = new CashRebate(args);
+                break;
+            case &apos;RETURN&apos;:
+                this.cs = new CashReturn(args);
+                break;
+            default:
+                this.cs = new CashNormal();
+        }
+    }
+
+    getResult(money) {
+        return this.cs.acceptCash(money);
+    }
+}
+
+module.exports = CashContext;
+
+-- client.js
+const CashContext = require(&apos;./cashContext&apos;);
+
+//test
+let cs = new CashContext(&apos;Normal&apos;);
+console.log(cs.getResult(100));
+
+cs = new CashContext(&apos;REBATE&apos;, {&apos;rebate&apos;: .8});
+console.log(cs.getResult(100));
+
+cs = new CashContext(&apos;return&apos;, {&apos;condition&apos;: 300, &apos;moneyReturn&apos;: 100});
+console.log(cs.getResult(300));
+console.log(cs.getResult(500));
+console.log(cs.getResult(600));
+</code></pre></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2017/12/08/策略模式/" data-id="cl0tk2mtt006fc7wscpo58wg6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-JavaScript中的循环中断" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/10/JavaScript中的循环中断/" class="article-date">
@@ -158,7 +327,7 @@ return:
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="cl0j5laaz001rhxws9rkfx55a" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/11/10/JavaScript中的循环中断/" data-id="cl0tk2mpa000hc7wsfwnhx4p4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -330,7 +499,7 @@ console.log(division.getResult(2, 0));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/11/10/简单工厂模式/" data-id="cl0j5ladb0065hxwstgcmaqco" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/11/10/简单工厂模式/" data-id="cl0tk2mtu006ic7wsf1l88aau" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -388,7 +557,7 @@ console.log(division.getResult(2, 0));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="cl0j5labj002qhxwszc7dfmfi" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/09/01/js笔记/" data-id="cl0tk2mpt001gc7wsrjh8h1d3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -452,7 +621,7 @@ console.log(division.getResult(2, 0));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="cl0j5laao0012hxwsqrqjuzdv" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/05/10/CD数量/" data-id="cl0tk2mox0002c7wsiuraonfz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -498,7 +667,7 @@ console.log(division.getResult(2, 0));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="cl0j5labm002thxws5gbpuvkc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/01/21/self-introduction/" data-id="cl0tk2mpt001hc7wsvo0uwtsh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -561,7 +730,7 @@ console.log(division.getResult(2, 0));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="cl0j5labl002shxwsynmr8ab6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2017/01/10/reduce方法/" data-id="cl0tk2mps001ec7wsj5osd6k8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -613,7 +782,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="cl0j5labi002phxws0lwme2q9" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/12/28/curry/" data-id="cl0tk2mpq001dc7ws4p00tb1y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/函数式/">函数式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -683,7 +852,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/12/20/纯函数/" data-id="cl0j5ladd0068hxwsjraqxane" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/12/20/纯函数/" data-id="cl0tk2mtx006nc7wsx7pirgp2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -729,51 +898,7 @@ let increment = add(1);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2016/05/18/那年真的如风/" data-id="cl0j5ladl006uhxwsxs2ak5q7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-工作之感悟" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/11/10/工作之感悟/" class="article-date">
-  <time datetime="2015-11-09T16:00:00.000Z" itemprop="datePublished">2015-11-10</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/杂谈/">杂谈</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/11/10/工作之感悟/">工作之感悟</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>不知不觉间，已经工作1年多了，从开春的3月，如今却已快入冬，时间就在你不经意间，悄悄划过，不留一丝的痕迹。</p>
-<p>每天都在忙碌，每天都在重复，每天都在感叹时间太少，可是却也不曾做成什么不一样的事情。</p>
-<p>从最初的最简单的JS函数写起，再到应用面向对象，再到后来的模块化编程，了解了函数式编程，再到AngularJS。研究了JS内存泄漏问题，特别喜欢HTML5与CSS3做出来的动画，喜欢Google的material design，做出了各种圆周运动的效果。如今却不知道前途如何，以后应该做些什么，在技术的道路一直走下去，还是去做点不一样的东西。</p>
-<p>再回过头来看，自己确实是成长了不少。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2015/11/10/工作之感悟/" data-id="cl0j5lacs004whxwseiq8xkkc" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2016/05/18/那年真的如风/" data-id="cl0tk2mug007tc7wsyq0rh5nc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -807,7 +932,7 @@ let increment = add(1);
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agile/">Agile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GCP/">GCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrum-Master/">Scrum Master</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TED/">TED</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/团队/">团队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英文/">英文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agile/">Agile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GCP/">GCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mural/">Mural</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrum-Master/">Scrum Master</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TED/">TED</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/团队/">团队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英文/">英文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -817,7 +942,7 @@ let increment = add(1);
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Agile/" style="font-size: 11px;">Agile</a> <a href="/tags/C/" style="font-size: 13px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 17px;">Leetcode</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/TypeScript/" style="font-size: 12px;">TypeScript</a> <a href="/tags/hi2048/" style="font-size: 15px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 18px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 11px;">理财</a> <a href="/tags/算法/" style="font-size: 19px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/Agile/" style="font-size: 12px;">Agile</a> <a href="/tags/C/" style="font-size: 13px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 17px;">Leetcode</a> <a href="/tags/Mural/" style="font-size: 10px;">Mural</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/TypeScript/" style="font-size: 12px;">TypeScript</a> <a href="/tags/hi2048/" style="font-size: 15px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 18px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 11px;">理财</a> <a href="/tags/算法/" style="font-size: 19px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -839,6 +964,10 @@ let increment = add(1);
       <ul>
         
           <li>
+            <a href="/2022/02/20/Sailboat-retrospective/">Sailboat retrospective</a>
+          </li>
+        
+          <li>
             <a href="/2022/02/15/Happiness/">Happiness</a>
           </li>
         
@@ -852,10 +981,6 @@ let increment = add(1);
         
           <li>
             <a href="/2021/12/01/Speed-Car-Retrospective/">Speed Car Retrospective</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/22/学生出勤记录3/">学生出勤记录3</a>
           </li>
         
       </ul>

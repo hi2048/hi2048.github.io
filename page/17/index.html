@@ -64,6 +64,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-指针数组和数组指针" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/13/指针数组和数组指针/" class="article-date">
+  <time datetime="2013-09-13T13:48:20.000Z" itemprop="datePublished">2013-09-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2013/09/13/指针数组和数组指针/">指针数组和数组指针</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>指针数组即存储指针的数组；数组指针即指向数组的指针。</p>
+<p>指针数组的形式，</p>
+<pre>
+int *p[n];
+</pre>
+数组指针的形式，
+<pre>
+int (*p)[n]
+</pre>
+指针数组与数组指针在实际中的应用，
+<pre>
+int a[3] = {1, 2, 3};
+int *p1[3], (*p2)[3];
+
+for(int i = 0; i < 3; i++){
+    p1[i] = &a[i];
+}
+
+p2 = &a;
+
+printf("%d", *p1[1]);
+printf("\n");
+printf("%d", (*p2)[2]);
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2013/09/13/指针数组和数组指针/" data-id="cl0tk2msz004mc7wsi0yi2uvt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-卦气旺衰" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2013/09/11/卦气旺衰/" class="article-date">
@@ -99,7 +164,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="cl0j5laci004ahxwsa10i0iep" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/11/卦气旺衰/" data-id="cl0tk2mqm002zc7wsfwdsdbx9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -214,7 +279,7 @@ void bubble_p4(int* a, int n){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="cl0j5lacb003whxwsmaphiv2g" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/11/冒泡算法及改进/" data-id="cl0tk2mqe002lc7wsrt5s70v0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -294,7 +359,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="cl0j5lab0001uhxwsku9qw6v6" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中类的创建/" data-id="cl0tk2mpb000jc7wsiuiim6yy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -346,7 +411,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="cl0j5laax001nhxwsawaw24bz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中变量的作用域/" data-id="cl0tk2mp7000ec7wsa0tc8saf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -389,7 +454,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="cl0j5ladm006yhxwstgcnqphr" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/预测起卦的形式/" data-id="cl0tk2muk0083c7wsjqfxyahq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -440,7 +505,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="cl0j5lab0001thxws7usdo6ln" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/10/JavaScript中的数据类型/" data-id="cl0tk2mpb000ic7wsrj89paj5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -488,7 +553,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="cl0j5lab40020hxws9a9jet78" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/09/JavaScript类型转换/" data-id="cl0tk2mpd000mc7ws8el8p5ea" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -537,7 +602,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/09/日干推时干歌诀/" data-id="cl0j5lad0005chxwsqbon4k6l" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/09/日干推时干歌诀/" data-id="cl0tk2mt4004uc7wsprsgut17" class="article-share-link">Share</a>
       
       
     </footer>
@@ -584,55 +649,7 @@ Obj.prototype.func = function(){
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/08/年推月干口诀/" data-id="cl0j5lacu004zhxwsuvy8nnsl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-二十四节气口诀" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2013/09/07/二十四节气口诀/" class="article-date">
-  <time datetime="2013-09-07T07:28:14.000Z" itemprop="datePublished">2013-09-07</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/周易/">周易</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2013/09/07/二十四节气口诀/">二十四节气口诀</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>春雨惊春清谷天，</strong></p>
-<p><strong>夏满芒夏暑相连，</strong></p>
-<p><strong>秋处露秋寒霜降，</strong></p>
-<p><strong>冬雪雪冬小大寒</strong>。</p>
-<p><strong>上半年是六、二一，</strong></p>
-<p><strong>下半年是八、二三，</strong></p>
-<p><strong>二十四节紧相连，</strong></p>
-<p><strong>天后相差一两天。</strong></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2013/09/07/二十四节气口诀/" data-id="cl0j5labt0036hxwsnx0qckv2" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2013/09/08/年推月干口诀/" data-id="cl0tk2mst0044c7wsrn4stv80" class="article-share-link">Share</a>
       
       
     </footer>
@@ -666,7 +683,7 @@ Obj.prototype.func = function(){
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agile/">Agile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GCP/">GCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrum-Master/">Scrum Master</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TED/">TED</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/团队/">团队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英文/">英文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agile/">Agile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GCP/">GCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mural/">Mural</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrum-Master/">Scrum Master</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TED/">TED</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/团队/">团队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英文/">英文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -676,7 +693,7 @@ Obj.prototype.func = function(){
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Agile/" style="font-size: 11px;">Agile</a> <a href="/tags/C/" style="font-size: 13px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 17px;">Leetcode</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/TypeScript/" style="font-size: 12px;">TypeScript</a> <a href="/tags/hi2048/" style="font-size: 15px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 18px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 11px;">理财</a> <a href="/tags/算法/" style="font-size: 19px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/Agile/" style="font-size: 12px;">Agile</a> <a href="/tags/C/" style="font-size: 13px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 17px;">Leetcode</a> <a href="/tags/Mural/" style="font-size: 10px;">Mural</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/TypeScript/" style="font-size: 12px;">TypeScript</a> <a href="/tags/hi2048/" style="font-size: 15px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 18px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 11px;">理财</a> <a href="/tags/算法/" style="font-size: 19px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -698,6 +715,10 @@ Obj.prototype.func = function(){
       <ul>
         
           <li>
+            <a href="/2022/02/20/Sailboat-retrospective/">Sailboat retrospective</a>
+          </li>
+        
+          <li>
             <a href="/2022/02/15/Happiness/">Happiness</a>
           </li>
         
@@ -711,10 +732,6 @@ Obj.prototype.func = function(){
         
           <li>
             <a href="/2021/12/01/Speed-Car-Retrospective/">Speed Car Retrospective</a>
-          </li>
-        
-          <li>
-            <a href="/2021/11/22/学生出勤记录3/">学生出勤记录3</a>
           </li>
         
       </ul>

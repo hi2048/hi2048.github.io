@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2022-03-09T05:54:06.575Z</updated>
+  <updated>2022-03-16T12:44:17.024Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Sailboat retrospective</title>
+    <link href="http://hi2048.github.io/2022/02/20/Sailboat-retrospective/"/>
+    <id>http://hi2048.github.io/2022/02/20/Sailboat-retrospective/</id>
+    <published>2022-02-19T16:00:00.000Z</published>
+    <updated>2022-03-16T12:44:17.024Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="The-Sailboat-Retrospective"><a href="#The-Sailboat-Retrospective" class="headerlink" title="The Sailboat Retrospective"></a>The Sailboat Retrospective</h1><ul><li>Surface what is helping and hindering your scrum team.</li></ul><p><strong>Start by listing your Crew and the Goals you had, then detail the Drags you experienced, Barriers you encountered and Accellerators that pushed you along, ending by sharing what you Learned.</strong></p><hr><h1 id="The-crew"><a href="#The-crew" class="headerlink" title="The crew"></a>The crew</h1><ul><li>Check-in<br><strong>Take a seat at the table, Drag an emoji that reflects your mood</strong></li></ul><hr><h1 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h1><ul><li>What goals did we have?<br><strong>What was our destination? What did we want to achieve?</strong></li></ul><hr><h1 id="Accellerators"><a href="#Accellerators" class="headerlink" title="Accellerators"></a>Accellerators</h1><ul><li>What accellerated us?<br><strong>What’s helped us to move forward? What did we do well and right?</strong><br><strong>What mechanisms were in place that helped the team? Where there any standout teammates to celebrate or sponsors to thank?</strong></li></ul><hr><h1 id="Barriers"><a href="#Barriers" class="headerlink" title="Barriers"></a>Barriers</h1><ul><li>What barriers did we encounter?<br><strong>What risks did we need to navigate around? What were the impacts?</strong><br><strong>What created an obstruction to your progress? What were the impacts on your team and the work?</strong></li></ul><hr><h1 id="Drags"><a href="#Drags" class="headerlink" title="Drags"></a>Drags</h1><ul><li>What drag did we overcome?<br><strong>Focus upon what could have been done better.</strong><br><strong>What slowed us down? Were we able to foresee the friction or was it hidden from view?</strong></li></ul><hr><h1 id="Voting"><a href="#Voting" class="headerlink" title="Voting"></a>Voting</h1><ul><li>Time to prioritize items to focus on what really matters</li></ul><hr><h1 id="Learnings"><a href="#Learnings" class="headerlink" title="Learnings"></a>Learnings</h1><ul><li>What did we learn?<br><strong>What were the big takeaways from this experience and how can we use them to ease our next journey?</strong><br><strong>individual or team learnings</strong></li></ul><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;The-Sailboat-Retrospective&quot;&gt;&lt;a href=&quot;#The-Sailboat-Retrospective&quot; class=&quot;headerlink&quot; title=&quot;The Sailboat Retrospective&quot;&gt;&lt;/a&gt;The Sail
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Agile" scheme="http://hi2048.github.io/tags/Agile/"/>
+    
+      <category term="Mural" scheme="http://hi2048.github.io/tags/Mural/"/>
+    
+  </entry>
   
   <entry>
     <title>Happiness</title>
@@ -591,44 +618,6 @@ v
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="TypeScript" scheme="http://hi2048.github.io/tags/TypeScript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>谈谈拖延症</title>
-    <link href="http://hi2048.github.io/2021/01/09/%E8%B0%88%E8%B0%88%E6%8B%96%E5%BB%B6%E7%97%87/"/>
-    <id>http://hi2048.github.io/2021/01/09/谈谈拖延症/</id>
-    <published>2021-01-08T16:00:00.000Z</published>
-    <updated>2021-09-09T08:24:54.630Z</updated>
-    
-    <content type="html"><![CDATA[<pre>1月1日新开这本日记，也为了督促自己后面多下些苦功。1. 先要读完手边的 The Moon and Sixpence2. 考取GCP3. 加强自己的英语听力和口语4. 学习管理方面的知识5. 开始理财并制定计划6. 加强锻炼并保持健康1月2日打牌1月3日打牌1月4日打牌1月5日刷微博，水贴1月6日刷微博，水贴1月7日打牌1月8日刷微博，水贴</pre><p><strong>我本可以</strong>， 不要让自己在将来后悔，需要正视并做出改变。</p><ol><li>把自己的目标大声讲出来<ul><li>周围人的压力会让你开始执行计划</li></ul></li><li>利用帕金森定律，设定一个Deadline</li><li>把大的目标<strong>分解</strong>成细小的目标</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;
-1月1日
-新开这本日记，也为了督促自己后面多下些苦功。
-1. 先要读完手边的 The Moon and Sixpence
-2. 考取GCP
-3. 加强自己的英语听力和口语
-4. 学习管理方面的知识
-5. 开始理财并制定计划
-6. 加强锻炼并保持健康
-
-1月2日
-打牌
-      
-    
-    </summary>
-    
-      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="团队" scheme="http://hi2048.github.io/tags/%E5%9B%A2%E9%98%9F/"/>
-    
-      <category term="Scrum Master" scheme="http://hi2048.github.io/tags/Scrum-Master/"/>
     
   </entry>
   
