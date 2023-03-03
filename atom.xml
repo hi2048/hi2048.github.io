@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2022-03-16T12:44:17.024Z</updated>
+  <updated>2022-08-29T03:50:06.260Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,126 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SAFe notes</title>
+    <link href="http://hi2048.github.io/2022/07/02/SAFe%20notes/"/>
+    <id>http://hi2048.github.io/2022/07/02/SAFe notes/</id>
+    <published>2022-07-01T16:00:00.000Z</published>
+    <updated>2022-08-29T03:50:06.260Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>Thriving in the Digital Age with Business Agility</li></ol><ul><li>Thriving in the digital age</li><li>SAFe as an operating system for Business Agility</li><li>The Seven Core competencies of Business Agility</li></ul><ol start="2"><li>Becoming a Lean-Agile Leader</li></ol><ul><li>The Lean-Agile Mindset</li><li>Lean and Agile at scale with the SAFe Principles</li></ul><ol start="3"><li>Establishing Team and Technical Agility</li></ol><ul><li>Forming cross-functional Agile Teams</li><li>Built-In Quality</li><li>Organizing Agile Release Trains around the flow of value</li></ul><ol start="4"><li>Building Solutions with Agile Product Delivery</li></ol><ul><li>Customer Centricity and Design Thinking</li><li>Prioritizing the Program Backlog</li><li>PI Planning</li><li>Develop on Cadence; Release on Demand</li><li>Building a Continuous Delivery Pipeline with DevOps</li></ul><ol start="5"><li>Exploring Lean Portfolio Management</li></ol><ul><li>Defining a SAFe Portfolio</li><li>Connecting the portfolio to the Enterprise strategy</li><li>Maintainging the Portfolio Vision</li><li>Realizing the Portfolio Vision through Epics</li><li>Establishing Lean Budgets and Guardrails</li><li>Establishing portfolio flow</li></ul><ol start="6"><li>Leading the Change</li></ol><ul><li>Leading by example</li><li>Leading the change</li></ul><ol start="7"><li>Practicing SAFe</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;Thriving in the Digital Age with Business Agility&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Thriving in the digital age&lt;/li&gt;
+&lt;li&gt;SAFe as an operating sys
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="SAFe" scheme="http://hi2048.github.io/tags/SAFe/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Agile Practice</title>
+    <link href="http://hi2048.github.io/2022/04/02/Agile%20Practice/"/>
+    <id>http://hi2048.github.io/2022/04/02/Agile Practice/</id>
+    <published>2022-04-01T16:00:00.000Z</published>
+    <updated>2022-04-24T14:55:28.104Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Agile-Practice"><a href="#Agile-Practice" class="headerlink" title="Agile Practice"></a>Agile Practice</h1><ul><li>Risk idenficication</li><li>Story mapping</li><li>Splitting story</li></ul><hr><h1 id="Risk-idenficication"><a href="#Risk-idenficication" class="headerlink" title="Risk idenficication"></a>Risk idenficication</h1><ul><li>Risk management</li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Risk-Management"><a href="#Risk-Management" class="headerlink" title="Risk Management"></a>Risk Management</h1><ul><li>Risk management, why<ul><li>story: 别人的风险和自己的风险，提醒别人，与保持自己清楚，只缘身在此山中。</li><li>Story: 预防为先， 来客提出建议，烟囱，木材，着火，邻居救火，主人宴请邻居，提醒提出建议的人，孰轻孰重？扁鹊三兄弟</li><li>Story: 保护成员的积极性， 大师，鞋带，松开，弟子，提醒，旁观者问大师</li></ul></li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Quantify-Risk"><a href="#Quantify-Risk" class="headerlink" title="Quantify Risk"></a>Quantify Risk</h1><ul><li>四象限法则 - 重要，紧急</li><li>KSAO, K - knowledge, S - Skill, Ability, Others</li><li>墨菲定律：凡事可能会出错，就一定会出错。</li><li>海恩法则：任何不安全事故都是可以预防的</li><li>费斯汀格法则：重要的不是发生在你身上的事情，而是你如何处理。</li><li>avoid, mitigate, transfer, accept<br>明知山有虎？？<br>安全带<br>保单</li><li>评审经验教训， 风险核查清单， 头脑风暴， 风险分解结构</li><li>估算： 概率树，预期价值（影响 * 概率）， 评价： 蒙特卡洛分析（最乐购，最坏，最可能），预期货币价值</li></ul><hr><h1 id="Triple-constrain"><a href="#Triple-constrain" class="headerlink" title="Triple constrain"></a>Triple constrain</h1><ul><li>scope, time, cost</li></ul><hr><h1 id="已知，未知，风险"><a href="#已知，未知，风险" class="headerlink" title="已知，未知，风险"></a>已知，未知，风险</h1><hr><h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><ul><li>Risk management</li><li><p>Quantify Risk</p><ul><li>风险登记表：动态更新，及时处置<br>RBS(Risk Breakdown structure)风险类型， 风险描述， 发生概率， 影响程度， 风险等级， 风险影响描述， 风险响应计划， owner, status</li></ul></li><li><p>practice</p></li><li>discuss</li></ul><hr><h1 id="Discuss"><a href="#Discuss" class="headerlink" title="Discuss"></a>Discuss</h1><ul><li>Risk management</li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Risk"><a href="#Risk" class="headerlink" title="Risk"></a>Risk</h1><p><strong>Risk: factors that may cause a failure to meet the project’s objectives.</strong></p><hr><p><strong>帕金森定律：工作会自动地膨胀占满所有可用的时间。</strong><br><strong>解决方案：最早开始法则</strong></p><ul><li>七格图： es, ef, ls, lf, du - 活动历时, tf - 总时差， ff - 自由时差</li><li>AOE网：带权有向图</li></ul><hr><ol><li>risk management</li><li>quantify</li><li>practice</li><li>discuss</li></ol><hr><p>风险与机遇</p><p>生于忧患，死于安乐<br>战战兢兢，如临深渊，如履薄冰。 – 诗经·小雅·小旻</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Agile-Practice&quot;&gt;&lt;a href=&quot;#Agile-Practice&quot; class=&quot;headerlink&quot; title=&quot;Agile Practice&quot;&gt;&lt;/a&gt;Agile Practice&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Risk idenficicat
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Agile" scheme="http://hi2048.github.io/tags/Agile/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Risk</title>
+    <link href="http://hi2048.github.io/2022/04/02/Risk%20Management/"/>
+    <id>http://hi2048.github.io/2022/04/02/Risk Management/</id>
+    <published>2022-04-01T16:00:00.000Z</published>
+    <updated>2022-04-27T16:40:37.836Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Risk"><a href="#Risk" class="headerlink" title="Risk"></a>Risk</h1><ul><li>Risk Management</li><li>practice</li><li>Q&amp;A</li></ul><hr><h1 id="Risk-1"><a href="#Risk-1" class="headerlink" title="Risk"></a>Risk</h1><p><strong>木材，着火的故事</strong></p><hr><h1 id="Risk-2"><a href="#Risk-2" class="headerlink" title="Risk"></a>Risk</h1><p><strong>重视风险</strong></p><hr><h1 id="Risk-3"><a href="#Risk-3" class="headerlink" title="Risk"></a>Risk</h1><p><strong>Risks are an aspect of uncertainty.</strong><br><strong>A risk is an uncertain event or condition that, if it occurs, has a positive or negative effect on one or more project objectives.</strong></p><ul><li>Threats: Negative risks</li><li>Opportunities: positive risks</li></ul><hr><h1 id="Risk-4"><a href="#Risk-4" class="headerlink" title="Risk"></a>Risk</h1><p><strong>动物园事件</strong></p><hr><h1 id="Murphy’s-Law"><a href="#Murphy’s-Law" class="headerlink" title="Murphy’s Law"></a>Murphy’s Law</h1><p><strong>Murphy’s Law: If anything can go wrong, it will.</strong></p><hr><h1 id="Risk-Management"><a href="#Risk-Management" class="headerlink" title="Risk Management"></a>Risk Management</h1><p><strong>Project Risk Management includes the processes of conducting risk management planning, identifying, prioritizing, numerically analyzing, planning and implementing risk responses, monitoring on a project.</strong></p><ul><li>Plan Risk Management</li><li>Identify Risks</li><li>Perform Qualitative Risk Analysis</li><li>Perform Quantitative Risk Analysis</li><li>Plan Risk Responses</li><li>Implement Risk Responses</li><li>Monitor Risks<br><strong>The objectives of project risk management are to increase the probability and impact of positive risks and to decrease the probability and impact of negative risks, in order to optimize the chances of project success.</strong></li></ul><hr><h1 id="Risk-Management-1"><a href="#Risk-Management-1" class="headerlink" title="Risk Management"></a>Risk Management</h1><p><a href="/assets/risk_management.png"><img src="/assets/risk_management.png" alt="Risk Management"></a></p><hr><h1 id="Plan-Risk-Management"><a href="#Plan-Risk-Management" class="headerlink" title="Plan Risk Management"></a>Plan Risk Management</h1><p><a href="/assets/risk_management_plan_risk_management.png"><img src="/assets/risk_management_plan_risk_management.png" alt="Plan Risk Management"></a></p><hr><h1 id="Identify"><a href="#Identify" class="headerlink" title="Identify"></a>Identify</h1><ul><li>SWOT Analysis</li><li>Prompt Lists</li><li>Risk Register<br><a href="/assets/risk_management_identify.png"><img src="/assets/risk_management_identify.png" alt="Identify"></a></li></ul><hr><h1 id="SWOT-Analysis"><a href="#SWOT-Analysis" class="headerlink" title="SWOT Analysis"></a>SWOT Analysis</h1><p><strong>SWOT(strengths, weaknesses, opportunities, and threats) analysis is a framework used to evalute a company’s competitive position and to develop strategic planning. SWOT analysis assesses internal and external factors, as well as current and future potential.</strong></p><ol><li>SO</li><li>ST</li><li>WO</li><li>WT<br><strong>short-term, medium-term, long-term activities</strong></li></ol><hr><h1 id="SWOT-Analysis-1"><a href="#SWOT-Analysis-1" class="headerlink" title="SWOT Analysis"></a>SWOT Analysis</h1><p><a href="/assets/SWOT.png"><img src="/assets/SWOT.png" alt="SWOT"></a></p><hr><h1 id="Prompt-Lists"><a href="#Prompt-Lists" class="headerlink" title="Prompt Lists"></a>Prompt Lists</h1><p><a href="/assets/risk_management_identify_prompt.png"><img src="/assets/risk_management_identify_prompt.png" alt="Prompt Lists"></a></p><hr><h1 id="Risk-Register"><a href="#Risk-Register" class="headerlink" title="Risk Register"></a>Risk Register</h1><p><a href="/assets/risk_register.png"><img src="/assets/risk_register.png" alt="Risk Register"></a></p><hr><h1 id="Risk-Register-1"><a href="#Risk-Register-1" class="headerlink" title="Risk Register"></a>Risk Register</h1><p><a href="/assets/risk_register_example.png"><img src="/assets/risk_register_example.png" alt="Risk Register"></a></p><hr><h1 id="Qualitative"><a href="#Qualitative" class="headerlink" title="Qualitative"></a>Qualitative</h1><p><strong>Qualitative methods for risk assessment are relatively rapid in practice, cost effective and easily understood. The Result from the qualitative assessments are not an accurate estimate of risk.</strong></p><hr><h1 id="Qualitative-1"><a href="#Qualitative-1" class="headerlink" title="Qualitative"></a>Qualitative</h1><p><a href="/assets/risk_management_qualitative.png"><img src="/assets/risk_management_qualitative.png" alt="Qualitative"></a></p><hr><h1 id="Probability-and-impact-matrix"><a href="#Probability-and-impact-matrix" class="headerlink" title="Probability and impact matrix"></a>Probability and impact matrix</h1><p><a href="/assets/probability_impact_matrix.png"><img src="/assets/probability_impact_matrix.png" alt="Probability and impact matrix"></a></p><hr><h1 id="Quantitative"><a href="#Quantitative" class="headerlink" title="Quantitative"></a>Quantitative</h1><p><strong>Quantitative assessment methods provide more accurate analysis results than the qualitative assessment. However, they are costlier and often time consuming, so only the risk prioritized by the qualitative assessment are analyzed.</strong><br><strong>Quantitative analysis: Simulations, Sensitivity analysis, Decision tree analysis.</strong></p><ul><li>Simulations<ul><li>Monte Carlo Technique</li></ul></li><li>Sensitivity Analysis<ul><li>Tornado Diagram</li></ul></li><li>Decision Tree Analysis</li></ul><hr><h1 id="Quantitative-1"><a href="#Quantitative-1" class="headerlink" title="Quantitative"></a>Quantitative</h1><p><a href="/assets/risk_management_quantitative.png"><img src="/assets/risk_management_quantitative.png" alt="Quantitative"></a></p><hr><h1 id="Simulations"><a href="#Simulations" class="headerlink" title="Simulations"></a>Simulations</h1><ul><li>Monte Carlo Technique<br><a href="/assets/risk_management_quantitative_simulations.png"><img src="/assets/risk_management_quantitative_simulations.png" alt="Simulations"></a></li></ul><hr><h1 id="Sensitivity-Analysis"><a href="#Sensitivity-Analysis" class="headerlink" title="Sensitivity Analysis"></a>Sensitivity Analysis</h1><ul><li>Tornado Diagram<br><a href="/assets/risk_management_quantitative_sensitivity.png"><img src="/assets/risk_management_quantitative_sensitivity.png" alt="Sensitivity analysis"></a></li></ul><hr><h1 id="Decision-Tree-Analysis"><a href="#Decision-Tree-Analysis" class="headerlink" title="Decision Tree Analysis"></a>Decision Tree Analysis</h1><p><a href="/assets/risk_management_quantitative_decision_tree.png"><img src="/assets/risk_management_quantitative_decision_tree.png" alt="Decision Tree Analysis"></a></p><hr><h1 id="Plan"><a href="#Plan" class="headerlink" title="Plan"></a>Plan</h1><p><a href="/assets/risk_management_plan.png"><img src="/assets/risk_management_plan.png" alt="Plan"></a></p><hr><h1 id="Implement"><a href="#Implement" class="headerlink" title="Implement"></a>Implement</h1><p><a href="/assets/risk_management_implement.png"><img src="/assets/risk_management_implement.png" alt="Implement"></a></p><hr><h1 id="Monitor"><a href="#Monitor" class="headerlink" title="Monitor"></a>Monitor</h1><p><a href="/assets/risk_management_monitor.png"><img src="/assets/risk_management_monitor.png" alt="Monitor"></a></p><hr><h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><ul><li><p>Practice</p><ul><li>疫情物流系统</li><li>组团播客吧</li><li>神牛理财通</li></ul></li><li><p>Identify Risks, Perform Qualitative, Quantitative Risk Analysis<br>outputs: Risk Register</p></li></ul><hr><h1 id="Show-amp-Tell"><a href="#Show-amp-Tell" class="headerlink" title="Show &amp; Tell"></a>Show &amp; Tell</h1><hr><h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><p><strong>战战兢兢，如临深渊，如履薄冰。 – 诗经·小雅·小旻</strong></p><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Risk&quot;&gt;&lt;a href=&quot;#Risk&quot; class=&quot;headerlink&quot; title=&quot;Risk&quot;&gt;&lt;/a&gt;Risk&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Risk Management&lt;/li&gt;
+&lt;li&gt;practice&lt;/li&gt;
+&lt;li&gt;Q&amp;amp;A&lt;/li&gt;
+
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Agile" scheme="http://hi2048.github.io/tags/Agile/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Length of last word</title>
+    <link href="http://hi2048.github.io/2022/03/23/Length-of-last-word/"/>
+    <id>http://hi2048.github.io/2022/03/23/Length-of-last-word/</id>
+    <published>2022-03-22T16:00:00.000Z</published>
+    <updated>2023-03-03T09:32:22.636Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>/*** 最后一个单词的长度*/var lengthOfLastWord = function(s) {  return s.trim().split(&apos; &apos;).pop().length;};</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;/**
+* 最后一个单词的长度
+*/
+var lengthOfLastWord = function(s) {
+  return s.trim().split(&amp;apos; &amp;apos;).pop().length;
+};
+&lt;/code&gt;&lt;/pre&gt;
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>Sailboat retrospective</title>
@@ -124,9 +244,9 @@ function construct2DArray(origin
     
       <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="TypeScript" scheme="http://hi2048.github.io/tags/TypeScript/"/>
-    
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
+    
+      <category term="TypeScript" scheme="http://hi2048.github.io/tags/TypeScript/"/>
     
   </entry>
   
@@ -441,21 +561,21 @@ function construct2DArray(origin
   </entry>
   
   <entry>
-    <title>Scrum笔记</title>
+    <title>Scrum</title>
     <link href="http://hi2048.github.io/2021/05/02/Scrum%E7%AC%94%E8%AE%B0/"/>
     <id>http://hi2048.github.io/2021/05/02/Scrum笔记/</id>
     <published>2021-05-02T06:21:41.000Z</published>
-    <updated>2021-09-05T02:24:18.442Z</updated>
+    <updated>2023-03-03T09:26:37.826Z</updated>
     
-    <content type="html"><![CDATA[<ol><li>Scrum 采用<strong>迭代、增量</strong>的方法来优化可预见性并控制风险。</li></ol>]]></content>
+    <content type="html"><![CDATA[<ul><li>Scrum 采用<strong>迭代、增量</strong>的方法来优化可预见性并控制风险。</li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;ol&gt;
+        &lt;ul&gt;
 &lt;li&gt;Scrum 采用&lt;strong&gt;迭代、增量&lt;/strong&gt;的方法来优化可预见性并控制风险。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
       
     
@@ -493,131 +613,6 @@ function construct2DArray(origin
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>俄罗斯套娃信封问题</title>
-    <link href="http://hi2048.github.io/2021/03/15/%E4%BF%84%E7%BD%97%E6%96%AF%E5%A5%97%E5%A8%83%E4%BF%A1%E5%B0%81%E9%97%AE%E9%A2%98/"/>
-    <id>http://hi2048.github.io/2021/03/15/俄罗斯套娃信封问题/</id>
-    <published>2021-03-14T16:00:00.000Z</published>
-    <updated>2021-11-19T11:35:33.661Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>/*** 俄罗斯套娃信封问题* 给你一个二维整数数组 envelopes ，其中 envelopes[i] = [wi, hi] ，表示第 i 个信封的宽度和高度。* 当另一个信封的宽度和高度都比这个信封大的时候，这个信封就可以放进另一个信封里，如同俄罗斯套娃一样。* 请计算 最多能有多少个 信封能组成一组“俄罗斯套娃”信封（即可以把一个信封放到另一个信封里面）。* @param {number[][]} envelopes* @return {number}* envelopes sort by first value, and sort by second value for the same first value envelopes* dp(i) = max(dp(i), dp(j) + 1)*/var maxEnvelopes = function(envelopes) {  const dp = new Array(envelopes.length).fill(1);  envelopes.sort((item1, item2) =&gt; {    return item1[0] - item2[0];  }).sort((item1, item2) =&gt; {    if(item1[0] === item2[0]) {      return item2[1] - item1[1];    }    return 0;  });  for(let i = 0; i &lt; envelopes.length; i++ ) {    for(let j = 0; j &lt; i; j++) {      if(envelopes[i][1] &gt; envelopes[j][1]) {        dp[i] = Math.max(dp[i], dp[j] + 1);      }    }  }  return Math.max(...dp);};</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;/**
-* 俄罗斯套娃信封问题
-* 给你一个二维整数数组 envelopes ，其中 envelopes[i] = [wi, hi] ，表示第 i 个信封的宽度和高度。
-* 当另一个信封的宽度和高度都比这个信封大的时候，这个信封就可以放进另一个信封里，如同俄
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最长递增子序列</title>
-    <link href="http://hi2048.github.io/2021/02/05/%E6%9C%80%E9%95%BF%E9%80%92%E5%A2%9E%E5%AD%90%E5%BA%8F%E5%88%97/"/>
-    <id>http://hi2048.github.io/2021/02/05/最长递增子序列/</id>
-    <published>2021-02-04T16:00:00.000Z</published>
-    <updated>2021-11-19T11:32:13.065Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>/*** 最长递增子序列* 给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。* @param {number[]} nums* @return {number}* dp(i) = max(dp(i), dp(j) + 1)*/var lengthOfLIS = function(nums) {  const dp = new Array(nums.length).fill(1);  for(let i = 0; i &lt; nums.length; i++) {    for(let j = 0; j &lt; i; j++) {      if(nums[j] &lt; nums[i]) {        dp[i] = Math.max(dp[i], dp[j] + 1);      }    }  }  return Math.max(...dp);};</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;/**
-* 最长递增子序列
-* 给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
-* @param {number[]} nums
-* @return {number}
-* dp(i) = max(dp(i), dp(j) + 1)
-*/
-v
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>理财笔记</title>
-    <link href="http://hi2048.github.io/2021/02/01/%E7%90%86%E8%B4%A2%E7%AC%94%E8%AE%B0/"/>
-    <id>http://hi2048.github.io/2021/02/01/理财笔记/</id>
-    <published>2021-01-31T16:00:00.000Z</published>
-    <updated>2021-09-12T16:05:41.164Z</updated>
-    
-    <content type="html"><![CDATA[<p>市场概率：1. 胜率 2. 赔率： 即盈亏比 3. 破产率：仓位控制或者资金管理 </p><p>赔率才是交易员要考虑的根本问题。<br>你正确或错误并不是最重要的，最重要的是你正确的时候能赚多少钱，错误的时候会亏多少钱。 – 索罗斯</p><p><strong>赚大赔小，生存第一。</strong></p><p>第一保住本金，第二保住本金，第三认真考虑第一第二条。 – 巴菲特</p><p>一律：纪律，用纪律去统领一切概率的可能性。 1. 胜败：<strong>趋势掌控能力</strong>，行情是否按照计划的大概率事件进行 2. 对错：<strong>计划执行能力</strong>，整体策略的执行力结果 3. 盈亏</p><p>信念： 大道至简，坚信自己可以成功，信念的坚定其实是中庸之道。</p><p>左倾冒进主义： 盲目自信，扛单，频繁交易，重仓交易，赌气交易。<br>右倾投降主义： 做单太谨小慎微，明明是很好的机会，不敢下单，<strong>错失机会</strong>。</p><p>知识与智慧： 知识是可以通过学习获得，智慧只能通过体悟和实践获得。</p><p>熟知与真知： 通过学习知道与通过实践知道的区别。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;市场概率：1. 胜率 2. 赔率： 即盈亏比 3. 破产率：仓位控制或者资金管理 &lt;/p&gt;
-&lt;p&gt;赔率才是交易员要考虑的根本问题。&lt;br&gt;你正确或错误并不是最重要的，最重要的是你正确的时候能赚多少钱，错误的时候会亏多少钱。 – 索罗斯&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;赚大赔小
-      
-    
-    </summary>
-    
-      <category term="杂谈" scheme="http://hi2048.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-      <category term="理财" scheme="http://hi2048.github.io/tags/%E7%90%86%E8%B4%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TypeScript notes</title>
-    <link href="http://hi2048.github.io/2021/01/09/TypeScript-notes/"/>
-    <id>http://hi2048.github.io/2021/01/09/TypeScript-notes/</id>
-    <published>2021-01-08T16:00:00.000Z</published>
-    <updated>2021-11-27T07:03:34.058Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>origin data type: number, string, boolean, null, undefined, void, symbol, bigint</p></li><li><p>non-origin data type: object, array, tuple, enum</p><pre><code>const arr: string[] = [&apos;1&apos;, &apos;2&apos;, &apos;3&apos;]const tuple: [string, number, string] = [&apos;1&apos;, 2, &apos;3&apos;]</code></pre></li><li><p>any, unknown, never<br>any 类型的变量是可以进行任意进行赋值、实例化、函数执行等操作，但是 unknown 只允许赋值，不允许实例化、函数执行等操作<br>never 的字面意思是 “永不”，在 TS 中代表不存在的值类型，一般用于给函数进行类型声明，函数绝不会有返回值的时候使用，比如函数内抛出错误</p></li><li><p>interface</p><pre><code>interface Todo {  content: string;  readonly user: string;  time?: string;  isComplete: boolean;  [propName: string]: any;}</code></pre></li><li><p>enum</p><pre><code>enum UserId {  tuture = &apos;666&apos;,  mRcfps = 6,}</code></pre></li><li><p>函数类型</p><pre><code>const add: (x: number, y: number, z?: number): number = function(x, y) {  // ...  return x + y;}</code></pre></li></ol><p>7.1 交叉类型 &amp;<br>        interface ErrorHandling {<br>          success: boolean;<br>          error?: { message: string };<br>        }<br>        interface ArtistsData {<br>          artists: { name: string }[];<br>        }<br>        const handleArtistsResponse = (response: ArtistsData &amp; ErrorHandling) =&gt; {<br>          if(response.error) {<br>            console.error(response.error.message);<br>            return;<br>          }<br>          console.log(response.artists);<br>        }</p><p>7.2 联合类型 |<br>        const padLeft = (value: string, padding: string | number) =&gt; void</p><ol start="8"><li><p>字面量类型<br>字面量可是说是 TS 类型系统里面最小的类型。<br>数字字面量<br>let tuture: 520<br>字符串字面量<br>let tuture: ‘520’</p></li><li><p>类型守卫<br>联合类型+字面量类型<br>主要用于在进行 ”联合“ 的多个类型之间，存在相同的字段，也存在不同的字段，然后需要区分具体什么时候是使用哪个类型</p></li><li><p>类型别名</p><pre><code>type NameParams = &apos;string&apos; | () =&gt; &apos;string&apos;;function getName(n: NameParams): string {}</code></pre></li><li><p>类型别名与接口</p><pre><code>type name = &apos;string&apos;type tuture ={  tutureCommunity: string;  editure: string;  tutureDocs: string;}interface Tuture {  tutureCommunity: string;  editure: string;  tutureDocs: string;}</code></pre></li><li><p>类<br>ES6<br>构造函数<br>属性<br>实例属性<br>静态属性<br>方法<br>实例方法<br>静态方法<br>TS<br>注解构造函数<br>注解属性<br>访问限定符: public/protected/private<br>修饰符: readonly<br>注解方法<br>访问限定符: public/protected/private</p><pre><code>class Animal {  name: string;  static isAnimal(a: Animal): boolean {    return a instanceof Animal;  }  constructor(name: string) {    this.name = name;  }  move(distance: number) {    console.log(`${this.name} moved ${distance}m.`);  }}</code></pre><p>Public<br>public 代表公共的，表示被此访问限定符修饰的属性，方法可以任何地方访问到：1）类中 2）类的实例对象 3）类的子类中 4）子类的实例对象 等，默认所有类的和方法都是 public 修饰的<br>Protected<br>在类和子类中访问，不能被类的实例对象访问也不能被子类的实例对象访问<br>Private<br>在类的内部访问<br>只读修饰符<br>readonly<br>抽象类<br>抽象类与抽象方法</p><pre><code>abstract class Animal {  abstract makeSound(): void;  move(): void {    console.log(&quot;Roaming the earth...&quot;);  }}</code></pre><p>抽象类的继承</p><pre><code>class Bird extends Animal {  makeSound(): void {    console.log(&apos;Tuture tuture tuture.&apos;);  }}</code></pre><p>构造函数<br>声明的 Animal 类型不包括构造函数 constructor 以及类中的静态方法和静态属性，就像实例对象中是不包含类的构造函数、静态方法和静态属性一样<br>类与接口<br>类实现接口</p><pre><code>interface Alarm {  alert(): void;}interface Light {  lightOn(): void;  lightOff(): void;}class Car implements Alarm, Light {  alert() {    console.log(&apos;Car alarm&apos;);  }  lightOn() {    console.log(&apos;Car light on&apos;);  }  lightOff() {    console.log(&apos;Car light off&apos;);  }}class Door implements Alarm {  alert() {    console.log(&apos;Door alarm&apos;);  }}</code></pre><p>接口继承类</p><pre><code>class Point {  x: number;  y: number; }interface Point3D extends Point {  z: number;}</code></pre><p>接口继承的是声明 Point 类时同时声明的用于注解类实例的那个类型, 而这个类型只包含类的实例属性和方法，所以接口继承类也是继承此类的实例属性和方法的类型<br>类作为接口使用<br>1）多个类实现同一个接口来复用接口的属性或者方法 2）一个类实现多个接口 3）接口也可以继承类，只不过是继承类声明时同时声明的同名类型 4）类作为接口，通过进一步应用类声明的两个内容来简化 React 组件代码，提高代码的逻辑性和可复用性</p></li><li><p>泛型<br>配置TypeScript npx tsc –init</p><pre><code>tsconfig.json{  &quot;compilerOptions&quot;: {    &quot;outDir&quot;: &quot;./dist&quot; // 设置编译输出的文件夹  },  &quot;include&quot;: [    // 需要编译的ts文件一个*表示文件匹配**表示忽略文件的深度问题    &quot;./src/**/*.ts&quot;  ],  &quot;exclude&quot;: [&quot;node_modules&quot;, &quot;dist&quot;, &quot;**/*.test.ts&quot;] // 排除不需要编译的文件夹}&quot;build:w&quot;: &quot;tsc -w&quot; // watch 模式</code></pre><p>类型的函数</p><pre><code>function getTutureTutorialsInfo&lt;T, U&gt;(info: T[], profile: U): T[] {  console.log(info.length);  console.log(profile);  return info;}getTutureTutorialsInfo&lt;string, object&gt;([&apos;hello tuture&apos;, &apos;hello world&apos;], { username: &apos;tuture&apos; });</code></pre><p>泛型是在调用时再限定类型<br>我们在定义泛型的时候，是一系列类型变量，如 T 、 U 等，这些变量实际的类型我们在定义的时候是不知道的，只有在进行泛型调用的时候，由用户给定实际的类型以这里有一种延迟声明类型的作用。<br>匿名函数泛型</p><pre><code>const getTUtureTutorialsInfo: &lt;T&gt;(info: T[]) =&gt; T[] = (info) =&gt; {  console.log(info.length);  return info;}</code></pre><p>泛型默认类型参数<br>&lt;T, U = number&gt;<br>泛型数组 Array<t><br>类泛型<br>class TodoInput extends React.Component&lt;TodoInputProps, TodoInputState&gt;<br>接口泛型</t></p><pre><code>interface Profile&lt;T&gt; {  username: string;  nickName: string;  avatar: string;  age: T;}type ProfileWithAge = Profile&lt;string&gt;</code></pre><p>类型别名泛型</p><pre><code>type Profile&lt;T&gt; = {  username: string;  age: T;}type ProfileWithAge = Profile&lt;string&gt;;</code></pre><p>泛型约束</p><pre><code>type Profile&lt;T&gt; = {  username: string;  age: T;}function getTutureTutorialsInfo&lt;T, U extends Profile&lt;string&gt;&gt;(info: T[], profile: U): T[] {  console.log(info.length);  console.log(profile);  return info;}</code></pre></li></ol><p>类：<br>        class Profile<t>{<br>          username: string;<br>          age: T;<br>        }</t></p><p>接口:<br>        interface Profile<t> {<br>          username: string;<br>          age: T;<br>        }</t></p><p>类型别名：<br>        type Profile<t> = {<br>          username: string;<br>          age: T;<br>        }</t></p><p>duck typing<br>当看到一只鸟走起来像鸭子、游泳起来像鸭子、叫起来也像鸭子，那么这只鸟就可以被称为鸭子。<br>TS 类型是鸭子类型, 是基于代码的实际样子来进行类型注解的<br>构造函数的注解<br>        interface ConstructorFunction<c> {<br>          new (): C;<br>        }</c></p><p>类在声明的时候会声明两个东西：1）用于注解此类实例的类型 2）以及此类的构造函数。<br>        const profileConstructor: ConstructorFunction&lt;Profile<string>&gt; = Profile;</string></p><p>注解构造函数<br>        class Profile<t> {<br>          username: string;<br>          age: T;<br>        }<br>        class TutureProfile extends Profile<string> {<br>          github: string;<br>          remote: string[];<br>        }<br>        interface ConstructorFunction<c> {<br>          new (): C;<br>        }<br>        function createInstance&lt;A extends Profile<string>&gt;(B: ConstructorFunction<a>) {<br>          return new B();<br>        }<br>        const myTutureProfile = createInstance(TutureProfile);</a></string></c></string></t></p><p>参考：<br><a href="https://zhuanlan.zhihu.com/p/144004258" target="_blank" rel="noopener">一只图雀 类型即正义</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;origin data type: number, string, boolean, null, undefined, void, symbol, bigint&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;non-origin data type: object, 
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="TypeScript" scheme="http://hi2048.github.io/tags/TypeScript/"/>
     
   </entry>
   

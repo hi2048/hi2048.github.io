@@ -64,6 +64,289 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-数组中有效三角形的数量" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/12/数组中有效三角形的数量/" class="article-date">
+  <time datetime="2020-07-11T16:00:00.000Z" itemprop="datePublished">2020-07-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/12/数组中有效三角形的数量/">数组中有效三角形的数量</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>数组nums中有效三角形的数量</p>
+<pre><code>  var triangleNumber = function(nums) {
+    let count = 0;
+
+    nums.sort((a, b) =&gt; a - b);
+
+    for(let i = nums.length - 1; i &gt;= 2; i--) {
+        let j = i - 1, k = 0;
+
+        while(k &lt; j) {
+            if(nums[k] + nums[j] &gt; nums[i]) {
+                count += j - k;
+                j--;
+            } else {
+                k++;
+            }
+        }
+    }
+
+    return count;
+};
+</code></pre></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2020/07/12/数组中有效三角形的数量/" data-id="clesc7znq005brjws7tfu77wa" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-SMART原则" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/08/SMART原则/" class="article-date">
+  <time datetime="2020-06-07T16:00:00.000Z" itemprop="datePublished">2020-06-08</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/08/SMART原则/">SMART原则</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong> SMART原则（S=Specific、M=Measurable、A=Attainable、R=Relevant、T=Time-bound）</strong></p>
+<ol>
+<li>绩效指标必须是具体的（Specific）</li>
+<li>绩效指标必须是可以衡量的（Measurable）</li>
+<li>绩效指标必须是可以达到的（Attainable）</li>
+<li>绩效指标是要与其他目标具有一定的相关性(Relevant)</li>
+<li>绩效指标必须具有明确的截止期限（Time-bound）</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2020/06/08/SMART原则/" data-id="clesc7zm00022rjws2z823fx8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Agile/">Agile</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-GCP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/25/GCP/" class="article-date">
+  <time datetime="2020-05-24T16:00:00.000Z" itemprop="datePublished">2020-05-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/05/25/GCP/">GCP</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>Computer Engine, App Engine</p>
+</li>
+<li><p>HTTPS load balance</p>
+</li>
+<li><p>Stackdriver</p>
+</li>
+<li><p>Datastore</p>
+</li>
+<li><p>BigQuery</p>
+</li>
+<li><p>Cloud Pub/Sub</p>
+</li>
+<li><p>Cloud storage</p>
+</li>
+<li><p>Cloud Dataflow</p>
+</li>
+<li><p>Cloud Endpoints</p>
+</li>
+<li><p>Cloud SQL</p>
+</li>
+<li><p>Hadoop/Spark</p>
+</li>
+<li><p>Cloud dataproc</p>
+</li>
+<li><p>Jenkins</p>
+</li>
+<li><p>Cloud BigTable</p>
+</li>
+<li><p>Cloud Memorystore</p>
+</li>
+<li><p>Cloud Datastore</p>
+</li>
+<li><p>k8s(Kubernetes)/Containers</p>
+</li>
+<li><p>Cloud Marketplace</p>
+</li>
+<li><p>CDN</p>
+</li>
+<li><p>Local SSD, SSD persistent disks</p>
+</li>
+<li><p>Cloud VPN</p>
+</li>
+<li><p>Cloud Functions</p>
+</li>
+<li><p>CSEK</p>
+</li>
+<li><p>Firewall rules</p>
+</li>
+<li><p>ETL</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2020/05/25/GCP/" data-id="clesc7zll0017rjws6p8t5h87" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GCP/">GCP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-logger" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/04/12/logger/" class="article-date">
+  <time datetime="2020-04-11T16:00:00.000Z" itemprop="datePublished">2020-04-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/04/12/logger/">logger</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>– logger <a href="https://github.com/hi2048/hi2048-utils/tree/master/site/src/utils/log" title="logger" target="_blank" rel="noopener">github</a>  <a href="https://www.npmjs.com/package/hi2048-utils" title="hi2048-utils" target="_blank" rel="noopener">npm</a>  <a href="http://blog.hi2048.com/hi2048-utils/" title="logger" target="_blank" rel="noopener">demo</a></p>
+<pre><code>-- index.js
+import { isFunction, isString } from &apos;../type&apos;;
+
+const log = type =&gt; (target, name, descriptor) =&gt; {
+  if(isFunction(target[name])) {
+    const originFunction = descriptor.value;
+
+    descriptor.value = function(...args) {
+      console.log(`${target.constructor.name}: `);
+      console.log(`${type} start: ${name} (${args}).`);
+
+      try {
+        const ret = originFunction.call(this, ...args);
+        console.log(`${type} succeed: ${name} (${args} =&gt; ${ret}).`);
+      } catch(err) {
+        console.log(`${type} failed: ${name} (${args} =&gt; ${err}).`);
+      }
+    }
+  }
+
+  return descriptor;
+}
+
+export const logger = (...args) =&gt; {
+  if(!isString(args[0])) {
+    return log(&apos;&apos;)(...args);
+  }
+
+  return log(...args);
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2020/04/12/logger/" data-id="clesc7zm7002erjwsg4xwy3yo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-creater" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/03/20/creater/" class="article-date">
@@ -111,7 +394,7 @@ export const factory = Target =&gt; builder(creater(Target));
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/03/20/creater/" data-id="cl0tk2mpq001bc7wsozrcmtkp" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/03/20/creater/" data-id="clesc7zm6002drjwsswsvnqqr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -208,7 +491,7 @@ test(&apos;create&apos;, () =&gt; expect(createRandomName()).toBeDefined());
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/03/08/unicode/" data-id="cl0tk2mpu001kc7wsz9a4i1m5" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/03/08/unicode/" data-id="clesc7zmc002nrjwszlu67ymz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -268,7 +551,7 @@ test(&quot;isPlainObject&quot;, () =&gt; expect(isPlainObject(new class Test{}))
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/03/06/简单对象/" data-id="cl0tk2mts006ec7ws4vnqby3p" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/03/06/简单对象/" data-id="clesc7znx005urjwsx40ro61c" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -316,7 +599,7 @@ export const array = { add, remove };
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/02/25/array基本操作/" data-id="cl0tk2mpp0019c7wsmes0thv7" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/02/25/array基本操作/" data-id="clesc7zm5002arjws0cj50ii6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -391,7 +674,7 @@ assert.equal(curry((a, b, c) =&gt; a + b - c)(10)(9)(11), 8);
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/02/20/curry-compose-and-pipe/" data-id="cl0tk2mpq001cc7ws5yqnt2md" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/02/20/curry-compose-and-pipe/" data-id="clesc7zm8002grjwsgv6elfhv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
@@ -509,480 +792,10 @@ export const getSpeed = speed =&gt; {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/02/10/DynamicNumber/" data-id="cl0tk2mp00006c7wse7ie06gu" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2020/02/10/DynamicNumber/" data-id="clesc7zlk0015rjwsaqaie2n9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React/">React</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-类型判断" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/01/08/类型判断/" class="article-date">
-  <time datetime="2020-01-07T16:00:00.000Z" itemprop="datePublished">2020-01-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/08/类型判断/">类型判断</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>– 基本数据类型判断 <a href="https://github.com/hi2048/utils/tree/master/type" title="类型判断" target="_blank" rel="noopener">github</a>  <a href="https://www.npmjs.com/package/hi2048-utils" title="hi2048-utils" target="_blank" rel="noopener">npm</a></p>
-<pre><code>-- type.js
-const types = {
-  &apos;Number&apos;: &apos;Number&apos;,
-  &apos;String&apos;: &apos;String&apos;,
-  &apos;Boolean&apos;: &apos;Boolean&apos;,
-  &apos;Object&apos;: &apos;Object&apos;,
-  &apos;Array&apos;: &apos;Array&apos;,
-  &apos;Function&apos;: &apos;Function&apos;,
-  &apos;Date&apos;: &apos;Date&apos;,
-  &apos;RegExp&apos;: &apos;RegExp&apos;,
-  &apos;Symbol&apos;: &apos;Symbol&apos;,
-  &apos;null&apos;: &apos;Null&apos;,
-  &apos;NaN&apos;: &apos;NaN&apos;,
-  &apos;undefined&apos;: &apos;Undefined&apos;
-};
-
-const isType = type =&gt; obj =&gt; Object.prototype.toString.call(obj) === `[object ${type}]`;
-
-const isTypeFactory = types =&gt; {
-  const isTypes = {};
-
-  for(let key of Object.keys(types)) {
-    if(types[key] === &apos;NaN&apos;) {
-      isTypes[&apos;isNaN&apos;] = isNaN;
-    } else if(types[key] === &apos;Number&apos;) {
-      isTypes[&apos;isNumber&apos;] = obj =&gt; {
-        if(isNaN(obj)) {
-          return false;
-        }
-
-        return isType(types[key])(obj);
-      };
-    } else {
-      isTypes[`is${types[key]}`] = isType(types[key]);
-    }
-  }
-
-  return isTypes;
-};
-
-module.exports = { isNumber, isString, isBoolean, isObject, isArray, isFunction, isDate, isRegExp, isSymbol, isNull, isNaN, isUndefined } = isTypeFactory(types);
-
--- type.test.js
-const assert = require(&apos;assert&apos;);
-const { isNumber, isString, isBoolean, isObject, isArray, isFunction, isDate, isRegExp, isSymbol, isNull, isNaN, isUndefined } = require(&apos;.&apos;);
-
-assert.equal(isNumber(1), true);
-assert.equal(isNumber(&apos;a&apos;), false);
-assert.equal(isNumber(NaN), false);
-
-assert.equal(isString(&apos;a&apos;), true);
-assert.equal(isString({&apos;a&apos;: 1}), false);
-
-assert.equal(isBoolean(true), true);
-assert.equal(isBoolean(&apos;true&apos;), false);
-
-assert.equal(isObject({&apos;a&apos;: 1}), true);
-assert.equal(isObject([1,2]), false);
-
-assert.equal(isArray([1,2]), true);
-assert.equal(isArray({&apos;a&apos;: 1}), false);
-
-assert.equal(isFunction(console.log), true);
-assert.equal(isFunction(&apos;a&apos;), false);
-
-assert.equal(isDate(new Date()), true);
-assert.equal(isDate(&apos;a&apos;), false);
-
-assert.equal(isRegExp(/.*/g), true);
-assert.equal(isRegExp(&apos;a&apos;), false);
-
-assert.equal(isSymbol(Symbol()), true);
-assert.equal(isSymbol(&apos;a&apos;),false);
-
-assert.equal(isNull(null), true);
-assert.equal(isNull(&apos;null&apos;), false);
-
-assert.equal(isNaN(NaN), true);
-assert.equal(isNaN(&apos;NaN&apos;), true);
-assert.equal(isNaN(1), false);
-
-assert.equal(isUndefined(undefined), true);
-assert.equal(isUndefined(&apos;undefined&apos;), false);
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2020/01/08/类型判断/" data-id="cl0tk2mtu006jc7wsf15pohed" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-最大最小值" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/25/最大最小值/" class="article-date">
-  <time datetime="2019-12-24T16:00:00.000Z" itemprop="datePublished">2019-12-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/25/最大最小值/">最大最小值</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>– min and max value in args(array or numbers). </p>
-<pre><code>const min = (...args) =&gt; {
-  return args.reduce((a, b) =&gt; {
-    b = Array.isArray(b)?min(...b) : b;
-
-    return a &lt; b?a : b;
-  }, Infinity);
-}
-
-const max = (...args) =&gt; {
-  return args.reduce((a, b) =&gt; {
-    b = Array.isArray(b)?max(...b) : b;
-
-    return a &gt; b?a : b;
-  }, -Infinity);
-}
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/12/25/最大最小值/" data-id="cl0tk2mt6004yc7ws7fyx6zk1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/utils/">utils</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-“气球”的最大数量" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/11/18/“气球”的最大数量/" class="article-date">
-  <time datetime="2019-11-17T16:00:00.000Z" itemprop="datePublished">2019-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/18/“气球”的最大数量/">“气球”的最大数量</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong> 给你一个字符串 text，你需要使用 text 中的字母来拼凑尽可能多的单词 “balloon”（气球）。 </strong><br><strong> 字符串 text 中的每个字母最多只能被使用一次。请你返回最多可以拼凑出多少个单词 “balloon”。 </strong></p>
-<pre><code>const min = (...args) =&gt; {
-  return args.reduce((a, b) =&gt; a &lt; b?a : b);
-}
-
-var maxNumberOfBalloons = function(text) {
-    const hash = {b: 0, a: 0, l: 0, o: 0, n: 0};
-
-    for(let c of text) {
-        hash[c] = hash[c]?(++hash[c]) : 1;
-    }
-
-    return min(hash[&apos;b&apos;], hash[&apos;a&apos;], Math.floor(hash[&apos;l&apos;] / 2), Math.floor(hash[&apos;o&apos;] / 2), hash[&apos;n&apos;]);
-};
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/11/18/“气球”的最大数量/" data-id="cl0tk2mpv001mc7ws25mjs0e2" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/leetcode/">leetcode</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-IndexedDB实践及封装" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/22/IndexedDB实践及封装/" class="article-date">
-  <time datetime="2019-10-21T16:00:00.000Z" itemprop="datePublished">2019-10-22</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/22/IndexedDB实践及封装/">IndexedDB实践及封装</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>IndexedDB<br>utils for IndexedDB, crud operations.</p>
-</li>
-<li><p>代码实例 <a href="https://github.com/hi2048/IndexedDBOperator" title="IndexedDBOperator" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- config.js
-export default {
-  name: &quot;testDB&quot;
-}
-
--- connect.js
-import config from &apos;./config&apos;;
-
-const connect = ({ name = config.name, version  }) =&gt; {
-  const promise = new Promise((resolve, reject) =&gt; {
-    let dbConnection;
-    const request = window.indexedDB.open(name, version);
-
-    request.onerror = e =&gt; {
-      reject(e);
-    }
-
-    request.onsuccess = e =&gt; {
-      dbConnection = request.result;
-
-      resolve(dbConnection);
-    }
-
-    request.onupgradeneeded = e =&gt; {
-      dbConnection = e.target.result;
-
-      resolve(dbConnection);
-    }
-  })
-
-  return promise;
-}
-
-export default connect;
-
--- index.js
-import connect from &apos;./connect&apos;;
-
-class IndexedDBOperator {
-  constructor(version) {
-    if(!IndexedDBOperator.instance || version) {
-      this.dbConnection = connect({ version });
-      IndexedDBOperator.instance = this;
-    }
-
-    return IndexedDBOperator.instance;
-  }
-
-  static getInstance(version) {
-    return new IndexedDBOperator(version);
-  }
-
-  getVersion() {
-    return new Promise((resolve, reject) =&gt; {
-      this.dbConnection.then(db =&gt; resolve(db.version)).catch(err =&gt; reject(err));
-    });
-  }
-
-  containsObjectStore(name) {
-    return new Promise((resolve, reject) =&gt; {
-      this.dbConnection.then(db =&gt; {
-        try {
-          resolve(db.objectStoreNames.contains(name));
-        } catch(err) {
-          reject(err);
-        }
-      })
-    });
-  }
-
-  createObjectStore(name, keyPath) {
-    return new Promise((resolve, reject) =&gt; {
-      this.dbConnection.then(db =&gt; {
-        if(!db.objectStoreNames.contains(name)) {
-          try {
-            const objectStore = db.createObjectStore(name, { keyPath: keyPath, autoIncrement: true });
-
-            resolve(objectStore);
-          } catch(err) {
-            reject(err);
-          }
-        }
-      });
-    });
-  }
-
-  create(objectStore, data) {
-    return new Promise((resolve, reject) =&gt; {
-      this.dbConnection.then(db =&gt; {
-        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).add(data);
-
-        request.onsuccess = e =&gt; {
-          resolve(e);
-        }
-
-        request.onerror = e =&gt; {
-          reject(e);
-        }
-      });
-    });
-  }
-
-  read(objectStore, searchIndex) {
-    return new Promise((resolve, reject) =&gt; {
-      this.dbConnection.then(db =&gt; {
-        const request = db.transaction([objectStore]).objectStore(objectStore).get(searchIndex);
-
-        request.onerror = e =&gt; {
-          reject(e);
-        };
-
-        request.onsuccess = e =&gt; {
-          resolve(request.result);
-        };
-      });
-    });
-  }
-
-  readAll(objectStore) {
-    return new Promise((resolve, reject) =&gt; {
-      this.dbConnection.then(db =&gt; {
-        const request = db.transaction([objectStore], &apos;readonly&apos;).objectStore(objectStore).openCursor();
-        const list = new Array();  // objectStore list
-
-        request.onsuccess = e =&gt; {
-          const cursor = event.target.result;
-
-          if(cursor) {
-            const { key, value } = cursor;
-
-            list.push({
-              key,
-              value
-            });
-
-            cursor.continue();
-          } else {
-            resolve(list);
-          }
-        };
-
-        request.onerror = e =&gt; {
-          reject(e);
-        };
-      });
-    });
-  }
-
-  update(objectStore, data) {
-    return new Promise((resolve, reject) =&gt; {
-      this.dbConnection.then(db =&gt; {
-        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).put(data);
-
-        request.onsuccess = e =&gt; {
-          resolve(e);
-        };
-
-        request.onerror = e =&gt; {
-          reject(e);
-        };
-      });
-    });
-  }
-
-  delete(objectStore, searchIndex) {
-    return new Promise((resolve, reject) =&gt; {
-      this.dbConnection.then(db =&gt; {
-        const request = db.transaction([objectStore], &apos;readwrite&apos;).objectStore(objectStore).delete(searchIndex);
-
-        request.onsuccess = e =&gt; {
-          resolve(e);
-        };
-
-        request.onerror = e =&gt; {
-          reject(e);
-        };
-      });
-    });
-  }
-}
-
-export default IndexedDBOperator;
-</code></pre></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2019/10/22/IndexedDB实践及封装/" data-id="cl0tk2mp7000dc7wszppq5cn7" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具类/">工具类</a></li></ul>
 
     </footer>
   </div>
@@ -1015,7 +828,7 @@ export default IndexedDBOperator;
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agile/">Agile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GCP/">GCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mural/">Mural</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrum-Master/">Scrum Master</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TED/">TED</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/团队/">团队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英文/">英文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Agile/">Agile</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSS3/">CSS3</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GCP/">GCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jquery/">Jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mural/">Mural</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/React/">React</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SAFe/">SAFe</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scrum-Master/">Scrum Master</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TED/">TED</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048/">hi2048</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-design/">hi2048-design</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hi2048-utils/">hi2048-utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/leetcode/">leetcode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/utils/">utils</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vuex/">vuex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/函数式/">函数式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/团队/">团队</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大话设计模式/">大话设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/小说/">小说</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工具类/">工具类</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/情景喜剧/">情景喜剧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/杀手/">杀手</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/武侠/">武侠</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/理财/">理财</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/英文/">英文</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/风神/">风神</a></li></ul>
     </div>
   </div>
 
@@ -1025,7 +838,7 @@ export default IndexedDBOperator;
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Agile/" style="font-size: 12px;">Agile</a> <a href="/tags/C/" style="font-size: 13px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 17px;">Leetcode</a> <a href="/tags/Mural/" style="font-size: 10px;">Mural</a> <a href="/tags/React/" style="font-size: 16px;">React</a> <a href="/tags/Scrum-Master/" style="font-size: 11px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/TypeScript/" style="font-size: 12px;">TypeScript</a> <a href="/tags/hi2048/" style="font-size: 15px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 12px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 11px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 11px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 18px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 11px;">理财</a> <a href="/tags/算法/" style="font-size: 19px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 18px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
+      <a href="/tags/Agile/" style="font-size: 12.73px;">Agile</a> <a href="/tags/C/" style="font-size: 13.64px;">C++</a> <a href="/tags/CSS3/" style="font-size: 10px;">CSS3</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/JAVA/" style="font-size: 10px;">JAVA</a> <a href="/tags/JavaScript/" style="font-size: 20px;">JavaScript</a> <a href="/tags/Jquery/" style="font-size: 10px;">Jquery</a> <a href="/tags/Leetcode/" style="font-size: 17.27px;">Leetcode</a> <a href="/tags/Mural/" style="font-size: 10px;">Mural</a> <a href="/tags/React/" style="font-size: 16.36px;">React</a> <a href="/tags/SAFe/" style="font-size: 10px;">SAFe</a> <a href="/tags/Scrum-Master/" style="font-size: 10.91px;">Scrum Master</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/TED/" style="font-size: 10px;">TED</a> <a href="/tags/TypeScript/" style="font-size: 11.82px;">TypeScript</a> <a href="/tags/hi2048/" style="font-size: 15.45px;">hi2048</a> <a href="/tags/hi2048-design/" style="font-size: 10px;">hi2048-design</a> <a href="/tags/hi2048-utils/" style="font-size: 14.55px;">hi2048-utils</a> <a href="/tags/leetcode/" style="font-size: 11.82px;">leetcode</a> <a href="/tags/utils/" style="font-size: 10px;">utils</a> <a href="/tags/vue/" style="font-size: 10.91px;">vue</a> <a href="/tags/vuex/" style="font-size: 10px;">vuex</a> <a href="/tags/函数式/" style="font-size: 10px;">函数式</a> <a href="/tags/团队/" style="font-size: 10.91px;">团队</a> <a href="/tags/大话设计模式/" style="font-size: 18.18px;">大话设计模式</a> <a href="/tags/小说/" style="font-size: 10px;">小说</a> <a href="/tags/工具类/" style="font-size: 10px;">工具类</a> <a href="/tags/情景喜剧/" style="font-size: 10px;">情景喜剧</a> <a href="/tags/杀手/" style="font-size: 10px;">杀手</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/理财/" style="font-size: 10.91px;">理财</a> <a href="/tags/算法/" style="font-size: 19.09px;">算法</a> <a href="/tags/英文/" style="font-size: 10px;">英文</a> <a href="/tags/设计模式/" style="font-size: 18.18px;">设计模式</a> <a href="/tags/风神/" style="font-size: 10px;">风神</a>
     </div>
   </div>
 
@@ -1034,7 +847,7 @@ export default IndexedDBOperator;
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
@@ -1047,23 +860,23 @@ export default IndexedDBOperator;
       <ul>
         
           <li>
+            <a href="/2022/07/02/SAFe notes/">SAFe notes</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/02/Agile Practice/">Agile Practice</a>
+          </li>
+        
+          <li>
+            <a href="/2022/04/02/Risk Management/">Risk</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/23/Length-of-last-word/">Length of last word</a>
+          </li>
+        
+          <li>
             <a href="/2022/02/20/Sailboat-retrospective/">Sailboat retrospective</a>
-          </li>
-        
-          <li>
-            <a href="/2022/02/15/Happiness/">Happiness</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/18/typescript-todo/">typescript todo</a>
-          </li>
-        
-          <li>
-            <a href="/2022/01/01/一维数组转换二维数组/">一维数组转换二维数组</a>
-          </li>
-        
-          <li>
-            <a href="/2021/12/01/Speed-Car-Retrospective/">Speed Car Retrospective</a>
           </li>
         
       </ul>
@@ -1078,7 +891,7 @@ export default IndexedDBOperator;
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2022 Jsu<br>
+      &copy; 2023 Jsu<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
