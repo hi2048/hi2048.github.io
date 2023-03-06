@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2022-08-29T03:50:06.260Z</updated>
+  <updated>2023-03-06T10:19:23.857Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -17,11 +17,70 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Agile Practice</title>
+    <link href="http://hi2048.github.io/2023/02/12/Agile%20Practice/"/>
+    <id>http://hi2048.github.io/2023/02/12/Agile Practice/</id>
+    <published>2023-02-11T16:00:00.000Z</published>
+    <updated>2023-03-06T10:19:23.857Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Agile-Practice"><a href="#Agile-Practice" class="headerlink" title="Agile Practice"></a>Agile Practice</h1><ul><li>Risk idenficication</li><li>Story mapping</li><li>Splitting story</li></ul><hr><h1 id="Risk-idenficication"><a href="#Risk-idenficication" class="headerlink" title="Risk idenficication"></a>Risk idenficication</h1><ul><li>Risk management</li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Risk-Management"><a href="#Risk-Management" class="headerlink" title="Risk Management"></a>Risk Management</h1><ul><li>Risk management, why<ul><li>story: 别人的风险和自己的风险，提醒别人，与保持自己清楚，只缘身在此山中。</li><li>Story: 预防为先， 来客提出建议，烟囱，木材，着火，邻居救火，主人宴请邻居，提醒提出建议的人，孰轻孰重？扁鹊三兄弟</li><li>Story: 保护成员的积极性， 大师，鞋带，松开，弟子，提醒，旁观者问大师</li></ul></li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Quantify-Risk"><a href="#Quantify-Risk" class="headerlink" title="Quantify Risk"></a>Quantify Risk</h1><ul><li>四象限法则 - 重要，紧急</li><li>KSAO, K - knowledge, S - Skill, Ability, Others</li><li>墨菲定律：凡事可能会出错，就一定会出错。</li><li>海恩法则：任何不安全事故都是可以预防的</li><li>费斯汀格法则：重要的不是发生在你身上的事情，而是你如何处理。</li><li>avoid, mitigate, transfer, accept<br>明知山有虎？？<br>安全带<br>保单</li><li>评审经验教训， 风险核查清单， 头脑风暴， 风险分解结构</li><li>估算： 概率树，预期价值（影响 * 概率）， 评价： 蒙特卡洛分析（最乐购，最坏，最可能），预期货币价值</li></ul><hr><h1 id="Triple-constrain"><a href="#Triple-constrain" class="headerlink" title="Triple constrain"></a>Triple constrain</h1><ul><li>scope, time, cost</li></ul><hr><h1 id="已知，未知，风险"><a href="#已知，未知，风险" class="headerlink" title="已知，未知，风险"></a>已知，未知，风险</h1><hr><h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><ul><li>Risk management</li><li><p>Quantify Risk</p><ul><li>风险登记表：动态更新，及时处置<br>RBS(Risk Breakdown structure)风险类型， 风险描述， 发生概率， 影响程度， 风险等级， 风险影响描述， 风险响应计划， owner, status</li></ul></li><li><p>practice</p></li><li>discuss</li></ul><hr><h1 id="Discuss"><a href="#Discuss" class="headerlink" title="Discuss"></a>Discuss</h1><ul><li>Risk management</li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Risk"><a href="#Risk" class="headerlink" title="Risk"></a>Risk</h1><p><strong>Risk: factors that may cause a failure to meet the project’s objectives.</strong></p><hr><p><strong>帕金森定律：工作会自动地膨胀占满所有可用的时间。</strong><br><strong>解决方案：最早开始法则</strong></p><ul><li>七格图： es, ef, ls, lf, du - 活动历时, tf - 总时差， ff - 自由时差</li><li>AOE网：带权有向图</li></ul><hr><ol><li>risk management</li><li>quantify</li><li>practice</li><li>discuss</li></ol><hr><p>风险与机遇</p><p>生于忧患，死于安乐<br>战战兢兢，如临深渊，如履薄冰。 – 诗经·小雅·小旻</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Agile-Practice&quot;&gt;&lt;a href=&quot;#Agile-Practice&quot; class=&quot;headerlink&quot; title=&quot;Agile Practice&quot;&gt;&lt;/a&gt;Agile Practice&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Risk idenficicat
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Agile" scheme="http://hi2048.github.io/tags/Agile/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>search insert position</title>
+    <link href="http://hi2048.github.io/2022/12/06/search-insert-position/"/>
+    <id>http://hi2048.github.io/2022/12/06/search-insert-position/</id>
+    <published>2022-12-05T16:00:00.000Z</published>
+    <updated>2023-03-06T12:47:16.789Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>/*** 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置*/var searchInsert = function(nums, target) {    let left = 0, middle = 0, right = nums.length - 1;    while(left &lt;= right) {        middle = Math.floor((left + right) / 2);        if(target &lt;= nums[middle]) {            right = middle - 1;        } else {            left = middle + 1;        }    }    return left;};</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;/**
+* 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置
+*/
+var searchInsert = function(nums, target) {
+    let left = 0
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SAFe notes</title>
-    <link href="http://hi2048.github.io/2022/07/02/SAFe%20notes/"/>
-    <id>http://hi2048.github.io/2022/07/02/SAFe notes/</id>
-    <published>2022-07-01T16:00:00.000Z</published>
-    <updated>2022-08-29T03:50:06.260Z</updated>
+    <link href="http://hi2048.github.io/2022/08/22/SAFe%20notes/"/>
+    <id>http://hi2048.github.io/2022/08/22/SAFe notes/</id>
+    <published>2022-08-21T16:00:00.000Z</published>
+    <updated>2023-03-03T10:23:53.865Z</updated>
     
     <content type="html"><![CDATA[<ol><li>Thriving in the Digital Age with Business Agility</li></ol><ul><li>Thriving in the digital age</li><li>SAFe as an operating system for Business Agility</li><li>The Seven Core competencies of Business Agility</li></ul><ol start="2"><li>Becoming a Lean-Agile Leader</li></ol><ul><li>The Lean-Agile Mindset</li><li>Lean and Agile at scale with the SAFe Principles</li></ul><ol start="3"><li>Establishing Team and Technical Agility</li></ol><ul><li>Forming cross-functional Agile Teams</li><li>Built-In Quality</li><li>Organizing Agile Release Trains around the flow of value</li></ul><ol start="4"><li>Building Solutions with Agile Product Delivery</li></ol><ul><li>Customer Centricity and Design Thinking</li><li>Prioritizing the Program Backlog</li><li>PI Planning</li><li>Develop on Cadence; Release on Demand</li><li>Building a Continuous Delivery Pipeline with DevOps</li></ul><ol start="5"><li>Exploring Lean Portfolio Management</li></ol><ul><li>Defining a SAFe Portfolio</li><li>Connecting the portfolio to the Enterprise strategy</li><li>Maintainging the Portfolio Vision</li><li>Realizing the Portfolio Vision through Epics</li><li>Establishing Lean Budgets and Guardrails</li><li>Establishing portfolio flow</li></ul><ol start="6"><li>Leading the Change</li></ol><ul><li>Leading by example</li><li>Leading the change</li></ul><ol start="7"><li>Practicing SAFe</li></ol>]]></content>
     
@@ -47,39 +106,13 @@
   </entry>
   
   <entry>
-    <title>Agile Practice</title>
-    <link href="http://hi2048.github.io/2022/04/02/Agile%20Practice/"/>
-    <id>http://hi2048.github.io/2022/04/02/Agile Practice/</id>
-    <published>2022-04-01T16:00:00.000Z</published>
-    <updated>2022-04-24T14:55:28.104Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Agile-Practice"><a href="#Agile-Practice" class="headerlink" title="Agile Practice"></a>Agile Practice</h1><ul><li>Risk idenficication</li><li>Story mapping</li><li>Splitting story</li></ul><hr><h1 id="Risk-idenficication"><a href="#Risk-idenficication" class="headerlink" title="Risk idenficication"></a>Risk idenficication</h1><ul><li>Risk management</li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Risk-Management"><a href="#Risk-Management" class="headerlink" title="Risk Management"></a>Risk Management</h1><ul><li>Risk management, why<ul><li>story: 别人的风险和自己的风险，提醒别人，与保持自己清楚，只缘身在此山中。</li><li>Story: 预防为先， 来客提出建议，烟囱，木材，着火，邻居救火，主人宴请邻居，提醒提出建议的人，孰轻孰重？扁鹊三兄弟</li><li>Story: 保护成员的积极性， 大师，鞋带，松开，弟子，提醒，旁观者问大师</li></ul></li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Quantify-Risk"><a href="#Quantify-Risk" class="headerlink" title="Quantify Risk"></a>Quantify Risk</h1><ul><li>四象限法则 - 重要，紧急</li><li>KSAO, K - knowledge, S - Skill, Ability, Others</li><li>墨菲定律：凡事可能会出错，就一定会出错。</li><li>海恩法则：任何不安全事故都是可以预防的</li><li>费斯汀格法则：重要的不是发生在你身上的事情，而是你如何处理。</li><li>avoid, mitigate, transfer, accept<br>明知山有虎？？<br>安全带<br>保单</li><li>评审经验教训， 风险核查清单， 头脑风暴， 风险分解结构</li><li>估算： 概率树，预期价值（影响 * 概率）， 评价： 蒙特卡洛分析（最乐购，最坏，最可能），预期货币价值</li></ul><hr><h1 id="Triple-constrain"><a href="#Triple-constrain" class="headerlink" title="Triple constrain"></a>Triple constrain</h1><ul><li>scope, time, cost</li></ul><hr><h1 id="已知，未知，风险"><a href="#已知，未知，风险" class="headerlink" title="已知，未知，风险"></a>已知，未知，风险</h1><hr><h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><ul><li>Risk management</li><li><p>Quantify Risk</p><ul><li>风险登记表：动态更新，及时处置<br>RBS(Risk Breakdown structure)风险类型， 风险描述， 发生概率， 影响程度， 风险等级， 风险影响描述， 风险响应计划， owner, status</li></ul></li><li><p>practice</p></li><li>discuss</li></ul><hr><h1 id="Discuss"><a href="#Discuss" class="headerlink" title="Discuss"></a>Discuss</h1><ul><li>Risk management</li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Risk"><a href="#Risk" class="headerlink" title="Risk"></a>Risk</h1><p><strong>Risk: factors that may cause a failure to meet the project’s objectives.</strong></p><hr><p><strong>帕金森定律：工作会自动地膨胀占满所有可用的时间。</strong><br><strong>解决方案：最早开始法则</strong></p><ul><li>七格图： es, ef, ls, lf, du - 活动历时, tf - 总时差， ff - 自由时差</li><li>AOE网：带权有向图</li></ul><hr><ol><li>risk management</li><li>quantify</li><li>practice</li><li>discuss</li></ol><hr><p>风险与机遇</p><p>生于忧患，死于安乐<br>战战兢兢，如临深渊，如履薄冰。 – 诗经·小雅·小旻</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Agile-Practice&quot;&gt;&lt;a href=&quot;#Agile-Practice&quot; class=&quot;headerlink&quot; title=&quot;Agile Practice&quot;&gt;&lt;/a&gt;Agile Practice&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;Risk idenficicat
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="Agile" scheme="http://hi2048.github.io/tags/Agile/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Risk</title>
-    <link href="http://hi2048.github.io/2022/04/02/Risk%20Management/"/>
-    <id>http://hi2048.github.io/2022/04/02/Risk Management/</id>
-    <published>2022-04-01T16:00:00.000Z</published>
-    <updated>2022-04-27T16:40:37.836Z</updated>
+    <link href="http://hi2048.github.io/2022/04/22/Risk%20Management/"/>
+    <id>http://hi2048.github.io/2022/04/22/Risk Management/</id>
+    <published>2022-04-21T16:00:00.000Z</published>
+    <updated>2023-03-06T10:18:53.140Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Risk"><a href="#Risk" class="headerlink" title="Risk"></a>Risk</h1><ul><li>Risk Management</li><li>practice</li><li>Q&amp;A</li></ul><hr><h1 id="Risk-1"><a href="#Risk-1" class="headerlink" title="Risk"></a>Risk</h1><p><strong>木材，着火的故事</strong></p><hr><h1 id="Risk-2"><a href="#Risk-2" class="headerlink" title="Risk"></a>Risk</h1><p><strong>重视风险</strong></p><hr><h1 id="Risk-3"><a href="#Risk-3" class="headerlink" title="Risk"></a>Risk</h1><p><strong>Risks are an aspect of uncertainty.</strong><br><strong>A risk is an uncertain event or condition that, if it occurs, has a positive or negative effect on one or more project objectives.</strong></p><ul><li>Threats: Negative risks</li><li>Opportunities: positive risks</li></ul><hr><h1 id="Risk-4"><a href="#Risk-4" class="headerlink" title="Risk"></a>Risk</h1><p><strong>动物园事件</strong></p><hr><h1 id="Murphy’s-Law"><a href="#Murphy’s-Law" class="headerlink" title="Murphy’s Law"></a>Murphy’s Law</h1><p><strong>Murphy’s Law: If anything can go wrong, it will.</strong></p><hr><h1 id="Risk-Management"><a href="#Risk-Management" class="headerlink" title="Risk Management"></a>Risk Management</h1><p><strong>Project Risk Management includes the processes of conducting risk management planning, identifying, prioritizing, numerically analyzing, planning and implementing risk responses, monitoring on a project.</strong></p><ul><li>Plan Risk Management</li><li>Identify Risks</li><li>Perform Qualitative Risk Analysis</li><li>Perform Quantitative Risk Analysis</li><li>Plan Risk Responses</li><li>Implement Risk Responses</li><li>Monitor Risks<br><strong>The objectives of project risk management are to increase the probability and impact of positive risks and to decrease the probability and impact of negative risks, in order to optimize the chances of project success.</strong></li></ul><hr><h1 id="Risk-Management-1"><a href="#Risk-Management-1" class="headerlink" title="Risk Management"></a>Risk Management</h1><p><a href="/assets/risk_management.png"><img src="/assets/risk_management.png" alt="Risk Management"></a></p><hr><h1 id="Plan-Risk-Management"><a href="#Plan-Risk-Management" class="headerlink" title="Plan Risk Management"></a>Plan Risk Management</h1><p><a href="/assets/risk_management_plan_risk_management.png"><img src="/assets/risk_management_plan_risk_management.png" alt="Plan Risk Management"></a></p><hr><h1 id="Identify"><a href="#Identify" class="headerlink" title="Identify"></a>Identify</h1><ul><li>SWOT Analysis</li><li>Prompt Lists</li><li>Risk Register<br><a href="/assets/risk_management_identify.png"><img src="/assets/risk_management_identify.png" alt="Identify"></a></li></ul><hr><h1 id="SWOT-Analysis"><a href="#SWOT-Analysis" class="headerlink" title="SWOT Analysis"></a>SWOT Analysis</h1><p><strong>SWOT(strengths, weaknesses, opportunities, and threats) analysis is a framework used to evalute a company’s competitive position and to develop strategic planning. SWOT analysis assesses internal and external factors, as well as current and future potential.</strong></p><ol><li>SO</li><li>ST</li><li>WO</li><li>WT<br><strong>short-term, medium-term, long-term activities</strong></li></ol><hr><h1 id="SWOT-Analysis-1"><a href="#SWOT-Analysis-1" class="headerlink" title="SWOT Analysis"></a>SWOT Analysis</h1><p><a href="/assets/SWOT.png"><img src="/assets/SWOT.png" alt="SWOT"></a></p><hr><h1 id="Prompt-Lists"><a href="#Prompt-Lists" class="headerlink" title="Prompt Lists"></a>Prompt Lists</h1><p><a href="/assets/risk_management_identify_prompt.png"><img src="/assets/risk_management_identify_prompt.png" alt="Prompt Lists"></a></p><hr><h1 id="Risk-Register"><a href="#Risk-Register" class="headerlink" title="Risk Register"></a>Risk Register</h1><p><a href="/assets/risk_register.png"><img src="/assets/risk_register.png" alt="Risk Register"></a></p><hr><h1 id="Risk-Register-1"><a href="#Risk-Register-1" class="headerlink" title="Risk Register"></a>Risk Register</h1><p><a href="/assets/risk_register_example.png"><img src="/assets/risk_register_example.png" alt="Risk Register"></a></p><hr><h1 id="Qualitative"><a href="#Qualitative" class="headerlink" title="Qualitative"></a>Qualitative</h1><p><strong>Qualitative methods for risk assessment are relatively rapid in practice, cost effective and easily understood. The Result from the qualitative assessments are not an accurate estimate of risk.</strong></p><hr><h1 id="Qualitative-1"><a href="#Qualitative-1" class="headerlink" title="Qualitative"></a>Qualitative</h1><p><a href="/assets/risk_management_qualitative.png"><img src="/assets/risk_management_qualitative.png" alt="Qualitative"></a></p><hr><h1 id="Probability-and-impact-matrix"><a href="#Probability-and-impact-matrix" class="headerlink" title="Probability and impact matrix"></a>Probability and impact matrix</h1><p><a href="/assets/probability_impact_matrix.png"><img src="/assets/probability_impact_matrix.png" alt="Probability and impact matrix"></a></p><hr><h1 id="Quantitative"><a href="#Quantitative" class="headerlink" title="Quantitative"></a>Quantitative</h1><p><strong>Quantitative assessment methods provide more accurate analysis results than the qualitative assessment. However, they are costlier and often time consuming, so only the risk prioritized by the qualitative assessment are analyzed.</strong><br><strong>Quantitative analysis: Simulations, Sensitivity analysis, Decision tree analysis.</strong></p><ul><li>Simulations<ul><li>Monte Carlo Technique</li></ul></li><li>Sensitivity Analysis<ul><li>Tornado Diagram</li></ul></li><li>Decision Tree Analysis</li></ul><hr><h1 id="Quantitative-1"><a href="#Quantitative-1" class="headerlink" title="Quantitative"></a>Quantitative</h1><p><a href="/assets/risk_management_quantitative.png"><img src="/assets/risk_management_quantitative.png" alt="Quantitative"></a></p><hr><h1 id="Simulations"><a href="#Simulations" class="headerlink" title="Simulations"></a>Simulations</h1><ul><li>Monte Carlo Technique<br><a href="/assets/risk_management_quantitative_simulations.png"><img src="/assets/risk_management_quantitative_simulations.png" alt="Simulations"></a></li></ul><hr><h1 id="Sensitivity-Analysis"><a href="#Sensitivity-Analysis" class="headerlink" title="Sensitivity Analysis"></a>Sensitivity Analysis</h1><ul><li>Tornado Diagram<br><a href="/assets/risk_management_quantitative_sensitivity.png"><img src="/assets/risk_management_quantitative_sensitivity.png" alt="Sensitivity analysis"></a></li></ul><hr><h1 id="Decision-Tree-Analysis"><a href="#Decision-Tree-Analysis" class="headerlink" title="Decision Tree Analysis"></a>Decision Tree Analysis</h1><p><a href="/assets/risk_management_quantitative_decision_tree.png"><img src="/assets/risk_management_quantitative_decision_tree.png" alt="Decision Tree Analysis"></a></p><hr><h1 id="Plan"><a href="#Plan" class="headerlink" title="Plan"></a>Plan</h1><p><a href="/assets/risk_management_plan.png"><img src="/assets/risk_management_plan.png" alt="Plan"></a></p><hr><h1 id="Implement"><a href="#Implement" class="headerlink" title="Implement"></a>Implement</h1><p><a href="/assets/risk_management_implement.png"><img src="/assets/risk_management_implement.png" alt="Implement"></a></p><hr><h1 id="Monitor"><a href="#Monitor" class="headerlink" title="Monitor"></a>Monitor</h1><p><a href="/assets/risk_management_monitor.png"><img src="/assets/risk_management_monitor.png" alt="Monitor"></a></p><hr><h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><ul><li><p>Practice</p><ul><li>疫情物流系统</li><li>组团播客吧</li><li>神牛理财通</li></ul></li><li><p>Identify Risks, Perform Qualitative, Quantitative Risk Analysis<br>outputs: Risk Register</p></li></ul><hr><h1 id="Show-amp-Tell"><a href="#Show-amp-Tell" class="headerlink" title="Show &amp; Tell"></a>Show &amp; Tell</h1><hr><h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><p><strong>战战兢兢，如临深渊，如履薄冰。 – 诗经·小雅·小旻</strong></p><hr>]]></content>
+    <content type="html"><![CDATA[<h1 id="Risk"><a href="#Risk" class="headerlink" title="Risk"></a>Risk</h1><ul><li>Risk Management</li><li>practice</li><li>Q&amp;A</li></ul><hr><h1 id="Risk-1"><a href="#Risk-1" class="headerlink" title="Risk"></a>Risk</h1><p><strong>木材，着火的故事</strong></p><hr><h1 id="Risk-2"><a href="#Risk-2" class="headerlink" title="Risk"></a>Risk</h1><p><strong>重视风险</strong></p><hr><h1 id="Risk-3"><a href="#Risk-3" class="headerlink" title="Risk"></a>Risk</h1><p><strong>Risks are an aspect of uncertainty.</strong><br><strong>A risk is an uncertain event or condition that, if it occurs, has a positive or negative effect on one or more project objectives.</strong></p><ul><li>Threats: Negative risks</li><li>Opportunities: positive risks</li></ul><hr><h1 id="Risk-4"><a href="#Risk-4" class="headerlink" title="Risk"></a>Risk</h1><p><strong>动物园事件</strong></p><hr><h1 id="Murphy’s-Law"><a href="#Murphy’s-Law" class="headerlink" title="Murphy’s Law"></a>Murphy’s Law</h1><p><strong>Murphy’s Law: If anything can go wrong, it will.</strong></p><hr><h1 id="Risk-Management"><a href="#Risk-Management" class="headerlink" title="Risk Management"></a>Risk Management</h1><p><strong>Project Risk Management includes the processes of conducting risk management planning, identifying, prioritizing, numerically analyzing, planning and implementing risk responses, monitoring on a project.</strong></p><ul><li>Plan Risk Management</li><li>Identify Risks</li><li>Perform Qualitative Risk Analysis</li><li>Perform Quantitative Risk Analysis</li><li>Plan Risk Responses</li><li>Implement Risk Responses</li><li>Monitor Risks<br><strong>The objectives of project risk management are to increase the probability and impact of positive risks and to decrease the probability and impact of negative risks, in order to optimize the chances of project success.</strong></li></ul><hr><h1 id="Risk-Management-1"><a href="#Risk-Management-1" class="headerlink" title="Risk Management"></a>Risk Management</h1><p><a href="/assets/risk_management.png"><img src="/assets/risk_management.png" alt="Risk Management"></a></p><hr><h1 id="Plan-Risk-Management"><a href="#Plan-Risk-Management" class="headerlink" title="Plan Risk Management"></a>Plan Risk Management</h1><p><a href="/assets/risk_management_plan_risk_management.png"><img src="/assets/risk_management_plan_risk_management.png" alt="Plan Risk Management"></a></p><hr><h1 id="Identify"><a href="#Identify" class="headerlink" title="Identify"></a>Identify</h1><ul><li>SWOT Analysis</li><li>Prompt Lists</li><li>Risk Register<br><a href="/assets/risk_management_identify.png"><img src="/assets/risk_management_identify.png" alt="Identify"></a></li></ul><hr><h1 id="SWOT-Analysis"><a href="#SWOT-Analysis" class="headerlink" title="SWOT Analysis"></a>SWOT Analysis</h1><p><strong>SWOT(strengths, weaknesses, opportunities, and threats) analysis is a framework used to evalute a company’s competitive position and to develop strategic planning. SWOT analysis assesses internal and external factors, as well as current and future potential.</strong></p><ol><li>SO</li><li>ST</li><li>WO</li><li>WT<br><strong>short-term, medium-term, long-term activities</strong></li></ol><hr><h1 id="SWOT-Analysis-1"><a href="#SWOT-Analysis-1" class="headerlink" title="SWOT Analysis"></a>SWOT Analysis</h1><p><a href="/assets/SWOT.png"><img src="/assets/SWOT.png" alt="SWOT"></a></p><hr><h1 id="Prompt-Lists"><a href="#Prompt-Lists" class="headerlink" title="Prompt Lists"></a>Prompt Lists</h1><p><a href="/assets/risk_management_identify_prompt.png"><img src="/assets/risk_management_identify_prompt.png" alt="Prompt Lists"></a></p><hr><h1 id="Risk-Register"><a href="#Risk-Register" class="headerlink" title="Risk Register"></a>Risk Register</h1><p><a href="/assets/risk_register.png"><img src="/assets/risk_register.png" alt="Risk Register"></a></p><hr><h1 id="Risk-Register-Sample"><a href="#Risk-Register-Sample" class="headerlink" title="Risk Register Sample"></a>Risk Register Sample</h1><ol><li>Risk ID</li><li>Risk Category</li><li>Summary</li><li>Owner</li><li>Probability</li><li>Impact</li></ol><hr><h1 id="Qualitative"><a href="#Qualitative" class="headerlink" title="Qualitative"></a>Qualitative</h1><p><strong>Qualitative methods for risk assessment are relatively rapid in practice, cost effective and easily understood. The Result from the qualitative assessments are not an accurate estimate of risk.</strong></p><hr><h1 id="Qualitative-1"><a href="#Qualitative-1" class="headerlink" title="Qualitative"></a>Qualitative</h1><p><a href="/assets/risk_management_qualitative.png"><img src="/assets/risk_management_qualitative.png" alt="Qualitative"></a></p><hr><h1 id="Probability-and-impact-matrix"><a href="#Probability-and-impact-matrix" class="headerlink" title="Probability and impact matrix"></a>Probability and impact matrix</h1><p><a href="/assets/probability_impact_matrix.png"><img src="/assets/probability_impact_matrix.png" alt="Probability and impact matrix"></a></p><hr><h1 id="Quantitative"><a href="#Quantitative" class="headerlink" title="Quantitative"></a>Quantitative</h1><p><strong>Quantitative assessment methods provide more accurate analysis results than the qualitative assessment. However, they are costlier and often time consuming, so only the risk prioritized by the qualitative assessment are analyzed.</strong><br><strong>Quantitative analysis: Simulations, Sensitivity analysis, Decision tree analysis.</strong></p><ul><li>Simulations<ul><li>Monte Carlo Technique</li></ul></li><li>Sensitivity Analysis<ul><li>Tornado Diagram</li></ul></li><li>Decision Tree Analysis</li></ul><hr><h1 id="Quantitative-1"><a href="#Quantitative-1" class="headerlink" title="Quantitative"></a>Quantitative</h1><p><a href="/assets/risk_management_quantitative.png"><img src="/assets/risk_management_quantitative.png" alt="Quantitative"></a></p><hr><h1 id="Simulations"><a href="#Simulations" class="headerlink" title="Simulations"></a>Simulations</h1><ul><li>Monte Carlo Technique<br><a href="/assets/risk_management_quantitative_simulations.png"><img src="/assets/risk_management_quantitative_simulations.png" alt="Simulations"></a></li></ul><hr><h1 id="Sensitivity-Analysis"><a href="#Sensitivity-Analysis" class="headerlink" title="Sensitivity Analysis"></a>Sensitivity Analysis</h1><ul><li>Tornado Diagram<br><a href="/assets/risk_management_quantitative_sensitivity.png"><img src="/assets/risk_management_quantitative_sensitivity.png" alt="Sensitivity analysis"></a></li></ul><hr><h1 id="Decision-Tree-Analysis"><a href="#Decision-Tree-Analysis" class="headerlink" title="Decision Tree Analysis"></a>Decision Tree Analysis</h1><p><a href="/assets/risk_management_quantitative_decision_tree.png"><img src="/assets/risk_management_quantitative_decision_tree.png" alt="Decision Tree Analysis"></a></p><hr><h1 id="Plan"><a href="#Plan" class="headerlink" title="Plan"></a>Plan</h1><p><a href="/assets/risk_management_plan.png"><img src="/assets/risk_management_plan.png" alt="Plan"></a></p><hr><h1 id="Implement"><a href="#Implement" class="headerlink" title="Implement"></a>Implement</h1><p><a href="/assets/risk_management_implement.png"><img src="/assets/risk_management_implement.png" alt="Implement"></a></p><hr><h1 id="Monitor"><a href="#Monitor" class="headerlink" title="Monitor"></a>Monitor</h1><p><a href="/assets/risk_management_monitor.png"><img src="/assets/risk_management_monitor.png" alt="Monitor"></a></p><hr><h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><ul><li><p>Practice</p><ul><li>疫情物流系统</li><li>组团播客吧</li><li>神牛理财通</li></ul></li><li><p>Identify Risks, Perform Qualitative, Quantitative Risk Analysis<br>outputs: Risk Register</p></li></ul><hr><h1 id="Show-amp-Tell"><a href="#Show-amp-Tell" class="headerlink" title="Show &amp; Tell"></a>Show &amp; Tell</h1><hr><h1 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h1><p><strong>战战兢兢，如临深渊，如履薄冰。 – 诗经·小雅·小旻</strong></p><hr>]]></content>
     
     <summary type="html">
     
@@ -581,38 +614,6 @@ function construct2DArray(origin
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>商品折扣后的最终价格</title>
-    <link href="http://hi2048.github.io/2021/04/06/%E5%95%86%E5%93%81%E6%8A%98%E6%89%A3%E5%90%8E%E7%9A%84%E6%9C%80%E7%BB%88%E4%BB%B7%E6%A0%BC/"/>
-    <id>http://hi2048.github.io/2021/04/06/商品折扣后的最终价格/</id>
-    <published>2021-04-05T16:00:00.000Z</published>
-    <updated>2021-11-20T02:05:41.003Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>/*** 给你一个数组 prices ，其中 prices[i] 是商店里第 i 件商品的价格。* 商店里正在进行促销活动，如果你要买第 i 件商品，那么你可以得到与 prices[j] 相等的折扣，* 其中 j 是满足 j &gt; i 且 prices[j] &lt;= prices[i]的 最小下标 ，如果没有满足条件的 j ，你将没有任何折扣。* 请你返回一个数组，数组中第 i 个元素是折扣后你购买商品 i 最终需要支付的价格。* * Notice: ** Array.sort ** will change the original array, ** Array.map ** will not change the original array, and both will return new created array* * @param {number[]} prices* @return {number[]}*/const getDiscount = (prices, index) =&gt; {  for(let i = index + 1; i &lt; prices.length; i++) {    if(prices[i] &lt;= prices[index]) {      return prices[i]    }  }  return 0;}var finalPrices = function(prices) {  return prices.map((price, index, prices) =&gt; price - getDiscount(prices, index));};</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;/**
-* 给你一个数组 prices ，其中 prices[i] 是商店里第 i 件商品的价格。
-* 商店里正在进行促销活动，如果你要买第 i 件商品，那么你可以得到与 prices[j] 相等的折扣，
-* 其中 j 是满足 j &amp;gt; i 且 pric
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
   </entry>
   
