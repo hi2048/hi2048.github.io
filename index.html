@@ -121,10 +121,75 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2023/03/02/Negotiation/" data-id="clexzbv280027tlws8t9ai541" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2023/03/02/Negotiation/" data-id="cley6mrok001spdws53srelfj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Agile/">Agile</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-z-conversion" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2023/02/16/z-conversion/" class="article-date">
+  <time datetime="2023-02-15T16:00:00.000Z" itemprop="datePublished">2023-02-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/16/z-conversion/">z conversion</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>/**
+* 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。
+*/
+var convert = function(s, numRows) {
+    let result = [], iterator = 2 * numRows - 2;
+
+    if(numRows == 1) {
+        return s;
+    }
+
+    for(let i = 0, len = s.length; i &lt; len; i += iterator) {
+        let col = Math.floor(i/(iterator)) * (numRows - 1);
+        for(let j = 0; j &lt; iterator; j++) {
+            if(j &lt; numRows) {
+                result[j] = result[j] || [];
+                result[j][col] = s[i + j];
+            } else {
+                result[numRows - (j - numRows + 1) - 1][col + (j - numRows + 1)] = s[i + j];
+            }
+        }
+    }
+    return result.map(a =&gt; a.filter(b =&gt; b).join(&apos;&apos;)).join(&apos;&apos;);
+};
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://hi2048.github.io/2023/02/16/z-conversion/" data-id="cley6mrp2002ppdwskfooc16c" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -185,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2023/01/11/Conflict-Management/" data-id="clexzbv1q0016tlwsoke9nani" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2023/01/11/Conflict-Management/" data-id="cley6mro80012pdwsiix2j5op" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Agile/">Agile</a></li></ul>
@@ -245,7 +310,7 @@ var searchInsert = function(nums, target) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2022/12/06/search-insert-position/" data-id="clexzbv2p0030tlws2zj5mjcl" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2022/12/06/search-insert-position/" data-id="cley6mroy002ipdwszp3jyout" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -364,7 +429,7 @@ var searchInsert = function(nums, target) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2022/11/11/Agile Practice/" data-id="clexzbv1n0011tlwswnah20ei" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2022/11/11/Agile Practice/" data-id="cley6mro6000zpdwsidk8pfw2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Agile/">Agile</a></li></ul>
@@ -460,7 +525,7 @@ var searchInsert = function(nums, target) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2022/08/22/SAFe notes/" data-id="clexzbv2e002gtlwsifelxhvz" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2022/08/22/SAFe notes/" data-id="cley6mrop0020pdwsa8wh5tv6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SAFe/">SAFe</a></li></ul>
@@ -618,7 +683,7 @@ var searchInsert = function(nums, target) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2022/04/22/Risk Management/" data-id="clexzbv2d002ftlwsq2nuji18" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2022/04/22/Risk Management/" data-id="cley6mrop0021pdwsoug8jdyv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Agile/">Agile</a></li></ul>
@@ -666,7 +731,7 @@ var lengthOfLastWord = function(s) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2022/03/23/Length-of-last-word/" data-id="clexzbv280026tlws87j7sept" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2022/03/23/Length-of-last-word/" data-id="cley6mroj001ppdwsx6vetbzg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Leetcode/">Leetcode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -741,7 +806,7 @@ var lengthOfLastWord = function(s) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2022/02/20/Sailboat-retrospective/" data-id="clexzbv2f002jtlwssjhxnjot" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2022/02/20/Sailboat-retrospective/" data-id="cley6mror0024pdwslr5gpdlr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Agile/">Agile</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mural/">Mural</a></li></ul>
@@ -809,176 +874,10 @@ var lengthOfLastWord = function(s) {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2022/02/15/Happiness/" data-id="clexzbv1x001ktlws0tpah0d0" class="article-share-link">Share</a>
+      <a data-url="http://hi2048.github.io/2022/02/15/Happiness/" data-id="cley6mroa0017pdwsn3zov3g6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TED/">TED</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-typescript-todo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/01/18/typescript-todo/" class="article-date">
-  <time datetime="2022-01-17T16:00:00.000Z" itemprop="datePublished">2022-01-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计与代码/">设计与代码</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/01/18/typescript-todo/">typescript todo</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>– todo <a href="https://github.com/hi2048/typescript-todo" title="todo" target="_blank" rel="noopener">github</a></p>
-<pre><code>-- App.tsx
-import React, { useState } from &apos;react&apos;;
-import &apos;antd/dist/antd.css&apos;;
-import &apos;./App.css&apos;;
-import TodoInput from &apos;./todoInput&apos;;
-import { TodoList } from &apos;./todoList&apos;;
-import { todoListDate } from &apos;./model/todo&apos;;
-import { Actions } from &apos;./model/actions&apos;;
-
-function App() {
-  const [ todos, setTodos ] = useState(todoListDate);
-  const todoSubmit = (value: any) =&gt; {
-    setTodos([...todos, { ...value, isComplete: false, date: new Date().toLocaleString() }])
-  }
-  const onActions = (actions: Actions) =&gt; (id: string) =&gt; {
-    switch(actions) {
-      case Actions.COMPLETE:
-        setTodos(todos.map(todo =&gt; {
-          if(todo.id === id) {
-            return { ...todo, isComplete: !todo.isComplete}
-          }
-
-          return todo;
-        }));
-        break;
-      case Actions.DELETE:
-        setTodos(todos.filter(todo =&gt; todo.id !== id));
-        break;
-    }
-  }
-
-  return (
-    &lt;div className=&quot;App&quot;&gt;
-      &lt;header className=&quot;container header&quot;&gt;
-        &lt;TodoInput value=&quot;todo input&quot; onSubmit={todoSubmit} /&gt;
-      &lt;/header&gt;
-      &lt;div className=&quot;container content&quot;&gt;
-        &lt;TodoList values={ todos } onActions={onActions} /&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  );
-}
-
-export default App;
-
-
--- todoInput.tsx
-import React, { useRef } from &apos;react&apos;;
-import { Form, Input, Button } from &apos;antd&apos;;
-import { Todo, guid } from &apos;./model/todo&apos;;
-
-
-interface TodoInputProps {
-  value?: string;
-  onSubmit?: (value: Todo) =&gt; void;
-}
-
-function TodoInput(props: TodoInputProps) {
-  const { value, onSubmit } = props;
-  const ref = useRef&lt;Input&gt;(null);
-  const todoSubmit = () =&gt; {
-    onSubmit &amp;&amp; onSubmit({ id: guid(), content: ref.current?.state.value });
-  }
-
-  return (
-    &lt;Form layout=&quot;inline&quot; className=&quot;form&quot; onFinish={todoSubmit}&gt;
-      &lt;Form.Item name=&quot;todo&quot;&gt;
-        &lt;Input placeholder=&quot;please input your todo&quot; value={ value } ref={ref} /&gt;
-      &lt;/Form.Item&gt;
-      &lt;Form.Item&gt;
-        &lt;Button type=&quot;primary&quot; htmlType=&quot;submit&quot;&gt;Submit&lt;/Button&gt;
-      &lt;/Form.Item&gt;
-    &lt;/Form&gt;
-  );
-}
-
-export default TodoInput;
-
-
--- todoList.tsx
-import React from &apos;react&apos;;
-import { Todo } from &apos;./model/todo&apos;;
-import { Actions } from &apos;./model/actions&apos;;
-import { List } from &apos;antd&apos;;
-
-interface TodoListProps {
-  values?: Todo[],
-  onActions: (action: Actions) =&gt; (id: string) =&gt; void;
-}
-
-export const TodoList = (props: TodoListProps) =&gt; {
-  const { values, onActions } = props;
-  const onComplete = (e: any) =&gt; {
-    onActions(Actions.COMPLETE)(e.target.id);
-  }
-  const onDelete = (e: any) =&gt; {
-    onActions(Actions.DELETE)(e.target.id);
-  }
-
-  return (
-    &lt;List itemLayout=&quot;horizontal&quot; dataSource={values} renderItem={item =&gt; (
-      &lt;List.Item actions={[&lt;a id={item.id} key=&quot;list-loadmore-complete&quot; onClick={onComplete}&gt;Complete&lt;/a&gt;, &lt;a id={item.id} key=&quot;list-loadmore-delete&quot; onClick={onDelete}&gt;Delete&lt;/a&gt;]}&gt;
-        &lt;div style={{ textDecoration: item.isComplete?"line-through" : "none" }}&gt;{item.content}&lt;/div&gt;
-      &lt;/List.Item&gt;
-    )} /&gt;
-  )
-}
-
--- todo.ts
-export interface Todo {
-  id: string;
-  content: string;
-  date?: string;
-  isComplete?: boolean;
-}
-
-export const todoListDate: Todo[] = [];
-
--- actions.ts
-export enum Actions {
-  COMPLETE,
-  DELETE
-};
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://hi2048.github.io/2022/01/18/typescript-todo/" data-id="clexzbv2r0034tlws5yuq0b04" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TypeScript/">TypeScript</a></li></ul>
 
     </footer>
   </div>
@@ -1030,7 +929,7 @@ export enum Actions {
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/01/">January 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">September 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">May 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">February 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/01/">January 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">March 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">January 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">September 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">August 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">June 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/02/">February 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">November 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">October 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">September 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">August 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/07/">July 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/05/">May 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/02/">February 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/10/">October 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">September 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">August 2013</a></li></ul>
     </div>
   </div>
 
@@ -1047,6 +946,10 @@ export enum Actions {
           </li>
         
           <li>
+            <a href="/2023/02/16/z-conversion/">z conversion</a>
+          </li>
+        
+          <li>
             <a href="/2023/01/11/Conflict-Management/">Conflict Management</a>
           </li>
         
@@ -1056,10 +959,6 @@ export enum Actions {
         
           <li>
             <a href="/2022/11/11/Agile Practice/">Agile Practice</a>
-          </li>
-        
-          <li>
-            <a href="/2022/08/22/SAFe notes/">SAFe notes</a>
           </li>
         
       </ul>

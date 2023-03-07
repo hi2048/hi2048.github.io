@@ -42,6 +42,39 @@
   </entry>
   
   <entry>
+    <title>z conversion</title>
+    <link href="http://hi2048.github.io/2023/02/16/z-conversion/"/>
+    <id>http://hi2048.github.io/2023/02/16/z-conversion/</id>
+    <published>2023-02-15T16:00:00.000Z</published>
+    <updated>2023-03-07T11:43:03.895Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>/*** 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。*/var convert = function(s, numRows) {    let result = [], iterator = 2 * numRows - 2;    if(numRows == 1) {        return s;    }    for(let i = 0, len = s.length; i &lt; len; i += iterator) {        let col = Math.floor(i/(iterator)) * (numRows - 1);        for(let j = 0; j &lt; iterator; j++) {            if(j &lt; numRows) {                result[j] = result[j] || [];                result[j][col] = s[i + j];            } else {                result[numRows - (j - numRows + 1) - 1][col + (j - numRows + 1)] = s[i + j];            }        }    }    return result.map(a =&gt; a.filter(b =&gt; b).join(&apos;&apos;)).join(&apos;&apos;);};</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;/**
+* 将一个给定字符串 s 根据给定的行数 numRows ，以从上往下、从左到右进行 Z 字形排列。
+*/
+var convert = function(s, numRows) {
+    let result = [], iterator = 2 
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Conflict Management</title>
     <link href="http://hi2048.github.io/2023/01/11/Conflict-Management/"/>
     <id>http://hi2048.github.io/2023/01/11/Conflict-Management/</id>
@@ -560,40 +593,6 @@ function construct2DArray(origin
 * 给你一个字符串 s 表示一个学生的出勤记录，其中的每个字符用来标记当天的出勤情况（缺勤、迟到、到场）。记录中只含下面三种字符：
 * &amp;apos;A&amp;apos;：Absent，缺勤
 * &amp;apos;L&amp;apos;：Late，迟
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>连续子数组的最大和</title>
-    <link href="http://hi2048.github.io/2021/07/17/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/"/>
-    <id>http://hi2048.github.io/2021/07/17/连续子数组的最大和/</id>
-    <published>2021-07-16T16:00:00.000Z</published>
-    <updated>2021-11-24T12:02:06.386Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>/*** 剑指 Offer: 连续子数组的最大和* 输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。* 要求时间复杂度为O(n)。* dp(i)以i结尾的连续最大子数组* dp(i - 1) &lt;= 0, dp(i) = n[i]* dp(i - 1 ) &gt; 0, dp(i) = dp(i - 1) + n[i]* * @param {number[]} nums* @return {number}*/var maxSubArray = function(nums) {  const dp = new Array(nums.length).fill(nums[0]);  let max = nums[0];  for(let i = 1; i &lt; nums.length; i++) {    if(dp[i - 1] &lt;= 0) {      dp[i] = nums[i];    } else {      dp[i] = dp[i - 1] + nums[i];    }    max = Math.max(max, dp[i]);  }  return max;};var maxSubArray = function(nums) {  let dp = nums[0], max = nums[0];  for(let i = 1; i &lt; nums.length; i++) {    if(dp &lt;= 0) {      dp = nums[i];    } else {      dp += nums[i];    }    max = Math.max(max, dp);  }  return max;};var maxSubArray = function(nums) {  let dp = nums[0], max = nums[0];  for(let i = 1; i &lt; nums.length; i++) {    dp = Math.max(dp + nums[i], nums[i]);    max = Math.max(max, dp);  }  return max;};</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;/**
-* 剑指 Offer: 连续子数组的最大和
-* 输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。
-* 要求时间复杂度为O(n)。
-* dp(i)以i结尾的连续最大子数组
-* dp(i - 1) &amp;lt;= 0, 
       
     
     </summary>
