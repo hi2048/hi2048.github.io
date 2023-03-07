@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2023-03-06T10:19:23.857Z</updated>
+  <updated>2023-03-07T08:16:22.312Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -17,20 +17,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Agile Practice</title>
-    <link href="http://hi2048.github.io/2023/02/12/Agile%20Practice/"/>
-    <id>http://hi2048.github.io/2023/02/12/Agile Practice/</id>
-    <published>2023-02-11T16:00:00.000Z</published>
-    <updated>2023-03-06T10:19:23.857Z</updated>
+    <title>Negotiation</title>
+    <link href="http://hi2048.github.io/2023/03/02/Negotiation/"/>
+    <id>http://hi2048.github.io/2023/03/02/Negotiation/</id>
+    <published>2023-03-01T16:00:00.000Z</published>
+    <updated>2023-03-07T08:16:22.312Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Agile-Practice"><a href="#Agile-Practice" class="headerlink" title="Agile Practice"></a>Agile Practice</h1><ul><li>Risk idenficication</li><li>Story mapping</li><li>Splitting story</li></ul><hr><h1 id="Risk-idenficication"><a href="#Risk-idenficication" class="headerlink" title="Risk idenficication"></a>Risk idenficication</h1><ul><li>Risk management</li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Risk-Management"><a href="#Risk-Management" class="headerlink" title="Risk Management"></a>Risk Management</h1><ul><li>Risk management, why<ul><li>story: 别人的风险和自己的风险，提醒别人，与保持自己清楚，只缘身在此山中。</li><li>Story: 预防为先， 来客提出建议，烟囱，木材，着火，邻居救火，主人宴请邻居，提醒提出建议的人，孰轻孰重？扁鹊三兄弟</li><li>Story: 保护成员的积极性， 大师，鞋带，松开，弟子，提醒，旁观者问大师</li></ul></li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Quantify-Risk"><a href="#Quantify-Risk" class="headerlink" title="Quantify Risk"></a>Quantify Risk</h1><ul><li>四象限法则 - 重要，紧急</li><li>KSAO, K - knowledge, S - Skill, Ability, Others</li><li>墨菲定律：凡事可能会出错，就一定会出错。</li><li>海恩法则：任何不安全事故都是可以预防的</li><li>费斯汀格法则：重要的不是发生在你身上的事情，而是你如何处理。</li><li>avoid, mitigate, transfer, accept<br>明知山有虎？？<br>安全带<br>保单</li><li>评审经验教训， 风险核查清单， 头脑风暴， 风险分解结构</li><li>估算： 概率树，预期价值（影响 * 概率）， 评价： 蒙特卡洛分析（最乐购，最坏，最可能），预期货币价值</li></ul><hr><h1 id="Triple-constrain"><a href="#Triple-constrain" class="headerlink" title="Triple constrain"></a>Triple constrain</h1><ul><li>scope, time, cost</li></ul><hr><h1 id="已知，未知，风险"><a href="#已知，未知，风险" class="headerlink" title="已知，未知，风险"></a>已知，未知，风险</h1><hr><h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><ul><li>Risk management</li><li><p>Quantify Risk</p><ul><li>风险登记表：动态更新，及时处置<br>RBS(Risk Breakdown structure)风险类型， 风险描述， 发生概率， 影响程度， 风险等级， 风险影响描述， 风险响应计划， owner, status</li></ul></li><li><p>practice</p></li><li>discuss</li></ul><hr><h1 id="Discuss"><a href="#Discuss" class="headerlink" title="Discuss"></a>Discuss</h1><ul><li>Risk management</li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Risk"><a href="#Risk" class="headerlink" title="Risk"></a>Risk</h1><p><strong>Risk: factors that may cause a failure to meet the project’s objectives.</strong></p><hr><p><strong>帕金森定律：工作会自动地膨胀占满所有可用的时间。</strong><br><strong>解决方案：最早开始法则</strong></p><ul><li>七格图： es, ef, ls, lf, du - 活动历时, tf - 总时差， ff - 自由时差</li><li>AOE网：带权有向图</li></ul><hr><ol><li>risk management</li><li>quantify</li><li>practice</li><li>discuss</li></ol><hr><p>风险与机遇</p><p>生于忧患，死于安乐<br>战战兢兢，如临深渊，如履薄冰。 – 诗经·小雅·小旻</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="6-steps-to-negotiation"><a href="#6-steps-to-negotiation" class="headerlink" title="6 steps to negotiation"></a>6 steps to negotiation</h1><p><strong>Preparation -&gt; Relationship Building -&gt; Information Exchange -&gt; Persuasion -&gt; Consessions -&gt; Agreement</strong></p><ol><li>Preparation<ul><li>Identify critical needs and acceptable concessions.</li></ul></li><li>Relationship Building<ul><li>Develop trust.</li></ul></li><li>Information Exchange<ul><li>Each side states their case.</li></ul></li><li>Persuasion<ul><li>Present solutions.</li></ul></li><li>Consessions<ul><li>Surrender less important demands.</li></ul></li><li>Agreement<ul><li>Both sides accept proposal.</li></ul></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Agile-Practice&quot;&gt;&lt;a href=&quot;#Agile-Practice&quot; class=&quot;headerlink&quot; title=&quot;Agile Practice&quot;&gt;&lt;/a&gt;Agile Practice&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;Risk idenficicat
+        &lt;h1 id=&quot;6-steps-to-negotiation&quot;&gt;&lt;a href=&quot;#6-steps-to-negotiation&quot; class=&quot;headerlink&quot; title=&quot;6 steps to negotiation&quot;&gt;&lt;/a&gt;6 steps to negotiati
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Agile" scheme="http://hi2048.github.io/tags/Agile/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Conflict Management</title>
+    <link href="http://hi2048.github.io/2023/01/11/Conflict-Management/"/>
+    <id>http://hi2048.github.io/2023/01/11/Conflict-Management/</id>
+    <published>2023-01-10T16:00:00.000Z</published>
+    <updated>2023-03-07T08:11:04.600Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="5-approaches-to-conflict-management"><a href="#5-approaches-to-conflict-management" class="headerlink" title="5 approaches to conflict management"></a>5 approaches to conflict management</h1><ol><li>Accommodate Approach.<ul><li>one side gives in to the other.</li></ul></li><li>Compromise Approach<ul><li>Both sides change their positions in order to find a mutually acceptable solution.</li></ul></li><li>Assertive Approach<ul><li>A forced solution where one side wins and one side loses.</li></ul></li><li>Avoidance Approach.<ul><li>When the leader leaves it up to the team to find a resolution.</li></ul></li><li>Collaborative Approach.<ul><li>Negotiating with the goal of creating a win/win situation.</li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;5-approaches-to-conflict-management&quot;&gt;&lt;a href=&quot;#5-approaches-to-conflict-management&quot; class=&quot;headerlink&quot; title=&quot;5 approaches to confli
       
     
     </summary>
@@ -72,6 +96,32 @@ var searchInsert = function(nums, target) {
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Agile Practice</title>
+    <link href="http://hi2048.github.io/2022/11/11/Agile%20Practice/"/>
+    <id>http://hi2048.github.io/2022/11/11/Agile Practice/</id>
+    <published>2022-11-10T16:00:00.000Z</published>
+    <updated>2023-03-07T08:07:14.524Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Agile-Practice"><a href="#Agile-Practice" class="headerlink" title="Agile Practice"></a>Agile Practice</h1><ul><li>Risk idenficication</li><li>Story mapping</li><li>Splitting story</li></ul><hr><h1 id="Risk-idenficication"><a href="#Risk-idenficication" class="headerlink" title="Risk idenficication"></a>Risk idenficication</h1><ul><li>Risk management</li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Risk-Management"><a href="#Risk-Management" class="headerlink" title="Risk Management"></a>Risk Management</h1><ul><li>Risk management, why<ul><li>story: 别人的风险和自己的风险，提醒别人，与保持自己清楚，只缘身在此山中。</li><li>Story: 预防为先， 来客提出建议，烟囱，木材，着火，邻居救火，主人宴请邻居，提醒提出建议的人，孰轻孰重？扁鹊三兄弟</li><li>Story: 保护成员的积极性， 大师，鞋带，松开，弟子，提醒，旁观者问大师</li></ul></li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Quantify-Risk"><a href="#Quantify-Risk" class="headerlink" title="Quantify Risk"></a>Quantify Risk</h1><ul><li>四象限法则 - 重要，紧急</li><li>KSAO, K - knowledge, S - Skill, Ability, Others</li><li>墨菲定律：凡事可能会出错，就一定会出错。</li><li>海恩法则：任何不安全事故都是可以预防的</li><li>费斯汀格法则：重要的不是发生在你身上的事情，而是你如何处理。</li><li>avoid, mitigate, transfer, accept<br>明知山有虎？？<br>安全带<br>保单</li><li>评审经验教训， 风险核查清单， 头脑风暴， 风险分解结构</li><li>估算： 概率树，预期价值（影响 * 概率）， 评价： 蒙特卡洛分析（最乐购，最坏，最可能），预期货币价值</li></ul><hr><h1 id="Triple-constrain"><a href="#Triple-constrain" class="headerlink" title="Triple constrain"></a>Triple constrain</h1><ul><li>scope, time, cost</li></ul><hr><h1 id="已知，未知，风险"><a href="#已知，未知，风险" class="headerlink" title="已知，未知，风险"></a>已知，未知，风险</h1><hr><h1 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h1><ul><li>Risk management</li><li><p>Quantify Risk</p><ul><li>风险登记表：动态更新，及时处置<br>RBS(Risk Breakdown structure)风险类型， 风险描述， 发生概率， 影响程度， 风险等级， 风险影响描述， 风险响应计划， owner, status</li></ul></li><li><p>practice</p></li><li>discuss</li></ul><hr><h1 id="Discuss"><a href="#Discuss" class="headerlink" title="Discuss"></a>Discuss</h1><ul><li>Risk management</li><li>Quantify Risk</li><li>practice</li><li>discuss</li></ul><hr><h1 id="Risk"><a href="#Risk" class="headerlink" title="Risk"></a>Risk</h1><p><strong>Risk: factors that may cause a failure to meet the project’s objectives.</strong></p><hr><p><strong>帕金森定律：工作会自动地膨胀占满所有可用的时间。</strong><br><strong>解决方案：最早开始法则</strong></p><ul><li>七格图： es, ef, ls, lf, du - 活动历时, tf - 总时差， ff - 自由时差</li><li>AOE网：带权有向图</li></ul><hr><ol><li>risk management</li><li>quantify</li><li>practice</li><li>discuss</li></ol><hr><p>风险与机遇</p><p>生于忧患，死于安乐<br>战战兢兢，如临深渊，如履薄冰。 – 诗经·小雅·小旻</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Agile-Practice&quot;&gt;&lt;a href=&quot;#Agile-Practice&quot; class=&quot;headerlink&quot; title=&quot;Agile Practice&quot;&gt;&lt;/a&gt;Agile Practice&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Risk idenficicat
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="Agile" scheme="http://hi2048.github.io/tags/Agile/"/>
     
   </entry>
   
@@ -556,64 +606,6 @@ function construct2DArray(origin
       <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
     
       <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>石子游戏</title>
-    <link href="http://hi2048.github.io/2021/06/16/%E7%9F%B3%E5%AD%90%E6%B8%B8%E6%88%8F/"/>
-    <id>http://hi2048.github.io/2021/06/16/石子游戏/</id>
-    <published>2021-06-15T16:00:00.000Z</published>
-    <updated>2021-11-25T04:53:11.191Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>/*** 石子游戏* * 亚历克斯和李 用几堆石子在做游戏。偶数堆石子排成一行，每堆都有正整数颗石子 piles[i] 。* 游戏以谁手中的石子最多来决出胜负。石子的总数是奇数，所以没有平局。* 亚历克斯和李轮流进行，亚历克斯先开始。 每回合，玩家从行的开始或结束处取走整堆石头。 这种情况一直持续到没有更多的石子堆为止，此时手中石子最多的玩家获胜。* 假设亚历克斯和李都发挥出最佳水平，当亚历克斯赢得比赛时返回 true ，当李赢得比赛时返回 false 。* dp(i)(j) [i, j]中当前玩家与另一玩家的差值* dp(i)(i) = piles[i]* dp(i)(j) = max(piles[i] - dp(i + 1)(j), piles[j] - dp(i)(j - 1) )* * @param {number[]} piles* @return {boolean}*/var stoneGame = function(piles) {  const dp = new Array(piles.length).fill(0).map((arrItem1, i) =&gt; new Array(piles.length).fill(0).map((arrItem2, j) =&gt; {    if(i == j) {      return piles[i];    } else {      return 0;    }  }));  for(let i = piles.length - 2; i &gt;= 0; i--) {    for(let j = i + 1; j &lt; piles.length; j++) {      dp[i][j] = Math.max(piles[i] - dp[i + 1][j], piles[j] - dp[i][j - 1]);    }  }  return dp[0][piles.length - 1] &gt; 0;};</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;/**
-* 石子游戏
-* 
-* 亚历克斯和李 用几堆石子在做游戏。偶数堆石子排成一行，每堆都有正整数颗石子 piles[i] 。
-* 游戏以谁手中的石子最多来决出胜负。石子的总数是奇数，所以没有平局。
-* 亚历克斯和李轮流进行，亚历克斯先开始。 每回合，玩家
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scrum</title>
-    <link href="http://hi2048.github.io/2021/05/02/Scrum%E7%AC%94%E8%AE%B0/"/>
-    <id>http://hi2048.github.io/2021/05/02/Scrum笔记/</id>
-    <published>2021-05-02T06:21:41.000Z</published>
-    <updated>2023-03-03T09:26:37.826Z</updated>
-    
-    <content type="html"><![CDATA[<ul><li>Scrum 采用<strong>迭代、增量</strong>的方法来优化可预见性并控制风险。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ul&gt;
-&lt;li&gt;Scrum 采用&lt;strong&gt;迭代、增量&lt;/strong&gt;的方法来优化可预见性并控制风险。&lt;/li&gt;
-&lt;/ul&gt;
-
-      
-    
-    </summary>
-    
     
   </entry>
   
