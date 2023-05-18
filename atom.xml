@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hi2048.github.io/"/>
-  <updated>2023-03-07T08:16:22.312Z</updated>
+  <updated>2023-05-18T12:10:12.907Z</updated>
   <id>http://hi2048.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>事件冲突</title>
+    <link href="http://hi2048.github.io/2023/04/28/%E4%BA%8B%E4%BB%B6%E5%86%B2%E7%AA%81/"/>
+    <id>http://hi2048.github.io/2023/04/28/事件冲突/</id>
+    <published>2023-04-27T16:00:00.000Z</published>
+    <updated>2023-05-18T12:10:12.907Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>/*** 两个字符串数组 event1 和 event2 * event1 = [startTime1, endTime1] 且 event2 = [startTime2, endTime2], format: HH:MM * 判断事件是否冲突*/var haveConflict = function(event1, event2) {    return !(event1[0] &gt; event2[1] || event1[1] &lt; event2[0]);};var haveConflict = function(event1, event2) {    if(+event2[0].split(&quot;:&quot;).join(&apos;&apos;) &gt; +event1[1].split(&apos;:&apos;).join(&apos;&apos;) || +event2[1].split(&quot;:&quot;).join(&apos;&apos;) &lt; +event1[0].split(&quot;:&quot;).join(&apos;&apos;))        return false;    return true;};</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;/**
+* 两个字符串数组 event1 和 event2 
+* event1 = [startTime1, endTime1] 且 event2 = [startTime2, endTime2], format: HH:MM 
+* 判断事件是否冲突
+*/
+
+      
+    
+    </summary>
+    
+      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
+    
+    
+      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
+    
+      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>Negotiation</title>
@@ -572,39 +606,6 @@ function construct2DArray(origin
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>学生出勤记录1</title>
-    <link href="http://hi2048.github.io/2021/08/17/%E5%AD%A6%E7%94%9F%E5%87%BA%E5%8B%A4%E8%AE%B0%E5%BD%951/"/>
-    <id>http://hi2048.github.io/2021/08/17/学生出勤记录1/</id>
-    <published>2021-08-16T16:00:00.000Z</published>
-    <updated>2021-11-22T15:18:59.679Z</updated>
-    
-    <content type="html"><![CDATA[<pre><code>/*** 学生出勤记录 I* 给你一个字符串 s 表示一个学生的出勤记录，其中的每个字符用来标记当天的出勤情况（缺勤、迟到、到场）。记录中只含下面三种字符：* &apos;A&apos;：Absent，缺勤* &apos;L&apos;：Late，迟到* &apos;P&apos;：Present，到场* 如果学生能够 同时 满足下面两个条件，则可以获得出勤奖励：* 按 总出勤 计，学生缺勤（&apos;A&apos;）严格 少于两天。* 学生 不会 存在 连续 3 天或 连续 3 天以上的迟到（&apos;L&apos;）记录。* 如果学生可以获得出勤奖励，返回 true ；否则，返回 false 。* * @param {string} s* @return {boolean}*/var checkRecord = function(s) {  let absents = 0, lates = 0;  for(let i = 0; i &lt; s.length; i++) {    const c = s[i];    if(c === &apos;A&apos;) {      absents ++;      if(absents &gt;= 2) {          return false;      }    }    if(c === &apos;L&apos;) {      lates ++;      if(lates &gt;= 3) {        return false;      }    } else {      lates = 0;    }  }  return true;};</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;pre&gt;&lt;code&gt;/**
-* 学生出勤记录 I
-* 给你一个字符串 s 表示一个学生的出勤记录，其中的每个字符用来标记当天的出勤情况（缺勤、迟到、到场）。记录中只含下面三种字符：
-* &amp;apos;A&amp;apos;：Absent，缺勤
-* &amp;apos;L&amp;apos;：Late，迟
-      
-    
-    </summary>
-    
-      <category term="设计与代码" scheme="http://hi2048.github.io/categories/%E8%AE%BE%E8%AE%A1%E4%B8%8E%E4%BB%A3%E7%A0%81/"/>
-    
-    
-      <category term="算法" scheme="http://hi2048.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="JavaScript" scheme="http://hi2048.github.io/tags/JavaScript/"/>
-    
-      <category term="Leetcode" scheme="http://hi2048.github.io/tags/Leetcode/"/>
     
   </entry>
   
